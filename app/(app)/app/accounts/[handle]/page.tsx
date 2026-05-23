@@ -36,7 +36,7 @@ export default async function Page({
       title={account.name}
       crumbs={[
         { label: "Workspace" },
-        { label: "Accounts", href: "/leaderboards" },
+        { label: "Accounts", href: "/app/leaderboards" },
         { label: account.handle },
       ]}
     >
@@ -183,7 +183,7 @@ export default async function Page({
             {similar.map((s) => (
               <li key={s.handle}>
                 <Link
-                  href={`/accounts/${s.handle.replace(/^@/, "")}`}
+                  href={`/app/accounts/${s.handle.replace(/^@/, "")}`}
                   className="px-5 py-3 flex items-center gap-3 hover:bg-surface transition-colors"
                 >
                   <Avatar name={s.name} />

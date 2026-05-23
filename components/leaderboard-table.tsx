@@ -114,7 +114,7 @@ export function LeaderboardTable({ accounts }: { accounts: Account[] }) {
           return (
             <Link
               key={a.handle}
-              href={`/accounts/${a.handle.replace(/^@/, "")}`}
+              href={`/app/accounts/${a.handle.replace(/^@/, "")}`}
               className="grid grid-cols-[44px_minmax(220px,1.6fr)_minmax(150px,1fr)_90px_90px_100px_100px_100px_70px] gap-x-4 px-5 py-3 items-center hover:bg-surface transition-colors"
             >
               <span className="text-[11.5px] font-mono text-subtle">

@@ -1,7 +1,8 @@
 import { and, desc, eq, gte, sql } from "drizzle-orm";
 import { db, hasDb } from "../db/client";
 import { accounts, ingestionRuns, narratives, posts } from "../db/schema";
-import { buildSearchQuery, classify, classifySentiment, velocityLabel } from "./classify";
+import { buildSearchQuery, classify, classifySentiment } from "./classify";
+import { classifyByEmbedding, hasEmbeddings } from "./embed";
 import { hasXBearer, searchRecent, XApiError, type XTweet, type XUser } from "./client";
 
 export type IngestResult = {
@@ -98,15 +99,20 @@ export async function ingestRecent({
   }
 
   // Insert posts, classifying as we go.
+  // Embeddings classifier when OPENAI_API_KEY is set; otherwise keyword v0.
   let inserted = 0;
   let classified = 0;
+  const useEmbed = hasEmbeddings();
   for (const t of tweets) {
     const accountId = accountByXId.get(t.author_id);
     if (!accountId) {
       errors.push(`tweet ${t.id} missing author ${t.author_id}`);
       continue;
     }
-    const c = classify(t.text);
+    // Embedding classifier first (more accurate), keyword as fallback.
+    const c =
+      (useEmbed ? await classifyByEmbedding(t.text, activeNarratives) : null) ??
+      classify(t.text);
     const eng =
       (t.public_metrics?.like_count ?? 0) +
       (t.public_metrics?.reply_count ?? 0) +

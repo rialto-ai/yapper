@@ -14,7 +14,7 @@ export function TrendingAccounts() {
         return (
           <Link
             key={a.handle}
-            href={`/accounts/${a.handle.replace(/^@/, "")}`}
+            href={`/app/accounts/${a.handle.replace(/^@/, "")}`}
             className="group flex items-center gap-3 px-5 py-3 hover:bg-surface transition-colors"
           >
             <span className="text-[11px] font-mono text-subtle w-5 text-right">

@@ -18,26 +18,26 @@ import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
 
 const NAV: { label: string; icon: React.ElementType; href: string; badge?: string }[] = [
-  { label: "Dashboard",      icon: LayoutDashboard, href: "/" },
-  { label: "Leaderboards",   icon: Trophy,          href: "/leaderboards" },
-  { label: "Narratives",     icon: Network,         href: "/narratives", badge: "23" },
-  { label: "Accounts",       icon: Users,           href: "/accounts" },
-  { label: "Trends",         icon: TrendingUp,      href: "/trends" },
-  { label: "Graph Explorer", icon: GitBranch,       href: "/narratives" },
-  { label: "Alerts",         icon: Bell,            href: "/alerts", badge: "4" },
-  { label: "Saved Lists",    icon: Bookmark,        href: "/saved" },
-  { label: "Settings",       icon: Settings,        href: "/settings" },
+  { label: "Dashboard",      icon: LayoutDashboard, href: "/app" },
+  { label: "Leaderboards",   icon: Trophy,          href: "/app/leaderboards" },
+  { label: "Narratives",     icon: Network,         href: "/app/narratives", badge: "23" },
+  { label: "Accounts",       icon: Users,           href: "/app/leaderboards" },
+  { label: "Trends",         icon: TrendingUp,      href: "/app/trends" },
+  { label: "Graph Explorer", icon: GitBranch,       href: "/app/narratives" },
+  { label: "Alerts",         icon: Bell,            href: "/app/alerts", badge: "4" },
+  { label: "Saved Lists",    icon: Bookmark,        href: "/app/saved" },
+  { label: "Settings",       icon: Settings,        href: "/app/settings" },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/app" ? pathname === "/app" : pathname.startsWith(href);
 
   return (
     <aside className="hidden lg:flex w-[232px] shrink-0 flex-col border-r border-border bg-card">
       <div className="px-5 h-[64px] flex items-center border-b border-border">
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/app" className="flex items-center gap-2.5">
           <Logo size={22} />
         </Link>
       </div>

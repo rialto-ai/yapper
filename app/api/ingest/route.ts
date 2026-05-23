@@ -17,7 +17,10 @@ export async function GET() {
     source,
     pipelines: {
       embed:    { model: "text-embedding-3-small", store: "pgvector", queue: "vercel-cron" },
-      classify: { method: "keyword v0 (embeddings on opt-in)", labels: NARRATIVES.length },
+      classify: {
+        method: process.env.OPENAI_API_KEY ? "embeddings + keyword fallback" : "keyword v0",
+        labels: NARRATIVES.length,
+      },
       sentiment:{ model: "lexicon v0",  buckets: ["bullish", "bearish", "neutral", "technical", "speculative"] },
       rank:     { engine: "rialto-rank v0.1",  cadence_minutes: 15 },
     },
