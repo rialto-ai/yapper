@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #06080c;
+  color: #d6dbe6;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% -10%, rgba(124, 58, 237, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(34, 230, 255, 0.12), transparent 60%),
+    linear-gradient(180deg, #06080c 0%, #06080c 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(34, 230, 255, 0.3);
+  color: #ffffff;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(20, 25, 36, 0.65) 0%, rgba(13, 17, 26, 0.55) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.glass:hover {
+  border-color: rgba(34, 230, 255, 0.18);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 230, 255, 0.3);
+}
+
+.hairline {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.label-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6a7488;
+}
+
+.glow-dot {
+  box-shadow: 0 0 12px currentColor;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
