@@ -29,14 +29,14 @@ export function NarrativeVelocityChart() {
           </defs>
           <XAxis
             dataKey="t"
-            tick={{ fontSize: 10, fill: "#6a7488", fontFamily: "JetBrains Mono" }}
+            tick={{ fontSize: 10, fill: "#6a7488", fontFamily: "var(--font-mono)" }}
             tickLine={false}
             axisLine={{ stroke: "rgba(255,255,255,0.06)" }}
             interval={7}
             reversed
           />
           <YAxis
-            tick={{ fontSize: 10, fill: "#6a7488", fontFamily: "JetBrains Mono" }}
+            tick={{ fontSize: 10, fill: "#6a7488", fontFamily: "var(--font-mono)" }}
             tickLine={false}
             axisLine={false}
             width={28}
@@ -48,7 +48,7 @@ export function NarrativeVelocityChart() {
               border: "1px solid rgba(34, 230, 255, 0.2)",
               borderRadius: 6,
               fontSize: 11,
-              fontFamily: "JetBrains Mono",
+              fontFamily: "var(--font-mono)",
               boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
             }}
             labelStyle={{ color: "#8b94a8", marginBottom: 4 }}
