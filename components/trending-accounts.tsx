@@ -1,6 +1,10 @@
-import { TRENDING_ACCOUNTS } from "@/lib/mock";
+import Link from "next/link";
+import { TRENDING_ACCOUNTS, NARRATIVES } from "@/lib/mock";
 import { Sparkline } from "./sparkline";
 import { cn, formatCompact } from "@/lib/utils";
+
+const narrativeLabel = (id: string) =>
+  NARRATIVES.find((n) => n.id === id)?.label ?? id;
 
 export function TrendingAccounts() {
   return (
@@ -8,8 +12,9 @@ export function TrendingAccounts() {
       {TRENDING_ACCOUNTS.map((a, i) => {
         const positive = a.delta >= 0;
         return (
-          <div
+          <Link
             key={a.handle}
+            href={`/accounts/${a.handle.replace(/^@/, "")}`}
             className="group flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.02] transition-colors"
           >
             <span className="text-[10px] font-mono text-ink-400 w-5 text-right">
@@ -20,14 +25,14 @@ export function TrendingAccounts() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-[12.5px] font-medium text-white truncate">
+                <span className="text-[12.5px] font-medium text-white truncate group-hover:text-cyan-neon transition-colors">
                   {a.name}
                 </span>
                 <span className="text-[11px] text-ink-400 truncate">{a.handle}</span>
               </div>
               <div className="flex items-center gap-2 mt-0.5">
                 <span className="text-[10px] font-mono px-1 py-px rounded bg-white/[0.04] text-ink-400">
-                  {a.narrative}
+                  {narrativeLabel(a.narrative)}
                 </span>
                 <span className="text-[10px] font-mono text-ink-400">
                   {formatCompact(a.followers)} followers
@@ -56,7 +61,7 @@ export function TrendingAccounts() {
                 {positive ? "▲" : "▼"} {Math.abs(a.delta).toFixed(1)}
               </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

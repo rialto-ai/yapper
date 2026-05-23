@@ -1,21 +1,48 @@
 "use client";
 
+import Link from "next/link";
 import { Search, Filter, Download, RefreshCw } from "lucide-react";
 import { TICKER } from "@/lib/mock";
 import { cn } from "@/lib/utils";
 
-export function TopBar() {
+export type Crumb = { label: string; href?: string };
+
+export function TopBar({
+  title = "Ecosystem Overview",
+  eyebrow = "Ecosystem Overview",
+  crumbs,
+}: {
+  title?: string;
+  eyebrow?: string;
+  crumbs?: Crumb[];
+}) {
+  const trail: Crumb[] = crumbs ?? [
+    { label: "Workspace / Venice" },
+    { label: eyebrow, href: undefined },
+  ];
+
   return (
     <div className="border-b hairline bg-ink-950/60 backdrop-blur-md">
       <div className="flex items-center gap-3 px-6 py-3">
-        <div className="flex flex-col">
+        <div className="flex flex-col min-w-0">
           <div className="flex items-center gap-2">
-            <span className="label-eyebrow">Workspace / Venice</span>
-            <span className="size-1 rounded-full bg-ink-500" />
-            <span className="label-eyebrow text-cyan-neon/80">Ecosystem Overview</span>
+            {trail.map((c, i) => (
+              <div key={i} className="flex items-center gap-2">
+                {i > 0 && <span className="size-1 rounded-full bg-ink-500" />}
+                {c.href ? (
+                  <Link href={c.href} className="label-eyebrow hover:text-white transition-colors">
+                    {c.label}
+                  </Link>
+                ) : (
+                  <span className={cn("label-eyebrow", i === trail.length - 1 && "text-cyan-neon/80")}>
+                    {c.label}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
-          <h1 className="text-[18px] font-semibold tracking-tight text-white mt-0.5">
-            Ecosystem Overview
+          <h1 className="text-[18px] font-semibold tracking-tight text-white mt-0.5 truncate">
+            {title}
           </h1>
         </div>
 
@@ -41,7 +68,6 @@ export function TopBar() {
         </div>
       </div>
 
-      {/* Stat ticker rail */}
       <div className="relative overflow-hidden border-t hairline">
         <div className="flex w-max animate-ticker">
           {[...TICKER, ...TICKER].map((t, i) => (

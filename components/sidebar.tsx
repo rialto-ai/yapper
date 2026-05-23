@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Trophy,
@@ -14,19 +16,23 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const NAV: { label: string; icon: React.ElementType; active?: boolean; badge?: string }[] = [
-  { label: "Dashboard",      icon: LayoutDashboard, active: true },
-  { label: "Leaderboards",   icon: Trophy },
-  { label: "Narratives",     icon: Network, badge: "23" },
-  { label: "Accounts",       icon: Users },
-  { label: "Trends",         icon: TrendingUp },
-  { label: "Graph Explorer", icon: GitBranch },
-  { label: "Alerts",         icon: Bell, badge: "4" },
-  { label: "Saved Lists",    icon: Bookmark },
-  { label: "Settings",       icon: Settings },
+const NAV: { label: string; icon: React.ElementType; href: string; badge?: string }[] = [
+  { label: "Dashboard",      icon: LayoutDashboard, href: "/" },
+  { label: "Leaderboards",   icon: Trophy,          href: "/leaderboards" },
+  { label: "Narratives",     icon: Network,         href: "/narratives", badge: "23" },
+  { label: "Accounts",       icon: Users,           href: "/accounts" },
+  { label: "Trends",         icon: TrendingUp,      href: "/trends" },
+  { label: "Graph Explorer", icon: GitBranch,       href: "/narratives" },
+  { label: "Alerts",         icon: Bell,            href: "/alerts", badge: "4" },
+  { label: "Saved Lists",    icon: Bookmark,        href: "/saved" },
+  { label: "Settings",       icon: Settings,        href: "/settings" },
 ];
 
 export function Sidebar() {
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <aside className="hidden lg:flex w-[220px] shrink-0 flex-col border-r hairline bg-ink-950/60">
       <div className="px-5 py-5 border-b hairline flex items-center gap-2.5">
@@ -38,30 +44,34 @@ export function Sidebar() {
         </div>
         <div className="flex flex-col leading-none">
           <span className="text-[13px] font-semibold tracking-tight text-white">Venice Signal</span>
-          <span className="text-[10px] font-mono text-ink-400 tracking-widest mt-0.5">v0.1.0 · LIVE</span>
+          <span className="text-[10px] font-mono text-ink-400 tracking-widest mt-0.5">v0.2.0 · LIVE</span>
         </div>
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-0.5">
-        {NAV.map((item) => (
-          <button
-            key={item.label}
-            className={cn(
-              "group w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-[12.5px] transition-colors",
-              item.active
-                ? "bg-white/[0.04] text-white border-l-2 border-cyan-neon pl-2"
-                : "text-ink-400 hover:text-white hover:bg-white/[0.025] border-l-2 border-transparent",
-            )}
-          >
-            <item.icon className={cn("size-3.5", item.active ? "text-cyan-neon" : "text-ink-400 group-hover:text-white")} />
-            <span className="flex-1 text-left">{item.label}</span>
-            {item.badge && (
-              <span className="text-[10px] font-mono text-cyan-neon/80 bg-cyan-neon/10 px-1.5 py-0.5 rounded">
-                {item.badge}
-              </span>
-            )}
-          </button>
-        ))}
+        {NAV.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={cn(
+                "group w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-[12.5px] transition-colors",
+                active
+                  ? "bg-white/[0.04] text-white border-l-2 border-cyan-neon pl-2"
+                  : "text-ink-400 hover:text-white hover:bg-white/[0.025] border-l-2 border-transparent",
+              )}
+            >
+              <item.icon className={cn("size-3.5", active ? "text-cyan-neon" : "text-ink-400 group-hover:text-white")} />
+              <span className="flex-1 text-left">{item.label}</span>
+              {item.badge && (
+                <span className="text-[10px] font-mono text-cyan-neon/80 bg-cyan-neon/10 px-1.5 py-0.5 rounded">
+                  {item.badge}
+                </span>
+              )}
+            </Link>
+          );
+        })}
       </nav>
 
       <div className="px-3 py-3 border-t hairline">
