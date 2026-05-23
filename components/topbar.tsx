@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Search, ChevronRight } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import { UserMenu } from "./user-menu";
 
 export type Crumb = { label: string; href?: string };
 
@@ -49,7 +50,7 @@ export function TopBar({
         </div>
 
         <ThemeToggle />
-        <button className="btn-primary h-9 px-3.5 text-[13px]">New report</button>
+        <UserMenu />
       </div>
 
       {(title || description) && (

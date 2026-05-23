@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Show, UserButton } from "@clerk/nextjs";
 import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "./logo";
+import { hasClerk } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
@@ -48,12 +50,33 @@ export function MarketingNav() {
         <div className="flex-1" />
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
-          <Link href="/sign-in" className="text-[13px] text-foreground hover:text-accent transition-colors px-3 py-1.5">
-            Sign in
-          </Link>
-          <Link href="/sign-up" className="btn-primary h-9 px-3.5 text-[13px] flex items-center">
-            Get started
-          </Link>
+          {hasClerk() ? (
+            <>
+              <Show when="signed-out">
+                <Link href="/sign-in" className="text-[13px] text-foreground hover:text-accent transition-colors px-3 py-1.5">
+                  Sign in
+                </Link>
+                <Link href="/sign-up" className="btn-primary h-9 px-3.5 text-[13px] flex items-center">
+                  Get started
+                </Link>
+              </Show>
+              <Show when="signed-in">
+                <Link href="/app" className="btn-primary h-9 px-3.5 text-[13px] flex items-center">
+                  Open dashboard
+                </Link>
+                <UserButton />
+              </Show>
+            </>
+          ) : (
+            <>
+              <Link href="/sign-in" className="text-[13px] text-foreground hover:text-accent transition-colors px-3 py-1.5">
+                Sign in
+              </Link>
+              <Link href="/sign-up" className="btn-primary h-9 px-3.5 text-[13px] flex items-center">
+                Get started
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
