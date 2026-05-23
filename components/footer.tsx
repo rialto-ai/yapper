@@ -1,67 +1,60 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Github, Twitter, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
 
 const SECTIONS: { heading: string; links: { label: string; href: string }[] }[] = [
   {
     heading: "Product",
     links: [
-      { label: "Features",      href: "#" },
-      { label: "Pricing",       href: "#" },
-      { label: "Leaderboards",  href: "/leaderboards" },
-      { label: "Narratives",    href: "/narratives" },
-      { label: "API",           href: "#" },
+      { label: "Intelligence", href: "#intelligence" },
+      { label: "Discover",     href: "#discover" },
+      { label: "Builders",     href: "#builders" },
+      { label: "Launches",     href: "#launches" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About",     href: "#" },
-      { label: "Careers",   href: "#" },
-      { label: "Customers", href: "#" },
-      { label: "Brand",     href: "#" },
+      { label: "About",    href: "#" },
+      { label: "Roadmap",  href: "#roadmap" },
+      { label: "Contact",  href: "#" },
     ],
   },
   {
-    heading: "Resources",
+    heading: "Ecosystem",
     links: [
-      { label: "Documentation", href: "#" },
-      { label: "Changelog",     href: "#" },
-      { label: "Blog",          href: "#" },
-      { label: "Status",        href: "#" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy",        href: "#" },
-      { label: "Terms",          href: "#" },
-      { label: "Security",       href: "#" },
-      { label: "Cookie settings",href: "#" },
+      { label: "Venice Ecosystem", href: "#" },
+      { label: "Private AI",       href: "#" },
+      { label: "Inference",        href: "#" },
+      { label: "Founder Network",  href: "#network" },
     ],
   },
 ];
 
+const SOCIAL = [
+  { label: "X / Twitter", href: "#", icon: Twitter },
+  { label: "GitHub",      href: "#", icon: Github },
+  { label: "Discord",     href: "#", icon: MessageCircle },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card mt-8">
-      <div className="px-8 py-12 grid grid-cols-1 lg:grid-cols-[1.4fr_repeat(4,_1fr)] gap-8">
-        <div className="max-w-[280px]">
+    <footer className="border-t border-border bg-surface mt-8">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-[1.6fr_repeat(4,_1fr)] gap-10">
+        <div className="col-span-2 sm:col-span-3 lg:col-span-1 max-w-[320px]">
           <Logo size={22} />
-          <p className="text-[13px] text-muted mt-3 leading-relaxed">
-            Real-time intelligence and influence analytics for the open AI ecosystem.
+          <p className="text-[13px] text-muted mt-4 leading-relaxed">
+            Infrastructure and ecosystem intelligence for the Venice ecosystem
+            and the emerging private AI economy.
           </p>
-          <div className="flex items-center gap-2 mt-5">
-            <SocialLink href="#" icon={Twitter} label="Twitter" />
-            <SocialLink href="#" icon={Github}  label="GitHub" />
-            <SocialLink href="#" icon={Linkedin} label="LinkedIn" />
-          </div>
         </div>
 
         {SECTIONS.map((s) => (
           <div key={s.heading}>
-            <div className="text-[12px] font-semibold text-foreground mb-3">{s.heading}</div>
-            <ul className="space-y-2">
+            <div className="text-[12px] font-semibold text-foreground mb-3 tracking-tight">
+              {s.heading}
+            </div>
+            <ul className="space-y-2.5">
               {s.links.map((l) => (
                 <li key={l.label}>
                   <Link
@@ -75,30 +68,37 @@ export function Footer() {
             </ul>
           </div>
         ))}
+
+        <div>
+          <div className="text-[12px] font-semibold text-foreground mb-3 tracking-tight">
+            Social
+          </div>
+          <ul className="space-y-2.5">
+            {SOCIAL.map((s) => (
+              <li key={s.label}>
+                <Link
+                  href={s.href}
+                  className="inline-flex items-center gap-2 text-[13px] text-muted hover:text-foreground transition-colors"
+                >
+                  <s.icon className="size-3.5" />
+                  {s.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      <div className="px-8 py-5 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-muted">
-        <div>© {new Date().getFullYear()} Rialto AI, Inc. All rights reserved.</div>
-        <div className="flex items-center gap-4">
-          <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
-          <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
-          <Link href="#" className="hover:text-foreground transition-colors">Status</Link>
+      <div className="border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-muted">
+          <div>© 2026 Rialto AI. Powering the Private AI Economy.</div>
+          <div className="flex items-center gap-5">
+            <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">Security</Link>
+          </div>
         </div>
       </div>
     </footer>
-  );
-}
-
-function SocialLink({
-  href, icon: Icon, label,
-}: { href: string; icon: React.ElementType; label: string }) {
-  return (
-    <Link
-      href={href}
-      aria-label={label}
-      className="size-8 grid place-items-center rounded-md border border-border bg-card text-muted hover:text-foreground hover:border-border-strong transition-colors"
-    >
-      <Icon className="size-4" />
-    </Link>
   );
 }
