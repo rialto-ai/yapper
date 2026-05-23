@@ -14,6 +14,7 @@ import {
   Settings,
   Command,
 } from "lucide-react";
+import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
 
 const NAV: { label: string; icon: React.ElementType; href: string; badge?: string }[] = [
@@ -34,18 +35,11 @@ export function Sidebar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <aside className="hidden lg:flex w-[220px] shrink-0 flex-col border-r hairline bg-ink-950/60">
-      <div className="px-5 py-5 border-b hairline flex items-center gap-2.5">
-        <div className="relative">
-          <div className="size-7 rounded-md bg-gradient-to-br from-cyan-neon/90 to-violet-neon shadow-glow grid place-items-center">
-            <span className="text-ink-950 font-bold text-[11px] tracking-tighter">V</span>
-          </div>
-          <span className="absolute -right-0.5 -top-0.5 size-2 rounded-full bg-cyan-neon glow-dot text-cyan-neon" />
-        </div>
-        <div className="flex flex-col leading-none">
-          <span className="text-[13px] font-semibold tracking-tight text-white">Venice Signal</span>
-          <span className="text-[10px] font-mono text-ink-400 tracking-widest mt-0.5">v0.2.0 · LIVE</span>
-        </div>
+    <aside className="hidden lg:flex w-[232px] shrink-0 flex-col border-r border-border bg-card">
+      <div className="px-5 h-[64px] flex items-center border-b border-border">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Logo size={22} />
+        </Link>
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-0.5">
@@ -56,16 +50,19 @@ export function Sidebar() {
               key={item.label}
               href={item.href}
               className={cn(
-                "group w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-[12.5px] transition-colors",
+                "group w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-[13px] font-medium transition-colors",
                 active
-                  ? "bg-white/[0.04] text-white border-l-2 border-cyan-neon pl-2"
-                  : "text-ink-400 hover:text-white hover:bg-white/[0.025] border-l-2 border-transparent",
+                  ? "bg-accent-soft text-accent"
+                  : "text-muted hover:text-foreground hover:bg-surface",
               )}
             >
-              <item.icon className={cn("size-3.5", active ? "text-cyan-neon" : "text-ink-400 group-hover:text-white")} />
+              <item.icon className={cn("size-4 shrink-0", active ? "text-accent" : "text-subtle group-hover:text-foreground")} />
               <span className="flex-1 text-left">{item.label}</span>
               {item.badge && (
-                <span className="text-[10px] font-mono text-cyan-neon/80 bg-cyan-neon/10 px-1.5 py-0.5 rounded">
+                <span className={cn(
+                  "text-[10.5px] font-mono px-1.5 py-0.5 rounded",
+                  active ? "bg-accent/10 text-accent" : "bg-surface-2 text-muted",
+                )}>
                   {item.badge}
                 </span>
               )}
@@ -74,13 +71,13 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="px-3 py-3 border-t hairline">
-        <div className="flex items-center justify-between px-2 py-2 rounded-md bg-white/[0.02] text-[11px] font-mono text-ink-400">
+      <div className="px-3 py-3 border-t border-border">
+        <div className="flex items-center justify-between px-2.5 py-2 rounded-md bg-surface text-[12px] text-muted">
           <div className="flex items-center gap-1.5">
             <Command className="size-3" />
             <span>Search</span>
           </div>
-          <span className="text-[10px] border hairline px-1.5 rounded">⌘K</span>
+          <span className="text-[10px] font-mono border border-border bg-card px-1.5 py-px rounded">⌘K</span>
         </div>
       </div>
     </aside>

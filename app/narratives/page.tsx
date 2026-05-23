@@ -11,24 +11,25 @@ export default async function Page() {
   return (
     <AppShell
       title="Narrative Intelligence"
-      crumbs={[{ label: "Workspace / Venice" }, { label: "Narratives" }]}
+      description="Conversation clusters and influence flow across the ecosystem."
+      crumbs={[{ label: "Workspace" }, { label: "Narratives" }]}
     >
       <section className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         <Panel
           className="xl:col-span-9"
           eyebrow="FORCE-DIRECTED · ACCOUNTS × NARRATIVES"
-          title="Conversation Graph"
+          title="Conversation graph"
           subtitle="Hover to isolate, click to pin. Edge weight ∝ co-occurrence."
           right={
-            <div className="flex items-center gap-1.5">
-              {["All", "Narratives", "Accounts", "Interactions"].map((t, i) => (
+            <div className="flex items-center gap-1 p-0.5 rounded-md bg-surface border border-border">
+              {["All", "Narratives", "Accounts"].map((t, i) => (
                 <button
                   key={t}
                   className={
-                    "text-[10.5px] font-mono px-2 py-1 rounded border " +
+                    "text-[11.5px] font-medium px-2.5 py-1 rounded transition-colors " +
                     (i === 0
-                      ? "border-cyan-neon/40 bg-cyan-neon/10 text-cyan-neon"
-                      : "hairline text-ink-400 hover:text-white hover:border-white/10")
+                      ? "bg-card text-foreground shadow-sm"
+                      : "text-muted hover:text-foreground")
                   }
                 >
                   {t}
@@ -42,22 +43,26 @@ export default async function Page() {
         </Panel>
 
         <div className="xl:col-span-3 space-y-4">
-          <Panel eyebrow="VELOCITY-RANKED" title="Active Narratives" subtitle={`${narratives.length} tracked clusters`}>
+          <Panel
+            eyebrow="VELOCITY-RANKED"
+            title="Active narratives"
+            subtitle={`${narratives.length} tracked clusters`}
+          >
             <TopNarratives />
           </Panel>
 
-          <Panel eyebrow="LEGEND · NODES" title="What you're looking at">
-            <div className="px-4 py-3 space-y-2.5 text-[12px] text-ink-400 leading-relaxed">
+          <Panel eyebrow="LEGEND" title="How to read this">
+            <div className="px-5 py-4 space-y-2.5 text-[13px] text-muted leading-relaxed">
               <p>
-                Larger glowing nodes are <span className="text-white">narratives</span>. Smaller dots are
-                <span className="text-white"> accounts</span>, sized by audience.
+                Large colored nodes are <span className="text-foreground font-medium">narratives</span>.
+                Smaller dots are <span className="text-foreground font-medium">accounts</span>, sized by audience.
               </p>
               <p>
-                Edges show <span className="text-white">narrative alignment</span> and{" "}
-                <span className="text-white">interaction</span> over the last 7d. Thicker = stronger.
+                Edges show <span className="text-foreground font-medium">narrative alignment</span> and
+                <span className="text-foreground font-medium"> interaction</span> over the last 7 days. Thicker = stronger.
               </p>
               <p>
-                Click any node to <span className="text-white">isolate its 1-hop neighborhood</span>.
+                Click any node to <span className="text-foreground font-medium">isolate its 1-hop neighborhood</span>.
               </p>
             </div>
           </Panel>

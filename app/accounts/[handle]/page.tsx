@@ -4,6 +4,7 @@ import { AppShell } from "@/components/shell";
 import { Panel } from "@/components/panel";
 import { Sparkline } from "@/components/sparkline";
 import { GrowthChart } from "@/components/growth-chart";
+import { Avatar } from "@/components/trending-accounts";
 import { cn, formatCompact } from "@/lib/utils";
 import {
   getAccount,
@@ -34,59 +35,55 @@ export default async function Page({
     <AppShell
       title={account.name}
       crumbs={[
-        { label: "Workspace / Venice" },
+        { label: "Workspace" },
         { label: "Accounts", href: "/leaderboards" },
         { label: account.handle },
       ]}
     >
-      {/* Header card */}
-      <section className="glass rounded-lg p-5 animate-fade-in">
+      <section className="card p-6 animate-fade-in">
         <div className="flex items-start gap-5">
-          <div className="size-16 shrink-0 rounded-xl bg-gradient-to-br from-ink-500 to-ink-700 grid place-items-center text-[18px] font-mono text-ink-400 border hairline">
+          <div className="size-16 shrink-0 rounded-full bg-surface-2 grid place-items-center text-[18px] font-medium text-muted border border-border">
             {account.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <h2 className="text-[20px] font-semibold text-white tracking-tight">{account.name}</h2>
-              {account.verified && (
-                <span className="text-[10px] font-mono text-cyan-neon bg-cyan-neon/10 border border-cyan-neon/30 px-1.5 py-0.5 rounded">
-                  VERIFIED
-                </span>
-              )}
-              <span className="text-[10px] font-mono uppercase text-ink-400 bg-white/[0.04] px-1.5 py-0.5 rounded">
-                {account.category}
-              </span>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-[22px] font-semibold text-foreground tracking-tight">{account.name}</h2>
+              {account.verified && <span className="chip chip-accent">Verified</span>}
+              <span className="chip capitalize">{account.category}</span>
             </div>
-            <div className="text-[13px] font-mono text-ink-400 mt-0.5">{account.handle}</div>
-            <p className="text-[13px] text-ink-400 mt-2 max-w-[700px] leading-relaxed">{account.bio}</p>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 mt-3 text-[11.5px] font-mono text-ink-400">
-              <span><span className="text-white">{formatCompact(account.followers)}</span> followers</span>
-              <span><span className="text-white">{formatCompact(account.following)}</span> following</span>
-              <span><span className="text-white">{account.posts30d}</span> posts / 30d</span>
-              <span><span className="text-white">{formatCompact(account.engagement)}</span> avg engagement</span>
-              <span><span className="text-white">{account.reachEfficiency}%</span> reach efficiency</span>
+            <div className="text-[13.5px] text-subtle mt-0.5">{account.handle}</div>
+            <p className="text-[14px] text-muted mt-3 max-w-[680px] leading-relaxed">{account.bio}</p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 mt-4 text-[12.5px] text-muted">
+              <span><span className="text-foreground font-medium">{formatCompact(account.followers)}</span> followers</span>
+              <span><span className="text-foreground font-medium">{formatCompact(account.following)}</span> following</span>
+              <span><span className="text-foreground font-medium">{account.posts30d}</span> posts / 30d</span>
+              <span><span className="text-foreground font-medium">{formatCompact(account.engagement)}</span> avg engagement</span>
+              <span><span className="text-foreground font-medium">{account.reachEfficiency}%</span> reach efficiency</span>
             </div>
           </div>
 
-          {/* Big signal score */}
           <div className="text-right">
-            <div className="label-eyebrow">SIGNAL SCORE</div>
-            <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-[40px] font-semibold text-white font-mono leading-none">
+            <div className="text-[11px] font-medium text-muted uppercase tracking-wider">Signal Score</div>
+            <div className="flex items-baseline gap-2 mt-1 justify-end">
+              <span className="text-[40px] font-semibold text-foreground tracking-tight leading-none">
                 {account.signal.toFixed(1)}
               </span>
-              <span className={cn("text-[12px] font-mono", positive ? "text-emerald-neon" : "text-rose-neon")}>
-                {positive ? "▲" : "▼"} {Math.abs(account.delta).toFixed(1)}
+              <span className={cn("text-[13px] font-medium", positive ? "text-positive" : "text-negative")}>
+                {positive ? "↑" : "↓"} {Math.abs(account.delta).toFixed(1)}
               </span>
             </div>
-            <div className="mt-2 flex justify-end">
+            <div className="mt-3 flex justify-end">
               <Sparkline
                 data={account.sparkline}
-                color={positive ? "#34f5b1" : "#fb7185"}
-                width={160}
-                height={36}
+                color="rgb(var(--accent))"
+                width={180}
+                height={40}
                 filled
               />
+            </div>
+            <div className="flex justify-end gap-2 mt-3">
+              <button className="btn-ghost h-8 px-3 text-[12.5px]">Follow</button>
+              <button className="btn-primary h-8 px-3 text-[12.5px]">Add to list</button>
             </div>
           </div>
         </div>
@@ -95,51 +92,45 @@ export default async function Page({
       <section className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         <Panel
           className="xl:col-span-8"
-          eyebrow="30D"
-          title="Audience & Signal Trajectory"
-          subtitle="Follower count (cyan) and Venice Signal score (violet) over time"
+          eyebrow="LAST 30 DAYS"
+          title="Audience & signal trajectory"
+          subtitle="Follower count (orange) and Signal Score (violet)"
         >
           <GrowthChart data={account.growthSeries} />
         </Panel>
 
-        <Panel className="xl:col-span-4" eyebrow="ALIGNMENT" title="Narrative Mix" subtitle="Weighted by mentions × engagement">
-          <div className="px-4 py-3 space-y-2.5">
+        <Panel
+          className="xl:col-span-4"
+          eyebrow="ALIGNMENT"
+          title="Narrative mix"
+          subtitle="Weighted by mentions × engagement"
+        >
+          <div className="px-5 py-4 space-y-3">
             {account.narratives.map((nw) => {
               const meta = narrativeMeta(nw.id);
               return (
                 <div key={nw.id}>
-                  <div className="flex items-center justify-between text-[11.5px] mb-1">
-                    <div className="flex items-center gap-1.5">
-                      <span
-                        className="size-2 rounded-sm"
-                        style={{ background: meta?.color, boxShadow: `0 0 6px ${meta?.color}99` }}
-                      />
-                      <span className="text-white">{meta?.label}</span>
+                  <div className="flex items-center justify-between text-[12.5px] mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="size-2 rounded-full" style={{ background: meta?.color }} />
+                      <span className="text-foreground">{meta?.label}</span>
                     </div>
-                    <span className="font-mono text-ink-400">
-                      {(nw.weight * 100).toFixed(0)}%
-                    </span>
+                    <span className="font-mono text-muted">{(nw.weight * 100).toFixed(0)}%</span>
                   </div>
-                  <div className="h-[3px] bg-white/[0.04] rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-surface-2 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full"
-                      style={{
-                        width: `${nw.weight * 100}%`,
-                        background: `linear-gradient(90deg, ${meta?.color}55, ${meta?.color})`,
-                        boxShadow: `0 0 6px ${meta?.color}`,
-                      }}
+                      style={{ width: `${nw.weight * 100}%`, background: meta?.color }}
                     />
                   </div>
                 </div>
               );
             })}
-            <div className="border-t hairline pt-3 mt-3">
-              <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
-                <Stat label="VELOCITY"      value={account.velocity.toFixed(0)} />
-                <Stat label="7D GROWTH"     value={`${account.growth7d.toFixed(1)}%`} color={account.growth7d >= 0 ? "emerald" : "rose"} />
-                <Stat label="POSTS / 30D"   value={account.posts30d.toString()} />
-                <Stat label="REACH EFF."    value={`${account.reachEfficiency}%`} />
-              </div>
+            <div className="border-t border-border pt-4 mt-4 grid grid-cols-2 gap-3">
+              <Stat label="Velocity"     value={account.velocity.toFixed(0)} />
+              <Stat label="7d growth"    value={`${account.growth7d.toFixed(1)}%`} positive={account.growth7d >= 0} />
+              <Stat label="Posts / 30d"  value={account.posts30d.toString()} />
+              <Stat label="Reach eff."   value={`${account.reachEfficiency}%`} />
             </div>
           </div>
         </Panel>
@@ -152,29 +143,29 @@ export default async function Page({
           title="Highest-signal posts"
           subtitle="Ranked by engagement × narrative weight"
         >
-          <div className="divide-y hairline">
+          <div className="divide-y divide-border">
             {posts.map((p) => (
-              <article key={p.id} className="px-4 py-3 hover:bg-white/[0.02] transition-colors">
-                <div className="flex items-center gap-2 mb-1 text-[10.5px] font-mono text-ink-400">
+              <article key={p.id} className="px-5 py-4 hover:bg-surface transition-colors">
+                <div className="flex items-center gap-2 mb-2 text-[11.5px] text-muted">
                   <span>{p.ago} ago</span>
-                  <span>·</span>
-                  <span className="text-ink-400">{p.narrative}</span>
+                  <span className="text-subtle">·</span>
+                  <span>{p.narrative}</span>
                   <span className="flex-1" />
                   <span
                     className={cn(
-                      "px-1.5 py-0.5 rounded border",
+                      "text-[10.5px] font-medium px-2 py-0.5 rounded-full",
                       p.velocity === "viral"
-                        ? "text-rose-neon bg-rose-neon/10 border-rose-neon/30"
+                        ? "text-accent bg-accent-soft"
                         : p.velocity === "rising"
-                        ? "text-cyan-neon bg-cyan-neon/10 border-cyan-neon/30"
-                        : "text-ink-400 border-white/10",
+                        ? "text-chart-2 bg-chart-2/10"
+                        : "text-muted bg-surface-2",
                     )}
                   >
-                    {p.velocity.toUpperCase()}
+                    {p.velocity}
                   </span>
                 </div>
-                <p className="text-[13px] text-white/90 leading-relaxed">{p.text}</p>
-                <div className="text-[10.5px] font-mono text-ink-400 mt-1.5">
+                <p className="text-[14px] text-foreground leading-relaxed">{p.text}</p>
+                <div className="text-[12px] text-muted mt-2">
                   {formatCompact(p.engagement)} engagements
                 </div>
               </article>
@@ -182,22 +173,25 @@ export default async function Page({
           </div>
         </Panel>
 
-        <Panel className="xl:col-span-4" eyebrow="SIMILARITY" title="Accounts most similar" subtitle="Cosine on narrative alignment">
-          <ul className="divide-y hairline">
+        <Panel
+          className="xl:col-span-4"
+          eyebrow="SIMILARITY"
+          title="Similar accounts"
+          subtitle="Cosine on narrative alignment"
+        >
+          <ul className="divide-y divide-border">
             {similar.map((s) => (
               <li key={s.handle}>
                 <Link
                   href={`/accounts/${s.handle.replace(/^@/, "")}`}
-                  className="px-4 py-2.5 flex items-center gap-2.5 hover:bg-white/[0.02] transition-colors"
+                  className="px-5 py-3 flex items-center gap-3 hover:bg-surface transition-colors"
                 >
-                  <div className="size-7 rounded-full bg-gradient-to-br from-ink-500 to-ink-700 grid place-items-center text-[10px] font-mono text-ink-400 border hairline shrink-0">
-                    {s.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
-                  </div>
+                  <Avatar name={s.name} />
                   <div className="min-w-0 flex-1">
-                    <div className="text-[12.5px] text-white truncate">{s.name}</div>
-                    <div className="text-[10.5px] font-mono text-ink-400 truncate">{s.handle}</div>
+                    <div className="text-[13px] font-medium text-foreground truncate">{s.name}</div>
+                    <div className="text-[11.5px] text-subtle truncate">{s.handle}</div>
                   </div>
-                  <span className="text-[12px] font-mono text-white">{s.signal.toFixed(1)}</span>
+                  <span className="text-[13px] font-mono text-foreground">{s.signal.toFixed(1)}</span>
                 </Link>
               </li>
             ))}
@@ -209,15 +203,15 @@ export default async function Page({
 }
 
 function Stat({
-  label, value, color,
-}: { label: string; value: string; color?: "emerald" | "rose" }) {
+  label, value, positive,
+}: { label: string; value: string; positive?: boolean }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="label-eyebrow">{label}</span>
+      <span className="text-[11px] font-medium text-muted uppercase tracking-wider">{label}</span>
       <span
         className={cn(
-          "text-[13px] font-mono font-medium",
-          color === "emerald" ? "text-emerald-neon" : color === "rose" ? "text-rose-neon" : "text-white",
+          "text-[14px] font-semibold",
+          positive === true ? "text-positive" : positive === false ? "text-negative" : "text-foreground",
         )}
       >
         {value}

@@ -1,105 +1,75 @@
 "use client";
 
 import Link from "next/link";
-import { Search, Filter, Download, RefreshCw } from "lucide-react";
-import { TICKER } from "@/lib/mock";
-import { cn } from "@/lib/utils";
+import { Search, ChevronRight } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 export type Crumb = { label: string; href?: string };
 
 export function TopBar({
-  title = "Ecosystem Overview",
-  eyebrow = "Ecosystem Overview",
+  title = "Dashboard",
   crumbs,
+  description,
 }: {
   title?: string;
-  eyebrow?: string;
   crumbs?: Crumb[];
+  description?: string;
 }) {
-  const trail: Crumb[] = crumbs ?? [
-    { label: "Workspace / Venice" },
-    { label: eyebrow, href: undefined },
-  ];
-
   return (
-    <div className="border-b hairline bg-ink-950/60 backdrop-blur-md">
-      <div className="flex items-center gap-3 px-6 py-3">
-        <div className="flex flex-col min-w-0">
-          <div className="flex items-center gap-2">
-            {trail.map((c, i) => (
-              <div key={i} className="flex items-center gap-2">
-                {i > 0 && <span className="size-1 rounded-full bg-ink-500" />}
+    <div className="border-b border-border bg-card">
+      <div className="flex items-center gap-3 px-6 h-[64px]">
+        {crumbs && crumbs.length > 0 && (
+          <div className="flex items-center gap-1.5 text-[12.5px] text-muted">
+            {crumbs.map((c, i) => (
+              <div key={i} className="flex items-center gap-1.5">
+                {i > 0 && <ChevronRight className="size-3.5 text-subtle" />}
                 {c.href ? (
-                  <Link href={c.href} className="label-eyebrow hover:text-white transition-colors">
+                  <Link href={c.href} className="hover:text-foreground transition-colors">
                     {c.label}
                   </Link>
                 ) : (
-                  <span className={cn("label-eyebrow", i === trail.length - 1 && "text-cyan-neon/80")}>
+                  <span className={i === crumbs.length - 1 ? "text-foreground font-medium" : ""}>
                     {c.label}
                   </span>
                 )}
               </div>
             ))}
           </div>
-          <h1 className="text-[18px] font-semibold tracking-tight text-white mt-0.5 truncate">
-            {title}
-          </h1>
-        </div>
+        )}
 
         <div className="flex-1" />
 
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-md border hairline bg-ink-900/80 w-[320px]">
-          <Search className="size-3.5 text-ink-400" />
+        <div className="hidden md:flex items-center gap-2 px-3 h-9 rounded-md border border-border bg-surface w-[280px]">
+          <Search className="size-3.5 text-subtle" />
           <input
-            className="bg-transparent text-[12.5px] text-white placeholder:text-ink-400 outline-none flex-1"
-            placeholder="Search accounts, narratives, posts…"
+            className="bg-transparent text-[13px] text-foreground placeholder:text-subtle outline-none flex-1"
+            placeholder="Search…"
           />
-          <span className="text-[10px] font-mono text-ink-400 border hairline px-1.5 rounded">⌘K</span>
+          <span className="text-[10px] font-mono text-subtle border border-border bg-card px-1.5 py-px rounded">⌘K</span>
         </div>
 
-        <div className="flex items-center gap-1.5">
-          <ToolBtn icon={Filter} label="Filter" />
-          <ToolBtn icon={Download} label="Export" />
-          <ToolBtn icon={RefreshCw} label="" />
-          <div className="ml-2 flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-emerald-neon/[0.08] border border-emerald-neon/20">
-            <span className="size-1.5 rounded-full bg-emerald-neon glow-dot text-emerald-neon animate-pulse" />
-            <span className="text-[11px] font-mono text-emerald-neon tracking-wider">LIVE</span>
-          </div>
-        </div>
+        <ThemeToggle />
+        <button className="btn-primary h-9 px-3.5 text-[13px]">New report</button>
       </div>
 
-      <div className="relative overflow-hidden border-t hairline">
-        <div className="flex w-max animate-ticker">
-          {[...TICKER, ...TICKER].map((t, i) => (
-            <div
-              key={i}
-              className="flex items-baseline gap-2 px-6 py-2 border-r hairline whitespace-nowrap"
-            >
-              <span className="label-eyebrow">{t.label}</span>
-              <span className="text-[12.5px] font-mono font-medium text-white">{t.value}</span>
-              {t.delta !== 0 && (
-                <span
-                  className={cn(
-                    "text-[11px] font-mono",
-                    t.delta > 0 ? "text-emerald-neon" : "text-rose-neon",
-                  )}
-                >
-                  {t.delta > 0 ? "▲" : "▼"} {Math.abs(t.delta).toFixed(1)}%
-                </span>
+      {(title || description) && (
+        <div className="px-6 py-5 border-t border-border bg-background">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <h1 className="text-[22px] font-semibold tracking-tight text-foreground">{title}</h1>
+              {description && (
+                <p className="text-[13.5px] text-muted mt-0.5">{description}</p>
               )}
             </div>
-          ))}
+            <div className="flex items-center gap-2 text-[11.5px] text-muted">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="size-1.5 rounded-full bg-positive" />
+                Live · synced 2s ago
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
-  );
-}
-
-function ToolBtn({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
-  return (
-    <button className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border hairline bg-ink-900/60 text-ink-400 hover:text-white hover:border-cyan-neon/30 transition-colors text-[12px]">
-      <Icon className="size-3.5" />
-      {label && <span>{label}</span>}
-    </button>
   );
 }

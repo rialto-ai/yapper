@@ -19,13 +19,13 @@ export type Narrative = {
 };
 
 export const NARRATIVE_COLORS: Record<string, string> = {
-  "private-inference": "#22e6ff",
-  "decentralized-compute": "#a78bfa",
-  "agent-infrastructure": "#34f5b1",
-  "ai-sovereignty": "#fbbf24",
-  "open-source-models": "#fb7185",
-  "inference-markets": "#60a5fa",
-  "cypherpunk-ai": "#f472b6",
+  "private-inference":    "#ea580c", // orange-600 — brand anchor
+  "inference-markets":    "#2563eb", // blue-600
+  "agent-infrastructure": "#10b981", // emerald-500
+  "decentralized-compute":"#8b5cf6", // violet-500
+  "ai-sovereignty":       "#eab308", // amber-500
+  "open-source-models":   "#f43f5e", // rose-500
+  "cypherpunk-ai":        "#14b8a6", // teal-500
 };
 
 export const NARRATIVES: Narrative[] = [
@@ -163,10 +163,10 @@ export type FeedItem = {
 export const FEED: FeedItem[] = [
   { id: "f1", handle: "@teknium1",      name: "Teknium",          ago:  "2m", text: "Private inference at the edge is the only way the agentic economy survives. Centralized inference is the new ad-tech.",                          engagement: 18400, narrative: "Private Inference",     velocity: "viral"  },
   { id: "f2", handle: "@erikvoorhees",  name: "Erik Voorhees",    ago:  "4m", text: "Sovereign compute and verifiable inference are not nice-to-haves. They are the prerequisite for any open AI economy.",                              engagement: 12200, narrative: "AI Sovereignty",        velocity: "viral"  },
-  { id: "f3", handle: "@MoonOverlord",  name: "Moon Overlord",    ago:  "7m", text: "Venice routing latency just dropped under 180ms on the last benchmark. Quietly building.",                                                          engagement:  4310, narrative: "Inference Markets",     velocity: "rising" },
+  { id: "f3", handle: "@MoonOverlord",  name: "Moon Overlord",    ago:  "7m", text: "Routing latency just dropped under 180ms on the last benchmark. Quietly building.",                                                                 engagement:  4310, narrative: "Inference Markets",     velocity: "rising" },
   { id: "f4", handle: "@ryanberckmans", name: "Ryan Berckmans",   ago: "11m", text: "If you can price inference per-token across providers, you can build an actual market for it. This is the missing piece.",                          engagement:  6720, narrative: "Inference Markets",     velocity: "rising" },
   { id: "f5", handle: "@karpathy",      name: "Karpathy",         ago: "13m", text: "Agentic loops over private endpoints feel qualitatively different. Less guardrails, more reasoning surface.",                                       engagement: 21800, narrative: "Agent Infrastructure",  velocity: "viral"  },
-  { id: "f6", handle: "@elder_plinius", name: "Pliny",            ago: "17m", text: "Three new uncensored fine-tunes routing through Venice today. The privacy stack is shipping.",                                                      engagement:  3920, narrative: "Cypherpunk AI",         velocity: "rising" },
+  { id: "f6", handle: "@elder_plinius", name: "Pliny",            ago: "17m", text: "Three new uncensored fine-tunes routing through the open inference stack today. Shipping.",                                                         engagement:  3920, narrative: "Cypherpunk AI",         velocity: "rising" },
   { id: "f7", handle: "@gakonst",       name: "Georgios K.",      ago: "22m", text: "Decentralized compute markets only work when settlement is verifiable. Otherwise it's just AWS with extra steps.",                                  engagement:  5410, narrative: "Decentralized Compute", velocity: "normal" },
   { id: "f8", handle: "@punk6529",      name: "6529",             ago: "26m", text: "The 2026 fight is not who has the biggest model. It's who controls the inference layer for everyone else's models.",                                engagement:  9840, narrative: "Cypherpunk AI",         velocity: "rising" },
 ];
@@ -184,7 +184,7 @@ export function topPostsFor(handle: string): FeedItem[] {
     "Skeptical takes on %N age poorly. The architecture is what changed, not the marketing.",
     "Most %N narratives die at scale. The ones that survive get repriced violently.",
   ];
-  const narrative = NARRATIVES.find((n) => n.id === acct.narrative)?.label ?? "Venice";
+  const narrative = NARRATIVES.find((n) => n.id === acct.narrative)?.label ?? "Rialto";
   return Array.from({ length: 6 }, (_, i) => {
     const text = templates[i % templates.length].replace("%N", narrative);
     const eng = Math.round(acct.engagement * (0.5 + rand() * 1.4));

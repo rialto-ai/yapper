@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,9 +16,17 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Venice Signal · Ecosystem Overview",
+  title: {
+    default: "Rialto AI",
+    template: "%s · Rialto AI",
+  },
   description:
-    "Real-time intelligence and influence analytics for the Venice ecosystem.",
+    "Real-time intelligence and influence analytics for the open AI ecosystem.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${jetbrains.variable}`}>
-      <body className="min-h-screen font-sans antialiased text-[13.5px] leading-relaxed">
-        {children}
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
+      <body className="min-h-screen font-sans antialiased text-[14px] leading-relaxed">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

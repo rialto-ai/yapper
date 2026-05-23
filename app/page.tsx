@@ -14,47 +14,38 @@ import { getMentionsSeries } from "@/lib/data";
 
 export default async function Page() {
   const mentions = (await getMentionsSeries()).map((d) => d.v);
-  const last = mentions.slice(-12);
-  const lastSum = last.reduce((s, v) => s + v, 0);
 
   return (
-    <AppShell title="Ecosystem Overview" eyebrow="Ecosystem Overview">
+    <AppShell
+      title="Ecosystem Overview"
+      description="Real-time intelligence across the open AI ecosystem."
+      crumbs={[{ label: "Workspace" }, { label: "Overview" }]}
+    >
       <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        <StatTile label="MENTIONS / 24H" value="62.4K" delta={18.2} series={mentions} color="#22e6ff" />
-        <StatTile label="ACTIVE VOICES" value="8,914" delta={6.4} series={mentions.map((v, i) => Math.round(v * 0.18 + i * 4))} color="#a78bfa" />
-        <StatTile label="VIRAL POSTS" value="47" delta={27.1} series={mentions.map((v) => Math.round(v / 1400))} color="#34f5b1" />
-        <StatTile label="SIGNAL INDEX" value="184.6" unit="pts" delta={2.1} series={mentions.map((v, i) => 160 + Math.round(Math.sin(i / 4) * 12 + v / 600))} color="#fbbf24" />
+        <StatTile label="Mentions / 24h"   value="62.4K" delta={18.2} series={mentions} colorVar="--accent" />
+        <StatTile label="Active voices"    value="8,914" delta={6.4}  series={mentions.map((v, i) => Math.round(v * 0.18 + i * 4))} colorVar="--chart-2" />
+        <StatTile label="Viral posts"      value="47"    delta={27.1} series={mentions.map((v) => Math.round(v / 1400))} colorVar="--chart-3" />
+        <StatTile label="Signal index"     value="184.6" unit="pts" delta={2.1} series={mentions.map((v, i) => 160 + Math.round(Math.sin(i / 4) * 12 + v / 600))} colorVar="--chart-4" />
       </section>
 
       <section className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         <Panel
           className="xl:col-span-8"
-          eyebrow="48H · STACKED"
-          title="Narrative Velocity"
+          eyebrow="LAST 48 HOURS"
+          title="Narrative velocity"
           subtitle="Top 5 conversation clusters, mentions per 30m bucket"
-          right={
-            <div className="flex items-center gap-1.5">
-              {["1H", "24H", "48H", "7D", "30D"].map((p, i) => (
-                <button
-                  key={p}
-                  className={
-                    "text-[10.5px] font-mono px-2 py-1 rounded border " +
-                    (i === 2
-                      ? "border-cyan-neon/40 bg-cyan-neon/10 text-cyan-neon"
-                      : "hairline text-ink-400 hover:text-white hover:border-white/10")
-                  }
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-          }
+          right={<RangeTabs />}
         >
           <NarrativeVelocityChart />
           <NarrativeLegend />
         </Panel>
 
-        <Panel className="xl:col-span-4" eyebrow="LIVE" title="Ecosystem Sentiment" subtitle="Weighted by reach + signal score">
+        <Panel
+          className="xl:col-span-4"
+          eyebrow="WEIGHTED BY REACH"
+          title="Ecosystem sentiment"
+          subtitle="Bullish, technical, neutral, bearish"
+        >
           <SentimentRing />
         </Panel>
       </section>
@@ -63,9 +54,8 @@ export default async function Page() {
         <Panel
           className="xl:col-span-4"
           eyebrow="TRENDING"
-          title="Top Narratives"
+          title="Top narratives"
           subtitle="Velocity-ranked, 24h window"
-          right={<span className="text-[10.5px] font-mono text-ink-400">{`${(lastSum / 1000).toFixed(1)}K / hr`}</span>}
           bodyClassName="pb-1"
         >
           <TopNarratives />
@@ -74,7 +64,7 @@ export default async function Page() {
         <Panel
           className="xl:col-span-5"
           eyebrow="LEADERBOARD"
-          title="Rising Voices"
+          title="Rising voices"
           subtitle="Highest signal-score acceleration, 24h"
           right={
             <div className="flex items-center gap-1.5">
@@ -82,10 +72,10 @@ export default async function Page() {
                 <button
                   key={t}
                   className={
-                    "text-[10.5px] font-mono px-2 py-1 rounded border " +
+                    "text-[11.5px] font-medium px-2.5 py-1 rounded-md transition-colors " +
                     (i === 0
-                      ? "border-violet-neon/40 bg-violet-neon/10 text-violet-neon"
-                      : "hairline text-ink-400 hover:text-white hover:border-white/10")
+                      ? "bg-accent-soft text-accent"
+                      : "text-muted hover:text-foreground hover:bg-surface")
                   }
                 >
                   {t}
@@ -97,7 +87,12 @@ export default async function Page() {
           <TrendingAccounts />
         </Panel>
 
-        <Panel className="xl:col-span-3" eyebrow="HEATMAP · UTC" title="Engagement Density" subtitle="Mentions × engagement, last 7d">
+        <Panel
+          className="xl:col-span-3"
+          eyebrow="LAST 7 DAYS"
+          title="Engagement density"
+          subtitle="Mentions × engagement, UTC"
+        >
           <EngagementHeatmap />
         </Panel>
       </section>
@@ -105,26 +100,38 @@ export default async function Page() {
       <section className="grid grid-cols-1 gap-4">
         <Panel
           eyebrow="STREAMING"
-          title="Live Activity"
-          subtitle="High-signal posts mentioning the Venice ecosystem"
+          title="Live activity"
+          subtitle="High-signal posts mentioning the Rialto ecosystem"
           right={
-            <div className="flex items-center gap-2 text-[10.5px] font-mono text-emerald-neon">
-              <span className="relative size-1.5 rounded-full bg-emerald-neon glow-dot text-emerald-neon">
-                <span className="absolute inset-0 rounded-full pulse-ring text-emerald-neon" />
-              </span>
-              INGESTING · 1.3K POSTS / MIN
+            <div className="flex items-center gap-2 text-[11.5px] text-muted">
+              <span className="size-1.5 rounded-full bg-positive" />
+              Ingesting 1.3K posts / min
             </div>
           }
         >
           <ActivityFeed />
         </Panel>
       </section>
-
-      <footer className="flex items-center justify-between text-[10.5px] font-mono text-ink-400 pt-1 pb-3">
-        <span>VENICE SIGNAL · ECOSYSTEM OVERVIEW</span>
-        <span>DATA · MOCK · 2026</span>
-        <span>RENDER · &lt;82ms</span>
-      </footer>
     </AppShell>
+  );
+}
+
+function RangeTabs() {
+  return (
+    <div className="flex items-center gap-1 p-0.5 rounded-md bg-surface border border-border">
+      {["1h", "24h", "48h", "7d", "30d"].map((p, i) => (
+        <button
+          key={p}
+          className={
+            "text-[11.5px] font-medium px-2 py-1 rounded transition-colors " +
+            (i === 2
+              ? "bg-card text-foreground shadow-sm"
+              : "text-muted hover:text-foreground")
+          }
+        >
+          {p}
+        </button>
+      ))}
+    </div>
   );
 }

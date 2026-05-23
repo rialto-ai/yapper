@@ -22,7 +22,7 @@ export async function GET() {
       latency_p99_ms: 612,
     },
     keywords: [
-      "Venice", "Venice AI", "VVV",
+      "Rialto", "Rialto AI",
       "private inference", "decentralized inference",
       "inference markets", "agentic infrastructure",
       "AI sovereignty", "cypherpunk AI", "open-source models",

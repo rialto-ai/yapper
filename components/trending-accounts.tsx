@@ -8,62 +8,63 @@ const narrativeLabel = (id: string) =>
 
 export function TrendingAccounts() {
   return (
-    <div className="divide-y hairline scrollbar-thin overflow-y-auto max-h-[420px]">
+    <div className="divide-y divide-border scrollbar-thin overflow-y-auto max-h-[440px]">
       {TRENDING_ACCOUNTS.map((a, i) => {
         const positive = a.delta >= 0;
         return (
           <Link
             key={a.handle}
             href={`/accounts/${a.handle.replace(/^@/, "")}`}
-            className="group flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.02] transition-colors"
+            className="group flex items-center gap-3 px-5 py-3 hover:bg-surface transition-colors"
           >
-            <span className="text-[10px] font-mono text-ink-400 w-5 text-right">
+            <span className="text-[11px] font-mono text-subtle w-5 text-right">
               {(i + 1).toString().padStart(2, "0")}
             </span>
-            <div className="size-7 shrink-0 rounded-full bg-gradient-to-br from-ink-500 to-ink-700 grid place-items-center text-[10px] font-mono text-ink-400 border hairline">
-              {a.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
-            </div>
+            <Avatar name={a.name} />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-[12.5px] font-medium text-white truncate group-hover:text-cyan-neon transition-colors">
+                <span className="text-[13px] font-medium text-foreground truncate group-hover:text-accent transition-colors">
                   {a.name}
                 </span>
-                <span className="text-[11px] text-ink-400 truncate">{a.handle}</span>
+                <span className="text-[11.5px] text-subtle truncate">{a.handle}</span>
               </div>
-              <div className="flex items-center gap-2 mt-0.5">
-                <span className="text-[10px] font-mono px-1 py-px rounded bg-white/[0.04] text-ink-400">
-                  {narrativeLabel(a.narrative)}
-                </span>
-                <span className="text-[10px] font-mono text-ink-400">
-                  {formatCompact(a.followers)} followers
-                </span>
+              <div className="flex items-center gap-2 mt-0.5 text-[11px] text-muted">
+                <span>{narrativeLabel(a.narrative)}</span>
+                <span className="text-subtle">·</span>
+                <span>{formatCompact(a.followers)} followers</span>
               </div>
             </div>
-            <div className="hidden md:block opacity-80">
+            <div className="hidden md:block">
               <Sparkline
                 data={a.sparkline}
-                color={positive ? "#34f5b1" : "#fb7185"}
+                color={positive ? "rgb(var(--positive))" : "rgb(var(--negative))"}
                 width={64}
                 height={22}
                 filled={false}
               />
             </div>
-            <div className="text-right shrink-0 w-[64px]">
-              <div className="text-[13px] font-mono font-semibold text-white">
+            <div className="text-right shrink-0 w-[70px]">
+              <div className="text-[14px] font-mono font-semibold text-foreground">
                 {a.signal.toFixed(1)}
               </div>
-              <div
-                className={cn(
-                  "text-[10.5px] font-mono",
-                  positive ? "text-emerald-neon" : "text-rose-neon",
-                )}
-              >
-                {positive ? "▲" : "▼"} {Math.abs(a.delta).toFixed(1)}
+              <div className={cn("text-[11px] font-medium", positive ? "text-positive" : "text-negative")}>
+                {positive ? "↑" : "↓"} {Math.abs(a.delta).toFixed(1)}
               </div>
             </div>
           </Link>
         );
       })}
+    </div>
+  );
+}
+
+export function Avatar({ name, size = 28 }: { name: string; size?: number }) {
+  return (
+    <div
+      className="shrink-0 rounded-full bg-surface-2 grid place-items-center text-[10.5px] font-medium text-muted border border-border"
+      style={{ width: size, height: size }}
+    >
+      {name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
     </div>
   );
 }

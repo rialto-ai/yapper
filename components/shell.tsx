@@ -1,24 +1,26 @@
 import { Sidebar } from "./sidebar";
 import { TopBar, type Crumb } from "./topbar";
+import { Footer } from "./footer";
 
 export function AppShell({
   title,
-  eyebrow,
+  description,
   crumbs,
   children,
 }: {
   title?: string;
-  eyebrow?: string;
+  description?: string;
   crumbs?: Crumb[];
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen grid-bg">
+    <div className="min-h-screen bg-background">
       <div className="flex min-h-screen">
         <Sidebar />
         <main className="flex-1 flex flex-col min-w-0">
-          <TopBar title={title} eyebrow={eyebrow} crumbs={crumbs} />
-          <div className="flex-1 p-5 space-y-5">{children}</div>
+          <TopBar title={title} description={description} crumbs={crumbs} />
+          <div className="flex-1 px-6 py-6 space-y-6">{children}</div>
+          <Footer />
         </main>
       </div>
     </div>

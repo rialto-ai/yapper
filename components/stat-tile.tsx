@@ -6,47 +6,41 @@ export function StatTile({
   value,
   delta,
   series,
-  color = "#22e6ff",
+  colorVar = "--accent",
   unit,
 }: {
   label: string;
   value: string;
   delta?: number;
   series?: number[];
-  color?: string;
+  colorVar?: string;
   unit?: string;
 }) {
   const positive = (delta ?? 0) >= 0;
   return (
-    <div className="glass rounded-lg p-4 flex flex-col gap-2 relative overflow-hidden">
-      <div
-        className="absolute -inset-px rounded-lg pointer-events-none opacity-50"
-        style={{
-          background: `radial-gradient(ellipse 60% 80% at 100% 0%, ${color}22, transparent 70%)`,
-        }}
-      />
-      <div className="flex items-center justify-between relative">
-        <span className="label-eyebrow">{label}</span>
+    <div className="card card-interactive p-5 flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <span className="text-[12px] font-medium text-muted tracking-tight">{label}</span>
         {delta !== undefined && (
           <span
             className={cn(
-              "text-[10.5px] font-mono px-1.5 py-0.5 rounded",
-              positive ? "text-emerald-neon bg-emerald-neon/10" : "text-rose-neon bg-rose-neon/10",
+              "text-[11.5px] font-medium px-1.5 py-0.5 rounded-md",
+              positive ? "text-positive bg-positive/10" : "text-negative bg-negative/10",
             )}
           >
-            {positive ? "▲" : "▼"} {Math.abs(delta).toFixed(1)}%
+            {positive ? "↑" : "↓"} {Math.abs(delta).toFixed(1)}%
           </span>
         )}
       </div>
-      <div className="flex items-baseline gap-1.5 relative">
-        <span className="text-[24px] font-semibold text-white tracking-tight font-mono">
+      <div className="flex items-baseline gap-1.5">
+        <span className="text-[28px] font-semibold text-foreground tracking-tight leading-none">
           {value}
         </span>
-        {unit && <span className="text-[11px] text-ink-400 font-mono">{unit}</span>}
+        {unit && <span className="text-[12.5px] text-muted">{unit}</span>}
       </div>
       {series && (
-        <div className="-mb-1 -mx-1 relative">
-          <Sparkline data={series} color={color} height={32} width={220} />
+        <div className="-mx-1 -mb-1">
+          <Sparkline data={series} color={`rgb(var(${colorVar}))`} height={36} width={240} />
         </div>
       )}
     </div>

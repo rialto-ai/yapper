@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 import {
   forceCenter,
   forceCollide,
@@ -39,38 +40,27 @@ export function NarrativeGraph({
   const [size, setSize] = useState({ w: 800, h: 560 });
   const [hover, setHover] = useState<NodeDatum | null>(null);
   const [selected, setSelected] = useState<NodeDatum | null>(null);
+  const colors = useGraphColors();
 
   const { simNodes, simLinks } = useMemo(() => {
     const ns: NodeDatum[] = nodes.map((n) => {
       if (n.type === "narrative") {
         return {
-          id: n.id,
-          type: "narrative",
-          label: n.data.label,
-          color: n.data.color,
-          size: 18 + n.data.velocity * 0.18,
-          data: n.data,
+          id: n.id, type: "narrative", label: n.data.label, color: n.data.color,
+          size: 16 + n.data.velocity * 0.16, data: n.data,
         };
       }
       return {
-        id: n.id,
-        type: "account",
-        label: n.data.name,
-        color: "#9aa3b5",
-        size: 4 + Math.log10(n.data.followers + 10) * 1.6,
-        data: n.data,
+        id: n.id, type: "account", label: n.data.name, color: colors.account,
+        size: 4 + Math.log10(n.data.followers + 10) * 1.6, data: n.data,
       };
     });
     const ls: LinkDatum[] = edges.map((e) => ({
-      source: e.source,
-      target: e.target,
-      weight: e.weight,
-      kind: e.kind,
+      source: e.source, target: e.target, weight: e.weight, kind: e.kind,
     }));
     return { simNodes: ns, simLinks: ls };
-  }, [nodes, edges]);
+  }, [nodes, edges, colors.account]);
 
-  // Resize
   useEffect(() => {
     const el = svgRef.current?.parentElement;
     if (!el) return;
@@ -82,17 +72,16 @@ export function NarrativeGraph({
     return () => ro.disconnect();
   }, []);
 
-  // Simulation
   useEffect(() => {
     const sim = forceSimulation<NodeDatum>(simNodes)
       .force(
         "link",
         forceLink<NodeDatum, LinkDatum>(simLinks)
           .id((d) => d.id)
-          .distance((l) => (l.kind === "narrative-narrative" ? 180 : l.kind === "account-narrative" ? 90 : 70))
+          .distance((l) => (l.kind === "narrative-narrative" ? 180 : l.kind === "account-narrative" ? 95 : 75))
           .strength((l) => l.weight * (l.kind === "narrative-narrative" ? 0.25 : 0.5)),
       )
-      .force("charge", forceManyBody<NodeDatum>().strength((d) => (d.type === "narrative" ? -320 : -60)))
+      .force("charge", forceManyBody<NodeDatum>().strength((d) => (d.type === "narrative" ? -340 : -65)))
       .force("collide", forceCollide<NodeDatum>().radius((d) => d.size + 4))
       .force("center", forceCenter(size.w / 2, size.h / 2))
       .alpha(0.9)
@@ -103,7 +92,6 @@ export function NarrativeGraph({
     let raf = 0;
     const tick = () => {
       if (!svgRef.current) return;
-      // Mutate SVG via refs map. Use querySelectorAll keyed by data-id.
       const ngEls = svgRef.current.querySelectorAll<SVGGElement>("[data-node]");
       ngEls.forEach((el) => {
         const id = el.getAttribute("data-node");
@@ -155,23 +143,6 @@ export function NarrativeGraph({
         className="absolute inset-0 w-full h-full"
         onClick={() => setSelected(null)}
       >
-        <defs>
-          <radialGradient id="bg-glow" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stopColor="rgba(124,58,237,0.10)" />
-            <stop offset="100%" stopColor="transparent" />
-          </radialGradient>
-          <filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <rect x={0} y={0} width={size.w} height={size.h} fill="url(#bg-glow)" />
-
-        {/* Edges */}
         <g>
           {simLinks.map((l, i) => {
             const s = l.source as NodeDatum;
@@ -182,29 +153,29 @@ export function NarrativeGraph({
                 ? s.color
                 : l.kind === "account-narrative"
                 ? (t.type === "narrative" ? t.color : s.color)
-                : "#3a4150";
+                : colors.edgeMuted;
             return (
               <line
                 key={i}
                 data-link={i}
                 stroke={colorBase}
-                strokeOpacity={dim ? 0.04 : 0.18 + l.weight * 0.35}
-                strokeWidth={Math.max(0.6, l.weight * 1.6)}
+                strokeOpacity={dim ? 0.04 : 0.14 + l.weight * 0.25}
+                strokeWidth={Math.max(0.6, l.weight * 1.4)}
                 style={{ transition: "stroke-opacity 200ms ease" }}
               />
             );
           })}
         </g>
 
-        {/* Nodes */}
         <g>
           {simNodes.map((n) => {
             const dim = focusedIds && !focusedIds.has(n.id);
+            const isFocus = focused?.id === n.id;
             return (
               <g
                 key={n.id}
                 data-node={n.id}
-                style={{ cursor: "pointer", transition: "opacity 200ms ease", opacity: dim ? 0.18 : 1 }}
+                style={{ cursor: "pointer", transition: "opacity 200ms ease", opacity: dim ? 0.22 : 1 }}
                 onMouseEnter={() => setHover(n)}
                 onMouseLeave={() => setHover(null)}
                 onClick={(e) => {
@@ -214,18 +185,15 @@ export function NarrativeGraph({
               >
                 {n.type === "narrative" ? (
                   <>
-                    <circle
-                      r={n.size + 6}
-                      fill={n.color}
-                      opacity={0.15}
-                      filter="url(#node-glow)"
-                    />
-                    <circle r={n.size} fill={n.color} fillOpacity={0.85} stroke={n.color} strokeWidth={1.2} />
+                    <circle r={n.size + 8} fill={n.color} opacity={0.08} />
+                    <circle r={n.size} fill={n.color} fillOpacity={0.95} stroke={colors.card} strokeWidth={2} />
                     <text
-                      y={n.size + 14}
+                      y={n.size + 16}
                       textAnchor="middle"
-                      className="fill-white font-mono"
-                      fontSize={11}
+                      fill={colors.fg}
+                      fontSize={11.5}
+                      fontWeight={500}
+                      fontFamily="var(--font-sans)"
                     >
                       {n.label}
                     </text>
@@ -234,11 +202,11 @@ export function NarrativeGraph({
                   <>
                     <circle
                       r={n.size + 1}
-                      fill="#0a0d14"
-                      stroke={(n.data as any).narrative ? (focused?.id === n.id ? "#22e6ff" : "#5b6478") : "#5b6478"}
-                      strokeWidth={focused?.id === n.id ? 1.6 : 0.8}
+                      fill={colors.card}
+                      stroke={isFocus ? colors.accent : colors.account}
+                      strokeWidth={isFocus ? 2 : 1}
                     />
-                    <circle r={n.size - 1.5} fill="#11151f" />
+                    <circle r={n.size - 1.5} fill={colors.accountInner} />
                   </>
                 )}
               </g>
@@ -247,25 +215,24 @@ export function NarrativeGraph({
         </g>
       </svg>
 
-      {/* Hover/select panel */}
-      {(focused) && (
-        <div className="absolute bottom-3 left-3 max-w-[320px] glass rounded-lg px-3 py-2.5 text-[12px] pointer-events-none">
+      {focused && (
+        <div className="absolute bottom-4 left-4 max-w-[340px] card px-4 py-3 pointer-events-none shadow">
           {focused.type === "narrative" ? (
             <>
-              <div className="label-eyebrow mb-0.5">NARRATIVE</div>
-              <div className="font-semibold text-white text-[13px]">{focused.label}</div>
-              <div className="font-mono text-[11px] text-ink-400 mt-1">
-                velocity {(focused.data as any).velocity} ·{" "}
+              <div className="label-eyebrow mb-1">Narrative</div>
+              <div className="font-semibold text-foreground text-[14px]">{focused.label}</div>
+              <div className="text-[12px] text-muted mt-1">
+                Velocity {(focused.data as any).velocity} ·{" "}
                 {(focused.data as any).mentions24h.toLocaleString()} mentions / 24h
               </div>
             </>
           ) : (
             <>
-              <div className="label-eyebrow mb-0.5">ACCOUNT</div>
-              <div className="font-semibold text-white text-[13px]">{focused.label}</div>
-              <div className="font-mono text-[11px] text-ink-400">{(focused.data as any).handle}</div>
-              <div className="font-mono text-[11px] text-ink-400 mt-1">
-                signal {(focused.data as any).signal.toFixed(1)} ·{" "}
+              <div className="label-eyebrow mb-1">Account</div>
+              <div className="font-semibold text-foreground text-[14px]">{focused.label}</div>
+              <div className="text-[12px] text-subtle">{(focused.data as any).handle}</div>
+              <div className="text-[12px] text-muted mt-1">
+                Signal {(focused.data as any).signal.toFixed(1)} ·{" "}
                 {(focused.data as any).followers.toLocaleString()} followers
               </div>
             </>
@@ -273,26 +240,42 @@ export function NarrativeGraph({
         </div>
       )}
 
-      {/* Legend */}
-      <div className="absolute top-3 right-3 glass rounded-md px-3 py-2 text-[10.5px] font-mono space-y-1">
-        <div className="label-eyebrow mb-1">LEGEND</div>
+      <div className="absolute top-4 right-4 card px-3.5 py-2.5 text-[11.5px] space-y-1.5">
+        <div className="text-[10.5px] font-medium text-muted uppercase tracking-wider mb-1">Legend</div>
         <div className="flex items-center gap-2">
-          <span className="size-2.5 rounded-full bg-cyan-neon glow-dot text-cyan-neon" />
-          <span className="text-ink-400">Narrative node</span>
+          <span className="size-2.5 rounded-full bg-accent" />
+          <span className="text-muted">Narrative</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="size-2 rounded-full border hairline bg-ink-900" />
-          <span className="text-ink-400">Account</span>
+          <span className="size-2 rounded-full border border-border bg-card" />
+          <span className="text-muted">Account</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-4 h-px bg-violet-neon" />
-          <span className="text-ink-400">Co-occurrence</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-4 h-px bg-ink-500" />
-          <span className="text-ink-400">Interaction</span>
+          <span className="w-4 h-px bg-accent/40" />
+          <span className="text-muted">Co-occurrence</span>
         </div>
       </div>
     </div>
   );
+}
+
+function useGraphColors() {
+  const { resolvedTheme } = useTheme();
+  const [c, setC] = useState({
+    fg: "#11151c", card: "#ffffff", account: "#a0a6b0", accountInner: "#f4f5f7",
+    accent: "#ea580c", edgeMuted: "#d4d7de",
+  });
+  useEffect(() => {
+    const r = getComputedStyle(document.documentElement);
+    const rgb = (v: string) => `rgb(${r.getPropertyValue(v).trim()})`;
+    setC({
+      fg: rgb("--foreground"),
+      card: rgb("--card"),
+      account: rgb("--border-strong"),
+      accountInner: rgb("--surface-2"),
+      accent: rgb("--accent"),
+      edgeMuted: rgb("--border-strong"),
+    });
+  }, [resolvedTheme]);
+  return c;
 }

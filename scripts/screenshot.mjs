@@ -20,15 +20,22 @@ const ctx = await browser.newContext({
   deviceScaleFactor: 2,
 });
 
-for (const p of paths) {
-  const page = await ctx.newPage();
-  const url = base + p;
-  await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
-  await page.waitForTimeout(1800);
-  const slug = p === "/" ? "index" : p.replace(/^\//, "").replace(/\//g, "-");
-  const out = `${outDir}/${slug}.png`;
-  await page.screenshot({ path: out, fullPage: true });
-  console.log(`wrote ${out}`);
-  await page.close();
+const themes = (process.env.THEMES || "light,dark").split(",");
+
+for (const theme of themes) {
+  for (const p of paths) {
+    const page = await ctx.newPage();
+    await page.addInitScript((t) => {
+      try { window.localStorage.setItem("theme", t); } catch {}
+    }, theme);
+    const url = base + p;
+    await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
+    await page.waitForTimeout(1800);
+    const slug = p === "/" ? "index" : p.replace(/^\//, "").replace(/\//g, "-");
+    const out = `${outDir}/${slug}-${theme}.png`;
+    await page.screenshot({ path: out, fullPage: true });
+    console.log(`wrote ${out}`);
+    await page.close();
+  }
 }
 await browser.close();
