@@ -1,8 +1,1 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "next build",
-  "crons": [
-    { "path": "/api/cron/ingest", "schedule": "*/15 * * * *" },
-    { "path": "/api/cron/rank",   "schedule": "10 * * * *" }
-  ]
-}
+{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"next build"}
