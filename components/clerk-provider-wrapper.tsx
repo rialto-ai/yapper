@@ -18,7 +18,7 @@ function ThemedClerkProvider({ children }: { children: React.ReactNode }) {
   const appearance = {
     baseTheme: resolvedTheme === "dark" ? dark : undefined,
     variables: {
-      colorPrimary:        "#ea580c",
+      colorPrimary:        "#1e406e",
       colorBackground:     resolvedTheme === "dark" ? "#101012" : "#ffffff",
       colorInputBackground:resolvedTheme === "dark" ? "#161618" : "#ffffff",
       colorText:           resolvedTheme === "dark" ? "#f0f1f4" : "#11151c",

@@ -9,13 +9,12 @@ export default function AuthLayout({
 }) {
   return (
     <div className="min-h-screen bg-background grid grid-cols-1 lg:grid-cols-[1fr_minmax(420px,_520px)]">
-      {/* Left brand pane (desktop only) */}
       <div className="hidden lg:flex flex-col justify-between p-10 border-r border-border bg-surface relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 20% 20%, rgba(234, 88, 12, 0.12), transparent 60%)",
+              "radial-gradient(ellipse 80% 60% at 20% 20%, rgb(var(--accent) / 0.10), transparent 60%)",
           }}
         />
         <Link href="/" className="relative inline-flex items-center gap-2.5">
@@ -24,31 +23,26 @@ export default function AuthLayout({
 
         <div className="relative max-w-[420px]">
           <blockquote className="text-[20px] font-medium leading-snug text-foreground">
-            “Rialto is the first dashboard that actually changes how I think
-            about who matters in this ecosystem. The leaderboard is
-            uncomfortably accurate.”
+            &ldquo;Train up a child in the way he should go; even when he is old
+            he will not depart from it.&rdquo;
           </blockquote>
-          <div className="mt-5 flex items-center gap-3">
-            <div className="size-9 rounded-full bg-surface-2 border border-border grid place-items-center text-[11px] font-medium text-muted">
-              EV
-            </div>
-            <div>
-              <div className="text-[13px] font-medium text-foreground">Erik Voorhees</div>
-              <div className="text-[12px] text-muted">Founder, ShapeShift</div>
-            </div>
+          <div className="mt-5 text-[14px] text-muted">
+            Proverbs 22:6 (ESV)
           </div>
         </div>
 
         <div className="relative text-[11.5px] text-muted">
-          © 2026 Rialto AI, Inc. SOC 2 Type II in progress.
+          &copy; 2025 Paideia. Soli Deo Gloria.
         </div>
       </div>
 
-      {/* Right form pane */}
       <div className="flex flex-col">
         <div className="flex items-center justify-between p-5">
-          <Link href="/" className="text-[12.5px] text-muted hover:text-foreground transition-colors">
-            ← Back to home
+          <Link
+            href="/"
+            className="text-[12.5px] text-muted hover:text-foreground transition-colors"
+          >
+            &larr; Back to home
           </Link>
           <ThemeToggle />
         </div>

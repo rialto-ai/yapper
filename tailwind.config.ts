@@ -32,6 +32,8 @@ const config: Config = {
         "chart-5":        withAlpha("--chart-5"),
         "chart-6":        withAlpha("--chart-6"),
         "chart-7":        withAlpha("--chart-7"),
+        gold:             withAlpha("--gold"),
+        "gold-soft":      withAlpha("--gold-soft"),
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],

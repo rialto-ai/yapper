@@ -17,7 +17,7 @@ export function ClerkNotConfigured({ mode }: { mode: "sign-in" | "sign-up" }) {
       </p>
       <div className="mt-5 flex items-center gap-2">
         <Link href="/" className="btn-ghost h-9 px-3 text-[13px]">← Back to home</Link>
-        <Link href="/app" className="btn-primary h-9 px-3 text-[13px]">Continue to demo</Link>
+        <Link href="/dashboard" className="btn-primary h-9 px-3 text-[13px]">Continue to demo</Link>
       </div>
     </div>
   );

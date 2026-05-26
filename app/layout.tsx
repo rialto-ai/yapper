@@ -18,15 +18,13 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rialto AI",
-    template: "%s · Rialto AI",
+    default: "Paideia",
+    template: "%s · Paideia",
   },
   description:
-    "Real-time intelligence and influence analytics for the open AI ecosystem.",
+    "Classical Christian education for the home. Video lessons, interactive quizzes, and catechism — built for Reformed homeschool families.",
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
 };
 
@@ -36,7 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrains.variable}`}
+    >
       <body className="min-h-screen font-sans antialiased text-[14px] leading-relaxed">
         <ThemeProvider>
           <ClerkProviderWrapper>{children}</ClerkProviderWrapper>

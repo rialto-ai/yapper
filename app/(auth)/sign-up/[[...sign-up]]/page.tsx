@@ -14,8 +14,8 @@ export default function Page() {
       {hasClerk() ? (
         <SignUp
           signInUrl="/sign-in"
-          forceRedirectUrl="/app"
-          fallbackRedirectUrl="/app"
+          forceRedirectUrl="/dashboard"
+          fallbackRedirectUrl="/dashboard"
         />
       ) : (
         <ClerkNotConfigured mode="sign-up" />

@@ -2,30 +2,38 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Show, UserButton } from "@clerk/nextjs";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "./logo";
-import { hasClerk } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { label: "Intelligence", href: "#intelligence" },
-  { label: "Builders",     href: "#builders" },
-  { label: "Launches",     href: "#launches" },
-  { label: "Network",      href: "#network" },
-  { label: "Capital",      href: "#capital" },
+  { label: "Features", href: "#features" },
+  { label: "Subjects", href: "#subjects" },
+  { label: "Pricing",  href: "#pricing" },
 ];
 
 export function MarketingNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    const f = () => setScrolled(window.scrollY > 8);
-    window.addEventListener("scroll", f, { passive: true });
-    f();
-    return () => window.removeEventListener("scroll", f);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <header
@@ -41,7 +49,7 @@ export function MarketingNav() {
           <Logo size={22} />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1 ml-2">
+        <nav className="hidden md:flex items-center gap-1 ml-2">
           {LINKS.map((l) => (
             <Link
               key={l.label}
@@ -57,48 +65,18 @@ export function MarketingNav() {
 
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
-          {hasClerk() ? (
-            <>
-              <Show when="signed-out">
-                <Link
-                  href="/sign-in"
-                  className="text-[13px] text-foreground hover:text-accent transition-colors px-3 py-1.5"
-                >
-                  Sign in
-                </Link>
-                <Link
-                  href="/sign-up"
-                  className="btn-primary h-9 px-3.5 text-[13px] flex items-center gap-1.5"
-                >
-                  Join Early Access <ArrowRight className="size-3.5" />
-                </Link>
-              </Show>
-              <Show when="signed-in">
-                <Link
-                  href="/app"
-                  className="btn-primary h-9 px-3.5 text-[13px] flex items-center"
-                >
-                  Open dashboard
-                </Link>
-                <UserButton />
-              </Show>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/sign-in"
-                className="text-[13px] text-foreground hover:text-accent transition-colors px-3 py-1.5"
-              >
-                Sign in
-              </Link>
-              <Link
-                href="/sign-up"
-                className="btn-primary h-9 px-3.5 text-[13px] flex items-center gap-1.5"
-              >
-                Join Early Access <ArrowRight className="size-3.5" />
-              </Link>
-            </>
-          )}
+          <Link
+            href="/sign-in"
+            className="text-[13px] text-foreground hover:text-accent transition-colors px-3 py-1.5"
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/sign-up"
+            className="btn-primary h-9 px-3.5 text-[13px] flex items-center gap-1.5"
+          >
+            Get Started <ArrowRight className="size-3.5" />
+          </Link>
         </div>
 
         <button
@@ -125,14 +103,21 @@ export function MarketingNav() {
               </Link>
             ))}
             <div className="h-px bg-border my-2" />
-            <div className="flex items-center justify-between pt-1">
+            <Link
+              href="/sign-in"
+              onClick={() => setOpen(false)}
+              className="text-[14px] text-foreground py-2"
+            >
+              Sign In
+            </Link>
+            <div className="flex items-center justify-between pt-2">
               <ThemeToggle />
               <Link
                 href="/sign-up"
                 onClick={() => setOpen(false)}
                 className="btn-primary h-9 px-3.5 text-[13px] flex items-center gap-1.5"
               >
-                Join Early Access <ArrowRight className="size-3.5" />
+                Get Started <ArrowRight className="size-3.5" />
               </Link>
             </div>
           </div>
