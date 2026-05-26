@@ -4,64 +4,70 @@
 
 @layer base {
   :root {
-    --background:           255 255 255;
-    --surface:              250 250 251;
-    --surface-2:            244 245 247;
-    --foreground:            17  21  28;
-    --muted:                108 114 124;
-    --subtle:               160 166 176;
-    --border:               228 230 235;
-    --border-strong:        212 215 222;
-    --card:                 255 255 255;
-    --card-foreground:       17  21  28;
-    --accent:               234  88  12;   /* orange-600 */
-    --accent-hover:         194  65   8;   /* orange-700 */
-    --accent-soft:          255 237 213;   /* orange-100 */
-    --accent-foreground:    255 255 255;
-    --positive:              22 163  74;   /* emerald-600 */
-    --negative:             220  38  38;   /* red-600 */
-    --warning:              202 138   4;   /* amber-600 */
+    --background:           250 247 242;
+    --surface:              243 239 233;
+    --surface-2:            235 230 222;
+    --foreground:            30  27  24;
+    --muted:               120 110 100;
+    --subtle:              165 155 145;
+    --border:              225 220 212;
+    --border-strong:       205 198 188;
+    --card:                255 253 250;
+    --card-foreground:      30  27  24;
+    --accent:               30  64 110;
+    --accent-hover:         22  50  90;
+    --accent-soft:         220 232 248;
+    --accent-foreground:   255 255 255;
+    --positive:             34  90  64;
+    --negative:            180  40  40;
+    --warning:             180 130  30;
 
-    --chart-1: 234  88  12;  /* orange */
-    --chart-2:  37  99 235;  /* blue */
-    --chart-3:  16 185 129;  /* emerald */
-    --chart-4: 139  92 246;  /* violet */
-    --chart-5: 234 179   8;  /* amber */
-    --chart-6: 244  63  94;  /* rose */
-    --chart-7:  20 184 166;  /* teal */
+    --gold:                180 130  30;
+    --gold-soft:           255 248 225;
 
-    --shadow-sm: 0 1px 2px rgba(17, 21, 28, 0.04);
-    --shadow:    0 1px 3px rgba(17, 21, 28, 0.05), 0 4px 12px rgba(17, 21, 28, 0.04);
+    --chart-1:  30  64 110;
+    --chart-2: 180 130  30;
+    --chart-3:  34  90  64;
+    --chart-4: 140  80 160;
+    --chart-5: 200  90  60;
+    --chart-6:  60 140 180;
+    --chart-7: 100 120  70;
+
+    --shadow-sm: 0 1px 2px rgba(30, 27, 24, 0.04);
+    --shadow:    0 1px 3px rgba(30, 27, 24, 0.06), 0 4px 12px rgba(30, 27, 24, 0.04);
 
     color-scheme: light;
   }
 
   .dark {
-    --background:           10  10  11;
-    --surface:              16  16  18;
-    --surface-2:            22  22  25;
-    --foreground:          240 241 244;
-    --muted:               148 152 162;
-    --subtle:              105 110 120;
-    --border:               34  35  40;
-    --border-strong:        50  52  60;
-    --card:                 16  16  18;
-    --card-foreground:     240 241 244;
-    --accent:              251 146  60;   /* orange-400 */
-    --accent-hover:        253 186 116;   /* orange-300 */
-    --accent-soft:          52  29  16;
-    --accent-foreground:    10  10  11;
-    --positive:             52 211 153;
-    --negative:            248 113 113;
-    --warning:             250 204  21;
+    --background:            15  17  22;
+    --surface:               22  25  32;
+    --surface-2:             30  34  42;
+    --foreground:           232 228 222;
+    --muted:                155 148 140;
+    --subtle:               110 104  98;
+    --border:                40  44  52;
+    --border-strong:         56  60  70;
+    --card:                  22  25  32;
+    --card-foreground:      232 228 222;
+    --accent:               120 168 235;
+    --accent-hover:         145 188 250;
+    --accent-soft:           24  36  58;
+    --accent-foreground:     15  17  22;
+    --positive:              72 190 130;
+    --negative:             230 100 100;
+    --warning:              235 190  70;
 
-    --chart-1: 251 146  60;
-    --chart-2:  96 165 250;
-    --chart-3:  52 211 153;
-    --chart-4: 167 139 250;
-    --chart-5: 250 204  21;
-    --chart-6: 251 113 133;
-    --chart-7:  45 212 191;
+    --gold:                 235 190  70;
+    --gold-soft:             40  36  22;
+
+    --chart-1: 120 168 235;
+    --chart-2: 235 190  70;
+    --chart-3:  72 190 130;
+    --chart-4: 180 140 220;
+    --chart-5: 240 140 100;
+    --chart-6: 100 190 220;
+    --chart-7: 150 175 110;
 
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow:    0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -167,7 +173,6 @@
     outline-offset: 2px;
   }
 
-  /* Disable theme transition during initial paint to avoid flash */
   .no-anim,
   .no-anim *,
   .no-anim *::before,
@@ -188,4 +193,12 @@
 }
 .animate-fade-in {
   animation: fade-in 200ms ease-out;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 400ms ease-out;
 }

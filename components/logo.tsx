@@ -14,7 +14,7 @@ export function Logo({
       <Mark size={size} />
       {withWordmark && (
         <span className="font-semibold text-[15px] tracking-tight text-foreground">
-          Rialto<span className="text-accent">.</span>
+          Paideia
         </span>
       )}
     </div>
@@ -22,7 +22,6 @@ export function Logo({
 }
 
 export function Mark({ size = 24 }: { size?: number }) {
-  // Flat orange top semicircle. The path is a half-circle with the flat edge at the bottom.
   return (
     <svg
       width={size}
@@ -30,12 +29,22 @@ export function Mark({ size = 24 }: { size?: number }) {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Rialto AI"
+      aria-label="Paideia"
       role="img"
     >
-      <path
-        d="M4 18 A12 12 0 0 1 28 18 L4 18 Z"
+      <rect
+        x="3"
+        y="6"
+        width="26"
+        height="20"
+        rx="2"
         fill="rgb(var(--accent))"
+      />
+      <path
+        d="M10 12h12M10 16h8M10 20h10"
+        stroke="rgb(var(--accent-foreground))"
+        strokeWidth="1.8"
+        strokeLinecap="round"
       />
     </svg>
   );

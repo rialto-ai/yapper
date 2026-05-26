@@ -1,10 +1,10 @@
-import { CommandPalette } from "@/components/command-palette";
+import { Sidebar } from "@/components/sidebar";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      {children}
-      <CommandPalette />
-    </>
+    <div className="min-h-screen bg-background flex">
+      <Sidebar />
+      <main className="flex-1 min-w-0">{children}</main>
+    </div>
   );
 }

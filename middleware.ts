@@ -9,7 +9,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtected = createRouteMatcher(["/app(.*)", "/api/accounts(.*)"]);
+const isProtected = createRouteMatcher(["/dashboard(.*)", "/learn(.*)", "/catechism(.*)"]);
 
 const clerkConfigured = !!(
   process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
