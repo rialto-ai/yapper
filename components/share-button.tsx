@@ -36,7 +36,7 @@ export default function ShareButton({ title, text, url }: ShareButtonProps) {
     <div className="relative inline-block">
       <button
         onClick={handleShare}
-        className="inline-flex items-center gap-2 rounded-md border border-stone-200 bg-white px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:bg-stone-50 hover:text-black"
+        className="inline-flex items-center gap-2 rounded-md border border-border bg-white px-3 py-2 text-sm font-medium text-fg-secondary transition-colors hover:border-border-strong hover:bg-surface hover:text-fg"
         aria-label={`Share: ${title}`}
       >
         <Share2 className="h-4 w-4" />
@@ -48,7 +48,7 @@ export default function ShareButton({ title, text, url }: ShareButtonProps) {
         <div
           role="status"
           aria-live="polite"
-          className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-stone-800 px-3 py-1.5 text-xs font-medium text-white shadow-lg"
+          className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-fg px-3 py-1.5 text-xs font-medium text-white shadow-lg"
         >
           Link copied to clipboard
         </div>

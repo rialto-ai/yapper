@@ -5,68 +5,57 @@ import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import FeedbackSection from "@/components/feedback-section";
-import { useLocale } from "@/lib/locale-context";
-import {
-  ArrowRight,
-  Play,
-  Printer,
-  Share2,
-  Globe,
-  Hand,
-  MapPin,
-  Plus,
-  Flame,
-  Heart,
-  Scale,
-  Cross,
-  Sun,
-  RotateCcw,
-} from "lucide-react";
+import TrackCard from "@/components/track-card";
+import { LESSONS } from "@/lib/lessons-data";
+import { Play, Printer, Share2 } from "lucide-react";
+
+const GOSPEL_POINTS = [
+  "God is holy.",
+  "Man has sinned.",
+  "Judgment is real.",
+  "Jesus Christ died for sinners.",
+  "Jesus rose again.",
+  "God commands all people to repent and believe the Gospel.",
+  "Salvation is by grace alone, through faith alone, in Christ alone.",
+];
 
 const SIGNING_TRACKS = [
   {
-    id: "international-sign",
+    name: "Visual Vernacular",
+    description:
+      "A global Deaf storytelling format that can help communicate the Gospel visually across some language barriers.",
+    href: "/watch?track=visual-vernacular",
+    featured: true,
+  },
+  {
     name: "International Sign",
-    description: "A global bridge track for some cross-cultural Deaf settings.",
-    icon: Globe,
+    description:
+      "A bridge signing track for some cross-cultural Deaf settings. It is not a universal replacement for local sign languages.",
     href: "/watch?track=international-sign",
   },
   {
-    id: "asl",
     name: "American Sign Language",
-    description: "Signed Gospel and Scripture resources in ASL.",
-    icon: Hand,
+    description:
+      "Signed Gospel and Scripture resources in American Sign Language.",
     href: "/watch?track=asl",
   },
   {
-    id: "auslan",
     name: "Auslan",
-    description: "Signed Gospel resources for Australian Deaf communities.",
-    icon: MapPin,
+    description:
+      "Signed Gospel and Scripture resources for Australian Deaf communities.",
     href: "/watch?track=auslan",
   },
   {
-    id: "more",
     name: "More Coming Soon",
     description:
       "Additional signed language tracks will be added as reviewed resources become available.",
-    icon: Plus,
     href: null,
   },
 ];
 
-const GOSPEL_POINTS = [
-  { icon: Flame, text: "God is holy." },
-  { icon: Heart, text: "All people have sinned." },
-  { icon: Scale, text: "Sin deserves judgment." },
-  { icon: Cross, text: "Christ died for sinners." },
-  { icon: Sun, text: "Christ rose from the dead." },
-  { icon: RotateCcw, text: "Repent and believe the Gospel." },
-];
-
 export default function HomePage() {
-  const { t } = useLocale();
   const [shareToast, setShareToast] = useState(false);
+  const featuredLesson = LESSONS[0];
 
   async function handleShare() {
     const url = window.location.origin;
@@ -93,34 +82,32 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col">
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero */}
         <section className="animate-fade-in px-4 pb-20 pt-24 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl lg:text-6xl">
-              {t.home.headline}
+            <h1 className="text-[44px] font-semibold leading-[1.1] tracking-tight text-fg sm:text-[56px] lg:text-[64px]">
+              The Gospel of Jesus Christ, taught clearly in sign language.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-500 sm:text-xl">
-              {t.home.subheadline}
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-fg-muted sm:text-xl">
+              Simple signed Gospel lessons, Scripture videos, printable sheets,
+              and teaching resources for Deaf communities, churches, families,
+              and missionaries.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/watch" className="btn-primary text-base">
+              <Link href="/watch" className="btn-accent">
                 <Play className="h-4 w-4" />
                 Start Watching
-                <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/watch" className="btn-secondary text-base">
+              <Link href="/watch" className="btn-secondary">
                 <Printer className="h-4 w-4" />
                 Print Teaching Sheets
               </Link>
               <div className="relative inline-block">
-                <button
-                  onClick={handleShare}
-                  className="btn-secondary text-base"
-                >
+                <button onClick={handleShare} className="btn-secondary">
                   <Share2 className="h-4 w-4" />
                   Share the Gospel
                 </button>
@@ -128,7 +115,7 @@ export default function HomePage() {
                   <div
                     role="status"
                     aria-live="polite"
-                    className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-stone-800 px-3 py-1.5 text-xs font-medium text-white shadow-lg"
+                    className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-fg px-3 py-1.5 text-xs font-medium text-white shadow-lg"
                   >
                     Link copied to clipboard
                   </div>
@@ -138,135 +125,132 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Sign Language Note */}
-        <section className="px-4 pb-16 text-center sm:px-6 lg:px-8">
+        {/* Sign language note */}
+        <section className="mt-0 px-4 pb-12 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
-            <p className="text-base font-medium text-stone-700">
-              Signed Gospel lessons in International Sign and selected local sign
-              languages.
+            <p className="font-medium text-fg-secondary">
+              Signed Gospel lessons in Visual Vernacular, International Sign,
+              ASL, Auslan, and selected local sign languages.
             </p>
-            <p className="mt-2 text-sm text-stone-400">
-              International Sign can help in some global settings, but it is not
-              a replacement for local sign languages like ASL, Auslan, BSL, or
-              Filipino Sign Language.
+            <p className="mt-2 text-sm text-fg-muted">
+              Visual Vernacular and International Sign may help in some
+              cross-cultural Deaf contexts, but they are not replacements for
+              local sign languages. Sign languages are distinct languages with
+              their own grammar, culture, and context.
             </p>
           </div>
         </section>
 
-        {/* Choose a Signing Track */}
-        <section className="border-t border-stone-100 bg-warm-50 px-4 py-24 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <div className="text-center">
-              <h2 className="section-heading">Choose a signing track</h2>
-            </div>
-            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {SIGNING_TRACKS.map((track) => {
-                const Icon = track.icon;
-                const isDisabled = track.href === null;
-
-                const cardContent = (
-                  <div
-                    className={`card flex flex-col items-start gap-4 transition-shadow ${
-                      isDisabled
-                        ? "opacity-60 cursor-default"
-                        : "hover:shadow-md cursor-pointer"
-                    }`}
-                  >
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-lg ${
-                        isDisabled ? "bg-stone-100" : "bg-stone-900"
-                      }`}
-                    >
-                      <Icon
-                        className={`h-5 w-5 ${
-                          isDisabled ? "text-stone-400" : "text-white"
-                        }`}
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <h3
-                      className={`text-lg font-semibold tracking-tight ${
-                        isDisabled ? "text-stone-400" : "text-stone-900"
-                      }`}
-                    >
-                      {track.name}
-                    </h3>
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        isDisabled ? "text-stone-400" : "text-stone-500"
-                      }`}
-                    >
-                      {track.description}
-                    </p>
-                  </div>
-                );
-
-                if (isDisabled) {
-                  return <div key={track.id}>{cardContent}</div>;
-                }
-
-                return (
-                  <Link
-                    key={track.id}
-                    href={track.href}
-                    className="no-underline"
-                  >
-                    {cardContent}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Simple Gospel Summary */}
-        <section className="px-4 py-24 sm:px-6 lg:px-8">
+        {/* Gospel Summary */}
+        <section className="border-t border-border bg-surface px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
-            <div className="text-center">
-              <h2 className="section-heading">The Gospel in Summary</h2>
-              <p className="section-subheading mx-auto">
-                The good news of what God has done for sinners through Jesus
-                Christ.
-              </p>
-            </div>
-            <ol className="mt-14 space-y-6">
-              {GOSPEL_POINTS.map((point, i) => {
-                const Icon = point.icon;
-                return (
-                  <li key={i} className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-stone-100">
-                      <Icon
-                        className="h-5 w-5 text-stone-700"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <p className="text-base font-medium leading-relaxed text-stone-800">
-                      {point.text}
-                    </p>
-                  </li>
-                );
-              })}
+            <h2 className="text-center text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+              The Gospel
+            </h2>
+            <ol className="mt-12 space-y-5">
+              {GOSPEL_POINTS.map((point, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-accent">
+                    {i + 1}
+                  </span>
+                  <p className="text-base leading-relaxed text-fg-secondary">
+                    {point}
+                  </p>
+                </li>
+              ))}
             </ol>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="border-t border-stone-100 bg-stone-900 px-4 py-24 sm:px-6 lg:px-8">
+        {/* Signing Tracks */}
+        <section className="px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-center text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+              Choose a signing track
+            </h2>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {SIGNING_TRACKS.slice(0, 3).map((track) => (
+                <TrackCard
+                  key={track.name}
+                  name={track.name}
+                  description={track.description}
+                  href={track.href}
+                  featured={track.featured}
+                />
+              ))}
+            </div>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              {SIGNING_TRACKS.slice(3).map((track) => (
+                <TrackCard
+                  key={track.name}
+                  name={track.name}
+                  description={track.description}
+                  href={track.href}
+                  featured={track.featured}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Lesson */}
+        {featuredLesson && (
+          <section className="border-t border-border bg-surface px-4 py-20 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-center text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+                Featured Lesson
+              </h2>
+              <div className="mt-12 overflow-hidden rounded-xl border border-border bg-white">
+                {/* Thumbnail */}
+                <div className="relative flex aspect-video items-center justify-center bg-fg/5">
+                  <Play className="h-14 w-14 text-fg-muted/40" />
+                </div>
+                <div className="p-6 sm:p-8">
+                  <span className="pill-track">Visual Vernacular</span>
+                  <h3 className="mt-3 text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+                    {featuredLesson.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-fg-secondary">
+                    {featuredLesson.summary}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Link
+                      href={`/lessons/${featuredLesson.slug}`}
+                      className="btn-accent"
+                    >
+                      <Play className="h-4 w-4" />
+                      Watch
+                    </Link>
+                    <Link
+                      href={`/lessons/${featuredLesson.slug}/print`}
+                      className="btn-secondary"
+                    >
+                      <Printer className="h-4 w-4" />
+                      Print Sheet
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Dark CTA */}
+        <section className="bg-fg px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               Begin watching now
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-stone-400">
-              Whether you are deaf, hearing, a church leader, or a missionary,
-              these resources are free and available for everyone.
+            <p className="mt-4 text-lg leading-relaxed text-white/60">
+              Free signed Gospel resources for Deaf communities, churches,
+              families, and missionaries.
             </p>
             <Link
               href="/watch"
-              className="mt-10 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-medium text-stone-900 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
+              className="mt-10 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-medium text-fg transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-fg"
             >
               <Play className="h-4 w-4" />
               Start Watching
-              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>

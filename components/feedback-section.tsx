@@ -26,13 +26,13 @@ export default function FeedbackSection() {
 
   if (submitted) {
     return (
-      <section className="border-t border-stone-200 bg-stone-50 px-4 py-16 sm:px-6 lg:px-8">
+      <section className="border-t border-border bg-surface px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-xl text-center">
           <CheckCircle className="mx-auto h-10 w-10 text-green-600" />
-          <h3 className="mt-4 text-xl font-semibold text-stone-900">
+          <h3 className="mt-4 text-xl font-semibold text-fg">
             Thank you for your feedback
           </h3>
-          <p className="mt-2 text-stone-500">
+          <p className="mt-2 text-fg-muted">
             Your input helps us improve this platform and serve communities
             better. May God bless you.
           </p>
@@ -53,17 +53,17 @@ export default function FeedbackSection() {
   }
 
   return (
-    <section className="border-t border-stone-200 bg-stone-50 px-4 py-16 sm:px-6 lg:px-8">
+    <section className="border-t border-border bg-surface px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-stone-200">
-            <MessageSquare className="h-5 w-5 text-stone-600" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-border">
+            <MessageSquare className="h-5 w-5 text-fg-secondary" />
           </div>
           <div>
-            <h3 className="text-xl font-semibold tracking-tight text-stone-900">
+            <h3 className="text-xl font-semibold tracking-tight text-fg">
               Share Your Feedback
             </h3>
-            <p className="text-sm text-stone-500">
+            <p className="text-sm text-fg-muted">
               Help us improve this resource for the global church.
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function FeedbackSection() {
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           <div>
-            <label className="mb-1.5 block text-sm font-medium text-stone-700">
+            <label className="mb-1.5 block text-sm font-medium text-fg-secondary">
               How would you rate this resource?
             </label>
             <div className="flex gap-1">
@@ -88,8 +88,8 @@ export default function FeedbackSection() {
                   <Star
                     className={`h-6 w-6 ${
                       star <= (hoverRating || rating)
-                        ? "fill-amber-400 text-amber-400"
-                        : "text-stone-300"
+                        ? "fill-accent text-accent"
+                        : "text-border-strong"
                     }`}
                   />
                 </button>
@@ -100,7 +100,7 @@ export default function FeedbackSection() {
           <div>
             <label
               htmlFor="feedback-type"
-              className="mb-1.5 block text-sm font-medium text-stone-700"
+              className="mb-1.5 block text-sm font-medium text-fg-secondary"
             >
               Feedback type
             </label>
@@ -108,7 +108,7 @@ export default function FeedbackSection() {
               id="feedback-type"
               value={type}
               onChange={(e) => setType(e.target.value)}
-              className="w-full rounded-lg border border-stone-200 bg-white px-4 py-3 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900"
+              className="input-field"
             >
               <option value="">Select a category</option>
               {FEEDBACK_TYPES.map((t) => (
@@ -122,7 +122,7 @@ export default function FeedbackSection() {
           <div>
             <label
               htmlFor="feedback-message"
-              className="mb-1.5 block text-sm font-medium text-stone-700"
+              className="mb-1.5 block text-sm font-medium text-fg-secondary"
             >
               Your feedback
             </label>
@@ -133,7 +133,7 @@ export default function FeedbackSection() {
               rows={4}
               required
               placeholder="Tell us what you think, suggest improvements, or report an issue..."
-              className="w-full resize-none rounded-lg border border-stone-200 bg-white px-4 py-3 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-900"
+              className="input-field resize-none"
             />
           </div>
 

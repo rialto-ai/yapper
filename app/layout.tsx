@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
-import { LocaleProvider } from "@/lib/locale-context";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,23 +8,17 @@ const inter = Inter({
   display: "swap",
 });
 
-const lora = Lora({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: {
-    default: "The Gospel in Sign",
-    template: "%s | The Gospel in Sign",
+    default: "Gospel in Sign | The Gospel of Jesus Christ in Sign Language",
+    template: "%s | Gospel in Sign",
   },
   description:
-    "The Gospel of Jesus Christ, taught clearly in sign language. A simple multilingual teaching platform for deaf communities, churches, families, and missionaries.",
+    "Simple signed Gospel lessons, Scripture videos, printable sheets, and teaching resources for Deaf communities, churches, families, and missionaries.",
   openGraph: {
-    title: "The Gospel in Sign",
+    title: "Gospel in Sign | The Gospel of Jesus Christ in Sign Language",
     description:
-      "The Gospel of Jesus Christ, taught clearly in sign language. A simple multilingual teaching platform for deaf communities, churches, families, and missionaries.",
+      "Simple signed Gospel lessons, Scripture videos, printable sheets, and teaching resources for Deaf communities, churches, families, and missionaries.",
     type: "website",
   },
 };
@@ -36,10 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
-      <body className="min-h-screen font-sans antialiased text-base leading-relaxed">
-        <LocaleProvider>{children}</LocaleProvider>
-      </body>
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen font-sans antialiased">{children}</body>
     </html>
   );
 }

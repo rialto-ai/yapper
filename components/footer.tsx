@@ -1,69 +1,52 @@
-"use client";
-
 import Link from "next/link";
-import { Cross } from "lucide-react";
-import { useLocale } from "@/lib/locale-context";
 
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/watch", label: "Watch" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+const FOOTER_LINKS = [
+  { label: "Watch", href: "/watch" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
-  const { t } = useLocale();
-  const year = new Date().getFullYear();
-
   return (
-    <footer
-      className="border-t border-stone-200 bg-stone-50"
-      role="contentinfo"
-    >
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <Cross className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
-              <span className="text-base font-semibold tracking-tight text-black">
-                The Gospel in Sign
-              </span>
-            </div>
-            <p className="max-w-xs text-sm leading-relaxed text-stone-500">
-              {t.common.tagline}
+    <footer className="bg-fg text-white">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          {/* Brand */}
+          <div className="max-w-sm">
+            <p className="text-lg font-semibold tracking-tight">Gospel in Sign</p>
+            <p className="mt-2 text-sm text-white/70">
+              The Gospel of Jesus Christ, taught clearly in sign language.
             </p>
           </div>
 
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-stone-500 transition-colors hover:text-black"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Links */}
+          <nav className="flex gap-6">
+            {FOOTER_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-white/70 transition-colors hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 
-        <div className="mt-10 border-t border-stone-200 pt-6">
-          <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between">
-            <p className="text-xs text-stone-400">
-              &copy; {year} The Gospel in Sign. All rights reserved.
-            </p>
-            <div className="flex flex-col items-center gap-1 sm:items-end">
-              <p className="text-xs font-medium text-stone-500">
-                Maintained by Rejoice Foundation
-              </p>
-              <p className="text-xs italic text-stone-400">
-                For the Glory of God through His Son, Jesus Christ
-              </p>
-            </div>
-          </div>
+        {/* Divider */}
+        <div className="mt-10 border-t border-white/15 pt-8">
+          <p className="text-sm text-white/70">
+            Maintained by Rejoice Foundation
+          </p>
+          <p className="mt-1 text-xs text-white/50">
+            Partner resources are displayed or linked with permission.
+          </p>
+          <p className="mt-4 text-sm italic text-white/60">
+            For the Glory of God through His Son, Jesus Christ
+          </p>
+          <p className="mt-4 text-xs text-white/40">
+            &copy; {new Date().getFullYear()} Gospel in Sign. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
