@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { AuthGate } from "@/components/auth-gate";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,13 +8,25 @@ const inter = Inter({
   display: "swap",
 });
 
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Selah by Christian Music Group",
-    template: "%s | Selah",
+    default: "The Gospel in Sign",
+    template: "%s | The Gospel in Sign",
   },
   description:
-    "Infrastructure for the Christian music economy. Distribution, rights, royalties, campaigns, publishing, and label services.",
+    "The Gospel of Jesus Christ, taught clearly in sign language. A simple multilingual teaching platform for deaf communities, churches, families, and missionaries.",
+  openGraph: {
+    title: "The Gospel in Sign",
+    description:
+      "The Gospel of Jesus Christ, taught clearly in sign language. A simple multilingual teaching platform for deaf communities, churches, families, and missionaries.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen font-sans antialiased text-[14px] leading-relaxed">
-        <AuthGate>{children}</AuthGate>
+    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
+      <body className="min-h-screen font-sans antialiased text-base leading-relaxed">
+        {children}
       </body>
     </html>
   );
