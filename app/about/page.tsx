@@ -5,15 +5,16 @@ import Footer from "@/components/footer";
 import FeedbackSection from "@/components/feedback-section";
 import { useLocale } from "@/lib/locale-context";
 
-const DOCTRINAL_STATEMENTS = [
-  "We believe the Bible is the inspired, inerrant, and sufficient Word of God.",
-  "We believe God is holy, righteous, sovereign, and merciful.",
-  "We believe all people have sinned and stand guilty before God.",
-  "We believe Jesus Christ is the eternal Son of God, fully God and fully man.",
-  "We believe Christ died as a substitute for sinners and rose bodily from the dead.",
-  "We believe sinners are saved by grace alone, through faith alone, in Christ alone.",
-  "We believe true faith is accompanied by repentance and a transformed life.",
-  "We believe the Gospel must be proclaimed to all nations and peoples.",
+const DOCTRINAL_POINTS = [
+  "God is holy.",
+  "All people have sinned.",
+  "Judgment is real.",
+  "Jesus Christ is fully God and fully man.",
+  "Christ died as a substitute for sinners.",
+  "Christ rose bodily from the dead.",
+  "Salvation is by grace alone through faith alone in Christ alone.",
+  "True faith includes repentance and a changed life.",
+  "The Gospel must be proclaimed to all nations and peoples.",
 ];
 
 export default function AboutPage() {
@@ -24,43 +25,57 @@ export default function AboutPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Title Section */}
+        {/* Title */}
         <section className="animate-fade-in px-4 pb-12 pt-24 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-              {t.about.title}
+              About The Gospel in Sign
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
-              {t.about.subtitle}
-            </p>
           </div>
         </section>
 
-        {/* Mission Section */}
+        {/* Mission */}
         <section className="border-t border-stone-100 bg-warm-50 px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="section-heading">Our Mission</h2>
             <p className="mt-6 text-lg leading-relaxed text-stone-700">
-              {t.about.mission}
+              Gospel in Sign exists to make the Gospel of Jesus Christ clear and
+              accessible through signed video, Scripture, written teaching, and
+              printable resources.
             </p>
           </div>
         </section>
 
-        {/* Doctrinal Statement Section */}
+        {/* Sign Language Note */}
         <section className="px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="section-heading">{t.about.doctrinalStatement.title}</h2>
+            <h2 className="section-heading">Sign Language</h2>
+            <p className="mt-6 text-lg leading-relaxed text-stone-700">
+              Sign languages are distinct languages with their own grammar,
+              culture, and context. International Sign can be useful in some
+              global settings, but it is not a universal replacement for local
+              sign languages. Our goal is to share faithful signed Gospel
+              resources in partnership with trusted ministries, Deaf Christians,
+              interpreters, and theological reviewers.
+            </p>
+          </div>
+        </section>
+
+        {/* Doctrinal Statement */}
+        <section className="border-t border-stone-100 bg-warm-50 px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="section-heading">What We Believe</h2>
             <p className="mt-3 text-lg text-stone-500">
               Our doctrinal convictions, rooted in Scripture.
             </p>
 
             <ol className="mt-10 space-y-6">
-              {t.about.doctrinalStatement.points.map((statement: string, index: number) => (
-                <li key={index} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stone-100 text-sm font-semibold text-stone-700">
+              {DOCTRINAL_POINTS.map((statement, index) => (
+                <li key={index} className="flex items-start gap-4">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-stone-900 text-sm font-semibold text-white">
                     {index + 1}
                   </span>
-                  <p className="pt-1 text-base leading-relaxed text-stone-700">
+                  <p className="pt-0.5 text-base leading-relaxed text-stone-700">
                     {statement}
                   </p>
                 </li>
@@ -69,21 +84,30 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Additional Section */}
-        <section className="border-t border-stone-100 bg-stone-50 px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="section-heading">Free for Everyone</h2>
+        {/* Partners */}
+        <section className="px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="section-heading">Partners</h2>
             <p className="mt-6 text-lg leading-relaxed text-stone-700">
-              This platform is built for the glory of God and offered freely. All
-              content is available for download, printing, and sharing. Churches,
-              missionaries, families, and individuals are encouraged to use these
-              materials to teach the Gospel.
+              We work in partnership with trusted ministries, Deaf Christians,
+              interpreters, and theological reviewers to share faithful signed
+              Gospel resources.
             </p>
           </div>
         </section>
+
+        {/* Bottom */}
+        <section className="border-t border-stone-100 bg-warm-50 px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-lg leading-relaxed text-stone-700">
+              All content is offered freely for the glory of God.
+            </p>
+          </div>
+        </section>
+
+        <FeedbackSection />
       </main>
 
-      <FeedbackSection />
       <Footer />
     </div>
   );

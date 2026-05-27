@@ -5,22 +5,15 @@ import { Cross } from "lucide-react";
 import { useLocale } from "@/lib/locale-context";
 
 const NAV_LINKS = [
-  { href: "/", key: "home" },
-  { href: "/learn", key: "learn" },
-  { href: "/sign-language", key: "signLanguage" },
-  { href: "/scripture", key: "scripture" },
-  { href: "/printable", key: "printable" },
-  { href: "/teach", key: "teach" },
-  { href: "/about", key: "about" },
-  { href: "/contact", key: "contact" },
+  { href: "/", label: "Home" },
+  { href: "/watch", label: "Watch" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
   const { t } = useLocale();
   const year = new Date().getFullYear();
-
-  const navLabel = (key: string) =>
-    (t.nav as Record<string, string>)[key] ?? key;
 
   return (
     <footer
@@ -49,7 +42,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm text-stone-500 transition-colors hover:text-black"
                   >
-                    {navLabel(link.key)}
+                    {link.label}
                   </Link>
                 </li>
               ))}

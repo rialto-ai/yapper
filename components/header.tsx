@@ -7,14 +7,10 @@ import { useLocale } from "@/lib/locale-context";
 import { LANGUAGES } from "@/lib/i18n";
 
 const NAV_LINKS = [
-  { href: "/", key: "home" },
-  { href: "/learn", key: "learn" },
-  { href: "/sign-language", key: "signLanguage" },
-  { href: "/scripture", key: "scripture" },
-  { href: "/printable", key: "printable" },
-  { href: "/teach", key: "teach" },
-  { href: "/about", key: "about" },
-  { href: "/contact", key: "contact" },
+  { href: "/", label: "Home" },
+  { href: "/watch", label: "Watch" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -23,8 +19,7 @@ export default function Header() {
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
-  const navLabel = (key: string) =>
-    (t.nav as Record<string, string>)[key] ?? key;
+  void t; // locale context available for future use
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -73,7 +68,7 @@ export default function Header() {
               href={link.href}
               className="rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-black"
             >
-              {navLabel(link.key)}
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -162,7 +157,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="block rounded-md px-3 py-2.5 text-base font-medium text-stone-700 transition-colors hover:bg-stone-100 hover:text-black"
               >
-                {navLabel(link.key)}
+                {link.label}
               </Link>
             ))}
           </div>
