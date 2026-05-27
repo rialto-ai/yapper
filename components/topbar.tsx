@@ -1,63 +1,33 @@
 "use client";
 
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
-import { UserMenu } from "./user-menu";
+import { Search, Plus } from "lucide-react";
 
-export type Crumb = { label: string; href?: string };
-
-export function TopBar({
-  title,
-  crumbs,
-}: {
-  title?: string;
-  crumbs?: Crumb[];
-}) {
+export function Topbar() {
   return (
-    <div className="border-b border-border bg-card">
-      <div className="flex items-center gap-3 px-4 sm:px-6 h-[56px]">
-        <div className="pl-10 lg:pl-0 flex-1 min-w-0">
-          {crumbs && crumbs.length > 0 ? (
-            <div className="flex items-center gap-1.5 text-[12.5px] text-muted">
-              {crumbs.map((c, i) => (
-                <div key={i} className="flex items-center gap-1.5">
-                  {i > 0 && (
-                    <ChevronRight className="size-3.5 text-subtle shrink-0" />
-                  )}
-                  {c.href ? (
-                    <Link
-                      href={c.href}
-                      className="hover:text-foreground transition-colors truncate"
-                    >
-                      {c.label}
-                    </Link>
-                  ) : (
-                    <span
-                      className={
-                        i === crumbs.length - 1
-                          ? "text-foreground font-medium truncate"
-                          : "truncate"
-                      }
-                    >
-                      {c.label}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : title ? (
-            <h1 className="text-[15px] font-semibold text-foreground truncate">
-              {title}
-            </h1>
-          ) : null}
-        </div>
-
-        <div className="flex items-center gap-2 shrink-0">
-          <ThemeToggle />
-          <UserMenu />
+    <header className="h-[56px] border-b border-border bg-white flex items-center justify-between px-6 sticky top-0 z-20">
+      <div className="flex items-center gap-3">
+        <div className="relative">
+          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+          <input
+            type="text"
+            placeholder="Search catalog, artists, releases..."
+            className="w-[320px] h-[34px] pl-9 pr-3 rounded-md border border-border bg-surface text-[13px] placeholder:text-muted focus:outline-none focus:border-border-strong"
+          />
         </div>
       </div>
-    </div>
+
+      <div className="flex items-center gap-3">
+        <span className="text-[11px] font-medium text-muted bg-surface px-2.5 py-1 rounded-full border border-border">
+          Demo Environment
+        </span>
+        <button className="btn-primary flex items-center gap-1.5 !py-[7px] !px-3 text-[13px]">
+          <Plus size={14} />
+          Create
+        </button>
+        <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center text-[11px] font-medium text-white">
+          CM
+        </div>
+      </div>
+    </header>
   );
 }

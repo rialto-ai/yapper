@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ClerkProviderWrapper } from "@/components/clerk-provider-wrapper";
+import { Inter } from "next/font/google";
+import { AuthGate } from "@/components/auth-gate";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,22 +9,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: {
-    default: "Paideia",
-    template: "%s · Paideia",
+    default: "Selah by Christian Music Group",
+    template: "%s | Selah",
   },
   description:
-    "Classical Christian education for the home. Video lessons, interactive quizzes, and catechism — built for Reformed homeschool families.",
-  icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-  },
+    "Infrastructure for the Christian music economy. Distribution, rights, royalties, campaigns, publishing, and label services.",
 };
 
 export default function RootLayout({
@@ -34,15 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${inter.variable} ${jetbrains.variable}`}
-    >
+    <html lang="en" className={inter.variable}>
       <body className="min-h-screen font-sans antialiased text-[14px] leading-relaxed">
-        <ThemeProvider>
-          <ClerkProviderWrapper>{children}</ClerkProviderWrapper>
-        </ThemeProvider>
+        <AuthGate>{children}</AuthGate>
       </body>
     </html>
   );
