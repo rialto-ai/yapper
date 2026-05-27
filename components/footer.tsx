@@ -11,15 +11,15 @@ export default function Footer() {
     <footer className="bg-fg text-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-          {/* Brand */}
           <div className="max-w-sm">
             <p className="text-lg font-semibold tracking-tight">Gospel in Sign</p>
             <p className="mt-2 text-sm text-white/70">
-              The Gospel of Jesus Christ, taught clearly in sign language.
+              Making the Gospel of Jesus Christ clear and accessible through
+              signed video, Scripture, written teaching, and printable
+              resources.
             </p>
           </div>
 
-          {/* Links */}
           <nav className="flex gap-6">
             {FOOTER_LINKS.map((link) => (
               <Link
@@ -33,19 +33,13 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Divider */}
         <div className="mt-10 border-t border-white/15 pt-8">
-          <p className="text-sm text-white/70">
-            Maintained by Rejoice Foundation
-          </p>
-          <p className="mt-1 text-xs text-white/50">
+          <p className="text-xs text-white/50">
             Partner resources are displayed or linked with permission.
           </p>
-          <p className="mt-4 text-sm italic text-white/60">
-            For the Glory of God through His Son, Jesus Christ
-          </p>
           <p className="mt-4 text-xs text-white/40">
-            &copy; {new Date().getFullYear()} Gospel in Sign. All rights reserved.
+            &copy; {new Date().getFullYear()} Gospel in Sign. All rights
+            reserved.
           </p>
         </div>
       </div>

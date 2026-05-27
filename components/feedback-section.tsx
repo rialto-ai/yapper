@@ -8,7 +8,6 @@ const FEEDBACK_TYPES = [
   "Content Suggestion",
   "Translation Correction",
   "Accessibility Issue",
-  "Prayer Request",
   "Other",
 ];
 

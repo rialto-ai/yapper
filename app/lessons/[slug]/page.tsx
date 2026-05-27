@@ -121,7 +121,7 @@ export default function LessonPage() {
                         {reference && (
                           <p className="font-medium text-fg">{reference}</p>
                         )}
-                        <p className="mt-1 italic text-fg-secondary">{verse}</p>
+                        <p className="mt-1 text-fg-secondary">{verse}</p>
                       </blockquote>
                     );
                   })}
@@ -164,19 +164,7 @@ export default function LessonPage() {
               </section>
             )}
 
-            {/* Section 5: Prayer */}
-            {lesson.prayerPrompt && (
-              <section>
-                <h2 className="text-xl font-semibold text-fg">Prayer</h2>
-                <div className="card mt-4 bg-surface">
-                  <p className="italic text-fg-secondary leading-relaxed">
-                    {lesson.prayerPrompt}
-                  </p>
-                </div>
-              </section>
-            )}
-
-            {/* Section 6: Transcript */}
+            {/* Transcript */}
             <section>
               <h2 className="text-xl font-semibold text-fg">Transcript</h2>
               {lesson.transcript && lesson.transcript.trim() !== "" ? (
@@ -184,7 +172,7 @@ export default function LessonPage() {
                   {lesson.transcript}
                 </p>
               ) : (
-                <p className="mt-4 italic text-fg-muted">
+                <p className="mt-4 text-fg-muted">
                   Transcript coming soon.
                 </p>
               )}

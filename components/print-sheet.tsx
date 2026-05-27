@@ -75,31 +75,6 @@ export default function PrintSheet({ lesson }: PrintSheetProps) {
         </section>
       )}
 
-      {/* Prayer Prompt */}
-      {lesson.prayerPrompt && (
-        <section>
-          <h2 className="text-lg font-semibold text-fg">Prayer</h2>
-          <p className="mt-2 text-sm italic leading-relaxed text-fg-secondary">
-            {lesson.prayerPrompt}
-          </p>
-        </section>
-      )}
-
-      {/* QR Code Placeholder */}
-      <section className="flex items-center gap-4">
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-lg border border-border bg-surface text-xs text-fg-muted">
-          QR
-        </div>
-        <div>
-          <p className="text-sm text-fg-secondary">
-            Scan to watch this lesson online
-          </p>
-          <p className="mt-0.5 text-xs text-fg-muted">
-            gospelinsign.org/lessons/{lesson.slug}
-          </p>
-        </div>
-      </section>
-
       {/* Source Note */}
       <section className="border-t border-border pt-4">
         <p className="text-xs text-fg-muted">
