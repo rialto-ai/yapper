@@ -8,8 +8,9 @@ export interface Lesson {
   sourceName: string;
   sourceType: string;
   sourceUrl: string;
+  alternativeSourceUrl: string;
   embedUrl: string;
-  videoUrl: string;
+  directVideoUrl: string;
   thumbnailUrl: string;
   permissionStatus: string;
   summary: string;
@@ -41,8 +42,9 @@ export const LESSONS: Lesson[] = [
     sourceType: "External partner resource",
     sourceUrl:
       "https://www.jesusfilm.org/watch/evangelism.html/rescue-project-gospel-in-visual-vernacular/portuguese-brazil.html",
+    alternativeSourceUrl: "https://renewoutreach.org/projects/the-rescue-project/",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -87,8 +89,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Deaf Bible ASLV",
     sourceType: "External partner resource",
     sourceUrl: "https://deafbible.com/ASLV/JHN.3.16",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -127,8 +130,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Deaf Bible ASLV",
     sourceType: "External partner resource",
     sourceUrl: "https://deafbible.com/ASLV/JHN.1.1",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -167,8 +171,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Deaf Bible ASLV",
     sourceType: "External partner resource",
     sourceUrl: "https://deafbible.com/ASLV/COL.1.15",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -207,8 +212,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Deaf Bible Learn",
     sourceType: "External partner resource",
     sourceUrl: "https://deaflearn.bible/videos",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -242,8 +248,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Auslan Bible / Bible Society Australia",
     sourceType: "External partner resource",
     sourceUrl: "https://auslan.bible/watch/romans-3-21-26",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -282,8 +289,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Auslan Bible / Bible Society Australia",
     sourceType: "External partner resource",
     sourceUrl: "https://auslan.bible/watch/romans-1-1-7",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -321,8 +329,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Auslan Bible / Bible Society Australia",
     sourceType: "External partner resource",
     sourceUrl: "https://auslan.bible/watch/1-corinthians-1-18-25",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -359,8 +368,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Auslan Bible / Bible Society Australia",
     sourceType: "External partner resource",
     sourceUrl: "https://auslan.bible/watch/1-corinthians-15-20-28",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:
@@ -399,8 +409,9 @@ export const LESSONS: Lesson[] = [
     sourceName: "Auslan Bible / Bible Society Australia",
     sourceType: "External partner resource",
     sourceUrl: "https://auslan.bible/watch/romans-8-9-11",
+    alternativeSourceUrl: "",
     embedUrl: "",
-    videoUrl: "",
+    directVideoUrl: "",
     thumbnailUrl: "",
     permissionStatus: "Used with permission",
     summary:

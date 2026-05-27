@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Play, Printer, Share2 } from "lucide-react";
+import { Play, Printer, Share2, ExternalLink } from "lucide-react";
 import type { Lesson } from "@/lib/lessons-data";
 
 interface LessonCardProps {
@@ -74,8 +74,19 @@ export default function LessonCard({ lesson }: LessonCardProps) {
             className="btn-accent px-3 py-1.5 text-xs"
           >
             <Play className="h-3.5 w-3.5" />
-            Watch
+            View Lesson
           </Link>
+          {lesson.sourceUrl && (
+            <a
+              href={lesson.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-accent px-3 py-1.5 text-xs"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              Open Video
+            </a>
+          )}
           <Link
             href={`/lessons/${lesson.slug}/print`}
             className="btn-ghost px-3 py-1.5 text-xs"

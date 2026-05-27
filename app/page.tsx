@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import FeedbackSection from "@/components/feedback-section";
 import TrackCard from "@/components/track-card";
 import { LESSONS } from "@/lib/lessons-data";
-import { Play, Printer, Share2 } from "lucide-react";
+import { Play, Printer, Share2, ExternalLink } from "lucide-react";
 
 const GOSPEL_POINTS = [
   "God is holy.",
@@ -219,8 +219,19 @@ export default function HomePage() {
                       className="btn-accent"
                     >
                       <Play className="h-4 w-4" />
-                      Watch
+                      View Lesson
                     </Link>
+                    {featuredLesson.sourceUrl && (
+                      <a
+                        href={featuredLesson.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Open Signed Video
+                      </a>
+                    )}
                     <Link
                       href={`/lessons/${featuredLesson.slug}/print`}
                       className="btn-secondary"
