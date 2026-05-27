@@ -1,211 +1,187 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowRight, Disc3, Scale, DollarSign, Megaphone, FileText, Youtube } from "lucide-react";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import {
+  Flame,
+  Heart,
+  Cross,
+  Sun,
+  RotateCcw,
+  Sparkles,
+  Video,
+  FileText,
+  Globe,
+  ArrowRight,
+} from "lucide-react";
 
-const features = [
-  { title: "Artists & Worship Teams", desc: "Release music, track performance, manage splits, and grow listener and church adoption." },
-  { title: "Labels & Managers", desc: "Coordinate rosters, releases, campaigns, rights, reporting, and partner communication." },
-  { title: "Publishers & Songwriters", desc: "Manage compositions, songwriter splits, publishing administration, licensing status, and royalty collection." },
-  { title: "Churches & Ministries", desc: "Organize worship catalogs, prepare releases, manage contributors, and support congregational adoption." },
+const GOSPEL_POINTS = [
+  {
+    icon: Flame,
+    title: "God Is Holy",
+    text: "God is holy. He is perfectly righteous, just, and pure. No sin can stand in His presence.",
+  },
+  {
+    icon: Heart,
+    title: "Man Has Sinned",
+    text: "Man has sinned. Every person has broken God’s law and stands guilty before Him.",
+  },
+  {
+    icon: Cross,
+    title: "Christ Died for Sinners",
+    text: "Christ died for sinners. Jesus Christ, the eternal Son of God, bore the wrath of God on the cross as a substitute for sinners.",
+  },
+  {
+    icon: RotateCcw,
+    title: "Christ Rose Again",
+    text: "Christ rose again. On the third day, God raised Jesus from the dead, conquering sin and death.",
+  },
+  {
+    icon: Sun,
+    title: "Repent and Believe",
+    text: "Repent and believe the Gospel. God commands all people everywhere to turn from sin and trust in Christ alone.",
+  },
+  {
+    icon: Sparkles,
+    title: "Grace Alone",
+    text: "Salvation is by grace alone, through faith alone, in Christ alone, to the glory of God alone.",
+  },
 ];
 
-const modules = [
-  { icon: Disc3, title: "Distribution", desc: "Global delivery to all major DSPs and Christian music channels." },
-  { icon: Scale, title: "Rights & Splits", desc: "Master, publishing, neighboring, and sync rights in one place." },
-  { icon: DollarSign, title: "Royalty Accounting", desc: "Transparent statements, payee management, and recoupment tracking." },
-  { icon: Megaphone, title: "Campaign Management", desc: "Playlist pitching, church outreach, radio, and content operations." },
-  { icon: FileText, title: "Publishing Administration", desc: "Composition registration, PRO management, and mechanical licensing." },
-  { icon: Youtube, title: "YouTube & Video Monetization", desc: "Content ID claiming, channel management, and revenue tracking." },
+const FEATURES = [
+  {
+    icon: Video,
+    title: "Sign Language Lessons",
+    text: "Video lessons in multiple sign languages, designed to teach the Gospel clearly and faithfully.",
+  },
+  {
+    icon: FileText,
+    title: "Printable Teaching Sheets",
+    text: "Download and print gospel teaching materials for use in classrooms, churches, and homes.",
+  },
+  {
+    icon: Globe,
+    title: "Multilingual",
+    text: "Available in multiple written languages so the Gospel can reach every community.",
+  },
 ];
 
-const metadata = [
-  "Scripture reference",
-  "Worship theme",
-  "Congregational suitability",
-  "Church licensing status",
-  "CCLI workflow",
-  "Chord chart availability",
-  "Worship leader engagement",
-  "Sunday setlist potential",
-  "Church adoption funnel",
-];
-
-export default function LandingPage() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Nav */}
-      <nav className="h-[64px] border-b border-border flex items-center justify-between px-8 sticky top-0 bg-white/95 backdrop-blur-sm z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center">
-            <span className="text-white text-sm font-bold">S</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[16px] font-semibold tracking-tight leading-none">Selah</span>
-            <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link href="/overview" className="btn-primary flex items-center gap-2">
-            Enter Demo
-            <ArrowRight size={14} />
-          </Link>
-        </div>
-      </nav>
+    <div className="flex min-h-screen flex-col bg-white">
+      <Header locale="en" translations={{}} />
 
-      {/* Hero */}
-      <section className="max-w-[900px] mx-auto px-8 pt-24 pb-20 text-center">
-        <h1 className="text-[48px] font-bold tracking-tight leading-[1.1] mb-6">
-          Infrastructure for the Christian music economy.
-        </h1>
-        <p className="text-[18px] text-subtle max-w-[680px] mx-auto mb-10 leading-relaxed">
-          Selah helps Christian artists, worship teams, labels, publishers, and rights holders distribute music, manage rights, track royalties, run campaigns, and grow church and listener adoption from one platform.
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          <Link href="/overview" className="btn-primary text-[15px] !px-7 !py-3 flex items-center gap-2">
-            Enter Demo
-            <ArrowRight size={16} />
-          </Link>
-          <Link href="/releases" className="btn-secondary text-[15px] !px-7 !py-3">
-            View Release Workflow
-          </Link>
-        </div>
-      </section>
-
-      {/* Dashboard Preview */}
-      <section className="max-w-[1000px] mx-auto px-8 pb-24">
-        <div className="card p-6 border-border-strong">
-          <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Release Pipeline</p>
-              <p className="text-[18px] font-semibold">24 Active</p>
-              <p className="text-[11px] text-muted mt-1">5 pending review</p>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Rights Approval</p>
-              <p className="text-[18px] font-semibold">7 Pending</p>
-              <p className="text-[11px] text-muted mt-1">2 high priority</p>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Royalty Summary</p>
-              <p className="text-[18px] font-semibold">A$82,400</p>
-              <p className="text-[11px] text-muted mt-1">Q2 2026 estimate</p>
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="animate-fade-in px-4 pb-20 pt-24 text-center sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl lg:text-6xl">
+              The Gospel of Jesus Christ, taught clearly in sign language.
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-500 sm:text-xl">
+              A simple multilingual teaching platform for deaf communities,
+              churches, families, and missionaries.
+            </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link href="/learn" className="btn-primary text-base">
+                Start Learning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/printable" className="btn-secondary text-base">
+                Download Teaching Sheets
+              </Link>
+              <Link href="/teach" className="btn-secondary text-base">
+                Share With Someone
+              </Link>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Campaign Timeline</p>
-              <div className="space-y-1.5 mt-2">
-                {["Strategy approved", "Assets locked", "DSP delivery"].map((t, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
-                    <span className="text-[11px]">{t}</span>
+        </section>
+
+        {/* Gospel Summary Section */}
+        <section className="border-t border-stone-100 bg-warm-50 px-4 py-24 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="text-center">
+              <h2 className="section-heading">The Gospel</h2>
+              <p className="section-subheading mx-auto">
+                The good news of what God has done for sinners through Jesus
+                Christ.
+              </p>
+            </div>
+            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {GOSPEL_POINTS.map((point) => (
+                <div key={point.title} className="card flex flex-col gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-stone-100">
+                    <point.icon
+                      className="h-5 w-5 text-stone-700"
+                      strokeWidth={1.5}
+                    />
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Streams (May)</p>
-              <p className="text-[18px] font-semibold">680K</p>
-              <p className="text-[11px] text-muted mt-1">+9.7% vs April</p>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Church Adoption</p>
-              <p className="text-[18px] font-semibold">78 / 100</p>
-              <p className="text-[11px] text-muted mt-1">Strong engagement</p>
+                  <h3 className="text-lg font-semibold tracking-tight text-stone-900">
+                    {point.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-stone-500">
+                    {point.text}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Built For */}
-      <section className="bg-surface py-24">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <h2 className="text-[32px] font-bold tracking-tight text-center mb-4">
-            Built for Christian music rights holders
-          </h2>
-          <p className="text-center text-subtle mb-12 max-w-[500px] mx-auto">
-            One platform for every participant in the Christian music value chain.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            {features.map((f) => (
-              <div key={f.title} className="card p-6">
-                <h3 className="text-[16px] font-semibold mb-2">{f.title}</h3>
-                <p className="text-[13px] text-subtle leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Modules */}
-      <section className="py-24">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <h2 className="text-[32px] font-bold tracking-tight text-center mb-4">
-            Platform modules
-          </h2>
-          <p className="text-center text-subtle mb-12 max-w-[500px] mx-auto">
-            Integrated tools covering the full lifecycle of Christian music operations.
-          </p>
-          <div className="grid grid-cols-3 gap-4">
-            {modules.map((m) => (
-              <div key={m.title} className="card p-6">
-                <m.icon size={20} className="text-foreground mb-3" strokeWidth={1.5} />
-                <h3 className="text-[15px] font-semibold mb-1.5">{m.title}</h3>
-                <p className="text-[13px] text-subtle leading-relaxed">{m.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Christian Metadata */}
-      <section className="bg-[#111111] text-white py-24">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <h2 className="text-[32px] font-bold tracking-tight text-center mb-4">
-            Christian-native metadata
-          </h2>
-          <p className="text-center text-[#999] mb-12 max-w-[520px] mx-auto">
-            Purpose-built fields that secular distribution platforms do not support.
-          </p>
-          <div className="grid grid-cols-3 gap-3">
-            {metadata.map((m) => (
-              <div key={m} className="bg-[#1A1A1A] border border-[#333] rounded-lg px-5 py-4">
-                <span className="text-[14px] text-[#ccc]">{m}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24">
-        <div className="max-w-[600px] mx-auto px-8 text-center">
-          <h2 className="text-[32px] font-bold tracking-tight mb-4">
-            A professional operating layer for Christian music.
-          </h2>
-          <p className="text-subtle mb-8">
-            Distribution, rights, royalties, campaigns, publishing, video monetization, and label services in one platform.
-          </p>
-          <Link href="/overview" className="btn-primary text-[15px] !px-8 !py-3 inline-flex items-center gap-2">
-            Launch Selah Demo
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-8 px-8">
-        <div className="max-w-[1000px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-foreground rounded flex items-center justify-center">
-              <span className="text-white text-[10px] font-bold">S</span>
+        {/* Features Section */}
+        <section className="px-4 py-24 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="text-center">
+              <h2 className="section-heading">How It Works</h2>
+              <p className="section-subheading mx-auto">
+                Tools and resources to make gospel teaching accessible to all.
+              </p>
             </div>
-            <span className="text-[13px] text-muted">Selah by Christian Music Group</span>
+            <div className="mt-16 grid gap-8 sm:grid-cols-3">
+              {FEATURES.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-stone-900">
+                    <feature.icon
+                      className="h-6 w-6 text-white"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold tracking-tight text-stone-900">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-stone-500">
+                    {feature.text}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-          <span className="text-[12px] text-muted">Prototype Demo</span>
-        </div>
-      </footer>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="border-t border-stone-100 bg-stone-900 px-4 py-24 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Begin Learning the Gospel Today
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-stone-400">
+              Whether you are deaf, hearing, a church leader, or a missionary,
+              these resources are free and available for everyone.
+            </p>
+            <Link
+              href="/learn"
+              className="mt-10 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-medium text-stone-900 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
+            >
+              Start Learning
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 }
