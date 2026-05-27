@@ -17,7 +17,6 @@ export interface Lesson {
   scriptureText: string[];
   teachingOutline: string[];
   discussionQuestions: string[];
-  prayerPrompt: string;
   transcript: string;
   printEnabled: boolean;
 }
@@ -73,8 +72,6 @@ export const LESSONS: Lesson[] = [
       "What did Jesus do on the cross?",
       "What does it mean to repent and believe?",
     ],
-    prayerPrompt:
-      "Ask God for mercy. Confess your sin. Look to Jesus Christ alone for salvation. Ask Him to give you true repentance and faith.",
     transcript:
       "This visual vernacular presentation tells the story of the Gospel from creation to the cross. God created the heavens and the earth. Everything He made was good. He created man and woman in His image. But man rebelled against God. Sin entered the world. All people have sinned. Sin separates us from God. The wages of sin is death. But God, in His mercy, sent His Son. Jesus Christ came into the world. He was born of a virgin. He lived without sin. He taught with authority. He healed the sick. He called sinners to repent. Then He went to the cross. He was beaten. He was crucified. He bore the wrath of God for sinners. He died. He was buried. On the third day, He rose again. Death could not hold Him. He is alive. And now God commands every person to repent and believe in Jesus Christ. Turn from your sin. Trust in Christ alone. He is the only way to be saved.",
     printEnabled: true,
@@ -115,8 +112,6 @@ export const LESSONS: Lesson[] = [
       "Why did God send His Son?",
       "What does it mean to believe in Christ?",
     ],
-    prayerPrompt:
-      "Ask God to give you new birth by His Spirit. Look to Jesus Christ alone for eternal life.",
     transcript: "",
     printEnabled: true,
   },
@@ -156,8 +151,6 @@ export const LESSONS: Lesson[] = [
       "Why must Jesus be more than a teacher?",
       "How does Jesus reveal God?",
     ],
-    prayerPrompt:
-      "Praise God for sending His eternal Son. Ask Him to reveal Christ to you through His Word.",
     transcript: "",
     printEnabled: true,
   },
@@ -197,49 +190,11 @@ export const LESSONS: Lesson[] = [
       "Why did Christ shed His blood?",
       "What does it mean for Christ to have first place?",
     ],
-    prayerPrompt:
-      "Ask God to show you the glory and supremacy of Jesus Christ. Trust in His blood for reconciliation with God.",
     transcript: "",
     printEnabled: true,
   },
   {
     lessonId: "5",
-    slug: "asl-deaf-bible-learn-library",
-    title: "ASL Bible Teaching Library",
-    track: "ASL",
-    topic: "Bible Teaching",
-    biblePassage: "Multiple",
-    sourceName: "Deaf Bible Learn",
-    sourceType: "External partner resource",
-    sourceUrl: "https://deaflearn.bible/videos",
-    alternativeSourceUrl: "",
-    embedUrl: "",
-    directVideoUrl: "",
-    thumbnailUrl: "",
-    permissionStatus: "Used with permission",
-    summary:
-      "This ASL video library contains Bible teaching resources, including Gospel-relevant lessons from Romans and other passages.",
-    scriptureText: [
-      "Romans 3:10-12 -- None is righteous, no, not one; no one understands; no one seeks for God.",
-      "Romans 10:14 -- How then will they call on him in whom they have not believed? And how are they to believe in him of whom they have never heard?",
-      "Romans 10:17 -- So faith comes from hearing, and hearing through the word of Christ.",
-    ],
-    teachingOutline: [
-      "Use this library to find ASL Bible teaching.",
-      "Prioritize Gospel passages such as Romans 3, Romans 10, John 3, Luke 24, and Colossians 1.",
-      "Use individual lessons for teaching, discussion, and Scripture study.",
-    ],
-    discussionQuestions: [
-      "Which passage explains the Gospel most clearly?",
-      "What does this passage teach about sin, Christ, faith, and salvation?",
-    ],
-    prayerPrompt:
-      "Ask God to use His Word to bring understanding, repentance, and faith.",
-    transcript: "",
-    printEnabled: false,
-  },
-  {
-    lessonId: "6",
     slug: "auslan-romans-3-atonement",
     title: "Christ Died for Sinners",
     track: "Auslan",
@@ -274,13 +229,11 @@ export const LESSONS: Lesson[] = [
       "What does redemption mean?",
       "How can God be both just and the justifier?",
     ],
-    prayerPrompt:
-      "Confess your sin before God. Trust in Jesus Christ, who died for sinners and provides righteousness by grace.",
     transcript: "",
     printEnabled: true,
   },
   {
-    lessonId: "7",
+    lessonId: "6",
     slug: "auslan-romans-1-gospel-son",
     title: "The Gospel Concerning His Son",
     track: "Auslan",
@@ -314,13 +267,11 @@ export const LESSONS: Lesson[] = [
       "What does the resurrection prove?",
       "What is the obedience of faith?",
     ],
-    prayerPrompt:
-      "Ask God to give you faith in Jesus Christ, the risen Son of God and Lord of all.",
     transcript: "",
     printEnabled: true,
   },
   {
-    lessonId: "8",
+    lessonId: "7",
     slug: "auslan-1-corinthians-1-cross",
     title: "The Message of the Cross",
     track: "Auslan",
@@ -353,13 +304,11 @@ export const LESSONS: Lesson[] = [
       "Why can human wisdom not save sinners?",
       "Why must we preach Christ crucified?",
     ],
-    prayerPrompt:
-      "Ask God to humble you before the cross of Jesus Christ. Trust not in yourself, but in Christ crucified.",
     transcript: "",
     printEnabled: true,
   },
   {
-    lessonId: "9",
+    lessonId: "8",
     slug: "auslan-1-corinthians-15-resurrection",
     title: "Christ Rose Again",
     track: "Auslan",
@@ -394,48 +343,6 @@ export const LESSONS: Lesson[] = [
       "How did death come through Adam?",
       "How does life come through Christ?",
     ],
-    prayerPrompt:
-      "Praise God that Jesus Christ is risen. Ask Him to give you resurrection life in Christ.",
-    transcript: "",
-    printEnabled: true,
-  },
-  {
-    lessonId: "10",
-    slug: "auslan-romans-8-spirit-life",
-    title: "The Spirit Gives Life",
-    track: "Auslan",
-    topic: "Regeneration / Resurrection / Life in Christ",
-    biblePassage: "Romans 8:9-11",
-    sourceName: "Auslan Bible / Bible Society Australia",
-    sourceType: "External partner resource",
-    sourceUrl: "https://auslan.bible/watch/romans-8-9-11",
-    alternativeSourceUrl: "",
-    embedUrl: "",
-    directVideoUrl: "",
-    thumbnailUrl: "",
-    permissionStatus: "Used with permission",
-    summary:
-      "Those who belong to Christ have the Spirit of God. The Spirit gives life now and will raise God's people from the dead. True salvation is not merely outward religion, but life by the Spirit.",
-    scriptureText: [
-      "Romans 8:9 -- You, however, are not in the flesh but in the Spirit, if in fact the Spirit of God dwells in you. Anyone who does not have the Spirit of Christ does not belong to him.",
-      "Romans 8:10 -- But if Christ is in you, although the body is dead because of sin, the Spirit is life because of righteousness.",
-      "Romans 8:11 -- If the Spirit of him who raised Jesus from the dead dwells in you, he who raised Christ Jesus from the dead will also give life to your mortal bodies through his Spirit who dwells in you.",
-    ],
-    teachingOutline: [
-      "Those who belong to Christ have the Spirit.",
-      "Without the Spirit, a person does not belong to Christ.",
-      "Christ gives life to His people.",
-      "The same God who raised Jesus will raise His people.",
-      "Salvation includes new life by the Spirit.",
-    ],
-    discussionQuestions: [
-      "What does it mean to belong to Christ?",
-      "Why do we need the Holy Spirit?",
-      "How does the Spirit give life?",
-      "What hope does the resurrection give?",
-    ],
-    prayerPrompt:
-      "Ask God to give you life by His Spirit. Trust in Christ and belong to Him.",
     transcript: "",
     printEnabled: true,
   },

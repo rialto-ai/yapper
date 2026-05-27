@@ -1,6 +1,6 @@
 "use client";
 
-const FILTERS = ["All", "Visual Vernacular", "International Sign", "ASL", "Auslan"];
+const FILTERS = ["All", "Visual Vernacular", "ASL", "Auslan"];
 
 interface FilterPillsProps {
   active: string;

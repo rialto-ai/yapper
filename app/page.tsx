@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import FeedbackSection from "@/components/feedback-section";
 import TrackCard from "@/components/track-card";
 import { LESSONS } from "@/lib/lessons-data";
-import { Play, Printer, Share2, ExternalLink } from "lucide-react";
+import { Play, Printer, ExternalLink } from "lucide-react";
 
 const GOSPEL_POINTS = [
   "God is holy.",
@@ -26,12 +25,6 @@ const SIGNING_TRACKS = [
       "A global Deaf storytelling format that can help communicate the Gospel visually across some language barriers.",
     href: "/watch?track=visual-vernacular",
     featured: true,
-  },
-  {
-    name: "International Sign",
-    description:
-      "A bridge signing track for some cross-cultural Deaf settings. It is not a universal replacement for local sign languages.",
-    href: "/watch?track=international-sign",
   },
   {
     name: "American Sign Language",
@@ -54,32 +47,7 @@ const SIGNING_TRACKS = [
 ];
 
 export default function HomePage() {
-  const [shareToast, setShareToast] = useState(false);
   const featuredLesson = LESSONS[0];
-
-  async function handleShare() {
-    const url = window.location.origin;
-    const title = "The Gospel in Sign";
-    const text =
-      "The Gospel of Jesus Christ, taught clearly in sign language.";
-
-    if (typeof navigator !== "undefined" && navigator.share) {
-      try {
-        await navigator.share({ title, text, url });
-        return;
-      } catch {
-        // User cancelled or share failed, fall through to clipboard
-      }
-    }
-
-    try {
-      await navigator.clipboard.writeText(url);
-      setShareToast(true);
-      setTimeout(() => setShareToast(false), 2500);
-    } catch {
-      // Clipboard not available
-    }
-  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -102,25 +70,15 @@ export default function HomePage() {
                 <Play className="h-4 w-4" />
                 Start Watching
               </Link>
-              <Link href="/watch" className="btn-secondary">
-                <Printer className="h-4 w-4" />
-                Print Teaching Sheets
-              </Link>
-              <div className="relative inline-block">
-                <button onClick={handleShare} className="btn-secondary">
-                  <Share2 className="h-4 w-4" />
-                  Share the Gospel
-                </button>
-                {shareToast && (
-                  <div
-                    role="status"
-                    aria-live="polite"
-                    className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-fg px-3 py-1.5 text-xs font-medium text-white shadow-lg"
-                  >
-                    Link copied to clipboard
-                  </div>
-                )}
-              </div>
+              <a
+                href="https://www.jesusfilm.org/watch/evangelism.html/rescue-project-gospel-in-visual-vernacular/portuguese-brazil.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Open Featured Video
+              </a>
             </div>
           </div>
         </section>
@@ -129,14 +87,14 @@ export default function HomePage() {
         <section className="mt-0 px-4 pb-12 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <p className="font-medium text-fg-secondary">
-              Signed Gospel lessons in Visual Vernacular, International Sign,
-              ASL, Auslan, and selected local sign languages.
+              Signed Gospel lessons in Visual Vernacular, ASL, Auslan, and
+              selected local sign languages.
             </p>
             <p className="mt-2 text-sm text-fg-muted">
-              Visual Vernacular and International Sign may help in some
-              cross-cultural Deaf contexts, but they are not replacements for
-              local sign languages. Sign languages are distinct languages with
-              their own grammar, culture, and context.
+              Visual Vernacular may help in some cross-cultural Deaf contexts,
+              but it is not a replacement for local sign languages. Sign
+              languages are distinct languages with their own grammar, culture,
+              and context.
             </p>
           </div>
         </section>
@@ -168,19 +126,8 @@ export default function HomePage() {
             <h2 className="text-center text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
               Choose a signing track
             </h2>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {SIGNING_TRACKS.slice(0, 3).map((track) => (
-                <TrackCard
-                  key={track.name}
-                  name={track.name}
-                  description={track.description}
-                  href={track.href}
-                  featured={track.featured}
-                />
-              ))}
-            </div>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2">
-              {SIGNING_TRACKS.slice(3).map((track) => (
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {SIGNING_TRACKS.map((track) => (
                 <TrackCard
                   key={track.name}
                   name={track.name}
