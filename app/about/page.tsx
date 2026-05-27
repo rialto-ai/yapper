@@ -1,5 +1,9 @@
+"use client";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import FeedbackSection from "@/components/feedback-section";
+import { useLocale } from "@/lib/locale-context";
 
 const DOCTRINAL_STATEMENTS = [
   "We believe the Bible is the inspired, inerrant, and sufficient Word of God.",
@@ -13,19 +17,21 @@ const DOCTRINAL_STATEMENTS = [
 ];
 
 export default function AboutPage() {
+  const { t } = useLocale();
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <Header locale="en" translations={{}} />
+      <Header />
 
       <main className="flex-1">
         {/* Title Section */}
         <section className="animate-fade-in px-4 pb-12 pt-24 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-              About The Gospel in Sign
+              {t.about.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
-              Teaching the Gospel of Jesus Christ to deaf communities worldwide.
+              {t.about.subtitle}
             </p>
           </div>
         </section>
@@ -35,14 +41,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl">
             <h2 className="section-heading">Our Mission</h2>
             <p className="mt-6 text-lg leading-relaxed text-stone-700">
-              The Gospel in Sign exists to proclaim the Gospel of Jesus Christ
-              clearly and faithfully to deaf and hard-of-hearing communities
-              around the world. We believe that every person, regardless of
-              language or ability, must hear the good news that God saves sinners
-              through the life, death, and resurrection of His Son. Our mission
-              is to provide free, accessible, biblically faithful Gospel teaching
-              through sign language video lessons, written materials, and
-              printable resources in multiple languages.
+              {t.about.mission}
             </p>
           </div>
         </section>
@@ -50,13 +49,13 @@ export default function AboutPage() {
         {/* Doctrinal Statement Section */}
         <section className="px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="section-heading">What We Believe</h2>
+            <h2 className="section-heading">{t.about.doctrinalStatement.title}</h2>
             <p className="mt-3 text-lg text-stone-500">
               Our doctrinal convictions, rooted in Scripture.
             </p>
 
             <ol className="mt-10 space-y-6">
-              {DOCTRINAL_STATEMENTS.map((statement, index) => (
+              {t.about.doctrinalStatement.points.map((statement: string, index: number) => (
                 <li key={index} className="flex gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stone-100 text-sm font-semibold text-stone-700">
                     {index + 1}
@@ -84,6 +83,7 @@ export default function AboutPage() {
         </section>
       </main>
 
+      <FeedbackSection />
       <Footer />
     </div>
   );

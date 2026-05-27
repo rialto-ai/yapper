@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import FeedbackSection from "@/components/feedback-section";
 import ScriptureCard from "@/components/scripture-card";
 import VideoPlaceholder from "@/components/video-placeholder";
 import ShareButton from "@/components/share-button";
+import { useLocale } from "@/lib/locale-context";
 import {
   Flame,
   Heart,
@@ -24,111 +26,35 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
-/*  Lesson data                                                       */
+/*  Lesson keys & icons                                               */
 /* ------------------------------------------------------------------ */
 
-interface Lesson {
-  number: number;
-  title: string;
-  icon: LucideIcon;
-  explanation: string;
-  verse: string;
-  reference: string;
-  reflection: string;
-}
+const LESSON_KEYS = [
+  "godIsHoly",
+  "manIsSinful",
+  "judgmentIsReal",
+  "christIsGodAndMan",
+  "christDiedForSinners",
+  "christRose",
+  "repentAndBelieve",
+] as const;
 
-const LESSONS: Lesson[] = [
-  {
-    number: 1,
-    title: "God is Holy",
-    icon: Flame,
-    explanation:
-      "God is infinitely holy, righteous, and just. He is the Creator of all things and the sovereign ruler of the universe. His holiness is not merely that He is separate from sin, but that He is the standard of all that is good, true, and right. No impurity can exist in His presence.",
-    verse:
-      "Holy, holy, holy is the Lord of hosts; the whole earth is full of his glory!",
-    reference: "Isaiah 6:3",
-    reflection:
-      "Do you understand that God is perfectly holy and that His holiness demands perfect righteousness from all people?",
-  },
-  {
-    number: 2,
-    title: "Man is Sinful",
-    icon: Heart,
-    explanation:
-      "Every human being has sinned against God. We have not merely made mistakes; we have willfully rebelled against our Creator. Our sin is not measured by human standards but by God’s perfect law. In thought, word, and deed, every person stands guilty before the holy God.",
-    verse:
-      "For all have sinned and fall short of the glory of God.",
-    reference: "Romans 3:23",
-    reflection:
-      "Have you recognized that you are a sinner who has broken God’s law and stands guilty before Him?",
-  },
-  {
-    number: 3,
-    title: "Judgment is Real",
-    icon: Scale,
-    explanation:
-      "Because God is just, He cannot overlook sin. Every sin will be judged. The wages of sin is death, both physical and spiritual, an eternal separation from God. No person can earn their way to God or pay for their own sin. Apart from Christ, every person faces the righteous judgment of God.",
-    verse:
-      "It is appointed for man to die once, and after that comes judgment.",
-    reference: "Hebrews 9:27",
-    reflection:
-      "Do you understand that God’s justice requires the punishment of sin, and that no person can save themselves?",
-  },
-  {
-    number: 4,
-    title: "Christ is Fully God and Fully Man",
-    icon: Crown,
-    explanation:
-      "Jesus Christ is the eternal Son of God who took on human flesh. He is not a created being; He is God Himself, the second person of the Trinity. He was born of the virgin Mary, lived a perfectly sinless life, and perfectly fulfilled the law of God on behalf of sinners.",
-    verse:
-      "In the beginning was the Word, and the Word was with God, and the Word was God… And the Word became flesh and dwelt among us.",
-    reference: "John 1:1, 14",
-    reflection:
-      "Do you believe that Jesus Christ is truly God and truly man, the only one qualified to save sinners?",
-  },
-  {
-    number: 5,
-    title: "Christ Died for Sinners",
-    icon: Cross,
-    explanation:
-      "On the cross, Jesus Christ bore the full wrath of God against sin. He did not die as a mere example or martyr. He died as a substitute, taking the punishment that sinners deserve. His death satisfied the justice of God and provided the only way of salvation for all who believe.",
-    verse:
-      "But God shows his love for us in that while we were still sinners, Christ died for us.",
-    reference: "Romans 5:8",
-    reflection:
-      "Do you understand that Christ’s death on the cross was a substitutionary sacrifice for sinners?",
-  },
-  {
-    number: 6,
-    title: "Christ Rose from the Dead",
-    icon: Sun,
-    explanation:
-      "On the third day, God raised Jesus Christ bodily from the dead. The resurrection is not a metaphor; it is a historical event that proves Christ’s victory over sin, death, and the grave. Because He lives, all who trust in Him will also be raised to eternal life.",
-    verse:
-      "He was buried… he was raised on the third day in accordance with the Scriptures.",
-    reference: "1 Corinthians 15:4",
-    reflection:
-      "Do you believe that Jesus Christ physically rose from the dead and that He is alive today?",
-  },
-  {
-    number: 7,
-    title: "Repent and Believe",
-    icon: RotateCcw,
-    explanation:
-      "God commands all people everywhere to repent of their sins and place their faith in Jesus Christ alone for salvation. Repentance is a turning from sin. Faith is a turning to Christ. This is not mere intellectual agreement but a wholehearted trust in the person and work of Jesus Christ as Lord and Savior.",
-    verse:
-      "The time is fulfilled, and the kingdom of God is at hand; repent and believe in the gospel.",
-    reference: "Mark 1:15",
-    reflection:
-      "Will you turn from your sin and trust in Jesus Christ alone for the forgiveness of your sins and eternal life?",
-  },
-];
+const LESSON_ICONS: Record<(typeof LESSON_KEYS)[number], LucideIcon> = {
+  godIsHoly: Flame,
+  manIsSinful: Heart,
+  judgmentIsReal: Scale,
+  christIsGodAndMan: Crown,
+  christDiedForSinners: Cross,
+  christRose: Sun,
+  repentAndBelieve: RotateCcw,
+};
 
 /* ------------------------------------------------------------------ */
 /*  Page component                                                    */
 /* ------------------------------------------------------------------ */
 
 export default function LearnPage() {
+  const { t } = useLocale();
   const [expandedLesson, setExpandedLesson] = useState<number | null>(1);
   const [completedLessons, setCompletedLessons] = useState<Set<number>>(
     () => new Set(),
@@ -154,7 +80,7 @@ export default function LearnPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <Header locale="en" translations={{}} />
+      <Header />
 
       <main className="flex-1">
         {/* Page Title Section */}
@@ -164,11 +90,10 @@ export default function LearnPage() {
               <BookOpen className="h-6 w-6 text-white" strokeWidth={1.5} />
             </div>
             <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-              Learn the Gospel
+              {t.learn.title}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-500 sm:text-xl">
-              A clear, biblical pathway through the Gospel of Jesus Christ in
-              seven lessons.
+              {t.learn.subtitle}
             </p>
           </div>
         </section>
@@ -178,14 +103,16 @@ export default function LearnPage() {
           <div className="mx-auto max-w-3xl">
             {/* Timeline */}
             <div className="relative">
-              {LESSONS.map((lesson, index) => {
-                const isExpanded = expandedLesson === lesson.number;
-                const isCompleted = completedLessons.has(lesson.number);
-                const isLast = index === LESSONS.length - 1;
-                const Icon = lesson.icon;
+              {LESSON_KEYS.map((key, index) => {
+                const lessonNumber = index + 1;
+                const lesson = t.learn.lessons[key];
+                const isExpanded = expandedLesson === lessonNumber;
+                const isCompleted = completedLessons.has(lessonNumber);
+                const isLast = index === LESSON_KEYS.length - 1;
+                const Icon = LESSON_ICONS[key];
 
                 return (
-                  <div key={lesson.number} className="relative pb-12 last:pb-0">
+                  <div key={lessonNumber} className="relative pb-12 last:pb-0">
                     {/* Vertical connector line */}
                     {!isLast && (
                       <div
@@ -196,10 +123,10 @@ export default function LearnPage() {
 
                     {/* Lesson header (always visible) */}
                     <button
-                      onClick={() => toggleExpand(lesson.number)}
+                      onClick={() => toggleExpand(lessonNumber)}
                       className="group flex w-full items-center gap-4 text-left"
                       aria-expanded={isExpanded}
-                      aria-controls={`lesson-${lesson.number}-content`}
+                      aria-controls={`lesson-${lessonNumber}-content`}
                     >
                       {/* Number badge */}
                       <span
@@ -214,7 +141,7 @@ export default function LearnPage() {
                         {isCompleted ? (
                           <Check className="h-4 w-4" strokeWidth={2.5} />
                         ) : (
-                          lesson.number
+                          lessonNumber
                         )}
                       </span>
 
@@ -247,7 +174,7 @@ export default function LearnPage() {
                     {/* Expanded content */}
                     {isExpanded && (
                       <div
-                        id={`lesson-${lesson.number}-content`}
+                        id={`lesson-${lessonNumber}-content`}
                         className="animate-fade-in ml-14 mt-6 space-y-6"
                       >
                         {/* Explanation */}
@@ -258,12 +185,12 @@ export default function LearnPage() {
                         {/* Scripture card */}
                         <ScriptureCard
                           verse={lesson.verse}
-                          reference={lesson.reference}
+                          reference={lesson.verseRef}
                         />
 
                         {/* Video placeholder */}
                         <VideoPlaceholder
-                          title={`Lesson ${lesson.number}: ${lesson.title}`}
+                          title={`Lesson ${lessonNumber}: ${lesson.title}`}
                           duration="5-8 min"
                           language="ASL"
                         />
@@ -282,7 +209,7 @@ export default function LearnPage() {
                         <div className="flex flex-wrap items-center gap-3 border-t border-stone-100 pt-5">
                           {/* Mark as completed */}
                           <button
-                            onClick={() => toggleComplete(lesson.number)}
+                            onClick={() => toggleComplete(lessonNumber)}
                             className={`inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
                               isCompleted
                                 ? "border-stone-400 bg-stone-100 text-stone-800"
@@ -303,23 +230,23 @@ export default function LearnPage() {
                             </span>
                             {isCompleted
                               ? "Completed"
-                              : "Mark as Completed"}
+                              : t.learn.markComplete}
                           </button>
 
                           {/* Download this lesson */}
                           <button className="btn-ghost">
                             <Download className="h-4 w-4" />
-                            Download this Lesson
+                            {t.learn.downloadLesson}
                           </button>
 
                           {/* Share this lesson */}
                           <ShareButton
-                            title={`Lesson ${lesson.number}: ${lesson.title}`}
+                            title={`Lesson ${lessonNumber}: ${lesson.title}`}
                             text={lesson.explanation}
                             url={
                               typeof window !== "undefined"
-                                ? `${window.location.origin}/learn#lesson-${lesson.number}`
-                                : `/learn#lesson-${lesson.number}`
+                                ? `${window.location.origin}/learn#lesson-${lessonNumber}`
+                                : `/learn#lesson-${lessonNumber}`
                             }
                           />
                         </div>
@@ -350,8 +277,8 @@ export default function LearnPage() {
               </button>
 
               <ShareButton
-                title="Learn the Gospel"
-                text="A clear, biblical pathway through the Gospel of Jesus Christ in seven lessons."
+                title={t.learn.title}
+                text={t.learn.subtitle}
                 url={
                   typeof window !== "undefined"
                     ? `${window.location.origin}/learn`
@@ -368,6 +295,7 @@ export default function LearnPage() {
         </section>
       </main>
 
+      <FeedbackSection />
       <Footer />
     </div>
   );

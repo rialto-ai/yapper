@@ -2,55 +2,29 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Menu, X, Globe, ChevronDown, Cross } from "lucide-react";
-
-interface HeaderProps {
-  locale: string;
-  translations: Record<string, string>;
-}
+import { useLocale } from "@/lib/locale-context";
+import { LANGUAGES } from "@/lib/i18n";
 
 const NAV_LINKS = [
-  { href: "/", labelKey: "home" },
-  { href: "/learn", labelKey: "learn" },
-  { href: "/sign-language", labelKey: "signLanguage" },
-  { href: "/scripture", labelKey: "scripture" },
-  { href: "/printable", labelKey: "printable" },
-  { href: "/teach", labelKey: "teach" },
-  { href: "/about", labelKey: "about" },
-  { href: "/contact", labelKey: "contact" },
+  { href: "/", key: "home" },
+  { href: "/learn", key: "learn" },
+  { href: "/sign-language", key: "signLanguage" },
+  { href: "/scripture", key: "scripture" },
+  { href: "/printable", key: "printable" },
+  { href: "/teach", key: "teach" },
+  { href: "/about", key: "about" },
+  { href: "/contact", key: "contact" },
 ];
 
-const LANGUAGES = [
-  { code: "en", label: "English" },
-  { code: "es", label: "Espanol" },
-  { code: "fr", label: "Francais" },
-  { code: "pt", label: "Portugues" },
-  { code: "ar", label: "العربية" },
-  { code: "zh", label: "中文" },
-  { code: "hi", label: "हिन्दी" },
-  { code: "id", label: "Bahasa Indonesia" },
-  { code: "tl", label: "Tagalog" },
-];
-
-const DEFAULT_LABELS: Record<string, string> = {
-  home: "Home",
-  learn: "Learn",
-  signLanguage: "Sign Language",
-  scripture: "Scripture",
-  printable: "Printable",
-  teach: "Teach",
-  about: "About",
-  contact: "Contact",
-};
-
-export default function Header({ locale, translations }: HeaderProps) {
-  const router = useRouter();
+export default function Header() {
+  const { locale, setLocale, t } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
-  const t = (key: string) => translations?.[key] || DEFAULT_LABELS[key] || key;
+  const navLabel = (key: string) =>
+    (t.nav as Record<string, string>)[key] ?? key;
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -63,25 +37,14 @@ export default function Header({ locale, translations }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
-  function handleLanguageChange(code: string) {
-    setLangOpen(false);
-    document.cookie = `locale=${code};path=/;max-age=31536000`;
-    const url = new URL(window.location.href);
-    url.searchParams.set("locale", code);
-    router.push(url.pathname + url.search);
-  }
-
-  const currentLang = LANGUAGES.find((l) => l.code === locale) || LANGUAGES[0];
+  const currentLang =
+    LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   return (
     <header
@@ -89,7 +52,6 @@ export default function Header({ locale, translations }: HeaderProps) {
       role="banner"
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2 text-black no-underline"
@@ -101,7 +63,6 @@ export default function Header({ locale, translations }: HeaderProps) {
           </span>
         </Link>
 
-        {/* Desktop navigation */}
         <nav
           className="hidden items-center gap-1 lg:flex"
           aria-label="Main navigation"
@@ -112,14 +73,12 @@ export default function Header({ locale, translations }: HeaderProps) {
               href={link.href}
               className="rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-black"
             >
-              {t(link.labelKey)}
+              {navLabel(link.key)}
             </Link>
           ))}
         </nav>
 
-        {/* Right side: language selector + mobile menu */}
         <div className="flex items-center gap-2">
-          {/* Language selector */}
           <div className="relative" ref={langRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
@@ -129,7 +88,9 @@ export default function Header({ locale, translations }: HeaderProps) {
               aria-label="Select language"
             >
               <Globe className="h-4 w-4" />
-              <span className="hidden sm:inline">{currentLang.label}</span>
+              <span className="hidden sm:inline">
+                {currentLang.nativeName}
+              </span>
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform ${langOpen ? "rotate-180" : ""}`}
               />
@@ -139,19 +100,29 @@ export default function Header({ locale, translations }: HeaderProps) {
               <ul
                 role="listbox"
                 aria-label="Language options"
-                className="absolute right-0 mt-1 w-44 rounded-lg border border-stone-200 bg-white py-1 shadow-lg"
+                className="absolute right-0 mt-1 w-48 rounded-lg border border-stone-200 bg-white py-1 shadow-lg"
               >
                 {LANGUAGES.map((lang) => (
-                  <li key={lang.code} role="option" aria-selected={lang.code === locale}>
+                  <li
+                    key={lang.code}
+                    role="option"
+                    aria-selected={lang.code === locale}
+                  >
                     <button
-                      onClick={() => handleLanguageChange(lang.code)}
-                      className={`flex w-full items-center px-4 py-2 text-left text-sm transition-colors hover:bg-stone-50 ${
+                      onClick={() => {
+                        setLocale(lang.code);
+                        setLangOpen(false);
+                      }}
+                      className={`flex w-full items-center justify-between px-4 py-2 text-left text-sm transition-colors hover:bg-stone-50 ${
                         lang.code === locale
                           ? "font-medium text-black"
                           : "text-stone-600"
                       }`}
                     >
-                      {lang.label}
+                      <span>{lang.nativeName}</span>
+                      <span className="text-xs text-stone-400">
+                        {lang.name}
+                      </span>
                     </button>
                   </li>
                 ))}
@@ -159,11 +130,12 @@ export default function Header({ locale, translations }: HeaderProps) {
             )}
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="inline-flex items-center justify-center rounded-md p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-black lg:hidden"
-            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              mobileOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
           >
@@ -176,7 +148,6 @@ export default function Header({ locale, translations }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile navigation */}
       {mobileOpen && (
         <nav
           id="mobile-nav"
@@ -191,7 +162,7 @@ export default function Header({ locale, translations }: HeaderProps) {
                 onClick={() => setMobileOpen(false)}
                 className="block rounded-md px-3 py-2.5 text-base font-medium text-stone-700 transition-colors hover:bg-stone-100 hover:text-black"
               >
-                {t(link.labelKey)}
+                {navLabel(link.key)}
               </Link>
             ))}
           </div>

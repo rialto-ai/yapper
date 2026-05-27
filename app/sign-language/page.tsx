@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { useLocale } from "@/lib/locale-context";
 import VideoPlaceholder from "@/components/video-placeholder";
 import {
   SIGN_LANGUAGES,
@@ -28,6 +29,7 @@ function getSignLanguageName(code: string): string {
 }
 
 export default function SignLanguagePage() {
+  const { t } = useLocale();
   const [languageFilter, setLanguageFilter] = useState("all");
   const [topicFilter, setTopicFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
@@ -43,17 +45,17 @@ export default function SignLanguagePage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <Header locale="en" translations={{}} />
+      <Header />
 
       <main className="flex-1">
         {/* Title Section */}
         <section className="animate-fade-in px-4 pb-12 pt-24 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-              Sign Language Lessons
+              {t.signLanguage.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
-              Learn the Gospel through video lessons in multiple sign languages.
+              {t.signLanguage.subtitle}
             </p>
           </div>
         </section>

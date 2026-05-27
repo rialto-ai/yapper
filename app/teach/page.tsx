@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { useLocale } from "@/lib/locale-context";
 import {
   Presentation,
   ChevronLeft,
@@ -114,6 +115,7 @@ const TEACHING_RESOURCES = [
 ];
 
 export default function TeachPage() {
+  const { t } = useLocale();
   const [teachingMode, setTeachingMode] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [expanded, setExpanded] = useState(false);
@@ -136,7 +138,7 @@ export default function TeachPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <Header locale="en" translations={{}} />
+      <Header />
 
       <main className="flex-1">
         {/* Teaching Mode */}
@@ -278,10 +280,10 @@ export default function TeachPage() {
             <section className="animate-fade-in px-4 pb-12 pt-24 text-center sm:px-6 lg:px-8">
               <div className="mx-auto max-w-3xl">
                 <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-                  Teach Others
+                  {t.teach.title}
                 </h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
-                  Use these tools to teach the Gospel clearly to others.
+                  {t.teach.subtitle}
                 </p>
               </div>
             </section>

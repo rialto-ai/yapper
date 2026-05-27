@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import FeedbackSection from "@/components/feedback-section";
+import { useLocale } from "@/lib/locale-context";
 import { Send, Mail, MessageSquare, CheckCircle } from "lucide-react";
 
 const SUBJECT_OPTIONS = [
@@ -15,6 +17,7 @@ const SUBJECT_OPTIONS = [
 ];
 
 export default function ContactPage() {
+  const { t } = useLocale();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -28,18 +31,17 @@ export default function ContactPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <Header locale="en" translations={{}} />
+      <Header />
 
       <main className="flex-1">
         {/* Title Section */}
         <section className="animate-fade-in px-4 pb-12 pt-24 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-              Contact Us
+              {t.contact.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-stone-500">
-              Get in touch with questions, prayer requests, or to request
-              resources in your language.
+              {t.contact.subtitle}
             </p>
           </div>
         </section>
@@ -97,7 +99,7 @@ export default function ContactPage() {
                       htmlFor="name"
                       className="block text-sm font-medium text-stone-700"
                     >
-                      Name
+                      {t.contact.name}
                     </label>
                     <input
                       type="text"
@@ -117,7 +119,7 @@ export default function ContactPage() {
                       htmlFor="email"
                       className="block text-sm font-medium text-stone-700"
                     >
-                      Email
+                      {t.contact.email}
                     </label>
                     <input
                       type="email"
@@ -164,7 +166,7 @@ export default function ContactPage() {
                       htmlFor="message"
                       className="block text-sm font-medium text-stone-700"
                     >
-                      Message
+                      {t.contact.message}
                     </label>
                     <textarea
                       id="message"
@@ -183,7 +185,7 @@ export default function ContactPage() {
                 <div className="mt-8">
                   <button type="submit" className="btn-primary w-full text-base">
                     <Send className="h-4 w-4" />
-                    Send Message
+                    {t.contact.send}
                   </button>
                 </div>
               </form>
@@ -235,6 +237,7 @@ export default function ContactPage() {
         </section>
       </main>
 
+      <FeedbackSection />
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
+import { LocaleProvider } from "@/lib/locale-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable}`}>
       <body className="min-h-screen font-sans antialiased text-base leading-relaxed">
-        {children}
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );
