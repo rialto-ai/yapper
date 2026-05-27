@@ -36,12 +36,12 @@ export default function SourceVideoCard({
           className="btn-accent mt-6 px-5 py-2.5 text-sm"
         >
           <ExternalLink className="h-4 w-4" />
-          Open Video
+          Open Signed Video
         </a>
       ) : (
         <button disabled className="btn-accent mt-6 cursor-not-allowed px-5 py-2.5 text-sm opacity-50">
           <ExternalLink className="h-4 w-4" />
-          Open Video
+          Open Signed Video
         </button>
       )}
     </div>

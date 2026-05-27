@@ -65,7 +65,7 @@ export default function LessonActions({ slug, sourceUrl }: LessonActionsProps) {
           className="btn-ghost px-4 py-2 text-sm"
         >
           <ExternalLink className="h-4 w-4" />
-          Open Source
+          Open Signed Video
         </a>
       )}
     </div>
