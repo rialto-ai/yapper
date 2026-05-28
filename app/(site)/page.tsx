@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
+import { PhotoPlaceholder } from "@/components/photo-placeholder";
 import { site } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TopReleases />
+      <ComingReleases />
       <Divisions />
       <ClosingCTA />
     </>
@@ -16,26 +17,37 @@ export default function HomePage() {
 function Hero() {
   return (
     <section className="border-b border-border">
-      <Container className="py-24 md:py-36">
-        <div className="max-w-3xl">
-          <div className="eyebrow">{site.short} · Sydney, Australia</div>
-          <h1 className="mt-5 text-5xl font-medium tracking-tight md:text-7xl">
-            Christian Music Group
-          </h1>
-          <p className="mt-6 text-2xl text-subtle md:text-3xl">
-            {site.tagline}
-          </p>
-          <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-subtle">
-            An Australian-based, full-service Christian label and publisher —
-            partnering with artists to carry the hope of Jesus through music.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/roster" className="btn-primary">
-              Explore the roster
-            </Link>
-            <Link href="/distribution" className="btn-secondary">
-              Christian Music Distribution
-            </Link>
+      <Container className="py-20 md:py-32">
+        <div className="grid items-center gap-12 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <div className="eyebrow">
+              {site.short} · Sydney, Australia · Now launching
+            </div>
+            <h1 className="mt-5 text-5xl font-medium tracking-tight md:text-7xl">
+              Christian Music Group
+            </h1>
+            <p className="mt-6 text-2xl text-subtle md:text-3xl">
+              {site.tagline}
+            </p>
+            <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-subtle">
+              An Australian-based, full-service Christian label and publisher —
+              partnering with artists to carry the hope of Jesus through music.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link href="/about" className="btn-primary">
+                About CMG
+              </Link>
+              <Link href="/distribution" className="btn-secondary">
+                Christian Music Distribution
+              </Link>
+            </div>
+          </div>
+          <div className="md:col-span-5">
+            <PhotoPlaceholder
+              label="Hero image"
+              aspect="aspect-[4/5]"
+              className="w-full"
+            />
           </div>
         </div>
       </Container>
@@ -43,48 +55,45 @@ function Hero() {
   );
 }
 
-function TopReleases() {
-  const releases = [
-    { n: "01", title: "Release Title", artist: "Artist Name" },
-    { n: "02", title: "Release Title", artist: "Artist Name" },
-    { n: "03", title: "Release Title", artist: "Artist Name" },
-  ];
+function ComingReleases() {
   return (
     <section>
       <Container className="py-20 md:py-28">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <div className="eyebrow">Now Playing</div>
+            <div className="eyebrow">First releases</div>
             <h2 className="mt-3 text-3xl font-medium tracking-tight md:text-4xl">
-              Top New Releases
+              New music — launching soon.
             </h2>
+            <p className="mt-4 max-w-xl text-[15.5px] leading-relaxed text-subtle">
+              Our first wave of releases is on the way. Sign up for press
+              announcements or get in touch about joining the roster.
+            </p>
           </div>
           <Link
-            href="/roster"
-            className="hidden text-[13.5px] text-subtle hover:text-foreground md:inline"
+            href="/contact"
+            className="text-[13.5px] text-subtle hover:text-foreground"
           >
-            View roster →
+            Get in touch →
           </Link>
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {releases.map((r) => (
+          {["01", "02", "03"].map((n) => (
             <article
-              key={r.n}
-              className="group relative overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-border-strong"
+              key={n}
+              className="overflow-hidden rounded-xl border border-border bg-card"
             >
-              <div className="aspect-square bg-surface-2" aria-hidden="true">
-                <div className="flex h-full items-center justify-center text-[11px] uppercase tracking-[0.16em] text-muted">
-                  Artwork
-                </div>
-              </div>
+              <PhotoPlaceholder label="Cover art" aspect="aspect-square" />
               <div className="flex items-start justify-between gap-4 p-5">
                 <div>
-                  <div className="text-[13px] text-muted">{r.artist}</div>
-                  <div className="mt-1 text-[15px] font-medium">{r.title}</div>
+                  <div className="text-[13px] text-muted">TBA</div>
+                  <div className="mt-1 text-[15px] font-medium">
+                    Announcing soon
+                  </div>
                 </div>
                 <div className="text-[12px] tracking-widest text-muted">
-                  {r.n}
+                  {n}
                 </div>
               </div>
             </article>

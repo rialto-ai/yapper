@@ -6,8 +6,13 @@ export const site = {
     "Christian Music Group is an Australian-based, full-service Christian label and publisher partnering with artists to carry the hope of Jesus through music.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://christianmusicgroup.com.au",
-  email: "hello@christianmusicgroup.com.au",
+    "https://www.christianmusicgrp.com",
+  email: "cameron@christianmusicgrp.com",
+  legal: {
+    entity: "Christian Music Group Pty Ltd",
+    acn: "697 934 946",
+    websiteLabel: "www.christianmusicgrp.com",
+  },
   address: {
     line1: "Level 1, 60 Martin Place",
     locality: "Sydney",

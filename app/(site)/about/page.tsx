@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
+import { PhotoPlaceholder } from "@/components/photo-placeholder";
 
 export const metadata: Metadata = {
   title: "About",
@@ -44,6 +45,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <FounderSection />
+
       <section className="border-t border-border bg-surface">
         <Container className="py-20 md:py-28">
           <div className="grid gap-5 md:grid-cols-2">
@@ -80,5 +83,51 @@ export default function AboutPage() {
         </Container>
       </section>
     </>
+  );
+}
+
+function FounderSection() {
+  return (
+    <section className="border-t border-border">
+      <Container className="py-20 md:py-28">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
+            <PhotoPlaceholder
+              label="Founder portrait"
+              aspect="aspect-[4/5]"
+            />
+          </div>
+          <div className="md:col-span-7">
+            <div className="eyebrow">Founder</div>
+            <h2 className="mt-3 text-3xl font-medium tracking-tight md:text-4xl">
+              Cameron
+            </h2>
+            <div className="mt-2 text-[14.5px] text-muted">
+              Founder &amp; Chief Executive — Christian Music Group
+            </div>
+            <div className="prose-body mt-8 max-w-xl text-[16px]">
+              <p>
+                Cameron founded Christian Music Group to partner with artists
+                carrying the hope of Jesus through their music — building a
+                full-service label and publisher purpose-built for the Christian
+                music economy.
+              </p>
+              <p className="italic text-muted">
+                [Full founder bio to be added — replace this paragraph with
+                Cameron's background, calling, and vision for CMG.]
+              </p>
+            </div>
+            <div className="mt-8">
+              <a
+                href="mailto:cameron@christianmusicgrp.com"
+                className="text-[13.5px] text-foreground hover:underline"
+              >
+                cameron@christianmusicgrp.com →
+              </a>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }

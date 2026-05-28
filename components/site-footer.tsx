@@ -56,11 +56,20 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-border py-6 text-[12.5px] text-muted md:flex-row md:items-center md:justify-between">
-          <div>
-            © {year} {site.name}. All rights reserved.
+        <div className="flex flex-col gap-3 border-t border-border py-6 text-[12.5px] text-muted md:flex-row md:items-start md:justify-between">
+          <div className="space-y-0.5">
+            <div>© {year} {site.legal.entity}. All rights reserved.</div>
+            <div>ACN {site.legal.acn}</div>
+            <div>
+              <a
+                href={`https://${site.legal.websiteLabel}`}
+                className="hover:text-foreground"
+              >
+                {site.legal.websiteLabel}
+              </a>
+            </div>
           </div>
-          <div className="text-muted">{site.tagline}</div>
+          <div className="md:text-right">{site.tagline}</div>
         </div>
       </Container>
     </footer>

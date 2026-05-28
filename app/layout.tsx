@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
 import { OrganizationJsonLd } from "@/components/organization-jsonld";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -62,11 +60,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main" className="min-h-[60vh]">
-          {children}
-        </main>
-        <SiteFooter />
+        {children}
         <OrganizationJsonLd />
       </body>
     </html>
