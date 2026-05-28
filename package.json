@@ -1,5 +1,5 @@
 {
-  "name": "gospel-in-sign",
+  "name": "christian-music-group",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6",
+    "recharts": "^2.13.3",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {

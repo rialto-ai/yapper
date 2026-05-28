@@ -3,78 +3,96 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
-    background: #FAFAF7;
-    color: #111111;
+  :root {
+    --background: 252 251 248;
+    --surface: 245 243 238;
+    --surface-2: 236 233 226;
+    --foreground: 17 17 17;
+    --muted: 120 116 110;
+    --subtle: 75 72 68;
+    --border: 226 222 214;
+    --border-strong: 200 195 185;
+    --card: 255 255 255;
+    --card-foreground: 17 17 17;
+    --accent: 17 17 17;
+    --accent-hover: 38 38 38;
+    --accent-foreground: 252 251 248;
+    --positive: 34 100 34;
+    --negative: 160 40 40;
+    --warning: 160 120 20;
+    --chart-1: 17 17 17;
+    --chart-2: 75 72 68;
+    --chart-3: 140 134 124;
+    --chart-4: 200 195 185;
+    --chart-5: 226 222 214;
+    color-scheme: light;
   }
 
-  ::selection {
-    background: rgba(184, 135, 70, 0.15);
+  html, body {
+    background: rgb(var(--background));
+    color: rgb(var(--foreground));
+  }
+
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-fg px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#2A2A2A] focus:outline-none focus:ring-2 focus:ring-fg focus:ring-offset-2 focus:ring-offset-bg;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgb(var(--foreground));
+    color: rgb(var(--background));
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 12px 22px;
+    font-size: 14px;
+    transition: opacity 150ms ease, transform 150ms ease;
   }
+  .btn-primary:hover { opacity: 0.9; }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-border-strong bg-white px-6 py-3 text-sm font-medium text-fg transition-colors hover:bg-surface focus:outline-none focus:ring-2 focus:ring-fg/40 focus:ring-offset-2 focus:ring-offset-bg;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: rgb(var(--foreground));
+    border: 1px solid rgb(var(--border-strong));
+    background: transparent;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 150ms ease, background 150ms ease;
+  }
+  .btn-secondary:hover {
+    background: rgb(var(--surface));
   }
 
-  .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg;
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: rgb(var(--muted));
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-fg-secondary transition-colors hover:bg-surface hover:text-fg focus:outline-none focus:ring-2 focus:ring-fg/40 focus:ring-offset-2;
+  .prose-body p {
+    color: rgb(var(--subtle));
+    line-height: 1.7;
   }
-
-  .card {
-    @apply rounded-xl border border-border bg-white p-6;
-  }
-
-  .pill {
-    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
-  }
-
-  .pill-track {
-    @apply pill bg-accent/10 text-accent;
-  }
-
-  .pill-topic {
-    @apply pill bg-surface text-fg-secondary;
-  }
-
-  .input-field {
-    @apply w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-fg placeholder:text-fg-muted focus:border-fg focus:outline-none focus:ring-2 focus:ring-fg/20;
-  }
-}
-
-@media print {
-  header, footer, nav, .no-print {
-    display: none !important;
-  }
-
-  body {
-    font-size: 12pt;
-    line-height: 1.6;
-    color: black;
-    background: white;
-  }
-
-  .card {
-    border: 1px solid #ccc;
-    break-inside: avoid;
-    page-break-inside: avoid;
+  .prose-body p + p {
+    margin-top: 1.1em;
   }
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fade-in 350ms ease-out;
+::selection {
+  background: rgba(17, 17, 17, 0.12);
 }
