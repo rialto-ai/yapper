@@ -6,27 +6,32 @@
   :root {
     /* Neutrals */
     --background: 255 255 255;
-    --surface: 250 250 251;
+    --surface: 249 250 251;
     --surface-2: 243 244 246;
-    --foreground: 17 24 39;
-    --muted: 107 114 128;
-    --subtle: 75 85 99;
-    --border: 229 231 235;
-    --border-strong: 209 213 219;
+    --foreground: 15 23 42;
+    --muted: 100 116 139;
+    --subtle: 71 85 105;
+    --border: 226 232 240;
+    --border-strong: 203 213 225;
     --card: 255 255 255;
-    --card-foreground: 17 24 39;
+    --card-foreground: 15 23 42;
 
-    /* Primary brand: deep indigo */
-    --accent: 67 56 202;
-    --accent-hover: 55 48 163;
-    --accent-soft: 238 242 255;
+    /* Primary brand: deep blue */
+    --accent: 30 64 175;
+    --accent-hover: 30 58 138;
+    --accent-soft: 219 234 254;
     --accent-foreground: 255 255 255;
 
-    /* Secondary brand: warm amber/gold */
-    --secondary: 217 119 6;
-    --secondary-hover: 180 83 9;
-    --secondary-soft: 254 243 199;
+    /* Secondary brand: emerald */
+    --secondary: 16 185 129;
+    --secondary-hover: 5 150 105;
+    --secondary-soft: 209 250 229;
     --secondary-foreground: 255 255 255;
+
+    /* Gradient endpoints for logo and accents */
+    --grad-start: 15 23 42;
+    --grad-mid: 30 64 175;
+    --grad-end: 16 185 129;
 
     /* Semantic */
     --positive: 5 150 105;
@@ -36,12 +41,12 @@
     --negative: 220 38 38;
     --negative-soft: 254 226 226;
 
-    /* Chart palette - blended */
-    --chart-1: 67 56 202;
-    --chart-2: 217 119 6;
-    --chart-3: 99 102 241;
-    --chart-4: 5 150 105;
-    --chart-5: 165 180 252;
+    /* Chart palette */
+    --chart-1: 30 64 175;
+    --chart-2: 16 185 129;
+    --chart-3: 14 165 233;
+    --chart-4: 99 102 241;
+    --chart-5: 148 163 184;
 
     color-scheme: light;
   }
@@ -68,20 +73,20 @@
   }
   .card-interactive:hover {
     border-color: rgb(var(--border-strong));
-    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06), 0 4px 12px rgba(17, 24, 39, 0.04);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.04);
   }
 
   .btn-primary {
-    background: rgb(var(--accent));
+    background: linear-gradient(135deg, rgb(var(--accent)) 0%, rgb(var(--accent-hover)) 100%);
     color: rgb(var(--accent-foreground));
     border-radius: 8px;
     font-weight: 500;
     padding: 10px 20px;
     font-size: 14px;
-    transition: background 150ms ease, transform 80ms ease;
+    transition: filter 150ms ease, transform 80ms ease;
   }
   .btn-primary:hover {
-    background: rgb(var(--accent-hover));
+    filter: brightness(1.05);
   }
   .btn-primary:active {
     transform: translateY(1px);
@@ -117,10 +122,30 @@
     color: rgb(var(--secondary));
     font-weight: 600;
   }
+
+  .brand-gradient {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--grad-start)) 0%,
+      rgb(var(--grad-mid)) 55%,
+      rgb(var(--grad-end)) 100%
+    );
+  }
+
+  .brand-gradient-text {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--grad-mid)) 0%,
+      rgb(var(--secondary)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 ::selection {
-  background: rgba(67, 56, 202, 0.18);
+  background: rgba(30, 64, 175, 0.18);
 }
 
 @keyframes fade-in {
@@ -137,9 +162,4 @@
 }
 .animate-fade-in-up {
   animation: fade-in-up 500ms ease-out;
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
 }

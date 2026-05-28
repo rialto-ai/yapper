@@ -18,6 +18,7 @@ import {
   Globe,
   Settings,
 } from "lucide-react";
+import { LogoMark } from "./logo";
 
 const nav = [
   { label: "Overview", href: "/overview", icon: LayoutDashboard },
@@ -43,9 +44,7 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 bottom-0 w-[240px] border-r border-border bg-white flex flex-col z-30">
       <div className="h-[56px] flex items-center px-5 border-b border-border">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-gradient-to-br from-accent to-accent-hover rounded-md flex items-center justify-center shadow-sm">
-            <span className="text-white text-xs font-bold">S</span>
-          </div>
+          <LogoMark size={28} />
           <div className="flex flex-col">
             <span className="text-[15px] font-semibold tracking-tight leading-none">Selah</span>
             <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>

@@ -266,7 +266,7 @@ export default function PressPage() {
                     Selah, the Christian music distribution platform built by Christian Music Group Distribution, Inc., today announced an A$18 million Series A round led by Square Peg Capital, with participation from existing investors Blackbird and Skip Capital.
                   </p>
                   <p>
-                    The capital will accelerate expansion of the Christian channel network — Selah&apos;s purpose-built integration layer connecting artists to CCLI SongSelect, PraiseCharts, Multitracks, and worship-leader platforms — alongside continued scaling of the Singapore and Mumbai offices to serve South-East and South Asian Christian music markets.
+                    The capital will accelerate expansion of the Christian channel network - Selah&apos;s purpose-built integration layer connecting artists to CCLI SongSelect, PraiseCharts, Multitracks, and worship-leader platforms - alongside continued scaling of the Singapore and Mumbai offices to serve South-East and South Asian Christian music markets.
                   </p>
                   <p>
                     A portion of the round will go toward building out Selah&apos;s Sync representation team, with hires planned across Sydney, Singapore, and Los Angeles to pursue film, television, and faith-based media placements for the Selah catalog.
@@ -424,7 +424,7 @@ export default function PressPage() {
             </div>
             <h2 className="text-[34px] font-bold tracking-tight mb-3">Brand assets.</h2>
             <p className="text-[#94A3B8] max-w-[560px] mx-auto text-[15px]">
-              Logos, brand guidelines, headshots, and product imagery — everything you need to write about Selah.
+              Logos, brand guidelines, headshots, and product imagery - everything you need to write about Selah.
             </p>
           </div>
 
@@ -551,7 +551,7 @@ export default function PressPage() {
                   Get press releases in your inbox.
                 </h2>
                 <p className="text-[14.5px] text-subtle leading-relaxed max-w-[460px]">
-                  Subscribe to the Selah press list for new announcements, leadership commentary, and embargo access — sent only when there&apos;s news.
+                  Subscribe to the Selah press list for new announcements, leadership commentary, and embargo access - sent only when there&apos;s news.
                 </p>
               </div>
               <form className="md:col-span-5 flex flex-col sm:flex-row gap-2.5">

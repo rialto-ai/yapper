@@ -11,7 +11,6 @@ import {
   Youtube,
   Church,
   Disc3,
-  Code2,
   ChevronRight,
   Search,
   Sparkles,
@@ -44,11 +43,11 @@ const sections = [
     ],
   },
   {
-    label: "Other",
+    label: "Services",
     items: [
       { id: "youtube", title: "YouTube monetization", icon: Youtube },
-      { id: "publishing", title: "Publishing administration", icon: FileText },
-      { id: "api", title: "API reference", icon: Code2 },
+      { id: "publishing", title: "Publishing partnerships", icon: FileText },
+      { id: "label-services", title: "Label Services", icon: Sparkles },
     ],
   },
 ];
@@ -60,21 +59,23 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
     body: (
       <>
         <p>
-          Selah is the infrastructure layer for Christian music distribution, rights, royalties, campaigns, publishing, and YouTube monetization. This documentation covers everything you need to onboard your catalog, configure rights, launch releases, and grow audience inside the church.
+          Selah is a digital music distribution platform purpose-built for Christian music. Founded in 2026 and headquartered in Sydney, we deliver music and video globally to every major DSP, the Christian channel network, and partner with publishers and rights organizations on behalf of our artists, labels, worship teams, and ministries.
         </p>
-        <h3>What you can do with Selah</h3>
+        <h3>What Selah does</h3>
         <ul>
-          <li>Distribute music globally to every major DSP and Christian-native channel</li>
-          <li>Manage master, publishing, and neighboring rights with full participant splits</li>
-          <li>Generate transparent royalty statements and pay collaborators in 28+ currencies</li>
-          <li>Run release campaigns including playlist pitching, church outreach, and Christian radio</li>
-          <li>Administer publishing including PRO registration, mechanical licensing, and sync</li>
-          <li>Track and monetize video assets via YouTube Content ID</li>
+          <li>Delivers Christian music and video globally to 150+ DSPs across 84 territories</li>
+          <li>Connects to the Christian channel network: CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship leader platforms</li>
+          <li>Provides marketing, promotion, accounting, and analytics tools alongside distribution</li>
+          <li>Partners with publishers and aggregates royalty collection across 60+ PROs, MROs, and CCLI</li>
+          <li>Manages royalty splits, multi-currency payouts, and transparent statements</li>
+          <li>Tracks Church Adoption with our proprietary scoring across the church market</li>
         </ul>
+        <h3>What Selah is not</h3>
+        <p>Selah is not your publisher. We partner with publishers and aggregate global publishing administration on their behalf. Your existing publishing relationships continue.</p>
         <h3>Service tiers</h3>
-        <p>Selah is available across six tiers, from self-service distribution through enterprise white-label partner portals. Contact our team for tier details and onboarding.</p>
+        <p>Selah is available across self-service, managed, label services, publishing partnerships, YouTube services, and enterprise / partner portal tiers. Contact our team for tier details and onboarding.</p>
         <h3>Next steps</h3>
-        <p>If you&apos;re new, start with the <a href="#quickstart">Quickstart</a> guide. If you&apos;re evaluating, the <a href="#concepts">Core concepts</a> page explains how Selah models the Christian music value chain.</p>
+        <p>If you&apos;re new, start with the <a href="#quickstart">Quickstart</a> guide. If you&apos;re evaluating, the <a href="#concepts">Core concepts</a> page explains how Selah models the Christian music distribution value chain.</p>
       </>
     ),
   },
@@ -104,7 +105,7 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
       <>
         <p>Selah models the Christian music value chain across six layers. Understanding these layers will help you choose the right service tier and configure your account.</p>
         <h3>Roster</h3>
-        <p>Every entity Selah serves — artists, worship teams, labels, publishers, churches, managers, producers, and songwriters. Each entity has a service tier and an account manager.</p>
+        <p>Every entity Selah serves - artists, worship teams, labels, publishers, churches, managers, producers, and songwriters. Each entity has a service tier and an account manager.</p>
         <h3>Catalog</h3>
         <p>The full corpus of tracks, releases, compositions, videos, and assets you control or administer. Catalog items are the atomic unit Selah operates on.</p>
         <h3>Rights</h3>
@@ -112,7 +113,7 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
         <h3>Royalty</h3>
         <p>Revenue flowing in from DSPs, YouTube, neighboring rights societies, mechanical licensing, sync deals, and church licensing. Allocated to participants via configured splits.</p>
         <h3>Campaign</h3>
-        <p>The marketing activity around a release — playlist pitching, church outreach, YouTube strategy, content production, Christian radio, and PR.</p>
+        <p>The marketing activity around a release - playlist pitching, church outreach, YouTube strategy, content production, Christian radio, and PR.</p>
         <h3>Partner</h3>
         <p>Labels, publishers, distributors, church networks, and management companies that use Selah&apos;s white-label partner portal to manage their own rosters.</p>
       </>
@@ -196,10 +197,10 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
         <p>Selah adds purpose-built metadata fields that secular distribution platforms do not support. These fields drive the Church Adoption Funnel and Christian-native discoverability.</p>
         <h3>Required fields</h3>
         <ul>
-          <li><strong>Scripture reference</strong> — primary biblical anchor for the song</li>
-          <li><strong>Primary theme</strong> — Praise, Worship, Prayer, Salvation, Resurrection, Lament, Communion, Christmas, Easter, Mission, Revival, Discipleship, Scripture meditation, Baptism, Surrender, Hope, Grace, Redemption</li>
-          <li><strong>Worship suitability</strong> — High, Medium, or Low based on congregational singability</li>
-          <li><strong>CCLI status</strong> — Listed, Pending, or Not Listed</li>
+          <li><strong>Scripture reference</strong> - primary biblical anchor for the song</li>
+          <li><strong>Primary theme</strong> - Praise, Worship, Prayer, Salvation, Resurrection, Lament, Communion, Christmas, Easter, Mission, Revival, Discipleship, Scripture meditation, Baptism, Surrender, Hope, Grace, Redemption</li>
+          <li><strong>Worship suitability</strong> - High, Medium, or Low based on congregational singability</li>
+          <li><strong>CCLI status</strong> - Listed, Pending, or Not Listed</li>
         </ul>
         <h3>Optional but recommended</h3>
         <ul>
@@ -237,13 +238,13 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
         <p>The Church Adoption Score is a proprietary 100-point metric that quantifies how well a song is performing inside the church market. It complements DSP streaming metrics, which under-represent congregational usage.</p>
         <h3>Components</h3>
         <ul>
-          <li><strong>Congregational suitability</strong> — singability, tempo, key, structure</li>
-          <li><strong>Lyric clarity</strong> — theological clarity and singability of lyrics</li>
-          <li><strong>Theological alignment</strong> — alignment with mainstream Reformed, evangelical, charismatic positions</li>
-          <li><strong>Worship leader engagement</strong> — saves, downloads, and shares by worship leaders</li>
-          <li><strong>Chord chart availability</strong> — presence and quality of supporting resources</li>
-          <li><strong>Church network traction</strong> — adoption across CMG&apos;s church network</li>
-          <li><strong>Repeat usage signal</strong> — reported recurring Sunday usage</li>
+          <li><strong>Congregational suitability</strong> - singability, tempo, key, structure</li>
+          <li><strong>Lyric clarity</strong> - theological clarity and singability of lyrics</li>
+          <li><strong>Theological alignment</strong> - alignment with mainstream Reformed, evangelical, charismatic positions</li>
+          <li><strong>Worship leader engagement</strong> - saves, downloads, and shares by worship leaders</li>
+          <li><strong>Chord chart availability</strong> - presence and quality of supporting resources</li>
+          <li><strong>Church network traction</strong> - adoption across CMG&apos;s church network</li>
+          <li><strong>Repeat usage signal</strong> - reported recurring Sunday usage</li>
         </ul>
         <h3>How it&apos;s used</h3>
         <p>The score informs campaign strategy, helps prioritize church outreach, and surfaces songs with high congregational potential that may be under-promoted to worship leaders.</p>
@@ -280,27 +281,27 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
       </>
     ),
   },
-  api: {
-    eyebrow: "Developer",
-    title: "API reference",
+  "label-services": {
+    eyebrow: "Service",
+    title: "Label Services",
     body: (
       <>
-        <p>Selah&apos;s REST API exposes catalog, rights, royalty, and campaign data programmatically. Useful for partner integrations, internal reporting, and white-label portal customization.</p>
-        <h3>Authentication</h3>
-        <p>API key authentication. Generate keys via Settings → API. Scope keys to specific modules (Catalog read-only, Royalty full access, etc.).</p>
-        <h3>Endpoints</h3>
+        <p>Label Services is Selah&apos;s managed-distribution tier for selected Christian artists, labels, ministries, and rights holders. Includes everything in Self-Service plus a dedicated account manager and hands-on campaign work.</p>
+        <h3>What&apos;s included</h3>
         <ul>
-          <li><code>GET /v1/catalog/tracks</code> — list tracks</li>
-          <li><code>GET /v1/catalog/releases/:id</code> — fetch release</li>
-          <li><code>POST /v1/releases</code> — create new release</li>
-          <li><code>GET /v1/rights/splits/:track_id</code> — fetch splits</li>
-          <li><code>GET /v1/royalties/statements</code> — list statements</li>
-          <li><code>GET /v1/campaigns/:id</code> — fetch campaign</li>
+          <li>Dedicated account manager and campaign team</li>
+          <li>Release strategy and A&amp;R consultation</li>
+          <li>Playlist pitching across editorial Christian and worship playlists</li>
+          <li>Church outreach to 8,200+ worship leaders</li>
+          <li>Christian radio servicing across 12 markets</li>
+          <li>YouTube channel optimization and short-form strategy</li>
+          <li>Marketing campaign management and recoupment</li>
+          <li>Publishing administration aggregation</li>
+          <li>Sync representation</li>
+          <li>Brand and ministry partnership development</li>
         </ul>
-        <h3>Rate limits</h3>
-        <p>1,000 requests per minute per API key for standard tier; 10,000 per minute for Enterprise.</p>
-        <h3>Webhooks</h3>
-        <p>Subscribe to events: <code>release.delivered</code>, <code>rights.confirmed</code>, <code>royalty.statement.generated</code>, <code>campaign.milestone.reached</code>, <code>youtube.claim.created</code>.</p>
+        <h3>How to apply</h3>
+        <p>Label Services is selective. Apply through the Label Services page inside the demo, or contact our team through the contact page.</p>
       </>
     ),
   },

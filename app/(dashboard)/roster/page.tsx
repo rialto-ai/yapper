@@ -145,7 +145,7 @@ export default function RosterPage() {
                             <td className="px-4 py-3 text-[13px] text-subtle">{row.contact}</td>
                             <td className="px-4 py-3 text-[13px] text-subtle text-right">{row.catalogSize}</td>
                             <td className="px-4 py-3 text-[13px] text-subtle text-right">
-                              {row.monthlyListeners > 0 ? formatCompact(row.monthlyListeners) : "—"}
+                              {row.monthlyListeners > 0 ? formatCompact(row.monthlyListeners) : " -"}
                             </td>
                             <td className="px-4 py-3 text-[13px] text-subtle text-right">{row.activeReleases}</td>
                             <td className="px-4 py-3">

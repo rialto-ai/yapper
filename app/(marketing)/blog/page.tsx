@@ -225,7 +225,7 @@ const posts: Post[] = [
     date: "April 5, 2026",
     readTime: "9 min read",
     category: "Theology",
-    title: "Theological review isn't censorship — it's care",
+    title: "Theological review isn't censorship - it's care",
     excerpt:
       "Why we built tools for theological review status on every song, and how labels are using them to support their writers.",
     author: authors.park,
@@ -260,7 +260,7 @@ const posts: Post[] = [
     category: "Industry Analysis",
     title: "What we learned from 4,800 royalty statements",
     excerpt:
-      "The patterns nobody else sees because nobody else looks — earnings shape, leakage points, and where statements drift from truth.",
+      "The patterns nobody else sees because nobody else looks - earnings shape, leakage points, and where statements drift from truth.",
     author: authors.mwangi,
     gradient: "from-accent/25 to-secondary/10",
     icon: DollarSign,
@@ -271,7 +271,7 @@ const posts: Post[] = [
     category: "Asia-Pacific",
     title: "Songs that travel: the economics of cross-territory Christian music",
     excerpt:
-      "Why some worship songs cross borders effortlessly while others stall — and what release strategy can do about it.",
+      "Why some worship songs cross borders effortlessly while others stall - and what release strategy can do about it.",
     author: authors.tanaka,
     gradient: "from-accent/25 to-secondary/15",
     icon: TrendingUp,
@@ -282,7 +282,7 @@ const posts: Post[] = [
     category: "Customer Story",
     title: "The CCLI integration story",
     excerpt:
-      "How a year of work unlocked church revenue for our artists — and the partnerships that made it possible.",
+      "How a year of work unlocked church revenue for our artists - and the partnerships that made it possible.",
     author: authors.bennett,
     gradient: "from-secondary/25 to-accent/15",
     icon: Church,
@@ -312,7 +312,7 @@ const topics = [
   {
     icon: Send,
     title: "Distribution Strategy",
-    desc: "Inside the distribution layer for Christian music — channels, metadata, and reach.",
+    desc: "Inside the distribution layer for Christian music - channels, metadata, and reach.",
     tone: "accent" as const,
   },
   {
@@ -330,7 +330,7 @@ const topics = [
   {
     icon: TrendingUp,
     title: "Industry Trends",
-    desc: "What's moving in Christian music globally — formats, platforms, and audience behavior.",
+    desc: "What's moving in Christian music globally - formats, platforms, and audience behavior.",
     tone: "secondary" as const,
   },
   {
@@ -424,7 +424,7 @@ export default function BlogPage() {
           </h1>
           <p className="text-[18px] text-subtle max-w-[760px] mx-auto leading-relaxed">
             Industry analysis, product stories, distribution insights, and
-            worship music trends — from the team building modern infrastructure
+            worship music trends - from the team building modern infrastructure
             for Christian music.
           </p>
 

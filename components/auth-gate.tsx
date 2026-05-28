@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ShieldCheck, Lock } from "lucide-react";
+import { LogoMark } from "./logo";
 
 const STORAGE_KEY = "selah-auth";
 const PASSWORD = "selah23!";
@@ -53,8 +54,8 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
 
       <div className="relative w-full max-w-[440px] px-6">
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-hover rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
-            <span className="text-white text-xl font-bold">S</span>
+          <div className="mb-4 shadow-lg shadow-accent/20 rounded-xl">
+            <LogoMark size={52} />
           </div>
           <h1 className="text-[22px] font-semibold tracking-tight">Selah</h1>
           <p className="text-[12px] text-muted mt-1">by Christian Music Group</p>

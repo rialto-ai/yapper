@@ -182,7 +182,7 @@ export default function CatalogPage() {
                                 <StatusBadge status={track.youtubeStatus} />
                               </td>
                               <td className="px-4 py-3 text-[13px] text-subtle text-right">
-                                {track.revenueYTD > 0 ? formatCurrency(track.revenueYTD) : "—"}
+                                {track.revenueYTD > 0 ? formatCurrency(track.revenueYTD) : " -"}
                               </td>
                               <td className="px-4 py-3 text-center">
                                 <button className="w-7 h-7 rounded-md hover:bg-surface-2 transition-colors inline-flex items-center justify-center text-muted hover:text-foreground">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Twitter, Linkedin, Instagram, Youtube, Facebook, Send, Check } from "lucide-react";
 import { LanguageSwitcher } from "./language-switcher";
+import { LogoMark } from "./logo";
 
 const businessSolutions = [
   { label: "Digital Distribution", href: "/overview" },
@@ -130,16 +131,14 @@ export function Footer() {
         <div className="grid grid-cols-12 gap-8 pb-12 border-b border-border">
           <div className="col-span-12 md:col-span-4">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-accent to-accent-hover rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-white text-sm font-bold">S</span>
-              </div>
+              <LogoMark size={32} />
               <div className="flex flex-col">
                 <span className="text-[15px] font-semibold tracking-tight leading-none">Selah</span>
                 <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>
               </div>
             </div>
             <p className="text-[13px] text-subtle leading-relaxed mb-5 max-w-[300px]">
-              Digital distribution, marketing, accounting, and analytics — purpose-built for Christian music. Sydney-headquartered, serving 84 markets globally.
+              Digital distribution, marketing, accounting, and analytics - purpose-built for Christian music. Sydney-headquartered, serving 84 markets globally.
             </p>
             <div className="flex items-center gap-1.5 mb-4">
               {socials.map((s) => (
@@ -238,9 +237,8 @@ export function Footer() {
               </div>
             ))}
           </div>
-          <p className="text-[12px] text-muted mt-6 max-w-[600px] leading-relaxed">
-            Global Headquarters: Christian Music Group, Level 1, 60 Martin Place, Sydney, NSW, 2000, Australia.
-            Regional offices across South-East Asia, North Asia, and South Asia.
+          <p className="text-[12px] text-muted mt-6 max-w-[640px] leading-relaxed">
+            Global Headquarters: Christian Music Group, Level 1, 60 Martin Place, Sydney, NSW, 2000, Australia. Sydney sits in what early explorers and Christian tradition have called the Great Southland of the Holy Spirit.
           </p>
         </div>
 

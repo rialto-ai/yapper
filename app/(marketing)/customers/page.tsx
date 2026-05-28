@@ -134,7 +134,7 @@ export default function CustomersPage() {
                     &ldquo;{c.quote}&rdquo;
                   </blockquote>
                   <p className="text-[13px] text-white/60">
-                    — {c.name2}, {c.name}
+                    - {c.name2}, {c.name}
                   </p>
                 </div>
                 <div className="md:col-span-2 space-y-3">

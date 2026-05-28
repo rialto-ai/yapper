@@ -15,7 +15,7 @@ const tones: Record<Tone, string> = {
 };
 
 const statusTone: Record<string, Tone> = {
-  // Positive (green) — things that are done, healthy, paid
+  // Positive (green) - things that are done, healthy, paid
   Complete: "positive",
   Completed: "positive",
   Active: "positive",
@@ -40,7 +40,7 @@ const statusTone: Record<string, Tone> = {
   None: "positive",
   Signed: "positive",
 
-  // Info (indigo) — in motion, scheduled, on-track
+  // Info (indigo) - in motion, scheduled, on-track
   "In Progress": "info",
   "In Review": "info",
   "Under review": "info",
@@ -53,7 +53,7 @@ const statusTone: Record<string, Tone> = {
   Managed: "info",
   "Strategy call required": "info",
 
-  // Warning (amber) — needs attention but not urgent
+  // Warning (amber) - needs attention but not urgent
   Pending: "warning",
   "Assets Pending": "warning",
   "Metadata Review": "warning",
@@ -61,7 +61,7 @@ const statusTone: Record<string, Tone> = {
   "Needs signature": "warning",
   Held: "warning",
 
-  // Negative (red) — broken, blocked, urgent
+  // Negative (red) - broken, blocked, urgent
   High: "negative",
   Conflict: "negative",
   Disputed: "negative",
@@ -71,7 +71,7 @@ const statusTone: Record<string, Tone> = {
   "Action required": "negative",
   "Missing tax info": "negative",
 
-  // Neutral (grey) — absence, draft, off
+  // Neutral (grey) - absence, draft, off
   Draft: "neutral",
   "Not delivered": "neutral",
   Unclaimed: "neutral",

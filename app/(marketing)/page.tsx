@@ -26,13 +26,14 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
+import { LogoMark } from "@/components/logo";
 
 // ============================================================
 // Marketing copy
 // ============================================================
 
 const features = [
-  { icon: Users, title: "Artists & Worship Teams", desc: "Self-service distribution, marketing, royalties, and analytics — all in one workspace." },
+  { icon: Users, title: "Artists & Worship Teams", desc: "Self-service distribution, marketing, royalties, and analytics - all in one workspace." },
   { icon: Church, title: "Labels & Ministries", desc: "Manage rosters, releases, splits, and partner reporting at scale." },
   { icon: Music2, title: "Publishers & Songwriters", desc: "We partner with publishers and aggregate global PROs, MROs, and CCLI." },
   { icon: Newspaper, title: "Video Creators", desc: "ProRes encoding, video distribution, and YouTube Content ID services." },
@@ -86,7 +87,7 @@ const solutions = [
     color: "accent",
     eyebrow: "Royalties & Accounting",
     title: "Transparent accounting at every level.",
-    body: "Royalty splits, multi-currency payouts, configurable statements, and downloadable invoices — built for collaborators across every role.",
+    body: "Royalty splits, multi-currency payouts, configurable statements, and downloadable invoices - built for collaborators across every role.",
     bullets: [
       "Royalty sharing and multiple splits among rights holders",
       "Configurable monthly and quarterly statements",
@@ -107,7 +108,7 @@ const solutions = [
     color: "secondary",
     eyebrow: "Full Suite Analytics",
     title: "Business intelligence for music operators.",
-    body: "Streams, revenue, audience growth, playlist impact, territory breakdowns — plus the proprietary Church Adoption Score nobody else measures.",
+    body: "Streams, revenue, audience growth, playlist impact, territory breakdowns - plus the proprietary Church Adoption Score nobody else measures.",
     bullets: [
       "Daily streaming and revenue data from every DSP",
       "Audience growth by territory, age, gender, platform",
@@ -128,7 +129,7 @@ const solutions = [
     color: "accent",
     eyebrow: "Church Network",
     title: "The Christian-native distribution layer.",
-    body: "Selah is the only distributor with deep integration into the church economy — CCLI workflows, chord chart delivery, worship leader networks, and the Church Adoption Funnel.",
+    body: "Selah is the only distributor with deep integration into the church economy - CCLI workflows, chord chart delivery, worship leader networks, and the Church Adoption Funnel.",
     bullets: [
       "CCLI SongSelect distribution and reporting",
       "PraiseCharts and Multitracks.com integration",
@@ -148,7 +149,7 @@ const solutions = [
     icon: Music2,
     color: "secondary",
     eyebrow: "Publishing Partnerships",
-    title: "We partner with publishers — not replace them.",
+    title: "We partner with publishers - not replace them.",
     body: "Selah aggregates publishing administration across global PROs, mechanical rights organizations, and CCLI on behalf of publishers and self-administering songwriters.",
     bullets: [
       "Integration with ASCAP, BMI, SESAC, APRA AMCOS, PRS, GEMA, SACEM",
@@ -170,7 +171,7 @@ const solutions = [
     color: "accent",
     eyebrow: "Support & Service",
     title: "Local support across 8 offices.",
-    body: "Every artist, label, and partner gets dedicated regional support — from Sydney HQ to Mumbai, Manila to Seoul.",
+    body: "Every artist, label, and partner gets dedicated regional support - from Sydney HQ to Mumbai, Manila to Seoul.",
     bullets: [
       "On-line technical support ticketing system",
       "Regional account managers across 8 offices",
@@ -223,7 +224,7 @@ const testimonials = [
   },
   {
     quote:
-      "The royalty accounting is the cleanest I've seen. Splits, currencies, recoupment — all in one transparent ledger.",
+      "The royalty accounting is the cleanest I've seen. Splits, currencies, recoupment - all in one transparent ledger.",
     name: "Independent Artist",
     role: "Grace Harbor",
   },
@@ -286,14 +287,14 @@ const rightsOrgs = [
 ];
 
 const offices = [
-  { city: "Sydney", country: "Australia", role: "Global HQ", primary: true, employees: "180+" },
-  { city: "Singapore", country: "Singapore", role: "South-East Asia", employees: "62" },
-  { city: "Tokyo", country: "Japan", role: "Japan & Korea", employees: "48" },
-  { city: "Seoul", country: "South Korea", role: "Korea operations", employees: "34" },
-  { city: "Hong Kong", country: "Hong Kong SAR", role: "Greater China", employees: "41" },
-  { city: "Manila", country: "Philippines", role: "Philippines", employees: "120+" },
-  { city: "Jakarta", country: "Indonesia", role: "Indonesia", employees: "58" },
-  { city: "Mumbai", country: "India", role: "South Asia", employees: "76" },
+  { city: "Sydney", country: "Australia", role: "Global HQ", primary: true },
+  { city: "Singapore", country: "Singapore", role: "South-East Asia" },
+  { city: "Tokyo", country: "Japan", role: "Japan & Korea" },
+  { city: "Seoul", country: "South Korea", role: "Korea operations" },
+  { city: "Hong Kong", country: "Hong Kong SAR", role: "Greater China" },
+  { city: "Manila", country: "Philippines", role: "Philippines" },
+  { city: "Jakarta", country: "Indonesia", role: "Indonesia" },
+  { city: "Mumbai", country: "India", role: "South Asia" },
 ];
 
 const faqs = [
@@ -307,7 +308,7 @@ const faqs = [
   },
   {
     q: "How is the Church Network different from standard distribution?",
-    a: "Standard distribution stops at Spotify and Apple Music. Selah's Christian Network extends to CCLI SongSelect, PraiseCharts, Planning Center, Multitracks.com, worship-leader email networks, Sunday setlist tracking, and chord chart distribution — channels generic distributors don't reach.",
+    a: "Standard distribution stops at Spotify and Apple Music. Selah's Christian Network extends to CCLI SongSelect, PraiseCharts, Planning Center, Multitracks.com, worship-leader email networks, Sunday setlist tracking, and chord chart distribution - channels generic distributors don't reach.",
   },
   {
     q: "What is the Church Adoption Score?",
@@ -378,7 +379,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-[17px] text-subtle mb-8 leading-relaxed max-w-[540px] animate-fade-in-up">
-              Selah delivers your music to every major DSP, the Christian channel network, and 8,200+ churches — with marketing, accounting, analytics, and publishing partnerships built in.
+              Selah delivers your music to every major DSP, the Christian channel network, and 8,200+ churches - with marketing, accounting, analytics, and publishing partnerships built in.
             </p>
             <div className="flex items-center gap-3 animate-fade-in-up mb-10">
               <Link
@@ -402,19 +403,16 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right: layered visual — distribution network graphic */}
+          {/* Right: layered visual - distribution network graphic */}
           <div className="relative h-[440px]">
             {/* Center hub */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-2xl bg-gradient-to-br from-accent to-accent-hover shadow-2xl shadow-accent/30 flex items-center justify-center z-20">
-              <div className="text-center">
-                <div className="w-10 h-10 bg-white/15 rounded-lg mx-auto mb-1.5 flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white font-bold text-lg">S</span>
-                </div>
-                <p className="text-white text-[10px] font-semibold uppercase tracking-wider">Selah</p>
-              </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] rounded-2xl brand-gradient shadow-2xl shadow-accent/30 flex flex-col items-center justify-center z-20 p-3">
+              <LogoMark size={42} />
+              <p className="text-white text-[11px] font-semibold uppercase tracking-wider mt-2">Selah</p>
+              <p className="text-white/70 text-[9px] font-medium">Distribution Hub</p>
             </div>
 
-            {/* Orbiting nodes — DSPs (left) */}
+            {/* Orbiting nodes - DSPs (left) */}
             {[
               { label: "Spotify", x: "5%", y: "10%", color: "accent" },
               { label: "Apple Music", x: "0%", y: "45%", color: "accent" },
@@ -433,7 +431,7 @@ export default function LandingPage() {
               </div>
             ))}
 
-            {/* Orbiting nodes — Christian channels (right) */}
+            {/* Orbiting nodes - Christian channels (right) */}
             {[
               { label: "CCLI", x: "75%", y: "8%", color: "secondary" },
               { label: "PraiseCharts", x: "82%", y: "30%", color: "secondary" },
@@ -489,7 +487,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* LATEST NEWS — one prominent card */}
+      {/* LATEST NEWS - one prominent card */}
       <section className="border-y border-border bg-gradient-to-r from-accent-soft/40 via-white to-secondary-soft/30">
         <div className="max-w-[1180px] mx-auto px-8 py-5">
           <Link
@@ -523,7 +521,7 @@ export default function LandingPage() {
             Trusted distribution
           </p>
           <p className="text-center text-[15px] text-subtle max-w-[640px] mx-auto mb-10">
-            Delivering Christian music to every major DSP and Christian channel — globally.
+            Delivering Christian music to every major DSP and Christian channel - globally.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-y-6 gap-x-4 items-center">
             {dspsTier1.map((dsp) => (
@@ -542,7 +540,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* TOOLS & SOLUTIONS — ONErpm style */}
+      {/* TOOLS & SOLUTIONS - ONErpm style */}
       <section id="solutions" className="py-24 bg-gradient-to-b from-white to-surface">
         <div className="max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-12">
@@ -551,7 +549,7 @@ export default function LandingPage() {
               A powerful self-service platform for Christian music.
             </h2>
             <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
-              Selah provides a full suite of automated marketing, promotional, accounting, and business intelligence tools — giving artists, labels, and ministries full control over the distribution workflow.
+              Selah provides a full suite of automated marketing, promotional, accounting, and business intelligence tools - giving artists, labels, and ministries full control over the distribution workflow.
             </p>
           </div>
 
@@ -694,7 +692,7 @@ export default function LandingPage() {
                 The Christian distribution layer.
               </h2>
               <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6">
-                Standard distribution ends at Spotify and Apple Music. Selah extends into the church — CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship-leader networks across 8,200+ congregations.
+                Standard distribution ends at Spotify and Apple Music. Selah extends into the church - CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship-leader networks across 8,200+ congregations.
               </p>
               <div className="space-y-3">
                 {[
@@ -739,7 +737,7 @@ export default function LandingPage() {
           <div className="text-center mb-12">
             <p className="label-eyebrow-secondary mb-3">Publishing Partnerships</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              We partner with publishers — not replace them.
+              We partner with publishers - not replace them.
             </h2>
             <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
               Selah aggregates global publishing administration across 60+ PROs, MROs, and CCLI on behalf of publishers and self-administering songwriters. Your existing publishing relationships continue.
@@ -844,7 +842,6 @@ export default function LandingPage() {
                   )}
                 </div>
                 <p className="text-[11px] text-white/80">{o.role}</p>
-                <p className="text-[10px] text-white/40 mt-2">{o.employees} on team</p>
               </div>
             ))}
           </div>
@@ -1006,10 +1003,10 @@ export default function LandingPage() {
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-secondary/30 blur-[120px] rounded-full pointer-events-none" />
             <div className="relative">
               <h2 className="text-[36px] md:text-[44px] font-bold tracking-tight leading-[1.1] mb-4">
-                Ready to distribute on Christian music infrastructure?
+                Distribute your Christian music with Selah.
               </h2>
               <p className="text-[#94A3B8] mb-8 max-w-[560px] mx-auto text-[16px]">
-                Join thousands of artists, labels, ministries, and worship teams using Selah for distribution, marketing, accounting, and analytics.
+                Join thousands of artists, labels, ministries, and worship teams releasing music through Selah&apos;s distribution, marketing, accounting, and analytics platform.
               </p>
               <div className="flex items-center justify-center gap-3">
                 <Link

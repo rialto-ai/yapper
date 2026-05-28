@@ -20,8 +20,8 @@ const churchLicensing = [
   { composition: "Kingdom Come", ccliNumber: "7890124", status: "Listed", churchesUsing: 128, downloads: 520, lastUpdated: "2026-04-10" },
   { composition: "Come Alive", ccliNumber: "7890125", status: "Listed", churchesUsing: 96, downloads: 340, lastUpdated: "2026-03-20" },
   { composition: "Mercy Is Near", ccliNumber: "7890126", status: "Listed", churchesUsing: 64, downloads: 210, lastUpdated: "2026-04-01" },
-  { composition: "Still My Soul", ccliNumber: "—", status: "Not Listed", churchesUsing: 0, downloads: 0, lastUpdated: "—" },
-  { composition: "The Narrow Road", ccliNumber: "—", status: "Not Listed", churchesUsing: 0, downloads: 0, lastUpdated: "—" },
+  { composition: "Still My Soul", ccliNumber: " -", status: "Not Listed", churchesUsing: 0, downloads: 0, lastUpdated: " -" },
+  { composition: "The Narrow Road", ccliNumber: " -", status: "Not Listed", churchesUsing: 0, downloads: 0, lastUpdated: " -" },
 ];
 
 const tabList = ["Compositions", "Songwriters", "PRO Status", "Publishing Claims", "Church Licensing", "Unmatched Works"];

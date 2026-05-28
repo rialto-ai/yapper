@@ -144,7 +144,7 @@ const quickLinks = [
     href: "/partners",
     icon: Building2,
     title: "Partner with us",
-    desc: "Labels, publishers, and ministries — explore partnership.",
+    desc: "Labels, publishers, and ministries - explore partnership.",
     color: "secondary" as const,
   },
   {
@@ -203,7 +203,7 @@ export default function ContactPage() {
             </span>
           </h1>
           <p className="text-[17px] text-subtle leading-relaxed max-w-[680px] mx-auto">
-            Whether you&apos;re an artist getting started, a label exploring partnership, a ministry running services, or a publisher interested in our network — our team is here to help.
+            Whether you&apos;re an artist getting started, a label exploring partnership, a ministry running services, or a publisher interested in our network - our team is here to help.
           </p>
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function ContactPage() {
                       <Check size={26} strokeWidth={2.5} className="text-positive" />
                     </div>
                     <h3 className="text-[22px] font-bold tracking-tight mb-2">
-                      Thanks — we&apos;ll be in touch within 1 business day.
+                      Thanks - we&apos;ll be in touch within 1 business day.
                     </h3>
                     <p className="text-[14px] text-subtle leading-relaxed max-w-[440px] mx-auto mb-6">
                       Your inquiry was routed to our{" "}
