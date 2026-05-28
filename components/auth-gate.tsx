@@ -57,8 +57,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
           <div className="mb-4 shadow-lg shadow-accent/20 rounded-xl">
             <LogoMark size={52} />
           </div>
-          <h1 className="text-[22px] font-semibold tracking-tight">Selah</h1>
-          <p className="text-[12px] text-muted mt-1">by Christian Music Group</p>
+          <h1 className="text-[24px] font-semibold tracking-tight">Selah</h1>
         </div>
 
         <div className="card p-7 shadow-xl shadow-accent/5">

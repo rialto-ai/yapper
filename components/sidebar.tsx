@@ -45,10 +45,7 @@ export function Sidebar() {
       <div className="h-[56px] flex items-center px-5 border-b border-border">
         <Link href="/" className="flex items-center gap-2">
           <LogoMark size={28} />
-          <div className="flex flex-col">
-            <span className="text-[15px] font-semibold tracking-tight leading-none">Selah</span>
-            <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>
-          </div>
+          <span className="text-[16px] font-semibold tracking-tight">Selah</span>
         </Link>
       </div>
 

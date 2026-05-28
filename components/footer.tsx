@@ -133,7 +133,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-[13px] text-subtle leading-relaxed mb-5 max-w-[300px]">
-              Digital distribution, marketing, accounting, and analytics. Purpose-built for Christian music. Sydney-headquartered, serving 84 markets.
+              Digital distribution, marketing, accounting, and analytics, for the artists and ministries lifting up the name of Jesus. Sydney-headquartered, serving 84 markets.
             </p>
             <div className="flex items-center gap-1.5 mb-4">
               {socials.map((s) => (
@@ -237,8 +237,18 @@ export function Footer() {
           </p>
         </div>
 
+        {/* Soli Deo Gloria */}
+        <div className="pt-6 mb-4 text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+            Soli Deo Gloria
+          </p>
+          <p className="text-[11px] text-muted mt-1 italic">
+            To God alone be the glory
+          </p>
+        </div>
+
         {/* Bottom bar */}
-        <div className="pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+        <div className="pt-6 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-[12px] text-muted">
             © Copyright 2026 Christian Music Group Distribution, Inc. ABN 12 345 678 901. All rights reserved.
           </p>

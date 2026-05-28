@@ -23,10 +23,7 @@ export function MarketingNav() {
       <div className="flex items-center gap-10">
         <Link href="/" className="flex items-center gap-2">
           <LogoMark size={32} />
-          <div className="flex flex-col">
-            <span className="text-[16px] font-semibold tracking-tight leading-none">Selah</span>
-            <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>
-          </div>
+          <span className="text-[17px] font-semibold tracking-tight">Selah</span>
         </Link>
         <div className="hidden md:flex items-center gap-1">
           {links.map((l) => {

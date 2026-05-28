@@ -62,10 +62,10 @@ export default function AboutPage() {
           <p className="label-eyebrow mb-4">About Selah</p>
           <h1 className="text-[48px] md:text-[54px] font-bold tracking-tight leading-[1.05] mb-6">
             Christian music distribution{" "}
-            <span className="brand-gradient-text">from the southern hemisphere to the world.</span>
+            <span className="brand-gradient-text">from the southern hemisphere, for the glory of Jesus.</span>
           </h1>
-          <p className="text-[18px] text-subtle max-w-[680px] mx-auto leading-relaxed">
-            Founded in Sydney in 2026, Selah delivers Christian music globally to every major DSP and the Christian channel network. We operate from 8 offices across the Asia-Pacific, distributing on behalf of artists, labels, worship teams, and ministries.
+          <p className="text-[18px] text-subtle max-w-[700px] mx-auto leading-relaxed">
+            Founded in Sydney in 2026, Selah delivers Christian music globally to every major DSP and the Christian channel network. We operate from 8 offices across the Asia-Pacific, in service of the artists, labels, worship teams, and ministries lifting up the name of Jesus.
           </p>
         </div>
       </section>

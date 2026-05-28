@@ -376,18 +376,29 @@ export default function LandingPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-accent/15 shadow-sm mb-7 animate-fade-in-up">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               <span className="text-[12px] font-medium text-accent">
-                Digital distribution, built for Christian music
+                Distribution for music that exalts the name of Jesus
               </span>
             </div>
             <h1 className="text-[44px] md:text-[52px] font-bold tracking-tight leading-[1.05] mb-5 animate-fade-in-up">
               The distribution platform for{" "}
-              <span className="bg-gradient-to-r from-accent via-accent-hover to-secondary bg-clip-text text-transparent">
+              <span className="brand-gradient-text animate-gradient">
                 Christian music.
               </span>
             </h1>
             <p className="text-[17px] text-subtle mb-8 leading-relaxed max-w-[540px] animate-fade-in-up">
-              Selah delivers your music to every major DSP, the Christian channel network, and 8,200+ churches - with marketing, accounting, analytics, and publishing partnerships built in.
+              Selah delivers your music to every major DSP, the Christian channel network, and 8,200+ churches. Built for the artists, labels, and ministries lifting up the name of Jesus around the world.
             </p>
+
+            {/* Animated equalizer accent */}
+            <div className="flex items-end gap-1 h-8 mb-8 max-w-[180px]">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+                <div
+                  key={i}
+                  className="flex-1 rounded-sm brand-gradient animate-eq"
+                  style={{ animationDelay: `${i * 0.08}s`, height: "100%" }}
+                />
+              ))}
+            </div>
             <div className="flex items-center gap-3 animate-fade-in-up mb-10">
               <Link
                 href="/overview"
@@ -726,10 +737,10 @@ export default function LandingPage() {
                 Church Network
               </p>
               <h2 className="text-[40px] font-bold tracking-tight mb-5 leading-tight">
-                The Christian distribution layer.
+                Music that reaches the Body of Christ.
               </h2>
               <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6">
-                Standard distribution ends at Spotify and Apple Music. Selah extends into the church - CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship-leader networks across 8,200+ congregations.
+                Standard distribution ends at Spotify and Apple Music. Selah extends into the local church, where the songs that exalt Jesus are actually sung: CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship-leader networks across 8,200+ congregations.
               </p>
               <div className="space-y-3">
                 {[
@@ -904,7 +915,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <h2 className="text-[36px] font-bold tracking-tight mb-4 leading-tight">
-                Delivering Christian music to the world, around the clock.
+                Carrying the Gospel in song, around the clock.
               </h2>
               <p className="text-subtle text-[15px] leading-relaxed mb-6">
                 Selah&apos;s delivery infrastructure pushes new releases, takedowns, and metadata updates to DSPs and Christian channels continuously across 84 territories.
@@ -975,6 +986,37 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* SCRIPTURE BANNER */}
+      <section className="relative overflow-hidden py-20 border-y border-border">
+        <div className="absolute inset-0 brand-gradient animate-gradient pointer-events-none opacity-95" />
+        <div
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(white 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-white/10 blur-[140px] rounded-full pointer-events-none" />
+
+        {/* Floating notes decoration */}
+        <div className="absolute top-[10%] left-[8%] w-2 h-2 rounded-full bg-white/60 animate-float" />
+        <div className="absolute top-[70%] left-[12%] w-1.5 h-1.5 rounded-full bg-white/50 animate-float" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-[25%] right-[12%] w-2 h-2 rounded-full bg-white/60 animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[60%] right-[8%] w-1.5 h-1.5 rounded-full bg-white/50 animate-float" style={{ animationDelay: "0.5s" }} />
+
+        <div className="relative max-w-[840px] mx-auto px-8 text-center text-white">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/70 mb-6">
+            The Selah pause
+          </p>
+          <p className="text-[28px] md:text-[36px] font-bold tracking-tight leading-[1.2] mb-5">
+            &ldquo;Sing to the Lord a new song; sing to the Lord, all the earth.&rdquo;
+          </p>
+          <p className="text-[13px] text-white/70 uppercase tracking-[0.2em] font-semibold">
+            Psalm 96:1
+          </p>
+        </div>
+      </section>
+
       {/* STATS */}
       <section className="py-20 bg-gradient-to-br from-secondary-soft/40 via-white to-accent-soft/30 border-y border-secondary/10">
         <div className="max-w-[1180px] mx-auto px-8">
@@ -997,8 +1039,68 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CHRISTIAN METADATA */}
+      {/* WHY WE DO THIS */}
       <section className="py-24">
+        <div className="max-w-[1100px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5">
+              <p className="label-eyebrow-secondary mb-3">Why we do this</p>
+              <h2 className="text-[40px] font-bold tracking-tight leading-tight mb-5">
+                Every song, every stream, for the{" "}
+                <span className="brand-gradient-text">glory of Jesus.</span>
+              </h2>
+              <p className="text-[15px] text-subtle leading-relaxed mb-5">
+                We build Selah because Christian artists, worship leaders, labels, and ministries are doing eternal work, and the tools they use should match the calling.
+              </p>
+              <p className="text-[15px] text-subtle leading-relaxed">
+                From the Great Southland of the Holy Spirit, our team serves the Body of Christ around the world, helping the songs that exalt Jesus reach further, more clearly, and with greater operational excellence than ever before.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 space-y-3">
+              {[
+                {
+                  ref: "Colossians 3:16",
+                  text: "Let the message of Christ dwell among you richly as you teach and admonish one another with all wisdom through psalms, hymns, and songs from the Spirit, singing to God with gratitude in your hearts.",
+                },
+                {
+                  ref: "Revelation 5:9",
+                  text: "And they sang a new song, saying: You are worthy to take the scroll and to open its seals, because you were slain, and with your blood you purchased for God persons from every tribe and language and people and nation.",
+                },
+                {
+                  ref: "Psalm 150:6",
+                  text: "Let everything that has breath praise the Lord. Praise the Lord.",
+                },
+              ].map((v, i) => (
+                <div
+                  key={v.ref}
+                  className={`card p-6 relative overflow-hidden ${
+                    i === 0
+                      ? "bg-gradient-to-br from-accent-soft/40 via-white to-white border-accent/15"
+                      : i === 1
+                      ? "bg-gradient-to-br from-secondary-soft/40 via-white to-white border-secondary/15"
+                      : "bg-gradient-to-br from-white via-accent-soft/20 to-secondary-soft/20"
+                  }`}
+                >
+                  <p
+                    className={`text-[10px] font-bold uppercase tracking-[0.16em] mb-2 ${
+                      i === 1 ? "text-secondary" : "text-accent"
+                    }`}
+                  >
+                    {v.ref}
+                  </p>
+                  <p className="text-[14px] text-foreground leading-relaxed italic">
+                    &ldquo;{v.text}&rdquo;
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CHRISTIAN METADATA */}
+      <section className="py-24 border-t border-border">
         <div className="max-w-[1080px] mx-auto px-8">
           <div className="text-center mb-12">
             <p className="label-eyebrow mb-3">Christian-native</p>
@@ -1126,10 +1228,10 @@ export default function LandingPage() {
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-secondary/30 blur-[120px] rounded-full pointer-events-none" />
             <div className="relative">
               <h2 className="text-[36px] md:text-[44px] font-bold tracking-tight leading-[1.1] mb-4">
-                Distribute your Christian music with Selah.
+                Distribute your music. Lift up His name.
               </h2>
               <p className="text-[#94A3B8] mb-8 max-w-[560px] mx-auto text-[16px]">
-                Join thousands of artists, labels, ministries, and worship teams releasing music through Selah&apos;s distribution, marketing, accounting, and analytics platform.
+                Join the artists, labels, ministries, and worship teams releasing music through Selah&apos;s distribution platform, in service of the Gospel and the global Church.
               </p>
               <div className="flex items-center justify-center gap-3">
                 <Link
