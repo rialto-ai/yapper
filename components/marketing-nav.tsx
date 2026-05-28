@@ -7,11 +7,11 @@ import { LanguageSwitcher } from "./language-switcher";
 import { LogoMark } from "./logo";
 
 const links = [
-  { label: "Solutions", href: "/#solutions" },
+  { label: "Product", href: "/#solutions" },
   { label: "Customers", href: "/customers" },
   { label: "Partners", href: "/partners" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
 ];
 

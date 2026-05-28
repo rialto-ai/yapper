@@ -6,7 +6,7 @@ import { Twitter, Linkedin, Instagram, Youtube, Facebook, Send, Check } from "lu
 import { LanguageSwitcher } from "./language-switcher";
 import { LogoMark } from "./logo";
 
-const businessSolutions = [
+const product = [
   { label: "Digital Distribution", href: "/overview" },
   { label: "Promotion & Marketing", href: "/campaigns" },
   { label: "Royalties & Accounting", href: "/royalties" },
@@ -16,22 +16,19 @@ const businessSolutions = [
   { label: "YouTube Monetization", href: "/youtube" },
 ];
 
-const whoWeAre = [
+const company = [
   { label: "About Selah", href: "/about" },
   { label: "Customers", href: "/customers" },
   { label: "Partners", href: "/partners" },
   { label: "Press", href: "/press" },
-  { label: "Careers", href: "/careers" },
-  { label: "Blog", href: "/blog" },
-  { label: "Distribution Partners", href: "/partners" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const resources = [
   { label: "Documentation", href: "/docs" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Service Status", href: "/" },
-  { label: "Brand Assets", href: "/press" },
   { label: "Changelog", href: "/changelog" },
+  { label: "Service Status", href: "/" },
   { label: "Feedback", href: "/feedback" },
 ];
 
@@ -41,18 +38,17 @@ const legal = [
   { label: "Cookie Policy", href: "/privacy" },
   { label: "Acceptable Use", href: "/terms" },
   { label: "DMCA", href: "/terms" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const offices = [
   { city: "Sydney", country: "Australia", primary: true },
   { city: "Singapore", country: "Singapore" },
-  { city: "Tokyo", country: "Japan" },
+  { city: "Kuala Lumpur", country: "Malaysia" },
+  { city: "Bangkok", country: "Thailand" },
+  { city: "Taipei", country: "Taiwan" },
   { city: "Seoul", country: "South Korea" },
-  { city: "Hong Kong", country: "Hong Kong SAR" },
   { city: "Manila", country: "Philippines" },
   { city: "Jakarta", country: "Indonesia" },
-  { city: "Mumbai", country: "India" },
 ];
 
 const socials = [
@@ -78,7 +74,7 @@ function NewsletterForm() {
         Subscribe to our newsletter
       </p>
       <p className="text-[12px] text-muted mb-3 leading-relaxed">
-        Industry insights, product updates, and stories from the Christian music economy. No spam, ever.
+        Industry insights, product updates, and stories from the Christian music economy. No spam.
       </p>
       {subscribed ? (
         <div className="flex items-center gap-2 px-3 py-2.5 rounded-md bg-positive-soft border border-positive/15 text-positive text-[13px] font-medium">
@@ -116,7 +112,7 @@ export function Footer() {
           <div>
             <p className="label-eyebrow mb-2">Stay in the loop</p>
             <h3 className="text-[24px] font-bold tracking-tight mb-2">
-              Built for Christian music. Updated weekly.
+              Built for Christian music. Updated regularly.
             </h3>
             <p className="text-[14px] text-subtle leading-relaxed">
               Get the latest from Selah&apos;s product, partner network, and church distribution insights.
@@ -138,7 +134,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-[13px] text-subtle leading-relaxed mb-5 max-w-[300px]">
-              Digital distribution, marketing, accounting, and analytics - purpose-built for Christian music. Sydney-headquartered, serving 84 markets globally.
+              Digital distribution, marketing, accounting, and analytics. Purpose-built for Christian music. Sydney-headquartered, serving 84 markets.
             </p>
             <div className="flex items-center gap-1.5 mb-4">
               {socials.map((s) => (
@@ -158,10 +154,10 @@ export function Footer() {
 
           <div className="col-span-6 md:col-span-2">
             <h4 className="text-[12px] font-semibold uppercase tracking-wider text-foreground mb-4">
-              Business Solutions
+              Product
             </h4>
             <ul className="space-y-2.5">
-              {businessSolutions.map((l) => (
+              {product.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="text-[13px] text-subtle hover:text-accent transition-colors">
                     {l.label}
@@ -173,10 +169,10 @@ export function Footer() {
 
           <div className="col-span-6 md:col-span-2">
             <h4 className="text-[12px] font-semibold uppercase tracking-wider text-foreground mb-4">
-              Who We Are
+              Company
             </h4>
             <ul className="space-y-2.5">
-              {whoWeAre.map((l) => (
+              {company.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="text-[13px] text-subtle hover:text-accent transition-colors">
                     {l.label}
@@ -203,7 +199,7 @@ export function Footer() {
 
           <div className="col-span-6 md:col-span-2">
             <h4 className="text-[12px] font-semibold uppercase tracking-wider text-foreground mb-4">
-              Legal & Help
+              Legal
             </h4>
             <ul className="space-y-2.5">
               {legal.map((l) => (

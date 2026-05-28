@@ -149,7 +149,7 @@ const solutions = [
     icon: Music2,
     color: "secondary",
     eyebrow: "Publishing Partnerships",
-    title: "We partner with publishers - not replace them.",
+    title: "We partner with publishers.",
     body: "Selah aggregates publishing administration across global PROs, mechanical rights organizations, and CCLI on behalf of publishers and self-administering songwriters.",
     bullets: [
       "Integration with ASCAP, BMI, SESAC, APRA AMCOS, PRS, GEMA, SACEM",
@@ -171,7 +171,7 @@ const solutions = [
     color: "accent",
     eyebrow: "Support & Service",
     title: "Local support across 8 offices.",
-    body: "Every artist, label, and partner gets dedicated regional support - from Sydney HQ to Mumbai, Manila to Seoul.",
+    body: "Every artist, label, and partner gets dedicated regional support, from Sydney HQ across the Asia-Pacific.",
     bullets: [
       "On-line technical support ticketing system",
       "Regional account managers across 8 offices",
@@ -179,7 +179,7 @@ const solutions = [
       "Onboarding and catalog migration team",
       "Rights and royalty operations team",
       "DSP escalation pathways for delivery issues",
-      "Multi-language support: English, 日本語, 한국어, 中文, Bahasa, Tagalog, हिन्दी",
+      "Multi-language support: English, 中文, 한국어, Bahasa, ภาษาไทย, Tagalog",
       "24/5 ticket coverage following the sun",
       "Quarterly business reviews for Enterprise partners",
       "Dedicated solutions engineer for Partner Portal",
@@ -288,13 +288,13 @@ const rightsOrgs = [
 
 const offices = [
   { city: "Sydney", country: "Australia", role: "Global HQ", primary: true },
-  { city: "Singapore", country: "Singapore", role: "South-East Asia" },
-  { city: "Tokyo", country: "Japan", role: "Japan & Korea" },
+  { city: "Singapore", country: "Singapore", role: "South-East Asia hub" },
+  { city: "Kuala Lumpur", country: "Malaysia", role: "Malaysia operations" },
+  { city: "Bangkok", country: "Thailand", role: "Thailand operations" },
+  { city: "Taipei", country: "Taiwan", role: "Taiwan operations" },
   { city: "Seoul", country: "South Korea", role: "Korea operations" },
-  { city: "Hong Kong", country: "Hong Kong SAR", role: "Greater China" },
-  { city: "Manila", country: "Philippines", role: "Philippines" },
-  { city: "Jakarta", country: "Indonesia", role: "Indonesia" },
-  { city: "Mumbai", country: "India", role: "South Asia" },
+  { city: "Manila", country: "Philippines", role: "Customer success" },
+  { city: "Jakarta", country: "Indonesia", role: "Indonesia operations" },
 ];
 
 const faqs = [
@@ -303,12 +303,12 @@ const faqs = [
     a: "Selah is a digital music and video distribution platform purpose-built for Christian music. We deliver to all major DSPs, the Christian channel network (CCLI, PraiseCharts, Multitracks, Planning Center), and partner with publishers globally to aggregate royalty collection from PROs, MROs, and rights bodies.",
   },
   {
-    q: "Are you a publisher? Do you replace my publisher?",
-    a: "No. Selah partners with publishers and self-administering songwriters. We aggregate global PRO and MRO connections (ASCAP, BMI, APRA AMCOS, PRS, GEMA, SACEM, JASRAC, KOMCA, HFA, MLC, and 50+ others) and integrate with CCLI for congregational use reporting. Your existing publishing relationships continue.",
+    q: "Do you work with publishers?",
+    a: "Yes. Selah partners with publishers and self-administering songwriters, aggregating global PRO and MRO connections (ASCAP, BMI, APRA AMCOS, PRS, GEMA, SACEM, KOMCA, HFA, MLC, and 50+ others) and integrating with CCLI for congregational use reporting.",
   },
   {
     q: "How is the Church Network different from standard distribution?",
-    a: "Standard distribution stops at Spotify and Apple Music. Selah's Christian Network extends to CCLI SongSelect, PraiseCharts, Planning Center, Multitracks.com, worship-leader email networks, Sunday setlist tracking, and chord chart distribution - channels generic distributors don't reach.",
+    a: "Standard distribution stops at Spotify and Apple Music. Selah's Christian Network extends to CCLI SongSelect, PraiseCharts, Planning Center, Multitracks.com, worship-leader email networks, Sunday setlist tracking, and chord chart distribution.",
   },
   {
     q: "What is the Church Adoption Score?",
@@ -316,7 +316,7 @@ const faqs = [
   },
   {
     q: "Which offices serve my region?",
-    a: "Sydney HQ runs platform and global operations. Regional teams in Singapore (SEA), Tokyo (Japan/Korea), Seoul (Korea), Hong Kong (Greater China), Manila (Philippines), Jakarta (Indonesia), and Mumbai (South Asia) handle local DSP relationships and church network outreach.",
+    a: "Sydney HQ runs platform and global operations. Regional teams in Singapore, Kuala Lumpur, Bangkok, Taipei, Seoul, Manila, and Jakarta handle local DSP relationships and church network outreach.",
   },
   {
     q: "What service tiers are available?",
@@ -333,11 +333,11 @@ const awards = [
 
 const featuredNews = {
   tag: "Latest",
-  date: "May 14, 2026",
-  category: "Funding · Series A",
-  title: "Selah raises A$28M Series A led by Square Peg Capital to scale Christian music infrastructure across Asia-Pacific.",
+  date: "May 22, 2026",
+  category: "Product",
+  title: "Selah expands distribution network to Kuala Lumpur, Taipei, and Bangkok.",
   excerpt:
-    "The round brings together Square Peg, Blackbird Ventures, AirTree, and Sequoia Capital India to support expansion into 4 new markets and deeper integration with global Christian rights organizations.",
+    "Three new regional offices opening across South-East and North Asia, bringing Selah's footprint to 8 markets and deepening local DSP and church network partnerships.",
 };
 
 // ============================================================
@@ -405,6 +405,10 @@ export default function LandingPage() {
 
           {/* Right: layered visual - distribution network graphic */}
           <div className="relative h-[440px]">
+            {/* Pulse rings behind center hub */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-accent/20 animate-pulse-ring pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] rounded-full border border-secondary/15 animate-pulse-ring pointer-events-none" style={{ animationDelay: "1.5s" }} />
+
             {/* Center hub */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] rounded-2xl brand-gradient shadow-2xl shadow-accent/30 flex flex-col items-center justify-center z-20 p-3">
               <LogoMark size={42} />
@@ -424,8 +428,8 @@ export default function LandingPage() {
             ].map((n, i) => (
               <div
                 key={n.label}
-                className="absolute bg-white border border-accent/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-accent z-10 animate-fade-in-up"
-                style={{ left: n.x, top: n.y, animationDelay: `${i * 60}ms` }}
+                className="absolute bg-white border border-accent/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-accent z-10 animate-float"
+                style={{ left: n.x, top: n.y, animationDelay: `${i * 0.35}s` }}
               >
                 {n.label}
               </div>
@@ -443,8 +447,8 @@ export default function LandingPage() {
             ].map((n, i) => (
               <div
                 key={n.label}
-                className="absolute bg-white border border-secondary/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-secondary z-10 animate-fade-in-up"
-                style={{ left: n.x, top: n.y, animationDelay: `${i * 60 + 100}ms` }}
+                className="absolute bg-white border border-secondary/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-secondary z-10 animate-float"
+                style={{ left: n.x, top: n.y, animationDelay: `${i * 0.4 + 0.2}s` }}
               >
                 {n.label}
               </div>
@@ -458,9 +462,9 @@ export default function LandingPage() {
             >
               <defs>
                 <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgb(67 56 202)" stopOpacity="0.25" />
-                  <stop offset="50%" stopColor="rgb(67 56 202)" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="rgb(217 119 6)" stopOpacity="0.5" />
+                  <stop offset="0%" stopColor="rgb(30 64 175)" stopOpacity="0.25" />
+                  <stop offset="50%" stopColor="rgb(30 64 175)" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="rgb(16 185 129)" stopOpacity="0.5" />
                 </linearGradient>
               </defs>
               {Array.from({ length: 14 }).map((_, i) => {
@@ -515,25 +519,51 @@ export default function LandingPage() {
       </section>
 
       {/* DSP LOGOS STRIP */}
-      <section className="bg-white py-16 border-b border-border">
-        <div className="max-w-[1180px] mx-auto px-8">
-          <p className="text-center text-[12px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
+      <section className="bg-white py-16 border-b border-border overflow-hidden">
+        <div className="max-w-[1180px] mx-auto px-8 mb-10 text-center">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
             Trusted distribution
           </p>
-          <p className="text-center text-[15px] text-subtle max-w-[640px] mx-auto mb-10">
-            Delivering Christian music to every major DSP and Christian channel - globally.
+          <p className="text-[15px] text-subtle max-w-[640px] mx-auto">
+            Delivering Christian music to every major DSP and Christian channel.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-y-6 gap-x-4 items-center">
-            {dspsTier1.map((dsp) => (
-              <div key={dsp.name} className="flex items-center justify-center">
-                <span className={`text-[15px] text-foreground ${dsp.style}`}>{dsp.name}</span>
+        </div>
+
+        {/* Tier 1 marquee */}
+        <div
+          className="relative"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee">
+            {[...dspsTier1, ...dspsTier1].map((dsp, i) => (
+              <div
+                key={`${dsp.name}-${i}`}
+                className="flex items-center justify-center px-10 shrink-0"
+              >
+                <span className={`text-[18px] text-foreground ${dsp.style}`}>{dsp.name}</span>
               </div>
             ))}
           </div>
-          <div className="mt-10 pt-10 border-t border-border grid grid-cols-3 md:grid-cols-6 gap-y-4 gap-x-4 items-center">
-            {dspsTier2.map((dsp) => (
-              <div key={dsp} className="flex items-center justify-center">
-                <span className="text-[12px] font-semibold text-muted">{dsp}</span>
+        </div>
+
+        {/* Tier 2 marquee (slower, opposite direction look via reverse list) */}
+        <div
+          className="relative mt-8"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee-slow">
+            {[...dspsTier2, ...dspsTier2].map((dsp, i) => (
+              <div
+                key={`${dsp}-${i}`}
+                className="flex items-center justify-center px-8 shrink-0"
+              >
+                <span className="text-[13px] font-semibold text-muted">{dsp}</span>
               </div>
             ))}
           </div>
@@ -737,10 +767,10 @@ export default function LandingPage() {
           <div className="text-center mb-12">
             <p className="label-eyebrow-secondary mb-3">Publishing Partnerships</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              We partner with publishers - not replace them.
+              We partner with publishers.
             </h2>
             <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
-              Selah aggregates global publishing administration across 60+ PROs, MROs, and CCLI on behalf of publishers and self-administering songwriters. Your existing publishing relationships continue.
+              Selah aggregates global publishing administration across 60+ PROs, MROs, and CCLI on behalf of publishers and self-administering songwriters.
             </p>
           </div>
 
@@ -849,6 +879,92 @@ export default function LandingPage() {
           <p className="text-center text-[12px] text-white/50 mt-10">
             Global HQ: Level 1, 60 Martin Place, Sydney, NSW, 2000, Australia
           </p>
+        </div>
+      </section>
+
+      {/* LIVE ACTIVITY TICKER */}
+      <section className="py-20 border-y border-border bg-white">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-positive-soft border border-positive/15 mb-5">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inline-flex w-full h-full rounded-full bg-positive opacity-75 animate-ping" />
+                  <span className="relative inline-flex w-2 h-2 rounded-full bg-positive" />
+                </span>
+                <span className="text-[11px] font-semibold text-positive uppercase tracking-wider">
+                  Live activity
+                </span>
+              </div>
+              <h2 className="text-[36px] font-bold tracking-tight mb-4 leading-tight">
+                Delivering Christian music to the world, around the clock.
+              </h2>
+              <p className="text-subtle text-[15px] leading-relaxed mb-6">
+                Selah&apos;s delivery infrastructure pushes new releases, takedowns, and metadata updates to DSPs and Christian channels continuously across 84 territories.
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <p className="text-[24px] font-bold tracking-tight brand-gradient-text">218K</p>
+                  <p className="text-[11px] text-muted">Releases delivered YTD</p>
+                </div>
+                <div>
+                  <p className="text-[24px] font-bold tracking-tight brand-gradient-text">99.7%</p>
+                  <p className="text-[11px] text-muted">DSP delivery success</p>
+                </div>
+                <div>
+                  <p className="text-[24px] font-bold tracking-tight brand-gradient-text">47s</p>
+                  <p className="text-[11px] text-muted">Median time to live</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Ticker display */}
+            <div className="relative card overflow-hidden p-0">
+              <div className="border-b border-border px-4 py-2.5 flex items-center justify-between bg-surface">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#EF4444]/60" />
+                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]/60" />
+                  <span className="w-2 h-2 rounded-full bg-positive" />
+                </div>
+                <span className="text-[10px] font-mono text-muted">live · selah.cmg.com/feed</span>
+              </div>
+              <div className="h-[300px] overflow-hidden relative">
+                <div className="absolute inset-0 flex flex-col">
+                  {[
+                    { artist: "Grace Harbor", track: "Living Water", dsp: "Spotify · Apple Music · Deezer", region: "Worldwide", time: "just now" },
+                    { artist: "Kingdom House Music", track: "House of Prayer", dsp: "CCLI SongSelect", region: "AU · US · UK", time: "12s ago" },
+                    { artist: "New City Worship", track: "Kingdom Come", dsp: "TikTok Sound · Instagram", region: "South-East Asia", time: "31s ago" },
+                    { artist: "Mercy Collective", track: "Mercy Is Near", dsp: "PraiseCharts · Planning Center", region: "Worldwide", time: "1m ago" },
+                    { artist: "Hannah Rejoice", track: "Still My Soul", dsp: "Spotify · YouTube Music", region: "ANZ", time: "1m ago" },
+                    { artist: "Open Heaven Worship", track: "Come Alive", dsp: "Multitracks.com", region: "Worldwide", time: "2m ago" },
+                    { artist: "Vessel Choir", track: "Only You Are Worthy", dsp: "Amazon Music · Tidal", region: "Asia-Pacific", time: "3m ago" },
+                    { artist: "Covenant Sound", track: "All Things New", dsp: "CCLI · WorshipReady", region: "Worldwide", time: "4m ago" },
+                  ].map((row, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 px-4 py-3 border-b border-border text-[12px]"
+                      style={{ animationDelay: `${i * 0.15}s` }}
+                    >
+                      <div className="w-8 h-8 rounded brand-gradient flex items-center justify-center text-white text-[10px] font-bold shrink-0">
+                        {row.artist.split(" ").map((w) => w[0]).slice(0, 2).join("")}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-foreground truncate">
+                          {row.track}{" "}
+                          <span className="text-muted font-normal">· {row.artist}</span>
+                        </p>
+                        <p className="text-[11px] text-muted truncate">{row.dsp} · {row.region}</p>
+                      </div>
+                      <span className="text-[10px] text-muted shrink-0 font-mono">{row.time}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Fade overlays */}
+                <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

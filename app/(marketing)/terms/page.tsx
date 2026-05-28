@@ -137,11 +137,11 @@ export default function TermsOfServicePage() {
                 Reach our legal team directly.
               </p>
               <a
-                href="mailto:legal@cmg.com"
+                href="mailto:legal@christianmusicgrp.com"
                 className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-accent hover:underline"
               >
                 <Mail size={12} />
-                legal@cmg.com
+                legal@christianmusicgrp.com
               </a>
             </div>
           </div>
@@ -312,7 +312,7 @@ export default function TermsOfServicePage() {
                 <Mail size={15} className="mt-0.5 text-accent shrink-0" />
                 <div>
                   <p className="text-muted text-[12.5px]">Legal</p>
-                  <a href="mailto:legal@cmg.com" className="text-accent font-medium hover:underline">legal@cmg.com</a>
+                  <a href="mailto:legal@christianmusicgrp.com" className="text-accent font-medium hover:underline">legal@christianmusicgrp.com</a>
                 </div>
               </div>
               <div className="pt-3 border-t border-border text-[13px] leading-relaxed text-subtle">

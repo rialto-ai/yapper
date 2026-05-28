@@ -135,11 +135,11 @@ export default function PrivacyPolicyPage() {
                 Reach our privacy team directly.
               </p>
               <a
-                href="mailto:privacy@cmg.com"
+                href="mailto:privacy@christianmusicgrp.com"
                 className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-accent hover:underline"
               >
                 <Mail size={12} />
-                privacy@cmg.com
+                privacy@christianmusicgrp.com
               </a>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function PrivacyPolicyPage() {
               <li><strong>Withdrawal of consent</strong> where processing is based on consent.</li>
             </ul>
             <p>
-              These rights are available under the <strong>Australian Privacy Act 1988 (Cth)</strong>, the <strong>GDPR</strong> (for European Economic Area, UK, and Switzerland), the <strong>California Consumer Privacy Act (CCPA)</strong>, Singapore&apos;s <strong>PDPA</strong>, Japan&apos;s <strong>APPI</strong>, and equivalent regimes elsewhere. To exercise any right, contact <a href="mailto:privacy@cmg.com">privacy@cmg.com</a>. You also have the right to lodge a complaint with the Office of the Australian Information Commissioner (OAIC) or your local supervisory authority.
+              These rights are available under the <strong>Australian Privacy Act 1988 (Cth)</strong>, the <strong>GDPR</strong> (for European Economic Area, UK, and Switzerland), the <strong>California Consumer Privacy Act (CCPA)</strong>, Singapore&apos;s <strong>PDPA</strong>, Japan&apos;s <strong>APPI</strong>, and equivalent regimes elsewhere. To exercise any right, contact <a href="mailto:privacy@christianmusicgrp.com">privacy@christianmusicgrp.com</a>. You also have the right to lodge a complaint with the Office of the Australian Information Commissioner (OAIC) or your local supervisory authority.
             </p>
           </section>
 
@@ -262,7 +262,7 @@ export default function PrivacyPolicyPage() {
           <section id="international">
             <h2>10. International transfers</h2>
             <p>
-              Selah operates globally with offices in <strong>Australia, Singapore, Japan, South Korea, Hong Kong SAR, the Philippines, Indonesia, and India</strong>. Your data may be transferred between these regions in the course of providing the Service. We use <strong>Standard Contractual Clauses</strong>, the ASEAN Model Contractual Clauses, and equivalent mechanisms to ensure adequate protection for cross-border transfers.
+              Selah operates globally with offices in <strong>Australia, Singapore, Malaysia, Thailand, Taiwan, South Korea, the Philippines, and Indonesia</strong>. Your data may be transferred between these regions in the course of providing the Service. We use <strong>Standard Contractual Clauses</strong>, the ASEAN Model Contractual Clauses, and equivalent mechanisms to ensure adequate protection for cross-border transfers.
             </p>
           </section>
 
@@ -287,14 +287,14 @@ export default function PrivacyPolicyPage() {
                 <Mail size={15} className="mt-0.5 text-accent shrink-0" />
                 <div>
                   <p className="text-muted text-[12.5px]">Privacy questions</p>
-                  <a href="mailto:privacy@cmg.com" className="text-accent font-medium hover:underline">privacy@cmg.com</a>
+                  <a href="mailto:privacy@christianmusicgrp.com" className="text-accent font-medium hover:underline">privacy@christianmusicgrp.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Mail size={15} className="mt-0.5 text-accent shrink-0" />
                 <div>
                   <p className="text-muted text-[12.5px]">Data Protection Officer</p>
-                  <a href="mailto:dpo@cmg.com" className="text-accent font-medium hover:underline">dpo@cmg.com</a>
+                  <a href="mailto:dpo@christianmusicgrp.com" className="text-accent font-medium hover:underline">dpo@christianmusicgrp.com</a>
                 </div>
               </div>
               <div className="pt-3 border-t border-border text-[13px] leading-relaxed text-subtle">

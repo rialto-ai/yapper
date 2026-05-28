@@ -22,22 +22,20 @@ const stats = [
 
 const offices = [
   { city: "Sydney", country: "Australia", address: "Level 1, 60 Martin Place, Sydney NSW 2000", role: "Global HQ", primary: true },
-  { city: "Singapore", country: "Singapore", address: "8 Marina View, Asia Square Tower 1, Singapore 018960", role: "South-East Asia" },
-  { city: "Tokyo", country: "Japan", address: "Marunouchi Park Building, 2-6-1 Marunouchi, Chiyoda-ku, Tokyo 100-6917", role: "Japan operations" },
+  { city: "Singapore", country: "Singapore", address: "8 Marina View, Asia Square Tower 1, Singapore 018960", role: "South-East Asia hub" },
+  { city: "Kuala Lumpur", country: "Malaysia", address: "Menara TM, Jalan Pantai Bahru, 50672 Kuala Lumpur", role: "Malaysia operations" },
+  { city: "Bangkok", country: "Thailand", address: "King Power Mahanakhon, 114 Naradhiwas Rajanagarindra Road, Silom, Bangkok 10500", role: "Thailand operations" },
+  { city: "Taipei", country: "Taiwan", address: "Taipei 101 Tower, 7 Xinyi Road, Section 5, Taipei 110", role: "Taiwan operations" },
   { city: "Seoul", country: "South Korea", address: "Gangnam Finance Center, 152 Teheran-ro, Gangnam-gu, Seoul", role: "Korea operations" },
-  { city: "Hong Kong", country: "Hong Kong SAR", address: "Two IFC, 8 Finance Street, Central, Hong Kong", role: "Greater China" },
-  { city: "Manila", country: "Philippines", address: "One Bonifacio High Street, 5th Avenue, BGC, Taguig 1634", role: "Philippines" },
-  { city: "Jakarta", country: "Indonesia", address: "Pacific Place, SCBD Lot 3-5, Jakarta 12190", role: "Indonesia" },
-  { city: "Mumbai", country: "India", address: "One BKC, Bandra Kurla Complex, Mumbai 400051", role: "South Asia" },
+  { city: "Manila", country: "Philippines", address: "One Bonifacio High Street, 5th Avenue, BGC, Taguig 1634", role: "Customer success" },
+  { city: "Jakarta", country: "Indonesia", address: "Pacific Place, SCBD Lot 3-5, Jakarta 12190", role: "Indonesia operations" },
 ];
 
-const investors = ["Antler", "Square Peg Capital", "Blackbird Ventures", "AirTree Ventures", "Sequoia Capital India", "Patamar Capital"];
-
 const press = [
-  { pub: "TechCrunch", date: "Mar 2026", title: "Sydney's Selah raises capital to build Christian music's infrastructure layer." },
-  { pub: "Music Business Worldwide", date: "Feb 2026", title: "Christian Music Group expands to 8 Asia-Pacific markets." },
   { pub: "WorshipLeader Magazine", date: "Jan 2026", title: "How Selah is reshaping how worship songs reach the church." },
-  { pub: "The Australian Financial Review", date: "Dec 2025", title: "Selah named one of Australia's most promising B2B SaaS startups." },
+  { pub: "Music Business Worldwide", date: "Feb 2026", title: "Christian Music Group expands its distribution footprint across Asia-Pacific." },
+  { pub: "Sight Magazine", date: "Mar 2026", title: "Sydney-based Selah brings purpose-built distribution to the Christian music world." },
+  { pub: "The Australian Financial Review", date: "Dec 2025", title: "Selah named one of Australia's most promising B2B SaaS exporters." },
 ];
 
 const values = [
@@ -63,11 +61,11 @@ export default function AboutPage() {
         <div className="relative max-w-[900px] mx-auto px-8 pt-20 pb-16 text-center">
           <p className="label-eyebrow mb-4">About Selah</p>
           <h1 className="text-[48px] md:text-[54px] font-bold tracking-tight leading-[1.05] mb-6">
-            We&apos;re building the distribution layer for{" "}
-            <span className="brand-gradient-text">Christian music.</span>
+            Christian music distribution{" "}
+            <span className="brand-gradient-text">from the southern hemisphere to the world.</span>
           </h1>
           <p className="text-[18px] text-subtle max-w-[680px] mx-auto leading-relaxed">
-            Founded in Sydney in 2026, Selah delivers Christian music globally to every major DSP and the Christian channel network. Today we operate from 8 offices across Asia-Pacific, distributing on behalf of artists, labels, worship teams, and ministries.
+            Founded in Sydney in 2026, Selah delivers Christian music globally to every major DSP and the Christian channel network. We operate from 8 offices across the Asia-Pacific, distributing on behalf of artists, labels, worship teams, and ministries.
           </p>
         </div>
       </section>
@@ -177,7 +175,7 @@ export default function AboutPage() {
         <div className="max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-12">
             <p className="label-eyebrow mb-3">Global offices</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">From Sydney to Mumbai.</h2>
+            <h2 className="text-[36px] font-bold tracking-tight mb-3">Across the Asia-Pacific.</h2>
             <p className="text-subtle max-w-[600px] mx-auto text-[15px]">
               Eight offices across Asia-Pacific running local DSP relationships, church network operations, and customer support.
             </p>
@@ -235,25 +233,6 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-[16px] font-semibold mb-2.5">{v.title}</h3>
                 <p className="text-[13px] text-subtle leading-relaxed">{v.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Investors */}
-      <section className="py-20">
-        <div className="max-w-[1100px] mx-auto px-8">
-          <div className="text-center mb-10">
-            <p className="label-eyebrow mb-3">Backed by</p>
-            <h2 className="text-[32px] font-bold tracking-tight">World-class investors.</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-5 gap-x-6 items-center">
-            {investors.map((name) => (
-              <div key={name} className="flex items-center justify-center">
-                <span className="text-[14px] font-bold tracking-tight text-subtle hover:text-foreground transition-colors text-center">
-                  {name}
-                </span>
               </div>
             ))}
           </div>
@@ -318,10 +297,10 @@ export default function AboutPage() {
                   <ArrowRight size={16} />
                 </Link>
                 <Link
-                  href="/careers"
+                  href="/contact"
                   className="border border-white/20 text-white hover:bg-white/5 font-medium rounded-md px-7 py-3 text-[15px] transition-colors"
                 >
-                  View open roles
+                  Talk to our team
                 </Link>
               </div>
             </div>

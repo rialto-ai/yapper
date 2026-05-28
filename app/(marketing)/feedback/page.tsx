@@ -504,7 +504,7 @@ export default function FeedbackPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a
-              href="mailto:support@cmg.com"
+              href="mailto:support@christianmusicgrp.com"
               className="card p-6 card-interactive group flex items-start gap-4"
             >
               <div className="w-10 h-10 rounded-lg bg-accent-soft border border-accent/15 flex items-center justify-center shrink-0">
@@ -514,7 +514,7 @@ export default function FeedbackPage() {
                 <p className="text-[13px] font-semibold mb-1">Need help right now?</p>
                 <p className="text-[12px] text-subtle mb-2">Our support team can get you unblocked.</p>
                 <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-accent group-hover:gap-2 transition-all">
-                  support@cmg.com
+                  support@christianmusicgrp.com
                   <ArrowRight size={11} />
                 </span>
               </div>

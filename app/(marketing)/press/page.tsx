@@ -11,14 +11,12 @@ import {
   Image as ImageIcon,
   Palette,
   BookOpen,
-  Users,
   MapPin,
 } from "lucide-react";
 
-type CategoryKey = "Funding" | "Product" | "Partnership" | "Expansion" | "Community";
+type CategoryKey = "Product" | "Partnership" | "Expansion" | "Community";
 
 const categoryStyles: Record<CategoryKey, string> = {
-  Funding: "bg-secondary-soft text-secondary border-secondary/15",
   Product: "bg-accent-soft text-accent border-accent/15",
   Partnership: "bg-positive-soft text-positive border-positive/15",
   Expansion: "bg-accent-soft text-accent border-accent/15",
@@ -32,12 +30,12 @@ const releases: {
   excerpt: string;
 }[] = [
   {
-    date: "May 14, 2026",
-    category: "Funding",
+    date: "May 22, 2026",
+    category: "Expansion",
     headline:
-      "Selah raises $18M Series A to scale Christian music infrastructure across Asia-Pacific.",
+      "Selah expands distribution network to Kuala Lumpur, Taipei, and Bangkok.",
     excerpt:
-      "The round, led by Square Peg Capital, will fund expansion of the Christian channel network and grow the Singapore and Mumbai offices.",
+      "Three new regional offices open across South-East and North Asia, deepening Selah's local DSP relationships and church network operations across the Asia-Pacific.",
   },
   {
     date: "April 22, 2026",
@@ -54,14 +52,6 @@ const releases: {
       "Selah signs distribution partnership with PraiseCharts for chord chart delivery.",
     excerpt:
       "Selah-distributed releases will now ship chord charts and stem-aware lead sheets directly to PraiseCharts on release day.",
-  },
-  {
-    date: "March 30, 2026",
-    category: "Expansion",
-    headline:
-      "Christian Music Group opens new Mumbai office to serve South Asian Christian music.",
-    excerpt:
-      "The Mumbai team will lead artist and label relationships across India, Bangladesh, Sri Lanka, and the Gulf diaspora.",
   },
   {
     date: "March 12, 2026",
@@ -83,9 +73,9 @@ const releases: {
     date: "February 15, 2026",
     category: "Community",
     headline:
-      "Selah commits A$1M to support indigenous Christian music initiatives across Australia and New Zealand.",
+      "Selah supports indigenous Christian music initiatives across Australia and New Zealand.",
     excerpt:
-      "The three-year program funds recording grants, distribution credits, and worship-leader mentorship for indigenous artists.",
+      "The new program funds recording grants, distribution credits, and worship-leader mentorship for indigenous artists across the southern hemisphere.",
   },
   {
     date: "January 30, 2026",
@@ -94,16 +84,22 @@ const releases: {
     excerpt:
       "Partner Portal v2 introduces multi-roster controls, shared royalty ledgers, and a unified pipeline view for label networks.",
   },
+  {
+    date: "January 15, 2026",
+    category: "Partnership",
+    headline: "CCLI registration and reporting now native to Selah delivery.",
+    excerpt:
+      "Selah-distributed worship songs can now be submitted to CCLI SongSelect directly from the release builder, with congregational reporting auto-ingested.",
+  },
 ];
 
 const coverage = [
   {
-    publication: "TechCrunch",
-    date: "March 18, 2026",
-    headline:
-      "Inside Selah, the Sydney startup quietly building Christian music's distribution layer.",
+    publication: "WorshipLeader Magazine",
+    date: "January 24, 2026",
+    headline: "How Selah is reshaping how worship songs reach the church.",
     excerpt:
-      "While Spotify and Apple Music dominate global music distribution, a small but growing category of artists has been underserved. Selah, founded in 2024 in Sydney, is betting that purpose-built infrastructure for Christian music can become a meaningful platform business...",
+      "Worship directors are using a new platform to track which songs are actually being adopted by churches, with a level of signal granularity that has not previously existed in the worship space.",
   },
   {
     publication: "Music Business Worldwide",
@@ -111,7 +107,15 @@ const coverage = [
     headline:
       "Christian music's quiet boom: how Selah is reaching artists secular platforms miss.",
     excerpt:
-      "MBW spoke with Selah's leadership about the unique characteristics of Christian music distribution and why purpose-built infrastructure has been overlooked by the major distributors...",
+      "MBW spoke with Selah's leadership about the unique characteristics of Christian music distribution and why purpose-built infrastructure has been overlooked by the major distributors.",
+  },
+  {
+    publication: "Sight Magazine",
+    date: "March 18, 2026",
+    headline:
+      "Sydney-based Selah brings purpose-built distribution to the Christian music world.",
+    excerpt:
+      "Sight Magazine profiled the Sydney-based platform that is bringing operational rigor to Christian music distribution across the southern hemisphere and Asia.",
   },
   {
     publication: "The Australian Financial Review",
@@ -119,28 +123,21 @@ const coverage = [
     headline:
       "Australia's Selah named one of 2026's most promising B2B SaaS exporters.",
     excerpt:
-      "The Sydney-based company has grown to 850+ employees across 8 offices in less than two years, with regional revenue driven primarily by South-East Asian church networks...",
+      "The Sydney-based company operates across 8 offices in the Asia-Pacific, with regional revenue driven primarily by South-East Asian church networks.",
   },
   {
-    publication: "WorshipLeader Magazine",
-    date: "January 24, 2026",
-    headline: "How Selah is reshaping how worship songs reach the church.",
-    excerpt:
-      "Worship directors are using a new platform to track which songs are actually being adopted by churches, with a level of signal granularity that has not previously existed in the worship space...",
-  },
-  {
-    publication: "Variety",
+    publication: "Eternity News",
     date: "January 10, 2026",
-    headline: "Christian Music Group's Selah scales across 7 Asian markets.",
+    headline: "Christian Music Group scales distribution across the Asia-Pacific.",
     excerpt:
-      "Variety's Asia desk profiled the rapid Asia-Pacific expansion of Christian music's emerging infrastructure layer, with new offices in Manila, Jakarta, and Hong Kong opening within twelve months...",
+      "Eternity profiled the rapid Asia-Pacific expansion of Christian music's emerging distribution layer, with new offices opening across South-East Asia.",
   },
   {
     publication: "AsiaTech Daily",
     date: "December 18, 2025",
-    headline: "Sydney's Selah expands to Tokyo and Seoul.",
+    headline: "Sydney's Selah expands across the Asia-Pacific Christian music market.",
     excerpt:
-      "Christian music distribution startup Selah today announced new offices in Tokyo and Seoul, marking its formal entry into the North Asian Christian music market...",
+      "Christian music distribution platform Selah announced its expansion into multiple Asia-Pacific markets, marking its formal entry into the regional Christian music economy.",
   },
 ];
 
@@ -162,23 +159,16 @@ const assets = [
   {
     icon: FileText,
     title: "Company fact sheet",
-    desc: "One-page company overview with leadership, history, and headline stats.",
+    desc: "One-page company overview with history and headline stats.",
     cta: "Download PDF",
     accent: "accent" as const,
-  },
-  {
-    icon: Users,
-    title: "Leadership headshots",
-    desc: "High-resolution leadership photography in editorial and on-stage formats.",
-    cta: "Download .zip",
-    accent: "secondary" as const,
   },
   {
     icon: ImageIcon,
     title: "Product screenshots",
     desc: "Curated, high-resolution product screens for distribution, royalties, and analytics.",
     cta: "Download .zip",
-    accent: "accent" as const,
+    accent: "secondary" as const,
   },
 ];
 
@@ -193,7 +183,7 @@ export default function PressPage() {
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(rgb(67 56 202) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgb(30 64 175) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
@@ -207,9 +197,7 @@ export default function PressPage() {
           </div>
           <h1 className="text-[54px] font-bold tracking-tight leading-[1.05] mb-6">
             What people are saying about{" "}
-            <span className="bg-gradient-to-r from-accent via-accent-hover to-secondary bg-clip-text text-transparent">
-              Selah.
-            </span>
+            <span className="brand-gradient-text">Selah.</span>
           </h1>
           <p className="text-[18px] text-subtle max-w-[720px] mx-auto leading-relaxed">
             Announcements, press coverage, and media resources from Christian Music Group Distribution, Inc.
@@ -224,7 +212,7 @@ export default function PressPage() {
             <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
             <div className="grid grid-cols-1 md:grid-cols-12">
               {/* Left visual */}
-              <div className="md:col-span-5 relative overflow-hidden bg-gradient-to-br from-accent via-accent-hover to-secondary p-10 text-white min-h-[320px] flex flex-col justify-between">
+              <div className="md:col-span-5 relative overflow-hidden brand-gradient p-10 text-white min-h-[320px] flex flex-col justify-between">
                 <div
                   className="absolute inset-0 opacity-[0.08] pointer-events-none"
                   style={{
@@ -239,8 +227,10 @@ export default function PressPage() {
                   </span>
                 </div>
                 <div className="relative">
-                  <p className="text-[40px] font-bold tracking-tight leading-none mb-2">$18M</p>
-                  <p className="text-[13px] text-white/85 font-medium">Series A · led by Square Peg Capital</p>
+                  <p className="text-[28px] font-bold tracking-tight leading-tight mb-2">
+                    Selah expands to KL, Taipei, Bangkok
+                  </p>
+                  <p className="text-[13px] text-white/85 font-medium">Three new Asia-Pacific offices</p>
                   <div className="mt-6 flex items-center gap-2 text-[11px] text-white/70">
                     <Calendar size={12} />
                     {featured.date}
@@ -263,13 +253,13 @@ export default function PressPage() {
                 </h2>
                 <div className="space-y-3 text-[13.5px] text-subtle leading-relaxed mb-7">
                   <p>
-                    Selah, the Christian music distribution platform built by Christian Music Group Distribution, Inc., today announced an A$18 million Series A round led by Square Peg Capital, with participation from existing investors Blackbird and Skip Capital.
+                    Selah, the Christian music distribution platform built by Christian Music Group Distribution, Inc., today announced the opening of three new regional offices in Kuala Lumpur, Taipei, and Bangkok.
                   </p>
                   <p>
-                    The capital will accelerate expansion of the Christian channel network - Selah&apos;s purpose-built integration layer connecting artists to CCLI SongSelect, PraiseCharts, Multitracks, and worship-leader platforms - alongside continued scaling of the Singapore and Mumbai offices to serve South-East and South Asian Christian music markets.
+                    The new offices deepen Selah&apos;s presence across South-East and North Asia, bringing the company&apos;s global footprint to 8 markets and enabling closer relationships with local DSPs, Christian channels, and the church networks driving worship music adoption across the region.
                   </p>
                   <p>
-                    A portion of the round will go toward building out Selah&apos;s Sync representation team, with hires planned across Sydney, Singapore, and Los Angeles to pursue film, television, and faith-based media placements for the Selah catalog.
+                    Each new office will lead local artist, label, and ministry relationships, with regional leads working alongside Selah&apos;s Sydney headquarters to ensure the Christian channel network and CCLI integration extend deeply into each market.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -409,7 +399,7 @@ export default function PressPage() {
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgb(16 185 129) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
@@ -424,11 +414,11 @@ export default function PressPage() {
             </div>
             <h2 className="text-[34px] font-bold tracking-tight mb-3">Brand assets.</h2>
             <p className="text-[#94A3B8] max-w-[560px] mx-auto text-[15px]">
-              Logos, brand guidelines, headshots, and product imagery - everything you need to write about Selah.
+              Logos, brand guidelines, and product imagery. Everything you need to write about Selah.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {assets.map((a) => (
               <div
                 key={a.title}
@@ -478,41 +468,62 @@ export default function PressPage() {
                 For all press, interview requests, and media inquiries, contact our communications team. We aim to respond within one business day, Sydney time.
               </p>
               <a
-                href="mailto:press@cmg.com"
+                href="mailto:press@christianmusicgrp.com"
                 className="btn-primary !px-5 !py-2.5 text-[14px] inline-flex items-center gap-2 w-fit"
               >
                 <Mail size={14} />
-                press@cmg.com
+                press@christianmusicgrp.com
               </a>
             </div>
 
             <div className="md:col-span-7">
               <div className="card p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <ContactBlock
-                    label="General press"
-                    name="Communications Team"
-                    email="press@cmg.com"
-                    accent="accent"
-                  />
-                  <ContactBlock
-                    label="Asia-Pacific PR lead"
-                    name="Sarah Chen"
-                    email="sarah.chen@cmg.com"
-                    accent="secondary"
-                  />
-                  <ContactBlock
-                    label="North Asia"
-                    name="Hiro Tanaka"
-                    email="hiro@cmg.com"
-                    accent="accent"
-                  />
-                  <div className="pt-1">
-                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-secondary mb-2">
+                  <div>
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.08em] mb-2 text-accent">
+                      General press
+                    </p>
+                    <p className="text-[14px] font-semibold text-foreground leading-tight mb-1">Communications</p>
+                    <a
+                      href="mailto:press@christianmusicgrp.com"
+                      className="text-[12.5px] text-subtle hover:text-accent transition-colors"
+                    >
+                      press@christianmusicgrp.com
+                    </a>
+                  </div>
+
+                  <div>
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.08em] mb-2 text-secondary">
+                      Asia-Pacific
+                    </p>
+                    <p className="text-[14px] font-semibold text-foreground leading-tight mb-1">Regional press</p>
+                    <a
+                      href="mailto:press@christianmusicgrp.com"
+                      className="text-[12.5px] text-subtle hover:text-accent transition-colors"
+                    >
+                      press@christianmusicgrp.com
+                    </a>
+                  </div>
+
+                  <div>
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.08em] mb-2 text-accent">
+                      Partnership inquiries
+                    </p>
+                    <p className="text-[14px] font-semibold text-foreground leading-tight mb-1">Partners</p>
+                    <a
+                      href="mailto:press@christianmusicgrp.com"
+                      className="text-[12.5px] text-subtle hover:text-accent transition-colors"
+                    >
+                      press@christianmusicgrp.com
+                    </a>
+                  </div>
+
+                  <div>
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.08em] mb-2 text-secondary">
                       Mailing address
                     </p>
-                    <div className="flex items-start gap-2 text-[13px] text-subtle leading-relaxed">
-                      <MapPin size={14} className="text-secondary mt-0.5 shrink-0" strokeWidth={1.8} />
+                    <div className="flex items-start gap-2 text-[12.5px] text-subtle leading-relaxed">
+                      <MapPin size={13} className="text-secondary mt-0.5 shrink-0" strokeWidth={1.8} />
                       <span>
                         Christian Music Group
                         <br />
@@ -538,7 +549,7 @@ export default function PressPage() {
             <div
               className="absolute inset-0 opacity-[0.04] pointer-events-none"
               style={{
-                backgroundImage: "radial-gradient(rgb(67 56 202) 1px, transparent 1px)",
+                backgroundImage: "radial-gradient(rgb(30 64 175) 1px, transparent 1px)",
                 backgroundSize: "20px 20px",
               }}
             />
@@ -551,7 +562,7 @@ export default function PressPage() {
                   Get press releases in your inbox.
                 </h2>
                 <p className="text-[14.5px] text-subtle leading-relaxed max-w-[460px]">
-                  Subscribe to the Selah press list for new announcements, leadership commentary, and embargo access - sent only when there&apos;s news.
+                  Subscribe to the Selah press list for new announcements and embargo access. Sent only when there&apos;s news.
                 </p>
               </div>
               <form className="md:col-span-5 flex flex-col sm:flex-row gap-2.5">
@@ -573,37 +584,5 @@ export default function PressPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function ContactBlock({
-  label,
-  name,
-  email,
-  accent,
-}: {
-  label: string;
-  name: string;
-  email: string;
-  accent: "accent" | "secondary";
-}) {
-  return (
-    <div>
-      <p
-        className={`text-[10.5px] font-semibold uppercase tracking-[0.08em] mb-2 ${
-          accent === "secondary" ? "text-secondary" : "text-accent"
-        }`}
-      >
-        {label}
-      </p>
-      <p className="text-[14px] font-semibold text-foreground leading-tight">{name}</p>
-      <a
-        href={`mailto:${email}`}
-        className="text-[13px] text-subtle hover:text-accent transition-colors inline-flex items-center gap-1.5 mt-1"
-      >
-        <Mail size={12} className="text-muted" />
-        {email}
-      </a>
-    </div>
   );
 }

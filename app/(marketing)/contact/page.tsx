@@ -26,21 +26,21 @@ const contactMethods = [
     color: "accent" as const,
     title: "Sales",
     body: "Talk to our distribution team about Label Services or Enterprise partnerships.",
-    email: "sales@cmg.com",
+    email: "sales@christianmusicgrp.com",
   },
   {
     icon: Headphones,
     color: "secondary" as const,
     title: "Support",
     body: "Existing customers can reach the support team for help with releases, royalties, and accounts.",
-    email: "support@cmg.com",
+    email: "support@christianmusicgrp.com",
   },
   {
     icon: MessageCircle,
     color: "accent" as const,
     title: "Press",
     body: "Media inquiries, interviews, and press resources for journalists and publications.",
-    email: "press@cmg.com",
+    email: "press@christianmusicgrp.com",
   },
 ];
 
@@ -69,66 +69,66 @@ const offices = [
     city: "Sydney",
     country: "Australia",
     address: "Level 1, 60 Martin Place, Sydney NSW 2000",
-    email: "sydney@cmg.com",
+    email: "sydney@christianmusicgrp.com",
     phone: "+61 2 8XXX XXXX",
-    primary: "Global HQ, engineering, executive",
+    primary: "Global HQ, executive, platform",
     hq: true,
   },
   {
     city: "Singapore",
     country: "Singapore",
     address: "8 Marina View, Asia Square Tower 1, Singapore 018960",
-    email: "singapore@cmg.com",
+    email: "singapore@christianmusicgrp.com",
     phone: "+65 6XXX XXXX",
-    primary: "South-East Asia, DSP partnerships",
+    primary: "South-East Asia hub",
   },
   {
-    city: "Tokyo",
-    country: "Japan",
-    address: "Marunouchi Park Building, 2-6-1 Marunouchi, Chiyoda-ku, Tokyo 100-6917",
-    email: "tokyo@cmg.com",
-    phone: "+81 3 6XXX XXXX",
-    primary: "Japan operations",
+    city: "Kuala Lumpur",
+    country: "Malaysia",
+    address: "Menara TM, Jalan Pantai Bahru, 50672 Kuala Lumpur",
+    email: "kl@christianmusicgrp.com",
+    phone: "+60 3 7XXX XXXX",
+    primary: "Malaysia operations",
+  },
+  {
+    city: "Bangkok",
+    country: "Thailand",
+    address: "King Power Mahanakhon, 114 Naradhiwas Rajanagarindra Road, Silom, Bangkok 10500",
+    email: "bangkok@christianmusicgrp.com",
+    phone: "+66 2 XXX XXXX",
+    primary: "Thailand operations",
+  },
+  {
+    city: "Taipei",
+    country: "Taiwan",
+    address: "Taipei 101 Tower, 7 Xinyi Road, Section 5, Taipei 110",
+    email: "taipei@christianmusicgrp.com",
+    phone: "+886 2 8XXX XXXX",
+    primary: "Taiwan operations",
   },
   {
     city: "Seoul",
     country: "South Korea",
     address: "Gangnam Finance Center, 152 Teheran-ro, Gangnam-gu, Seoul",
-    email: "seoul@cmg.com",
+    email: "seoul@christianmusicgrp.com",
     phone: "+82 2 6XXX XXXX",
     primary: "Korea operations",
-  },
-  {
-    city: "Hong Kong",
-    country: "Hong Kong SAR",
-    address: "Two IFC, 8 Finance Street, Central",
-    email: "hongkong@cmg.com",
-    phone: "+852 3XXX XXXX",
-    primary: "Greater China",
   },
   {
     city: "Manila",
     country: "Philippines",
     address: "One Bonifacio High Street, 5th Avenue, BGC, Taguig 1634",
-    email: "manila@cmg.com",
+    email: "manila@christianmusicgrp.com",
     phone: "+63 2 8XXX XXXX",
-    primary: "Customer success, operations",
+    primary: "Customer success",
   },
   {
     city: "Jakarta",
     country: "Indonesia",
     address: "Pacific Place, SCBD Lot 3-5, Jakarta 12190",
-    email: "jakarta@cmg.com",
+    email: "jakarta@christianmusicgrp.com",
     phone: "+62 21 5XXX XXXX",
-    primary: "Indonesia",
-  },
-  {
-    city: "Mumbai",
-    country: "India",
-    address: "One BKC, Bandra Kurla Complex, Mumbai 400051",
-    email: "mumbai@cmg.com",
-    phone: "+91 22 6XXX XXXX",
-    primary: "South Asia",
+    primary: "Indonesia operations",
   },
 ];
 
@@ -412,8 +412,8 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-start gap-2.5">
                     <Mail size={13} className="text-accent mt-0.5 shrink-0" strokeWidth={1.8} />
-                    <a href="mailto:sydney@cmg.com" className="hover:text-accent transition-colors">
-                      sydney@cmg.com
+                    <a href="mailto:sydney@christianmusicgrp.com" className="hover:text-accent transition-colors">
+                      sydney@christianmusicgrp.com
                     </a>
                   </div>
                   <div className="flex items-start gap-2.5">
