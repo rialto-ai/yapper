@@ -7,7 +7,6 @@ export const site = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://www.christianmusicgrp.com",
-  email: "cameron@christianmusicgrp.com",
   legal: {
     entity: "Christian Music Group Pty Ltd",
     acn: "697 934 946",

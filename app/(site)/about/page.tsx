@@ -103,7 +103,7 @@ function FounderSection() {
               Cameron
             </h2>
             <div className="mt-2 text-[14.5px] text-muted">
-              Founder &amp; Chief Executive — Christian Music Group
+              Founder — Christian Music Group
             </div>
             <div className="prose-body mt-8 max-w-xl text-[16px]">
               <p>
@@ -116,14 +116,6 @@ function FounderSection() {
                 [Full founder bio to be added — replace this paragraph with
                 Cameron's background, calling, and vision for CMG.]
               </p>
-            </div>
-            <div className="mt-8">
-              <a
-                href="mailto:cameron@christianmusicgrp.com"
-                className="text-[13.5px] text-foreground hover:underline"
-              >
-                cameron@christianmusicgrp.com →
-              </a>
             </div>
           </div>
         </div>
