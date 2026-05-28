@@ -65,9 +65,9 @@ export default function RosterPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Roster & Partners</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Roster</h1>
         <p className="text-[13px] text-muted mt-1">
-          Manage artists, worship teams, labels, publishers, and service relationships.
+          Artists, worship leaders, labels, ministries, and publishing coordination partners across your Selah workspace.
         </p>
       </div>
 
@@ -117,7 +117,7 @@ export default function RosterPage() {
                         <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Type</th>
                         <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Country</th>
                         <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Contact</th>
-                        <th className="text-right text-[12px] font-medium text-muted px-4 py-3">Catalog Size</th>
+                        <th className="text-right text-[12px] font-medium text-muted px-4 py-3">Catalogue Size</th>
                         <th className="text-right text-[12px] font-medium text-muted px-4 py-3">Monthly Listeners</th>
                         <th className="text-right text-[12px] font-medium text-muted px-4 py-3">Active Releases</th>
                         <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Rights Status</th>

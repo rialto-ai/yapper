@@ -9,15 +9,15 @@ const services = [
   { title: "Playlist Pitching", description: "Editorial and algorithmic playlist strategy across Spotify, Apple Music, and Amazon." },
   { title: "Christian Radio", description: "Radio servicing, tracking, and promotion across Christian and worship formats." },
   { title: "Church Outreach", description: "Worship leader engagement, chord chart distribution, and church planning platform integration." },
-  { title: "YouTube Strategy", description: "Channel optimization, Content ID management, and video monetization strategy." },
-  { title: "Content Production", description: "Lyric videos, visualizers, acoustic sessions, and short-form content creation." },
-  { title: "Publishing Administration", description: "Worldwide publishing administration, registration, and royalty collection." },
+  { title: "YouTube Strategy", description: "Channel optimisation, Content ID management, and video monetisation strategy." },
+  { title: "Content Production", description: "Lyric videos, visualisers, acoustic sessions, and short-form content creation." },
+  { title: "Publishing Coordination", description: "Publishing coordination, registration tracking, and royalty workflows across partners." },
   { title: "Royalty Accounting", description: "Transparent royalty processing, statement generation, and payment administration." },
-  { title: "Neighboring Rights", description: "International neighboring rights registration and collection." },
+  { title: "Neighbouring Rights", description: "International neighbouring rights registration and collection." },
   { title: "Sync Representation", description: "Sync licensing representation for film, TV, advertising, and media placements." },
   { title: "Brand and Ministry Partnerships", description: "Strategic partnership development with Christian brands, churches, and ministries." },
-  { title: "Financing Review", description: "Catalog valuation, advance structuring, and financing options assessment." },
-  { title: "Catalog Strategy", description: "Long-term catalog management, reissue planning, and back-catalog optimization." },
+  { title: "Financing Review", description: "Catalogue valuation, advance structuring, and financing options assessment." },
+  { title: "Catalogue Strategy", description: "Long-term catalogue management, reissue planning, and back-catalogue optimisation." },
 ];
 
 const applicationSteps = [
@@ -59,7 +59,7 @@ export default function LabelServicesPage() {
       <div>
         <h1 className="text-[22px] font-semibold tracking-tight">Label Services</h1>
         <p className="text-[13px] text-muted mt-1">
-          Managed services for selected Christian artists, worship projects, labels, and rights holders.
+          Managed release operations, campaigns, rights workflows, and catalogue administration for selected Christian labels, ministries, and artists.
         </p>
       </div>
 
@@ -133,7 +133,7 @@ export default function LabelServicesPage() {
             />
           </div>
           <div>
-            <label className={labelClass}>Catalog size</label>
+            <label className={labelClass}>Catalogue size</label>
             <input
               type="text"
               value={formData.catalogSize}

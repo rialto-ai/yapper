@@ -45,7 +45,7 @@ const sections = [
   {
     label: "Services",
     items: [
-      { id: "youtube", title: "YouTube monetization", icon: Youtube },
+      { id: "youtube", title: "YouTube monetisation", icon: Youtube },
       { id: "publishing", title: "Publishing partnerships", icon: FileText },
       { id: "label-services", title: "Label Services", icon: Sparkles },
     ],
@@ -59,7 +59,7 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
     body: (
       <>
         <p>
-          Selah is a digital music distribution platform purpose-built for Christian music. Founded in 2026 and headquartered in Sydney, we deliver music and video globally to every major DSP, the Christian channel network, and partner with publishers and rights organizations on behalf of our artists, labels, worship teams, and ministries.
+          Selah is a digital music distribution platform purpose-built for Christian music. Founded in 2026 and headquartered in Sydney, we deliver music and video globally to every major DSP, the Christian channel network, and partner with publishers and rights organisations on behalf of our artists, labels, worship teams, and ministries.
         </p>
         <h3>What Selah does</h3>
         <ul>
@@ -88,7 +88,7 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
         <h3>1. Onboard your catalog</h3>
         <p>Import your existing tracks via CSV upload or connect an existing distributor for catalog migration. Selah supports ISRC matching, UPC linking, and composition-level metadata.</p>
         <h3>2. Configure rights & splits</h3>
-        <p>For each track, define master ownership, publishing splits, neighboring rights shares, and YouTube Content ID rights. Participants confirm via signed agreements before delivery.</p>
+        <p>For each track, define master ownership, publishing splits, neighbouring rights shares, and YouTube Content ID rights. Participants confirm via signed agreements before delivery.</p>
         <h3>3. Build the release</h3>
         <p>Use the Release Builder to walk through 8 steps: Release Details, Tracks & Assets, Metadata, Christian Metadata, Rights & Splits, Distribution, Campaign, and Review.</p>
         <h3>4. Deliver to DSPs</h3>
@@ -109,9 +109,9 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
         <h3>Catalog</h3>
         <p>The full corpus of tracks, releases, compositions, videos, and assets you control or administer. Catalog items are the atomic unit Selah operates on.</p>
         <h3>Rights</h3>
-        <p>Master, publishing, neighboring, sync, YouTube Content ID, and church licensing rights. Each is tracked separately with its own splits.</p>
+        <p>Master, publishing, neighbouring, sync, YouTube Content ID, and church licensing rights. Each is tracked separately with its own splits.</p>
         <h3>Royalty</h3>
-        <p>Revenue flowing in from DSPs, YouTube, neighboring rights societies, mechanical licensing, sync deals, and church licensing. Allocated to participants via configured splits.</p>
+        <p>Revenue flowing in from DSPs, YouTube, neighbouring rights societies, mechanical licensing, sync deals, and church licensing. Allocated to participants via configured splits.</p>
         <h3>Campaign</h3>
         <p>The marketing activity around a release - playlist pitching, church outreach, YouTube strategy, content production, Christian radio, and PR.</p>
         <h3>Partner</h3>
@@ -144,14 +144,14 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
         <p>Ownership of the sound recording. Typically held by the artist or label. Master royalties flow from DSP streaming and download sales.</p>
         <h3>Publishing rights</h3>
         <p>Ownership of the underlying composition. Held by songwriters and their publishers. Publishing royalties flow from mechanical licensing, performance income, and sync deals.</p>
-        <h3>Neighboring rights</h3>
-        <p>Performance royalties owed to performers and producers when recordings are publicly broadcast. Collected via neighboring rights societies in each territory.</p>
+        <h3>Neighbouring rights</h3>
+        <p>Performance royalties owed to performers and producers when recordings are publicly broadcast. Collected via neighbouring rights societies in each territory.</p>
         <h3>YouTube Content ID</h3>
-        <p>Rights to monetize and claim videos containing your recordings on YouTube. Selah handles claiming, dispute resolution, and revenue collection.</p>
+        <p>Rights to monetise and claim videos containing your recordings on YouTube. Selah handles claiming, dispute resolution, and revenue collection.</p>
         <h3>Sync representation</h3>
         <p>Authority to license recordings or compositions for film, TV, advertising, and other audiovisual works.</p>
         <h3>Church licensing</h3>
-        <p>Rights for congregational use via CCLI and similar Christian licensing organizations. Tracked separately because of unique terms and revenue mechanics.</p>
+        <p>Rights for congregational use via CCLI and similar Christian licensing organisations. Tracked separately because of unique terms and revenue mechanics.</p>
       </>
     ),
   },
@@ -253,12 +253,12 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
   },
   youtube: {
     eyebrow: "Workflow",
-    title: "YouTube monetization",
+    title: "YouTube monetisation",
     body: (
       <>
         <p>Selah manages YouTube Content ID claiming, conflict resolution, channel optimization, and revenue tracking for every video asset in your catalog.</p>
         <h3>Content ID claims</h3>
-        <p>Upload your reference audio to Content ID. Selah claims monetization on user-generated content using your recording. Revenue is tracked in the YouTube module and flows through standard royalty accounting.</p>
+        <p>Upload your reference audio to Content ID. Selah claims monetisation on user-generated content using your recording. Revenue is tracked in the YouTube module and flows through standard royalty accounting.</p>
         <h3>Conflict resolution</h3>
         <p>When Content ID surfaces ownership disputes or publishing conflicts, Selah&apos;s YouTube team handles the dispute lifecycle end-to-end. You see the status; we do the work.</p>
         <h3>Channel services</h3>

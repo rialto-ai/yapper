@@ -96,14 +96,14 @@ export const compositions = [
 ];
 
 export const youtubeVideos = [
-  { video: "Living Water (Official Video)", channel: "Grace Harbor", assetType: "Music Video", claimStatus: "Active", monetization: "Monetized", views: 482000, revenue: 2840, conflictStatus: "None" },
-  { video: "Kingdom Come (Live)", channel: "New City Worship", assetType: "Live Performance", claimStatus: "Active", monetization: "Monetized", views: 1240000, revenue: 7200, conflictStatus: "None" },
-  { video: "Come Alive (Lyric Video)", channel: "Open Heaven Worship", assetType: "Lyric Video", claimStatus: "Active", monetization: "Monetized", views: 890000, revenue: 4100, conflictStatus: "None" },
-  { video: "Mercy Is Near (Acoustic)", channel: "Mercy Collective", assetType: "Acoustic", claimStatus: "Active", monetization: "Monetized", views: 320000, revenue: 1600, conflictStatus: "None" },
-  { video: "House of Prayer (Worship Night)", channel: "Kingdom House Music", assetType: "Live Performance", claimStatus: "Active", monetization: "Monetized", views: 2100000, revenue: 12400, conflictStatus: "None" },
-  { video: "Still My Soul (Audio)", channel: "Hannah Rejoice", assetType: "Audio", claimStatus: "Pending", monetization: "Not Monetized", views: 45000, revenue: 0, conflictStatus: "Ownership Dispute" },
-  { video: "The Narrow Road (Visualizer)", channel: "The Narrow Way", assetType: "Visualizer", claimStatus: "Inactive", monetization: "Not Monetized", views: 28000, revenue: 0, conflictStatus: "Publishing Conflict" },
-  { video: "Table of Grace (Live Session)", channel: "Grace Harbor", assetType: "Live Performance", claimStatus: "Active", monetization: "Monetized", views: 156000, revenue: 920, conflictStatus: "None" },
+  { video: "Living Water (Official Video)", channel: "Grace Harbor", assetType: "Music Video", claimStatus: "Active", monetization: "Monetised", views: 482000, revenue: 2840, conflictStatus: "None" },
+  { video: "Kingdom Come (Live)", channel: "New City Worship", assetType: "Live Performance", claimStatus: "Active", monetization: "Monetised", views: 1240000, revenue: 7200, conflictStatus: "None" },
+  { video: "Come Alive (Lyric Video)", channel: "Open Heaven Worship", assetType: "Lyric Video", claimStatus: "Active", monetization: "Monetised", views: 890000, revenue: 4100, conflictStatus: "None" },
+  { video: "Mercy Is Near (Acoustic)", channel: "Mercy Collective", assetType: "Acoustic", claimStatus: "Active", monetization: "Monetised", views: 320000, revenue: 1600, conflictStatus: "None" },
+  { video: "House of Prayer (Worship Night)", channel: "Kingdom House Music", assetType: "Live Performance", claimStatus: "Active", monetization: "Monetised", views: 2100000, revenue: 12400, conflictStatus: "None" },
+  { video: "Still My Soul (Audio)", channel: "Hannah Rejoice", assetType: "Audio", claimStatus: "Pending", monetization: "Not Monetised", views: 45000, revenue: 0, conflictStatus: "Ownership Dispute" },
+  { video: "The Narrow Road (Visualizer)", channel: "The Narrow Way", assetType: "Visualizer", claimStatus: "Inactive", monetization: "Not Monetised", views: 28000, revenue: 0, conflictStatus: "Publishing Conflict" },
+  { video: "Table of Grace (Live Session)", channel: "Grace Harbor", assetType: "Live Performance", claimStatus: "Active", monetization: "Monetised", views: 156000, revenue: 920, conflictStatus: "None" },
 ];
 
 export const partners = [

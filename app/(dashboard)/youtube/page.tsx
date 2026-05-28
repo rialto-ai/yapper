@@ -23,7 +23,7 @@ const channelsData = [
 ];
 
 const services = [
-  "Channel optimization",
+  "Channel optimisation",
   "Content ID claiming",
   "Rights conflict resolution",
   "Video release strategy",
@@ -36,24 +36,61 @@ export default function YouTubePage() {
   return (
     <div className="space-y-6 animate-fade-in">
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">YouTube &amp; Video Monetization</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah YouTube</h1>
         <p className="text-[13px] text-muted mt-1">
-          Channel management, Content ID claims, and video revenue tracking.
+          Video monetisation with church-sensitive controls. Manage YouTube monetisation, Content ID, claims, official videos, lyric videos, live worship, and ministry content without damaging relationships with churches and worship teams.
         </p>
+      </div>
+
+      {/* Policy modes */}
+      <div className="card p-5">
+        <h2 className="text-[14px] font-semibold mb-1">Policy Modes</h2>
+        <p className="text-[12px] text-muted mb-4">
+          Current default policy: <span className="font-medium text-foreground">Whitelist Partner Churches</span>
+        </p>
+        <div className="grid grid-cols-6 gap-3">
+          {[
+            { name: "Monetise", description: "Claim and earn revenue" },
+            { name: "Track Only", description: "Track without claiming" },
+            { name: "Whitelist Partner Churches", description: "Approved churches exempted", active: true },
+            { name: "Manual Review", description: "Route to team queue" },
+            { name: "Do Not Claim", description: "Suppress claims" },
+            { name: "Blocked / Needs Review", description: "Requires action" },
+          ].map((mode) => (
+            <div
+              key={mode.name}
+              className={`p-3 rounded-lg border ${
+                mode.active
+                  ? "border-foreground bg-foreground/5"
+                  : "border-border bg-[rgb(var(--surface))]"
+              }`}
+            >
+              <p className={`text-[12px] font-semibold ${mode.active ? "text-foreground" : ""}`}>
+                {mode.name}
+              </p>
+              <p className="text-[11px] text-muted mt-1 leading-snug">{mode.description}</p>
+              {mode.active && (
+                <p className="text-[10px] font-medium text-foreground mt-2 uppercase tracking-wide">
+                  Active default
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-4 gap-4">
         <StatCard label="Managed Channels" value="8" />
         <StatCard label="Monthly Views" value="5.3M" />
         <StatCard label="Claimed Videos" value="318" />
-        <StatCard label="Monetized Claims" value="284" />
+        <StatCard label="Monetised Claims" value="284" />
         <StatCard label="Conflicts Pending" value="2" />
         <StatCard label="Estimated YouTube Revenue" value="A$29,060" />
         <StatCard label="Shorts Views" value="1.8M" />
         <StatCard label="Subscribers Gained" value="12,400" />
       </div>
 
-      <Tabs tabs={["Video Assets", "Content ID", "Monetization", "Channels", "Conflicts"]}>
+      <Tabs tabs={["Video Assets", "Content ID", "Monetisation", "Channels", "Conflicts"]}>
         {(activeTab) => (
           <>
             {activeTab === "Video Assets" && (
@@ -67,7 +104,7 @@ export default function YouTubePage() {
                         <th className="pb-2 font-medium">Channel</th>
                         <th className="pb-2 font-medium">Asset Type</th>
                         <th className="pb-2 font-medium">Claim Status</th>
-                        <th className="pb-2 font-medium">Monetization</th>
+                        <th className="pb-2 font-medium">Monetisation</th>
                         <th className="pb-2 font-medium text-right">Views</th>
                         <th className="pb-2 font-medium text-right">Revenue</th>
                         <th className="pb-2 font-medium">Conflict Status</th>
@@ -124,16 +161,16 @@ export default function YouTubePage() {
               </div>
             )}
 
-            {activeTab === "Monetization" && (
+            {activeTab === "Monetisation" && (
               <div className="card p-5">
-                <h2 className="text-[14px] font-semibold mb-4">Monetization Overview</h2>
+                <h2 className="text-[14px] font-semibold mb-4">Monetisation Overview</h2>
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="p-4 bg-[rgb(var(--surface))] rounded-lg">
-                    <p className="text-[12px] text-muted mb-1">Total Monetized Claims</p>
+                    <p className="text-[12px] text-muted mb-1">Total Monetised Claims</p>
                     <p className="text-[20px] font-semibold">284</p>
                   </div>
                   <div className="p-4 bg-[rgb(var(--surface))] rounded-lg">
-                    <p className="text-[12px] text-muted mb-1">Monetization Rate</p>
+                    <p className="text-[12px] text-muted mb-1">Monetisation Rate</p>
                     <p className="text-[20px] font-semibold">89.3%</p>
                   </div>
                   <div className="p-4 bg-[rgb(var(--surface))] rounded-lg">
@@ -146,7 +183,7 @@ export default function YouTubePage() {
                     <thead>
                       <tr className="border-b border-border text-left text-muted">
                         <th className="pb-2 font-medium">Video</th>
-                        <th className="pb-2 font-medium">Monetization</th>
+                        <th className="pb-2 font-medium">Monetisation</th>
                         <th className="pb-2 font-medium text-right">Views</th>
                         <th className="pb-2 font-medium text-right">Revenue</th>
                         <th className="pb-2 font-medium text-right">RPM</th>
@@ -154,7 +191,7 @@ export default function YouTubePage() {
                     </thead>
                     <tbody>
                       {youtubeVideos
-                        .filter((v) => v.monetization === "Monetized")
+                        .filter((v) => v.monetization === "Monetised")
                         .map((v) => (
                           <tr key={v.video} className="border-b border-border last:border-0">
                             <td className="py-2.5 font-medium">{v.video}</td>
@@ -184,7 +221,7 @@ export default function YouTubePage() {
                           <th className="pb-2 font-medium text-right">Subscribers</th>
                           <th className="pb-2 font-medium text-right">Monthly Views</th>
                           <th className="pb-2 font-medium text-right">Videos</th>
-                          <th className="pb-2 font-medium">Monetization</th>
+                          <th className="pb-2 font-medium">Monetisation</th>
                           <th className="pb-2 font-medium">Status</th>
                         </tr>
                       </thead>
@@ -229,7 +266,7 @@ export default function YouTubePage() {
                         <th className="pb-2 font-medium">Channel</th>
                         <th className="pb-2 font-medium">Conflict Status</th>
                         <th className="pb-2 font-medium">Claim Status</th>
-                        <th className="pb-2 font-medium">Monetization</th>
+                        <th className="pb-2 font-medium">Monetisation</th>
                       </tr>
                     </thead>
                     <tbody>

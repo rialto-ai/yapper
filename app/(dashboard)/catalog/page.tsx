@@ -26,10 +26,10 @@ const releaseRows = [
 ];
 
 const videoRows = [
-  { title: "Living Water (Official Video)", artist: "Grace Harbor", assetType: "Music Video", status: "Claimed", monetization: "Monetized", views: "482K", revenue: "$2,840" },
-  { title: "Kingdom Come (Live)", artist: "New City Worship", assetType: "Live Performance", status: "Claimed", monetization: "Monetized", views: "1.2M", revenue: "$7,200" },
-  { title: "Come Alive (Lyric Video)", artist: "Open Heaven Worship", assetType: "Lyric Video", status: "Claimed", monetization: "Monetized", views: "890K", revenue: "$4,100" },
-  { title: "Still My Soul (Audio)", artist: "Hannah Rejoice", assetType: "Audio", status: "Pending", monetization: "Not Monetized", views: "45K", revenue: "$0" },
+  { title: "Living Water (Official Video)", artist: "Grace Harbor", assetType: "Music Video", status: "Claimed", monetization: "Monetised", views: "482K", revenue: "$2,840" },
+  { title: "Kingdom Come (Live)", artist: "New City Worship", assetType: "Live Performance", status: "Claimed", monetization: "Monetised", views: "1.2M", revenue: "$7,200" },
+  { title: "Come Alive (Lyric Video)", artist: "Open Heaven Worship", assetType: "Lyric Video", status: "Claimed", monetization: "Monetised", views: "890K", revenue: "$4,100" },
+  { title: "Still My Soul (Audio)", artist: "Hannah Rejoice", assetType: "Audio", status: "Pending", monetization: "Not Monetised", views: "45K", revenue: "$0" },
 ];
 
 const assetRows = [
@@ -66,9 +66,9 @@ export default function CatalogPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Catalog</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Catalogue</h1>
         <p className="text-[13px] text-muted mt-1">
-          Manage tracks, releases, compositions, and assets across your entire catalog.
+          Treat every song as an asset. Track recordings, songs, rights, writers, ownership, CCLI status, YouTube monetisation, royalty splits, and catalogue health in one place.
         </p>
       </div>
 
@@ -305,7 +305,7 @@ export default function CatalogPage() {
                           <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Artist</th>
                           <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Asset Type</th>
                           <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Claim Status</th>
-                          <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Monetization</th>
+                          <th className="text-left text-[12px] font-medium text-muted px-4 py-3">Monetisation</th>
                           <th className="text-right text-[12px] font-medium text-muted px-4 py-3">Views</th>
                           <th className="text-right text-[12px] font-medium text-muted px-4 py-3">Revenue</th>
                           <th className="text-center text-[12px] font-medium text-muted px-4 py-3">Actions</th>

@@ -4,36 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
-  Users,
-  Disc3,
   Rocket,
+  Disc3,
   Scale,
-  DollarSign,
+  Church,
   Megaphone,
-  FileText,
   Youtube,
   BarChart3,
   Sparkles,
   Building2,
-  Globe,
   Settings,
 } from "lucide-react";
 import { LogoMark } from "./logo";
 
 const nav = [
-  { label: "Overview", href: "/overview", icon: LayoutDashboard },
-  { label: "Roster", href: "/roster", icon: Users },
-  { label: "Catalog", href: "/catalog", icon: Disc3 },
+  { label: "Dashboard", href: "/overview", icon: LayoutDashboard },
   { label: "Releases", href: "/releases", icon: Rocket },
+  { label: "Catalogue", href: "/catalog", icon: Disc3 },
   { label: "Rights", href: "/rights", icon: Scale },
-  { label: "Royalties", href: "/royalties", icon: DollarSign },
+  { label: "Worship", href: "/worship", icon: Church },
   { label: "Campaigns", href: "/campaigns", icon: Megaphone },
-  { label: "Publishing", href: "/publishing", icon: FileText },
   { label: "YouTube", href: "/youtube", icon: Youtube },
   { label: "Analytics", href: "/analytics", icon: BarChart3 },
-  { label: "AI Strategist", href: "/ai-strategist", icon: Sparkles },
-  { label: "Label Services", href: "/label-services", icon: Building2 },
-  { label: "Partner Portal", href: "/partner-portal", icon: Globe },
+  { label: "Enterprise", href: "/enterprise", icon: Building2 },
+  { label: "Intelligence", href: "/ai-strategist", icon: Sparkles },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
 

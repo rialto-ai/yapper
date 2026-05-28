@@ -7,7 +7,7 @@ import { LanguageSwitcher } from "./language-switcher";
 import { LogoMark } from "./logo";
 
 const links = [
-  { label: "Product", href: "/#solutions" },
+  { label: "Platform", href: "/#platform" },
   { label: "Customers", href: "/customers" },
   { label: "Partners", href: "/partners" },
   { label: "About", href: "/about" },
@@ -56,7 +56,7 @@ export function MarketingNav() {
           href="/overview"
           className="btn-primary flex items-center gap-2 !py-2 !px-4 text-[13px]"
         >
-          Join Selah
+          Explore Selah
           <ArrowRight size={13} />
         </Link>
       </div>

@@ -162,7 +162,7 @@ export default function TermsOfServicePage() {
               <li><strong>Account</strong> means the registered profile you use to access the Service.</li>
               <li><strong>Content</strong> means any audio, video, artwork, lyrics, chord charts, metadata, or other material you upload, generate, or transmit through the Service.</li>
               <li><strong>DSP</strong> means a digital service provider, such as a streaming or download platform.</li>
-              <li><strong>PRO</strong> means a performing rights organization, neighboring rights society, mechanical rights organization, or equivalent collective management organization.</li>
+              <li><strong>PRO</strong> means a performing rights organisation, neighbouring rights society, mechanical rights organisation, or equivalent collective management organisation.</li>
               <li><strong>Catalog</strong> means the body of recordings, compositions, releases, videos, and supporting assets you have made available through the Service.</li>
               <li><strong>Royalties</strong> means revenue collected by Selah on your behalf from DSPs, PROs, Christian channels, and other distribution partners.</li>
               <li><strong>Christian Channel Network</strong> means the set of Christian-native distribution endpoints integrated with Selah, including CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, Loop Community, and others.</li>
@@ -173,7 +173,7 @@ export default function TermsOfServicePage() {
           <section id="accounts">
             <h2>3. Accounts</h2>
             <p>
-              To use the Service, you must create an Account and provide accurate, complete, and current information. You must be at least <strong>13 years of age</strong> (or older where required by local law) and have the legal capacity to enter into these Terms. If you create an Account on behalf of an organization, you represent that you are authorized to bind that organization to these Terms.
+              To use the Service, you must create an Account and provide accurate, complete, and current information. You must be at least <strong>13 years of age</strong> (or older where required by local law) and have the legal capacity to enter into these Terms. If you create an Account on behalf of an organisation, you represent that you are authorized to bind that organisation to these Terms.
             </p>
             <p>
               You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your Account. You must notify us promptly of any unauthorized use or suspected security breach.

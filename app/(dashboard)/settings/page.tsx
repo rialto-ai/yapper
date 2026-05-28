@@ -51,7 +51,7 @@ export default function SettingsPage() {
       <div>
         <h1 className="text-[22px] font-semibold tracking-tight">Settings</h1>
         <p className="text-[13px] text-muted mt-1">
-          Workspace configuration, user management, and platform settings.
+          Workspace configuration, team permissions, payment settings, and integration controls for your Selah workspace.
         </p>
       </div>
 
@@ -179,7 +179,7 @@ export default function SettingsPage() {
                     { label: "Campaign management", value: "Campaign Manager, Admin, Owner" },
                     { label: "User management", value: "Admin, Owner" },
                     { label: "API access", value: "Admin, Owner" },
-                    { label: "Catalog export", value: "All roles" },
+                    { label: "Catalogue export", value: "All roles" },
                   ].map((perm, i, arr) => (
                     <div key={perm.label} className={`flex items-center justify-between py-3 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
                       <span className="text-[13px]">{perm.label}</span>
@@ -287,7 +287,7 @@ export default function SettingsPage() {
                 <div className="space-y-0 max-w-2xl">
                   {[
                     { label: "Content ID claiming", value: "Enabled" },
-                    { label: "Default claim policy", value: "Monetize" },
+                    { label: "Default claim policy", value: "Whitelist Partner Churches" },
                     { label: "Manual claim review", value: "Disabled" },
                     { label: "Conflict auto-resolution", value: "Off" },
                     { label: "Art Track generation", value: "Enabled" },
@@ -307,7 +307,7 @@ export default function SettingsPage() {
                 <h2 className="text-[14px] font-semibold mb-4">Brand Settings</h2>
                 <div className="space-y-0 max-w-2xl">
                   {[
-                    { label: "Organization name", value: "Christian Music Group" },
+                    { label: "Organisation name", value: "Christian Music Group" },
                     { label: "Display name", value: "Selah by CMG" },
                     { label: "Primary color", value: "#4338CA" },
                     { label: "Logo", value: "Uploaded" },

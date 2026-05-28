@@ -6,7 +6,7 @@ const featured = [
     name: "New City Worship",
     segment: "Worship collective · US",
     quote:
-      "Selah replaced four separate tools. Distribution, publishing administration, royalty reporting, and YouTube monetization now sit in one workspace. Our team got back two days a week.",
+      "Selah replaced four separate tools. Distribution, publishing administration, royalty reporting, and YouTube monetisation now sit in one workspace. Our team got back two days a week.",
     name2: "Worship Director",
     metrics: [
       { label: "Monthly listeners", value: "890K", delta: "+34% YoY" },
@@ -70,7 +70,7 @@ const studies = [
 
 const metricsBar = [
   { value: "4.8M+", label: "Tracks distributed" },
-  { value: "120+", label: "Partner organizations" },
+  { value: "120+", label: "Partner organisations" },
   { value: "8.2K+", label: "Churches reached" },
   { value: "A$2.4M+", label: "Quarterly royalties" },
 ];
@@ -84,10 +84,10 @@ export default function CustomersPage() {
         <div className="relative max-w-[920px] mx-auto px-8 pt-20 pb-12 text-center">
           <p className="label-eyebrow mb-3">Customers</p>
           <h1 className="text-[44px] font-bold tracking-tight leading-[1.1] mb-5">
-            Trusted across the Christian music economy.
+            Trusted infrastructure for the Christian music ecosystem.
           </h1>
           <p className="text-[17px] text-subtle max-w-[600px] mx-auto">
-            From independent worship leaders to multi-label rights holders, see how teams use Selah to run modern Christian music operations.
+            From independent worship leaders to multi-label catalogue owners, see how Christian music teams use Selah as their operating system for releases, rights, worship workflows, campaigns, YouTube, and analytics.
           </p>
         </div>
       </section>

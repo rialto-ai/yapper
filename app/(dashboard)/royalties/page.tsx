@@ -6,21 +6,21 @@ import { Tabs } from "@/components/tabs";
 import { royaltyPayments } from "@/lib/mock-data";
 
 const statementPeriods = [
-  { period: "Q1 2026", status: "Finalized", grossRevenue: "A$62,800", netPayable: "A$41,200", payees: 12, generated: "2026-04-15" },
+  { period: "Q1 2026", status: "Finalised", grossRevenue: "A$62,800", netPayable: "A$41,200", payees: 12, generated: "2026-04-15" },
   { period: "Q2 2026", status: "Draft", grossRevenue: "A$82,400", netPayable: "A$54,200", payees: 14, generated: "Pending" },
-  { period: "March 2026", status: "Finalized", grossRevenue: "A$22,400", netPayable: "A$14,800", payees: 12, generated: "2026-04-05" },
-  { period: "April 2026", status: "Finalized", grossRevenue: "A$28,600", netPayable: "A$18,900", payees: 13, generated: "2026-05-05" },
+  { period: "March 2026", status: "Finalised", grossRevenue: "A$22,400", netPayable: "A$14,800", payees: 12, generated: "2026-04-05" },
+  { period: "April 2026", status: "Finalised", grossRevenue: "A$28,600", netPayable: "A$18,900", payees: 13, generated: "2026-05-05" },
   { period: "May 2026", status: "Processing", grossRevenue: "A$31,400", netPayable: "TBD", payees: 14, generated: "Pending" },
 ];
 
 const payeeEntities: Record<string, { entityType: string; paymentHistory: number }> = {
   "Grace Harbor": { entityType: "Individual", paymentHistory: 12 },
-  "New City Worship": { entityType: "Organization", paymentHistory: 18 },
+  "New City Worship": { entityType: "Organisation", paymentHistory: 18 },
   "Northstar Publishing": { entityType: "Company", paymentHistory: 24 },
   "Hannah Rejoice": { entityType: "Individual", paymentHistory: 6 },
   "Kingdom House Music": { entityType: "Company", paymentHistory: 36 },
   "Covenant Rights Group": { entityType: "Company", paymentHistory: 14 },
-  "Open Heaven Worship": { entityType: "Organization", paymentHistory: 10 },
+  "Open Heaven Worship": { entityType: "Organisation", paymentHistory: 10 },
   "Harbor Songs Administration": { entityType: "Company", paymentHistory: 8 },
 };
 
@@ -49,9 +49,9 @@ export default function RoyaltiesPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Royalty Accounting</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Royalties</h1>
         <p className="text-[13px] text-muted mt-1">
-          Revenue tracking, statements, payee management, and payment administration.
+          Royalty splits, statements, payee management, and recoupment, prepared with catalogue accuracy across your Christian music operation.
         </p>
       </div>
 

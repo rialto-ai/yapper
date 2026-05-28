@@ -6,13 +6,13 @@ import { formatCompact } from "@/lib/utils";
 
 const modules = [
   { title: "Partner Roster", description: "Manage artists, writers, and rights holders within your partner account." },
-  { title: "Sub-labels", description: "Configure and manage sub-label imprints and their catalog assignments." },
-  { title: "Catalog Delivery", description: "Submit and track releases through the delivery pipeline." },
+  { title: "Sub-labels", description: "Configure and manage sub-label imprints and their catalogue assignments." },
+  { title: "Catalogue Delivery", description: "Submit and track releases through the delivery pipeline." },
   { title: "Rights Approvals", description: "Review and approve rights registrations and ownership claims." },
   { title: "Royalty Statements", description: "Access and download detailed royalty statements and transaction history." },
-  { title: "Analytics", description: "View streaming, revenue, and audience analytics across your catalog." },
+  { title: "Analytics", description: "View streaming, revenue, and audience analytics across your catalogue." },
   { title: "Campaign Reporting", description: "Track campaign performance metrics and engagement data." },
-  { title: "White-label Settings", description: "Customize branding, domain, and appearance for your portal instance." },
+  { title: "White-label Settings", description: "Customise branding, domain, and appearance for your portal instance." },
 ];
 
 const configOptions = [
@@ -39,7 +39,7 @@ export default function PartnerPortalPage() {
       <div>
         <h1 className="text-[22px] font-semibold tracking-tight">Partner Portal</h1>
         <p className="text-[13px] text-muted mt-1">
-          A configurable workspace for labels, church networks, publishers, and music companies managing their own operations.
+          White-label workspaces for labels, ministries, church networks, and catalogue owners managing their own artists and releases inside Selah.
         </p>
       </div>
 

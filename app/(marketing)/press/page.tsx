@@ -65,9 +65,9 @@ const releases: {
     date: "February 28, 2026",
     category: "Partnership",
     headline:
-      "Selah and APRA AMCOS expand neighboring rights collection across Asia-Pacific.",
+      "Selah and APRA AMCOS expand neighbouring rights collection across Asia-Pacific.",
     excerpt:
-      "The expanded agreement unlocks streamlined neighboring rights collection for Selah-distributed master recordings in 14 markets.",
+      "The expanded agreement unlocks streamlined neighbouring rights collection for Selah-distributed master recordings in 14 markets.",
   },
   {
     date: "February 15, 2026",

@@ -7,7 +7,7 @@ import { StatusBadge } from "@/components/status-badge";
 const sidebarTabs = [
   "Master Rights",
   "Publishing Rights",
-  "Neighboring Rights",
+  "Neighbouring Rights",
   "YouTube Content ID",
   "Sync Representation",
   "Church Licensing",
@@ -67,7 +67,7 @@ const participantRows = [
   {
     participant: "Worship Ministry",
     role: "Ministry",
-    entityType: "Organization",
+    entityType: "Organisation",
     master: "-",
     publishing: "10%",
     neighboring: "-",
@@ -114,9 +114,9 @@ export default function RightsPage() {
     <div className="space-y-6 animate-fade-in">
       {/* Page header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Rights & Splits</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Rights</h1>
         <p className="text-[13px] text-muted mt-1">
-          Manage master rights, publishing rights, and royalty allocations.
+          Rights workflows, royalty splits, and catalogue records in one place. Coordinate splits, rights holder information, publishing metadata, neighbouring rights, YouTube Content ID, statement status, and missing catalogue information.
         </p>
       </div>
 
@@ -165,7 +165,7 @@ export default function RightsPage() {
                     <th className="pb-2 font-medium">Entity Type</th>
                     <th className="pb-2 font-medium text-right">Master Share</th>
                     <th className="pb-2 font-medium text-right">Publishing Share</th>
-                    <th className="pb-2 font-medium text-right">Neighboring Rights</th>
+                    <th className="pb-2 font-medium text-right">Neighbouring Rights</th>
                     <th className="pb-2 font-medium">Status</th>
                     <th className="pb-2 font-medium">Agreement</th>
                   </tr>

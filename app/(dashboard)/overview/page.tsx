@@ -46,21 +46,21 @@ export default function OverviewPage() {
     <div className="space-y-6 animate-fade-in">
       {/* Page header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Overview</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Dashboard</h1>
         <p className="text-[13px] text-muted mt-1">
-          Executive summary across distribution, rights, royalties, and campaigns.
+          One workspace for every release, catalogue asset, rights workflow, campaign, and worship metric across your Christian music operation.
         </p>
       </div>
 
       {/* Top metrics row */}
       <div className="grid grid-cols-4 gap-4">
-        <StatCard label="Catalog Streams" value="4.8M" detail="Last 8 months" />
+        <StatCard label="Catalogue Streams" value="4.8M" detail="Last 8 months" />
         <StatCard label="Est. Gross Royalties" value="A$82,400" detail="Year to date" />
         <StatCard label="Active Releases" value="24" detail="Across all artists" />
         <StatCard label="Pending Rights Approvals" value="7" detail="Requires action" />
         <StatCard label="Campaigns in Progress" value="5" detail="Active campaigns" />
         <StatCard label="Publishing Claims Pending" value="12" detail="Awaiting confirmation" />
-        <StatCard label="YouTube Claims Monetized" value="318" detail="Content ID active" />
+        <StatCard label="YouTube Claims Monetised" value="318" detail="Content ID active" />
         <StatCard label="Church Adoption Score" value="78 / 100" detail="Composite score" />
       </div>
 
@@ -271,7 +271,7 @@ export default function OverviewPage() {
                 <div className="flex-1 min-w-0">
                   <p>
                     <span className="font-medium">{m.campaign}</span>
-                    <span className="text-muted"> &mdash; {m.milestone}</span>
+                    <span className="text-muted"> &middot; {m.milestone}</span>
                   </p>
                 </div>
                 <span className="text-muted shrink-0">{m.date}</span>

@@ -447,9 +447,9 @@ export default function ReleasesPage() {
     <div className="space-y-6 animate-fade-in">
       {/* Page header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Release Builder</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Releases</h1>
         <p className="text-[13px] text-muted mt-1">
-          Create and manage releases through the distribution pipeline.
+          Manage every release from intake to launch. Plan, review, schedule, and track Christian music releases across distribution, rights, campaign, YouTube, and worship workflows.
         </p>
       </div>
 

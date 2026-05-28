@@ -25,13 +25,13 @@ const statusTone: Record<string, Tone> = {
   Delivered: "positive",
   Registered: "positive",
   Claimed: "positive",
-  Monetized: "positive",
+  Monetised: "positive",
   Current: "positive",
   Licensed: "positive",
   "CCLI Listed": "positive",
   Listed: "positive",
   Approved: "positive",
-  Finalized: "positive",
+  Finalised: "positive",
   "Fully Recouped": "positive",
   "Registered (ASCAP)": "positive",
   "Registered (BMI)": "positive",
@@ -44,6 +44,7 @@ const statusTone: Record<string, Tone> = {
   "In Progress": "info",
   "In Review": "info",
   "Under review": "info",
+  "Under Review": "info",
   Review: "info",
   Processing: "info",
   Scheduled: "info",
@@ -51,6 +52,7 @@ const statusTone: Record<string, Tone> = {
   Queued: "info",
   Upcoming: "info",
   Managed: "info",
+  Submitted: "info",
   "Strategy call required": "info",
 
   // Warning (amber) - needs attention but not urgent
@@ -60,6 +62,7 @@ const statusTone: Record<string, Tone> = {
   "Rights Pending": "warning",
   "Needs signature": "warning",
   Held: "warning",
+  "Information Needed": "warning",
 
   // Negative (red) - broken, blocked, urgent
   High: "negative",
@@ -75,7 +78,7 @@ const statusTone: Record<string, Tone> = {
   Draft: "neutral",
   "Not delivered": "neutral",
   Unclaimed: "neutral",
-  "Not Monetized": "neutral",
+  "Not Monetised": "neutral",
   Unregistered: "neutral",
   Unlicensed: "neutral",
   "Not Listed": "neutral",
@@ -86,6 +89,8 @@ const statusTone: Record<string, Tone> = {
   Inactive: "neutral",
   Medium: "neutral",
   Low: "neutral",
+  "Not Started": "neutral",
+  "Not Applicable": "neutral",
 };
 
 export function StatusBadge({ status }: { status: string }) {

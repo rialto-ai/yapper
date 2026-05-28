@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const recommendedActions = [
-  "Finalize chord chart",
+  "Finalise chord chart",
   "Confirm songwriter splits",
   "Prepare worship leader one-sheet",
   "Submit DSP pitch",
@@ -14,7 +14,7 @@ const recommendedActions = [
 ];
 
 const riskFlags = [
-  "Producer points not yet finalized",
+  "Producer points not yet finalised",
   "YouTube Content ID rights unconfirmed",
   "Limited audience data for NZ market",
 ];
@@ -57,10 +57,43 @@ export default function AIStrategistPage() {
   return (
     <div className="space-y-6 animate-fade-in">
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">AI Release Strategist</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Intelligence</h1>
         <p className="text-[13px] text-muted mt-1">
-          Data-informed release planning and campaign recommendations.
+          AI-assisted insights for metadata issues, release planning, audience growth, catalogue opportunities, and campaign recommendations across your Christian music operation.
         </p>
+      </div>
+
+      {/* Recent recommendations */}
+      <div className="card p-5">
+        <h2 className="text-[14px] font-semibold mb-4">Recent recommendations</h2>
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { text: "Three songs have incomplete writer metadata.", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+            { text: "Two upcoming releases are missing YouTube policy settings.", icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" },
+            { text: "This worship single may require CCLI workflow review.", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+            { text: "Campaign plan is missing church outreach tasks.", icon: "M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5.13a4 4 0 11-8 0 4 4 0 018 0zm6 0a4 4 0 11-8 0 4 4 0 018 0z" },
+            { text: "Catalogue item has strong YouTube performance but weak DSP conversion.", icon: "M3 3v18h18M7 14l4-4 4 4 5-5" },
+            { text: "Lyric metadata is missing for two worship releases.", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+            { text: "Royalty splits are incomplete for Always Near.", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" },
+          ].map((rec, i) => (
+            <div
+              key={i}
+              className="flex items-start gap-3 p-3 rounded-lg border border-border bg-[rgb(var(--surface))]"
+            >
+              <div className="w-8 h-8 rounded-md bg-white border border-border flex items-center justify-center shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted">
+                  <path d={rec.icon} />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[13px] leading-snug">{rec.text}</p>
+              </div>
+              <button className="text-[12px] font-medium text-foreground hover:underline shrink-0 self-center">
+                Review
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="flex gap-6 items-start">
@@ -201,7 +234,7 @@ export default function AIStrategistPage() {
             <div className="card p-5">
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <div className="w-8 h-8 border-2 border-[rgb(var(--border))] border-t-[rgb(var(--foreground))] rounded-full animate-spin mb-4" />
-                <p className="text-[13px] text-muted">Analyzing release data and generating strategy...</p>
+                <p className="text-[13px] text-muted">Analysing release data and generating strategy...</p>
               </div>
             </div>
           )}

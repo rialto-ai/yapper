@@ -7,13 +7,14 @@ import { LanguageSwitcher } from "./language-switcher";
 import { LogoMark } from "./logo";
 
 const product = [
-  { label: "Digital Distribution", href: "/overview" },
-  { label: "Promotion & Marketing", href: "/campaigns" },
-  { label: "Royalties & Accounting", href: "/royalties" },
-  { label: "Full Suite Analytics", href: "/analytics" },
-  { label: "Church Network", href: "/" },
-  { label: "Publishing Partnerships", href: "/" },
-  { label: "YouTube Monetization", href: "/youtube" },
+  { label: "Selah Distribution", href: "/overview" },
+  { label: "Selah Rights", href: "/rights" },
+  { label: "Selah Worship", href: "/worship" },
+  { label: "Selah Campaigns", href: "/campaigns" },
+  { label: "Selah YouTube", href: "/youtube" },
+  { label: "Selah Analytics", href: "/analytics" },
+  { label: "Selah Enterprise", href: "/enterprise" },
+  { label: "Selah Intelligence", href: "/ai-strategist" },
 ];
 
 const company = [
@@ -132,8 +133,8 @@ export function Footer() {
                 <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>
               </div>
             </div>
-            <p className="text-[13px] text-subtle leading-relaxed mb-5 max-w-[300px]">
-              Digital distribution, marketing, accounting, and analytics, for the artists and ministries lifting up the name of Jesus. Sydney-headquartered, serving 84 markets.
+            <p className="text-[13px] text-subtle leading-relaxed mb-5 max-w-[320px]">
+              Selah is the music infrastructure platform for the future of Christian music, built by Christian Music Group. Distribution, rights, marketing, analytics, and worship-specific infrastructure.
             </p>
             <div className="flex items-center gap-1.5 mb-4">
               {socials.map((s) => (

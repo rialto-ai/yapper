@@ -7,233 +7,205 @@ import {
   ChevronRight,
   Plus,
   Minus,
-  Globe2,
   Sparkles,
-  Award,
-  Radio,
   Star,
   Send,
   BarChart3,
   Megaphone,
   Users,
-  Headphones,
-  Calculator,
   Music2,
-  FileText,
   Church,
-  Newspaper,
   Heart,
-  TrendingUp,
   Building2,
+  Scale,
+  Youtube,
+  Brain,
+  Globe2,
+  Award,
 } from "lucide-react";
 import { useState } from "react";
 import { LogoMark } from "@/components/logo";
 
 // ============================================================
-// Marketing copy
+// SIX PLATFORM PILLARS
 // ============================================================
 
-const features = [
-  { icon: Users, title: "Independent Artists", desc: "Self-service distribution, marketing, royalties, and analytics in one workspace." },
-  { icon: Heart, title: "Worship Teams", desc: "Chord chart distribution, CCLI workflows, and worship-leader network reach." },
-  { icon: Building2, title: "Christian Labels", desc: "We partner with Christian labels of every size, providing multi-roster distribution, white-label portals, and full label services." },
-  { icon: Church, title: "Ministries & Churches", desc: "Distribute worship recordings, manage contributors, and reach the broader Christian world." },
-  { icon: Music2, title: "Publishers & Songwriters", desc: "We partner with publishers and aggregate global PROs, MROs, and CCLI." },
-  { icon: Newspaper, title: "Video Creators", desc: "ProRes encoding, video distribution, and YouTube Content ID services." },
-];
-
-const solutions = [
+const pillars = [
   {
     icon: Send,
     color: "accent",
-    eyebrow: "Digital Delivery",
-    title: "Global music & video distribution.",
-    body: "Selah delivers your music and video to every major DSP, the Christian-native channel network, and 150+ stores across 84 territories.",
+    eyebrow: "Selah Distribution",
+    title: "Distribution",
+    body: "Release music and video across global platforms with professional metadata, artist profile matching, smart links, pre-saves, release scheduling, and territory controls.",
     bullets: [
-      "Free UPC and ISRC codes on every release",
-      "Music & video delivery to Apple, Spotify, YouTube, Tidal, Deezer, Amazon, TikTok, and more",
-      "ProRes cloud video encoding",
-      "Multi-format audio encoding with manual QA",
-      "Lyrics, chord chart, and lead sheet inclusion",
-      "30-second ringtone generator",
-      "TikTok Official Sound distribution",
-      "Custom pricing per territory and store",
-      "Pre-order hide-previews and territory exclusions",
-      "Artist profile matching across Spotify, Apple Music, Deezer",
-      "Audio fingerprinting and Content ID rights protection",
-      "Distribution to 45+ DSPs plus the Christian channel network",
+      "Global DSP delivery",
+      "Music and video distribution",
+      "UPC and ISRC management",
+      "Lyrics and metadata delivery",
+      "Smart links and pre-saves",
+      "Release scheduling",
+      "Artist profile matching",
     ],
   },
   {
-    icon: Megaphone,
+    icon: Scale,
     color: "secondary",
-    eyebrow: "Promotion & Marketing",
-    title: "Reach your church and listener audience.",
-    body: "Selah&apos;s promotion suite covers DSP pitching, advertising, pre-saves, smart links, and the church outreach tools that secular distributors don&apos;t provide.",
+    eyebrow: "Selah Rights",
+    title: "Rights and Royalty Administration",
+    body: "Coordinate rights, splits, royalty collection, catalogue records, publishing information, YouTube claims, neighbouring rights, and worship-specific royalty workflows.",
     bullets: [
-      "Pre-save generator with full analytics",
-      "Smart link generator with deep-linking",
-      "DSP pitch forms for Christian editorial playlists",
-      "Release task manager with team checklists",
-      "Advertising campaign manager (Meta, Google, TikTok)",
-      "Spotify-for-Artists and iTunes Connect integrations",
-      "Verified fan email collection via pre-saves",
-      "Worship leader outreach campaigns",
-      "Chord chart and lead sheet distribution to churches",
-      "Christian radio servicing across 12 markets",
-      "Genre-focused project managers for Label Services",
-      "Machine-assisted release planning",
-    ],
-  },
-  {
-    icon: Calculator,
-    color: "accent",
-    eyebrow: "Royalties & Accounting",
-    title: "Transparent accounting at every level.",
-    body: "Royalty splits, multi-currency payouts, configurable statements, and downloadable invoices - built for collaborators across every role.",
-    bullets: [
-      "Royalty sharing and multiple splits among rights holders",
-      "Configurable monthly and quarterly statements",
-      "Custom reports by product type, artist, store, territory",
-      "Multi-currency payouts in 28+ currencies",
-      "Recoupment tracking with line-item history",
-      "Downloadable invoices and statements",
-      "Account balance ledger with audit trail",
-      "Tax document collection (W-8, W-9, AU TFN, +24 regions)",
-      "Bank transfer, wire, and digital wallet payouts",
-      "Partner with PROs, MROs, and neighboring rights bodies",
-      "CCLI royalty integration for congregational use",
-      "Recoupment caps and revenue-share waterfall",
-    ],
-  },
-  {
-    icon: BarChart3,
-    color: "secondary",
-    eyebrow: "Full Suite Analytics",
-    title: "Business intelligence for music operators.",
-    body: "Streams, revenue, audience growth, playlist impact, territory breakdowns - plus the proprietary Church Adoption Score nobody else measures.",
-    bullets: [
-      "Daily streaming and revenue data from every DSP",
-      "Audience growth by territory, age, gender, platform",
-      "Playlist impact and editorial placement tracking",
-      "Catalog performance benchmarks",
-      "Top territory and city analysis",
-      "Comparable artist benchmarking",
-      "Campaign ROI and conversion tracking",
-      "Church Adoption Score across your catalog",
-      "Worship leader engagement signal",
-      "Sunday setlist adoption tracking",
-      "Custom dashboards per artist or label",
-      "Export to CSV, Excel, or via API",
+      "Royalty splits",
+      "Rights holder records",
+      "Publishing metadata",
+      "Neighbouring rights support",
+      "YouTube Content ID coordination",
+      "Catalogue administration",
+      "Statement preparation",
     ],
   },
   {
     icon: Church,
     color: "accent",
-    eyebrow: "Church Network",
-    title: "The Christian-native distribution layer.",
-    body: "Selah is the only distributor with deep integration into the church economy - CCLI workflows, chord chart delivery, worship leader networks, and the Church Adoption Funnel.",
+    eyebrow: "Selah Worship",
+    title: "Worship and CCLI Workflows",
+    body: "Built for the unique way worship music is used, sung, streamed, displayed, and reported across churches, ministries, conferences, and worship teams.",
     bullets: [
-      "CCLI SongSelect distribution and reporting",
-      "PraiseCharts and Multitracks.com integration",
-      "Worship leader outreach across 8,200+ churches",
-      "Chord chart and lead sheet automated delivery",
-      "Planning Center and Church on Demand sync",
-      "Sunday setlist adoption tracking",
-      "Congregational suitability metadata",
-      "Theological review status fields",
-      "Scripture reference cataloguing",
-      "Christian radio market servicing",
-      "Worship resource partner network",
-      "Denominational sensitivity flagging",
+      "CCLI registration checklist",
+      "Church usage metadata",
+      "Worship song records",
+      "Lyric display rights tracking",
+      "Church livestream policy settings",
+      "Worship leader adoption notes",
+      "Ministry catalogue workflows",
     ],
+    featured: true,
+  },
+  {
+    icon: Megaphone,
+    color: "secondary",
+    eyebrow: "Selah Campaigns",
+    title: "Campaigns and Marketing",
+    body: "Plan and manage Christian music campaigns across DSPs, YouTube, social platforms, Christian media, radio, churches, and worship leader networks.",
+    bullets: [
+      "Release campaign planning",
+      "DSP pitch preparation",
+      "Christian playlist strategy",
+      "YouTube release strategy",
+      "Paid media tracking",
+      "Christian creator outreach",
+      "Radio and press notes",
+      "Church and worship leader seeding",
+    ],
+  },
+  {
+    icon: Youtube,
+    color: "accent",
+    eyebrow: "Selah YouTube",
+    title: "YouTube and Video Monetisation",
+    body: "Manage official videos, lyric videos, live worship recordings, acoustic sessions, ministry content, and church-sensitive monetisation without damaging relationships with churches and worship teams.",
+    bullets: [
+      "Official video delivery",
+      "Lyric video tracking",
+      "YouTube Content ID policy notes",
+      "Church livestream whitelist settings",
+      "Short-form video planning",
+      "Claim review workflow",
+      "Channel growth analytics",
+    ],
+  },
+  {
+    icon: BarChart3,
+    color: "secondary",
+    eyebrow: "Selah Analytics",
+    title: "Analytics and Intelligence",
+    body: "Unify performance, catalogue, audience, royalty, and campaign data into a single workspace for Christian music teams.",
+    bullets: [
+      "Release performance",
+      "Royalty insights",
+      "Audience geography",
+      "Platform breakdowns",
+      "Campaign KPIs",
+      "Catalogue opportunity detection",
+      "Metadata issue detection",
+      "AI-assisted release recommendations",
+    ],
+  },
+];
+
+// ============================================================
+// WHO IT SERVES
+// ============================================================
+
+const audiences = [
+  {
+    icon: Users,
+    title: "Artists",
+    body: "For independent Christian artists building sustainable careers with professional release, rights, and campaign infrastructure.",
+  },
+  {
+    icon: Heart,
+    title: "Worship Leaders",
+    body: "For worship leaders releasing songs that may move from personal devotion into churches, teams, conferences, and congregational use.",
+  },
+  {
+    icon: Building2,
+    title: "Labels",
+    body: "For Christian labels needing modern release operations, analytics, rights workflows, and campaign coordination.",
+  },
+  {
+    icon: Sparkles,
+    title: "Ministries",
+    body: "For ministries managing music, video, worship, teaching, live events, and media catalogues.",
+  },
+  {
+    icon: Church,
+    title: "Churches",
+    body: "For churches and worship teams releasing live worship, original songs, sermon clips, and ministry media.",
   },
   {
     icon: Music2,
-    color: "secondary",
-    eyebrow: "Publishing Partnerships",
-    title: "We partner with publishers.",
-    body: "Selah aggregates publishing administration across global PROs, mechanical rights organizations, and CCLI on behalf of publishers and self-administering songwriters.",
-    bullets: [
-      "Integration with ASCAP, BMI, SESAC, APRA AMCOS, PRS, GEMA, SACEM",
-      "Mechanical rights via HFA, MLC, MCPS, and equivalents",
-      "CCLI registration and reporting for congregational use",
-      "Neighboring rights collection through PPL, SoundExchange, and 60+ societies",
-      "Sync representation for partner publishers",
-      "Songwriter split management and dispute resolution",
-      "Composition matching across recordings",
-      "Unmatched works resolution",
-      "Quarterly publisher statements",
-      "Direct deals with publishers and admin companies",
-      "Open API for publisher partner integrations",
-      "Transparent admin fee structure",
-    ],
-  },
-  {
-    icon: Headphones,
-    color: "accent",
-    eyebrow: "Support & Service",
-    title: "Local support across 8 offices.",
-    body: "Every artist, label, and partner gets dedicated regional support, from Sydney HQ across the Asia-Pacific.",
-    bullets: [
-      "On-line technical support ticketing system",
-      "Regional account managers across 8 offices",
-      "Genre-focused project managers for Label Services",
-      "Onboarding and catalog migration team",
-      "Rights and royalty operations team",
-      "DSP escalation pathways for delivery issues",
-      "Multi-language support: English, 中文, 한국어, Bahasa, ภาษาไทย, Tagalog",
-      "24/5 ticket coverage following the sun",
-      "Quarterly business reviews for Enterprise partners",
-      "Dedicated solutions engineer for Partner Portal",
-      "Custom integration support via API",
-      "Christian music industry expertise across every team",
-    ],
+    title: "Catalogue Owners",
+    body: "For rights holders managing master recordings, publishing data, royalties, YouTube claims, and long-term catalogue value.",
   },
 ];
 
-const metadata = [
-  "Scripture reference",
-  "Worship theme",
-  "Congregational suitability",
-  "Church licensing status",
-  "CCLI workflow",
-  "Chord chart availability",
-  "Worship leader engagement",
-  "Sunday setlist potential",
-  "Church adoption funnel",
+// ============================================================
+// PLATFORM MODULES
+// ============================================================
+
+const modules = [
+  { icon: Send, name: "Selah Distribution", desc: "Music and video delivery, metadata, smart links, release scheduling, platform delivery, and artist profile management." },
+  { icon: Scale, name: "Selah Rights", desc: "Royalty splits, rights records, publishing metadata, neighbouring rights support, YouTube monetisation coordination, and catalogue administration." },
+  { icon: Church, name: "Selah Worship", desc: "CCLI workflows, church usage records, worship song metadata, lyric display tracking, and church-sensitive livestream policy settings." },
+  { icon: Megaphone, name: "Selah Campaigns", desc: "Release planning, DSP pitching, Christian playlisting, paid media notes, social content planning, creator outreach, and campaign reporting." },
+  { icon: Building2, name: "Selah Enterprise", desc: "Back-office infrastructure for Christian labels, ministries, churches, managers, and catalogue owners." },
+  { icon: Brain, name: "Selah Intelligence", desc: "AI-assisted insights for metadata issues, release planning, audience growth, catalogue opportunities, and campaign recommendations." },
 ];
+
+// ============================================================
+// WHY CHRISTIAN MUSIC
+// ============================================================
+
+const ecosystemPoints = [
+  "Mainstream distribution is not enough",
+  "Worship usage creates unique royalty and rights workflows",
+  "Church livestreams require sensitive YouTube policies",
+  "Christian radio, churches, ministries, and conferences matter",
+  "Metadata quality affects discovery, royalties, and long-term catalogue value",
+  "Christian artists need infrastructure, not just uploads",
+];
+
+// ============================================================
+// STATS, TESTIMONIALS, DSPs
+// ============================================================
 
 const stats = [
-  { value: "4.8M+", label: "Tracks distributed", color: "indigo" },
-  { value: "150+", label: "DSPs & channels", color: "amber" },
-  { value: "120+", label: "Partner organizations", color: "indigo" },
-  { value: "8.2K+", label: "Churches reached", color: "amber" },
-  { value: "84", label: "Countries served", color: "indigo" },
+  { value: "150+", label: "Global DSPs", color: "indigo" },
+  { value: "40+", label: "Christian channels", color: "amber" },
+  { value: "60+", label: "Rights organisations", color: "indigo" },
+  { value: "84", label: "Markets served", color: "amber" },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Selah's church adoption funnel let us see exactly which worship leaders were finding our songs. We went from guessing to growing.",
-    name: "Worship Director",
-    role: "Open Heaven Worship",
-  },
-  {
-    quote:
-      "Finally a distributor that understands CCLI workflows and chord chart distribution. Built for our space, not retrofitted to it.",
-    name: "Label Manager",
-    role: "Kingdom House Music",
-  },
-  {
-    quote:
-      "The royalty accounting is the cleanest I've seen. Splits, currencies, recoupment - all in one transparent ledger.",
-    name: "Independent Artist",
-    role: "Grace Harbor",
-  },
-];
-
-// Logo-styled name lists
 const dspsTier1 = [
   { name: "Spotify", style: "font-bold tracking-tight" },
   { name: "Apple Music", style: "font-semibold tracking-tight" },
@@ -248,45 +220,46 @@ const dspsTier1 = [
 const dspsTier2 = [
   "SoundCloud",
   "Audiomack",
+  "CCLI SongSelect",
+  "PraiseCharts",
+  "Multitracks.com",
+  "Planning Center",
   "NetEase Music",
   "JOOX",
   "KKBox",
   "Anghami",
   "Boomplay",
-  "Beatport",
-  "iHeartRadio",
-  "Napster",
-  "Yandex Music",
-  "Mixcloud",
+  "WorshipReady",
 ];
 
-const christianPlatforms = [
-  { name: "CCLI SongSelect", desc: "Congregational licensing" },
-  { name: "PraiseCharts", desc: "Chord charts & lead sheets" },
-  { name: "Multitracks.com", desc: "Stems & loops" },
-  { name: "Planning Center", desc: "Service planning" },
-  { name: "Loop Community", desc: "Worship tracks" },
-  { name: "WorshipReady", desc: "Worship resources" },
-  { name: "Church on Demand", desc: "Streaming for churches" },
-  { name: "GodTube", desc: "Christian video" },
+const testimonials = [
+  {
+    quote: "Selah's worship workflows finally gave us visibility into how our songs are actually being used inside churches. Streaming numbers do not tell the whole story.",
+    name: "Worship Director",
+    role: "River House Worship",
+  },
+  {
+    quote: "We needed catalogue infrastructure, not an upload tool. Selah handles rights, splits, statements, and church-sensitive YouTube monetisation in one operating system.",
+    name: "Label Manager",
+    role: "Kingdom House Music",
+  },
+  {
+    quote: "The combination of distribution, rights, and Christian-specific metadata is what makes Selah different. It is built for how Christian music actually moves.",
+    name: "Independent Artist",
+    role: "Grace & Stone",
+  },
 ];
 
-const rightsOrgs = [
-  "ASCAP",
-  "BMI",
-  "SESAC",
-  "APRA AMCOS",
-  "PRS for Music",
-  "GEMA",
-  "SACEM",
-  "JASRAC",
-  "KOMCA",
-  "MLC",
-  "HFA",
-  "SoundExchange",
-  "PPL",
-  "PPCA",
-  "CCLI",
+const metadata = [
+  "CCLI workflow status",
+  "Worship suitability",
+  "Lyric display rights",
+  "Church livestream policy",
+  "Worship leader adoption",
+  "Ministry catalogue notes",
+  "Conference usage",
+  "Scripture reference",
+  "Theological review status",
 ];
 
 const offices = [
@@ -302,58 +275,46 @@ const offices = [
 
 const faqs = [
   {
-    q: "What does Selah actually do?",
-    a: "Selah is a digital music and video distribution platform purpose-built for Christian music. We deliver to all major DSPs, the Christian channel network (CCLI, PraiseCharts, Multitracks, Planning Center), and partner with Christian labels, publishers, and ministries to bring their music to the world.",
+    q: "What is Selah?",
+    a: "Selah is the music infrastructure platform for the future of Christian music. It brings together distribution, rights, marketing, analytics, worship-specific workflows, YouTube monetisation, and catalogue infrastructure for Christian artists, worship leaders, labels, ministries, and rights holders.",
   },
   {
-    q: "Do you work with Christian labels?",
-    a: "Yes. We partner with Christian labels of every size, from single-artist labels to multi-roster networks. Selah provides catalog distribution, white-label partner portals for sub-labels, royalty accounting, marketing services, and shared rights workflows.",
+    q: "Is Selah a Christian distributor?",
+    a: "Selah includes distribution as one of six platform pillars, but it is not just a distributor. Selah is a full operating system for Christian music teams covering distribution, rights, worship workflows, campaigns, YouTube, analytics, and enterprise infrastructure.",
   },
   {
-    q: "Do you work with publishers?",
-    a: "Yes. Selah partners with publishers and self-administering songwriters, aggregating global PRO and MRO connections (ASCAP, BMI, APRA AMCOS, PRS, GEMA, SACEM, KOMCA, HFA, MLC, and 50+ others) and integrating with CCLI for congregational use reporting.",
+    q: "Does Selah replace my publisher?",
+    a: "No. Selah provides publishing coordination, publishing metadata, and publishing administration support. Your existing publishing relationships continue. Selah helps you keep rights, splits, and catalogue data consistent across the partners you already work with.",
   },
   {
-    q: "How is the Church Network different from standard distribution?",
-    a: "Standard distribution stops at Spotify and Apple Music. Selah's Christian Network extends to CCLI SongSelect, PraiseCharts, Planning Center, Multitracks.com, worship-leader email networks, Sunday setlist tracking, and chord chart distribution.",
+    q: "What makes Selah Worship different from other distributors?",
+    a: "Selah Worship is built for the unique way worship songs are used, sung, streamed, displayed, and reported across churches, ministries, conferences, and worship teams. CCLI workflows, lyric display rights, church livestream policies, and worship leader adoption are first-class concepts.",
   },
   {
-    q: "What is the Church Adoption Score?",
-    a: "A proprietary 100-point score measuring how well a song is performing inside the church market. It combines congregational suitability, lyric clarity, theological alignment, worship leader engagement, chord chart availability, church network traction, and repeat usage signal.",
+    q: "What is church-sensitive YouTube monetisation?",
+    a: "Selah YouTube includes policy modes designed for ministry sensitivity, including Whitelist Partner Churches, Track Only, and Manual Review, so that monetising your catalogue does not damage relationships with churches and worship teams who use your music.",
   },
   {
-    q: "Which offices serve my region?",
-    a: "Sydney HQ runs platform and global operations. Regional teams in Singapore, Kuala Lumpur, Bangkok, Taipei, Seoul, Manila, and Jakarta handle local DSP relationships and church network outreach.",
+    q: "Who is Selah built for?",
+    a: "Christian artists, worship leaders, Christian labels, ministries, churches, and catalogue owners. Selah Enterprise extends the platform with team permissions, artist rosters, and catalogue administration for larger organisations.",
   },
-  {
-    q: "What service tiers are available?",
-    a: "Self-Service Distribution for individual artists, Managed Distribution with onboarding support, Label Services for full-managed campaigns and publishing aggregation, Publishing Partnerships for publisher integration, YouTube Services, and Enterprise / Partner Portal for label networks and church organizations.",
-  },
-];
-
-const awards = [
-  { name: "MusicBiz", label: "Distributor to Watch 2026" },
-  { name: "WorshipLeader", label: "Top Tech Innovation" },
-  { name: "Music Ally", label: "Asia-Pacific Rising" },
-  { name: "AIR Awards", label: "Independent Partner" },
 ];
 
 const featuredNews = {
   tag: "Latest",
   date: "May 22, 2026",
-  category: "Product",
-  title: "Selah expands distribution network to Kuala Lumpur, Taipei, and Bangkok.",
-  excerpt:
-    "Three new regional offices opening across South-East and North Asia, bringing Selah's footprint to 8 markets and deepening local DSP and church network partnerships.",
+  category: "Platform",
+  title: "Selah Worship launches: CCLI workflows, church-sensitive policies, and worship leader adoption in one workspace.",
+  excerpt: "Selah Worship makes congregational use, lyric display rights, and church livestream policies first-class concepts inside the operating system for Christian music.",
 };
 
 // ============================================================
-// Component
+// COMPONENT
 // ============================================================
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [activeSolution, setActiveSolution] = useState(0);
+  const [activePillar, setActivePillar] = useState(0);
 
   return (
     <>
@@ -363,7 +324,7 @@ export default function LandingPage() {
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(rgb(67 56 202) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgb(30 64 175) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
@@ -376,21 +337,22 @@ export default function LandingPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-accent/15 shadow-sm mb-7 animate-fade-in-up">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               <span className="text-[12px] font-medium text-accent">
-                Distribution for music that exalts the name of Jesus
+                Selah by Christian Music Group
               </span>
             </div>
             <h1 className="text-[44px] md:text-[52px] font-bold tracking-tight leading-[1.05] mb-5 animate-fade-in-up">
-              The distribution platform for{" "}
-              <span className="brand-gradient-text animate-gradient">
-                Christian music.
-              </span>
+              The music infrastructure platform for the future of{" "}
+              <span className="brand-gradient-text animate-gradient">Christian music.</span>
             </h1>
-            <p className="text-[17px] text-subtle mb-8 leading-relaxed max-w-[540px] animate-fade-in-up">
-              Selah delivers your music to every major DSP, the Christian channel network, and 8,200+ churches. Built for the artists, labels, and ministries lifting up the name of Jesus around the world.
+            <p className="text-[17px] text-subtle mb-8 leading-relaxed max-w-[560px] animate-fade-in-up">
+              Distribution, rights, marketing, analytics, and catalogue infrastructure for Christian artists, worship leaders, labels, ministries, and rights holders.
+            </p>
+            <p className="text-[14px] text-muted mb-8 leading-relaxed max-w-[560px] animate-fade-in-up italic">
+              Built for the unique way Christian and worship music moves through listeners, churches, worship leaders, platforms, and ministries.
             </p>
 
             {/* Animated equalizer accent */}
-            <div className="flex items-end gap-1 h-8 mb-8 max-w-[180px]">
+            <div className="flex items-end gap-1 h-7 mb-8 max-w-[160px]">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
                 <div
                   key={i}
@@ -399,85 +361,63 @@ export default function LandingPage() {
                 />
               ))}
             </div>
-            <div className="flex items-center gap-3 animate-fade-in-up mb-10">
+
+            <div className="flex items-center gap-3 animate-fade-in-up">
               <Link
                 href="/overview"
                 className="btn-primary text-[15px] !px-7 !py-3 flex items-center gap-2 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 transition-shadow"
               >
-                Join Selah
+                Explore Selah
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/contact" className="btn-secondary text-[15px] !px-7 !py-3">
-                Talk to our team
+              <Link href="/overview" className="btn-secondary text-[15px] !px-7 !py-3">
+                View Platform Demo
               </Link>
-            </div>
-            <div className="flex items-center gap-5 text-[11px] text-muted">
-              {awards.slice(0, 3).map((a) => (
-                <span key={a.label} className="flex items-center gap-1.5">
-                  <Award size={12} className="text-secondary" strokeWidth={1.8} />
-                  <span className="font-semibold text-subtle">{a.name}</span>
-                </span>
-              ))}
             </div>
           </div>
 
-          {/* Right: layered visual - distribution network graphic */}
+          {/* Right: distribution network graphic */}
           <div className="relative h-[440px]">
-            {/* Pulse rings behind center hub */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-accent/20 animate-pulse-ring pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] rounded-full border border-secondary/15 animate-pulse-ring pointer-events-none" style={{ animationDelay: "1.5s" }} />
 
-            {/* Center hub */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] rounded-2xl brand-gradient shadow-2xl shadow-accent/30 flex flex-col items-center justify-center z-20 p-3">
               <LogoMark size={42} />
               <p className="text-white text-[11px] font-semibold uppercase tracking-wider mt-2">Selah</p>
-              <p className="text-white/70 text-[9px] font-medium">Distribution Hub</p>
+              <p className="text-white/70 text-[9px] font-medium">Operating System</p>
             </div>
 
-            {/* Orbiting nodes - DSPs (left) */}
+            {/* Pillar labels orbiting */}
             {[
-              { label: "Spotify", x: "5%", y: "10%", color: "accent" },
-              { label: "Apple Music", x: "0%", y: "45%", color: "accent" },
-              { label: "YouTube", x: "8%", y: "80%", color: "accent" },
-              { label: "Tidal", x: "22%", y: "20%", color: "accent" },
-              { label: "Deezer", x: "20%", y: "65%", color: "accent" },
-              { label: "Amazon", x: "30%", y: "92%", color: "accent" },
-              { label: "TikTok", x: "30%", y: "5%", color: "accent" },
+              { label: "Distribution", x: "5%", y: "10%", color: "accent" },
+              { label: "Rights", x: "0%", y: "45%", color: "accent" },
+              { label: "Worship", x: "8%", y: "80%", color: "secondary" },
+              { label: "Catalogue", x: "30%", y: "92%", color: "accent" },
+              { label: "Campaigns", x: "60%", y: "92%", color: "accent" },
+              { label: "Analytics", x: "72%", y: "78%", color: "accent" },
+              { label: "YouTube", x: "85%", y: "55%", color: "accent" },
+              { label: "Enterprise", x: "82%", y: "30%", color: "secondary" },
+              { label: "Intelligence", x: "75%", y: "8%", color: "secondary" },
+              { label: "CCLI", x: "60%", y: "5%", color: "secondary" },
+              { label: "PraiseCharts", x: "22%", y: "20%", color: "secondary" },
+              { label: "Multitracks", x: "20%", y: "65%", color: "secondary" },
+              { label: "Planning Center", x: "68%", y: "45%", color: "secondary" },
+              { label: "Worship Leaders", x: "30%", y: "5%", color: "secondary" },
             ].map((n, i) => (
               <div
                 key={n.label}
-                className="absolute bg-white border border-accent/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-accent z-10 animate-float"
-                style={{ left: n.x, top: n.y, animationDelay: `${i * 0.35}s` }}
+                className={`absolute bg-white border rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold z-10 animate-float ${
+                  n.color === "secondary"
+                    ? "border-secondary/20 text-secondary"
+                    : "border-accent/20 text-accent"
+                }`}
+                style={{ left: n.x, top: n.y, animationDelay: `${i * 0.18}s` }}
               >
                 {n.label}
               </div>
             ))}
 
-            {/* Orbiting nodes - Christian channels (right) */}
-            {[
-              { label: "CCLI", x: "75%", y: "8%", color: "secondary" },
-              { label: "PraiseCharts", x: "82%", y: "30%", color: "secondary" },
-              { label: "Multitracks", x: "85%", y: "55%", color: "secondary" },
-              { label: "Planning Center", x: "72%", y: "78%", color: "secondary" },
-              { label: "Loop", x: "60%", y: "92%", color: "secondary" },
-              { label: "GodTube", x: "60%", y: "5%", color: "secondary" },
-              { label: "WorshipReady", x: "68%", y: "45%", color: "secondary" },
-            ].map((n, i) => (
-              <div
-                key={n.label}
-                className="absolute bg-white border border-secondary/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-secondary z-10 animate-float"
-                style={{ left: n.x, top: n.y, animationDelay: `${i * 0.4 + 0.2}s` }}
-              >
-                {n.label}
-              </div>
-            ))}
-
-            {/* Connecting lines (SVG) */}
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="rgb(30 64 175)" stopOpacity="0.25" />
@@ -489,28 +429,30 @@ export default function LandingPage() {
                 const angle = (i / 14) * Math.PI * 2;
                 const x = 50 + Math.cos(angle) * 38;
                 const y = 50 + Math.sin(angle) * 38;
-                return (
-                  <line
-                    key={i}
-                    x1="50"
-                    y1="50"
-                    x2={x}
-                    y2={y}
-                    stroke="url(#line-grad)"
-                    strokeWidth="0.15"
-                  />
-                );
+                return <line key={i} x1="50" y1="50" x2={x} y2={y} stroke="url(#line-grad)" strokeWidth="0.15" />;
               })}
             </svg>
 
-            {/* Backdrop glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-gradient-to-br from-accent/15 to-secondary/15 blur-3xl rounded-full pointer-events-none" />
           </div>
         </div>
       </section>
 
-      {/* LATEST NEWS - one prominent card */}
-      <section className="border-y border-border bg-gradient-to-r from-accent-soft/40 via-white to-secondary-soft/30">
+      {/* OPERATING SYSTEM STATEMENT */}
+      <section className="border-y border-border bg-white py-20">
+        <div className="max-w-[920px] mx-auto px-8 text-center">
+          <p className="label-eyebrow mb-4">One operating system for Christian music teams</p>
+          <h2 className="text-[36px] md:text-[40px] font-bold tracking-tight leading-tight mb-5">
+            Release operations, rights workflows, worship metadata, YouTube monetisation, campaigns, catalogue, and analytics, in one platform.
+          </h2>
+          <p className="text-[16px] text-subtle leading-relaxed max-w-[680px] mx-auto">
+            Selah brings together everything Christian artists, worship leaders, labels, ministries, and rights holders need to release, manage, monetise, and grow music with excellence.
+          </p>
+        </div>
+      </section>
+
+      {/* LATEST NEWS BANNER */}
+      <section className="border-b border-border bg-gradient-to-r from-accent-soft/40 via-white to-secondary-soft/30">
         <div className="max-w-[1180px] mx-auto px-8 py-5">
           <Link
             href="/press"
@@ -529,7 +471,7 @@ export default function LandingPage() {
               </p>
             </div>
             <span className="text-[12px] font-medium text-accent inline-flex items-center gap-1 group-hover:gap-2 transition-all shrink-0">
-              Read announcement
+              Read more
               <ChevronRight size={14} />
             </span>
           </Link>
@@ -540,14 +482,13 @@ export default function LandingPage() {
       <section className="bg-white py-16 border-b border-border overflow-hidden">
         <div className="max-w-[1180px] mx-auto px-8 mb-10 text-center">
           <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-            Trusted distribution
+            Selah Distribution
           </p>
           <p className="text-[15px] text-subtle max-w-[640px] mx-auto">
-            Delivering Christian music to every major DSP and Christian channel.
+            Delivering Christian music to every major DSP and the Christian channel network.
           </p>
         </div>
 
-        {/* Tier 1 marquee */}
         <div
           className="relative"
           style={{
@@ -557,17 +498,13 @@ export default function LandingPage() {
         >
           <div className="flex w-max animate-marquee">
             {[...dspsTier1, ...dspsTier1].map((dsp, i) => (
-              <div
-                key={`${dsp.name}-${i}`}
-                className="flex items-center justify-center px-10 shrink-0"
-              >
+              <div key={`${dsp.name}-${i}`} className="flex items-center justify-center px-10 shrink-0">
                 <span className={`text-[18px] text-foreground ${dsp.style}`}>{dsp.name}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Tier 2 marquee (slower, opposite direction look via reverse list) */}
         <div
           className="relative mt-8"
           style={{
@@ -577,10 +514,7 @@ export default function LandingPage() {
         >
           <div className="flex w-max animate-marquee-slow">
             {[...dspsTier2, ...dspsTier2].map((dsp, i) => (
-              <div
-                key={`${dsp}-${i}`}
-                className="flex items-center justify-center px-8 shrink-0"
-              >
+              <div key={`${dsp}-${i}`} className="flex items-center justify-center px-8 shrink-0">
                 <span className="text-[13px] font-semibold text-muted">{dsp}</span>
               </div>
             ))}
@@ -588,80 +522,80 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* TOOLS & SOLUTIONS - ONErpm style */}
-      <section id="solutions" className="py-24 bg-gradient-to-b from-white to-surface">
+      {/* PLATFORM PILLARS */}
+      <section id="platform" className="py-24 bg-gradient-to-b from-white to-surface">
         <div className="max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-12">
-            <p className="label-eyebrow mb-3">Tools & Solutions · Self-Service</p>
+            <p className="label-eyebrow mb-3">Platform pillars</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              A powerful self-service platform for Christian music.
+              Six pillars, one Selah operating system.
             </h2>
             <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
-              Selah provides a full suite of automated marketing, promotional, accounting, and business intelligence tools - giving artists, labels, and ministries full control over the distribution workflow.
+              Selah combines distribution, rights, worship workflows, campaigns, YouTube monetisation, and analytics, in a single platform purpose-built for Christian music.
             </p>
           </div>
 
-          {/* Tab nav */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {solutions.map((s, i) => (
+            {pillars.map((p, i) => (
               <button
-                key={s.eyebrow}
-                onClick={() => setActiveSolution(i)}
+                key={p.eyebrow}
+                onClick={() => setActivePillar(i)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-[12.5px] font-semibold transition-all ${
-                  activeSolution === i
-                    ? s.color === "secondary"
+                  activePillar === i
+                    ? p.color === "secondary"
                       ? "bg-secondary text-white shadow-md shadow-secondary/20"
                       : "bg-accent text-white shadow-md shadow-accent/20"
                     : "bg-white border border-border text-subtle hover:border-border-strong hover:text-foreground"
                 }`}
               >
-                <s.icon size={14} strokeWidth={1.8} />
-                {s.eyebrow}
+                <p.icon size={14} strokeWidth={1.8} />
+                {p.eyebrow}
               </button>
             ))}
           </div>
 
-          {/* Active solution panel */}
           <div className="card p-8 md:p-10 shadow-xl shadow-accent/5">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-5">
                 <div
                   className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 shadow-md ${
-                    solutions[activeSolution].color === "secondary"
+                    pillars[activePillar].color === "secondary"
                       ? "bg-gradient-to-br from-secondary to-secondary-hover shadow-secondary/20"
                       : "bg-gradient-to-br from-accent to-accent-hover shadow-accent/20"
                   }`}
                 >
                   {(() => {
-                    const Icon = solutions[activeSolution].icon;
+                    const Icon = pillars[activePillar].icon;
                     return <Icon size={20} className="text-white" strokeWidth={1.8} />;
                   })()}
                 </div>
                 <p
                   className={`text-[11px] font-semibold uppercase tracking-wider mb-2 ${
-                    solutions[activeSolution].color === "secondary" ? "text-secondary" : "text-accent"
+                    pillars[activePillar].color === "secondary" ? "text-secondary" : "text-accent"
                   }`}
                 >
-                  {solutions[activeSolution].eyebrow}
+                  {pillars[activePillar].eyebrow}
                 </p>
                 <h3 className="text-[26px] font-bold tracking-tight mb-3 leading-tight">
-                  {solutions[activeSolution].title}
+                  {pillars[activePillar].title}
+                  {pillars[activePillar].featured && (
+                    <span className="ml-2 inline-block align-middle text-[10px] font-bold uppercase tracking-wider bg-secondary text-white px-1.5 py-0.5 rounded">
+                      Differentiator
+                    </span>
+                  )}
                 </h3>
-                <p
-                  className="text-[14px] text-subtle leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: solutions[activeSolution].body }}
-                />
+                <p className="text-[14px] text-subtle leading-relaxed">{pillars[activePillar].body}</p>
               </div>
               <div className="md:col-span-7 md:border-l md:pl-8 border-border">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-muted mb-4">
                   Feature highlights
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
-                  {solutions[activeSolution].bullets.map((b) => (
+                  {pillars[activePillar].bullets.map((b) => (
                     <li key={b} className="flex items-start gap-2 text-[13px] text-subtle">
                       <div
                         className={`shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 ${
-                          solutions[activeSolution].color === "secondary"
+                          pillars[activePillar].color === "secondary"
                             ? "bg-secondary-soft"
                             : "bg-accent-soft"
                         }`}
@@ -669,11 +603,7 @@ export default function LandingPage() {
                         <Check
                           size={10}
                           strokeWidth={3}
-                          className={
-                            solutions[activeSolution].color === "secondary"
-                              ? "text-secondary"
-                              : "text-accent"
-                          }
+                          className={pillars[activePillar].color === "secondary" ? "text-secondary" : "text-accent"}
                         />
                       </div>
                       <span className="leading-snug">{b}</span>
@@ -686,164 +616,172 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* WHO WE BUILD FOR */}
-      <section className="bg-surface py-24 border-y border-border">
-        <div className="max-w-[1080px] mx-auto px-8">
-          <div className="text-center mb-14">
-            <p className="label-eyebrow mb-3">Who we build for</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Christian music professionals. Everywhere.
+      {/* WHY CHRISTIAN MUSIC */}
+      <section className="py-24 bg-surface border-y border-border">
+        <div className="max-w-[1100px] mx-auto px-8">
+          <div className="text-center mb-12 max-w-[760px] mx-auto">
+            <p className="label-eyebrow-secondary mb-3">Why Christian music needs its own infrastructure</p>
+            <h2 className="text-[36px] font-bold tracking-tight mb-5 leading-tight">
+              Christian music does not move like mainstream music.
             </h2>
+            <p className="text-subtle text-[15px] leading-relaxed">
+              Christian and worship music moves through a different ecosystem. Songs are not only streamed by listeners. They are sung in churches, shared by worship leaders, used in conferences, displayed on screens, performed by teams, streamed in services, and carried by ministries.
+            </p>
+            <p className="text-subtle text-[15px] leading-relaxed mt-3">
+              That creates different needs across rights, reporting, metadata, marketing, video, church relationships, and catalogue administration. Selah is building infrastructure for that reality.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f, i) => (
-              <div key={f.title} className="card p-6 card-interactive">
-                <div
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
-                    i % 2 === 0
-                      ? "bg-accent-soft border border-accent/10"
-                      : "bg-secondary-soft border border-secondary/10"
-                  }`}
-                >
-                  <f.icon
-                    size={18}
-                    className={i % 2 === 0 ? "text-accent" : "text-secondary"}
-                    strokeWidth={1.8}
-                  />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {ecosystemPoints.map((p, i) => (
+              <div
+                key={p}
+                className={`card p-5 card-interactive ${
+                  i % 2 === 0
+                    ? "bg-gradient-to-br from-white to-accent-soft/30 border-accent/15"
+                    : "bg-gradient-to-br from-white to-secondary-soft/30 border-secondary/15"
+                }`}
+              >
+                <div className="flex items-start gap-2.5">
+                  <div
+                    className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                      i % 2 === 0 ? "bg-accent-soft" : "bg-secondary-soft"
+                    }`}
+                  >
+                    <Check
+                      size={11}
+                      strokeWidth={2.5}
+                      className={i % 2 === 0 ? "text-accent" : "text-secondary"}
+                    />
+                  </div>
+                  <span className="text-[14px] font-medium text-foreground leading-snug">{p}</span>
                 </div>
-                <h3 className="text-[15px] font-semibold mb-1.5">{f.title}</h3>
-                <p className="text-[13px] text-subtle leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CHRISTIAN NETWORK GRAPHIC */}
-      <section id="church-network" className="relative overflow-hidden bg-[#0F172A] text-white py-24">
+      {/* WHO IT SERVES */}
+      <section className="py-24">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <div className="text-center mb-12">
+            <p className="label-eyebrow mb-3">Who it serves</p>
+            <h2 className="text-[36px] font-bold tracking-tight mb-3">
+              Built for the Christian music ecosystem.
+            </h2>
+            <p className="text-subtle max-w-[600px] mx-auto text-[15px]">
+              Selah serves every operator across the Christian music value chain, from independent artists to enterprise catalogue owners.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {audiences.map((a, i) => (
+              <div key={a.title} className="card p-6 card-interactive">
+                <div
+                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${
+                    i % 2 === 0
+                      ? "bg-accent-soft border border-accent/15"
+                      : "bg-secondary-soft border border-secondary/15"
+                  }`}
+                >
+                  <a.icon
+                    size={20}
+                    className={i % 2 === 0 ? "text-accent" : "text-secondary"}
+                    strokeWidth={1.8}
+                  />
+                </div>
+                <h3 className="text-[17px] font-semibold mb-2">{a.title}</h3>
+                <p className="text-[13px] text-subtle leading-relaxed">{a.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PLATFORM MODULES */}
+      <section className="py-24 bg-surface border-y border-border">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <div className="text-center mb-12">
+            <p className="label-eyebrow-secondary mb-3">Platform modules</p>
+            <h2 className="text-[36px] font-bold tracking-tight mb-3">
+              The Selah module suite.
+            </h2>
+            <p className="text-subtle max-w-[600px] mx-auto text-[15px]">
+              Distribution, rights, worship, campaigns, enterprise infrastructure, and AI intelligence. One workspace.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {modules.map((m, i) => (
+              <div key={m.name} className="card p-6 card-interactive group">
+                <div
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg transition-shadow ${
+                    i % 2 === 0
+                      ? "bg-gradient-to-br from-accent to-accent-hover shadow-accent/20"
+                      : "bg-gradient-to-br from-secondary to-secondary-hover shadow-secondary/20"
+                  }`}
+                >
+                  <m.icon size={18} className="text-white" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1.5">{m.name}</h3>
+                <p className="text-[13px] text-subtle leading-relaxed">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CHRISTIAN-SPECIFIC METADATA */}
+      <section className="relative overflow-hidden bg-[#0F172A] text-white py-24">
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgb(16 185 129) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-secondary/20 blur-[140px] rounded-full pointer-events-none" />
 
-        <div className="relative max-w-[1180px] mx-auto px-8">
+        <div className="relative max-w-[1100px] mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-[11px] font-semibold tracking-[0.08em] uppercase text-secondary mb-3">
-                Church Network
+                Worship-specific infrastructure
               </p>
               <h2 className="text-[40px] font-bold tracking-tight mb-5 leading-tight">
-                Music that reaches the Body of Christ.
+                Built for the realities of Christian music.
               </h2>
-              <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6">
-                Standard distribution ends at Spotify and Apple Music. Selah extends into the local church, where the songs that exalt Jesus are actually sung: CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship-leader networks across 8,200+ congregations.
+              <p className="text-[15px] text-[#94A3B8] leading-relaxed mb-6">
+                Christian music is not only streamed. It is sung, displayed, shared, performed, taught, and carried through churches, ministries, worship teams, conferences, schools, and families. Selah is designed for that ecosystem.
               </p>
-              <div className="space-y-3">
-                {[
-                  "CCLI registration, reporting, and royalty integration",
-                  "Chord chart & lead sheet automated delivery",
-                  "Worship leader email networks across 12 markets",
-                  "Sunday setlist adoption tracking",
-                  "Congregational suitability metadata fields",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-2.5">
-                    <div className="shrink-0 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center mt-0.5">
-                      <Check size={11} className="text-secondary" strokeWidth={2.5} />
-                    </div>
-                    <span className="text-[14px] text-white/90">{item}</span>
-                  </div>
-                ))}
-              </div>
+              <Link
+                href="/worship"
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-secondary hover:gap-2 transition-all"
+              >
+                Explore Selah Worship
+                <ArrowRight size={14} />
+              </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {christianPlatforms.map((p, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {metadata.map((m, i) => (
                 <div
-                  key={p.name}
-                  className={`p-4 rounded-lg backdrop-blur-sm transition-all hover:scale-[1.02] ${
+                  key={m}
+                  className={`p-4 rounded-lg backdrop-blur-sm transition-all ${
                     i % 2 === 0
-                      ? "bg-white/[0.05] border border-white/10 hover:border-secondary/40"
+                      ? "bg-white/[0.05] border border-white/10"
                       : "bg-gradient-to-br from-secondary/10 to-white/[0.02] border border-secondary/20"
                   }`}
                 >
-                  <p className="text-[14px] font-bold text-white mb-1">{p.name}</p>
-                  <p className="text-[11px] text-white/60">{p.desc}</p>
+                  <span className="text-[14px] font-semibold text-white">{m}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PUBLISHING PARTNERSHIPS */}
-      <section id="publishing" className="py-24">
-        <div className="max-w-[1180px] mx-auto px-8">
-          <div className="text-center mb-12">
-            <p className="label-eyebrow-secondary mb-3">Publishing Partnerships</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              We partner with publishers.
-            </h2>
-            <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
-              Selah aggregates global publishing administration across 60+ PROs, MROs, and CCLI on behalf of publishers and self-administering songwriters.
-            </p>
-          </div>
-
-          <div className="card p-8 md:p-10 bg-gradient-to-br from-white via-white to-secondary-soft/30">
-            <div className="text-center mb-8">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary mb-2">
-                Integrated with
-              </p>
-              <p className="text-[14px] text-subtle">
-                60+ rights organizations across performance, mechanical, neighboring, and church licensing
-              </p>
-            </div>
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-y-5 gap-x-4 items-center">
-              {rightsOrgs.map((org, i) => (
-                <div key={org} className="flex items-center justify-center">
-                  <span
-                    className={`text-[13px] font-bold tracking-wide ${
-                      i % 3 === 0
-                        ? "text-accent"
-                        : i % 3 === 1
-                        ? "text-secondary"
-                        : "text-foreground"
-                    }`}
-                  >
-                    {org}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 pt-8 border-t border-border grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <p className="text-[24px] font-bold tracking-tight bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                  60+
-                </p>
-                <p className="text-[12px] text-muted">PROs & rights organizations</p>
-              </div>
-              <div>
-                <p className="text-[24px] font-bold tracking-tight bg-gradient-to-r from-secondary to-secondary-hover bg-clip-text text-transparent">
-                  84
-                </p>
-                <p className="text-[12px] text-muted">Royalty collection markets</p>
-              </div>
-              <div>
-                <p className="text-[24px] font-bold tracking-tight bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
-                  28+
-                </p>
-                <p className="text-[12px] text-muted">Payout currencies</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* GLOBAL OFFICES */}
-      <section className="relative overflow-hidden bg-[#0F172A] text-white py-24">
+      <section className="relative overflow-hidden bg-[#0F172A] text-white py-24 border-t border-white/5">
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
@@ -858,13 +796,11 @@ export default function LandingPage() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
               <Globe2 size={12} className="text-secondary" />
-              <span className="text-[11px] font-medium text-white/80">
-                8 offices · 7 countries · 84 markets served
-              </span>
+              <span className="text-[11px] font-medium text-white/80">8 offices · 84 markets served</span>
             </div>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">Global from day one.</h2>
+            <h2 className="text-[36px] font-bold tracking-tight mb-3">From the Great Southland to the world.</h2>
             <p className="text-[#94A3B8] max-w-[580px] mx-auto text-[15px]">
-              Sydney-headquartered, with regional teams across Asia-Pacific running local DSP relationships and church network operations.
+              Sydney-headquartered, with regional teams across the Asia-Pacific running local DSP relationships, Christian channel operations, and church network outreach.
             </p>
           </div>
 
@@ -884,9 +820,7 @@ export default function LandingPage() {
                     <p className="text-[11px] text-white/60 mt-0.5">{o.country}</p>
                   </div>
                   {o.primary && (
-                    <span className="text-[9px] font-bold uppercase tracking-wider bg-secondary text-white px-1.5 py-0.5 rounded">
-                      HQ
-                    </span>
+                    <span className="text-[9px] font-bold uppercase tracking-wider bg-secondary text-white px-1.5 py-0.5 rounded">HQ</span>
                   )}
                 </div>
                 <p className="text-[11px] text-white/80">{o.role}</p>
@@ -900,88 +834,24 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* LIVE ACTIVITY TICKER */}
-      <section className="py-20 border-y border-border bg-white">
+      {/* STATS */}
+      <section className="py-20 bg-gradient-to-br from-secondary-soft/40 via-white to-accent-soft/30 border-y border-secondary/10">
         <div className="max-w-[1180px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-positive-soft border border-positive/15 mb-5">
-                <span className="relative flex w-2 h-2">
-                  <span className="absolute inline-flex w-full h-full rounded-full bg-positive opacity-75 animate-ping" />
-                  <span className="relative inline-flex w-2 h-2 rounded-full bg-positive" />
-                </span>
-                <span className="text-[11px] font-semibold text-positive uppercase tracking-wider">
-                  Live activity
-                </span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-x-4 text-center">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <p
+                  className={`text-[40px] md:text-[48px] font-bold tracking-tight mb-1 bg-clip-text text-transparent ${
+                    s.color === "amber"
+                      ? "bg-gradient-to-r from-secondary to-secondary-hover"
+                      : "bg-gradient-to-r from-accent to-accent-hover"
+                  }`}
+                >
+                  {s.value}
+                </p>
+                <p className="text-[12px] text-subtle font-medium">{s.label}</p>
               </div>
-              <h2 className="text-[36px] font-bold tracking-tight mb-4 leading-tight">
-                Carrying the Gospel in song, around the clock.
-              </h2>
-              <p className="text-subtle text-[15px] leading-relaxed mb-6">
-                Selah&apos;s delivery infrastructure pushes new releases, takedowns, and metadata updates to DSPs and Christian channels continuously across 84 territories.
-              </p>
-              <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <p className="text-[24px] font-bold tracking-tight brand-gradient-text">218K</p>
-                  <p className="text-[11px] text-muted">Releases delivered YTD</p>
-                </div>
-                <div>
-                  <p className="text-[24px] font-bold tracking-tight brand-gradient-text">99.7%</p>
-                  <p className="text-[11px] text-muted">DSP delivery success</p>
-                </div>
-                <div>
-                  <p className="text-[24px] font-bold tracking-tight brand-gradient-text">47s</p>
-                  <p className="text-[11px] text-muted">Median time to live</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Ticker display */}
-            <div className="relative card overflow-hidden p-0">
-              <div className="border-b border-border px-4 py-2.5 flex items-center justify-between bg-surface">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#EF4444]/60" />
-                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]/60" />
-                  <span className="w-2 h-2 rounded-full bg-positive" />
-                </div>
-                <span className="text-[10px] font-mono text-muted">live · selah.cmg.com/feed</span>
-              </div>
-              <div className="h-[300px] overflow-hidden relative">
-                <div className="absolute inset-0 flex flex-col">
-                  {[
-                    { artist: "Grace Harbor", track: "Living Water", dsp: "Spotify · Apple Music · Deezer", region: "Worldwide", time: "just now" },
-                    { artist: "Kingdom House Music", track: "House of Prayer", dsp: "CCLI SongSelect", region: "AU · US · UK", time: "12s ago" },
-                    { artist: "New City Worship", track: "Kingdom Come", dsp: "TikTok Sound · Instagram", region: "South-East Asia", time: "31s ago" },
-                    { artist: "Mercy Collective", track: "Mercy Is Near", dsp: "PraiseCharts · Planning Center", region: "Worldwide", time: "1m ago" },
-                    { artist: "Hannah Rejoice", track: "Still My Soul", dsp: "Spotify · YouTube Music", region: "ANZ", time: "1m ago" },
-                    { artist: "Open Heaven Worship", track: "Come Alive", dsp: "Multitracks.com", region: "Worldwide", time: "2m ago" },
-                    { artist: "Vessel Choir", track: "Only You Are Worthy", dsp: "Amazon Music · Tidal", region: "Asia-Pacific", time: "3m ago" },
-                    { artist: "Covenant Sound", track: "All Things New", dsp: "CCLI · WorshipReady", region: "Worldwide", time: "4m ago" },
-                  ].map((row, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 px-4 py-3 border-b border-border text-[12px]"
-                      style={{ animationDelay: `${i * 0.15}s` }}
-                    >
-                      <div className="w-8 h-8 rounded brand-gradient flex items-center justify-center text-white text-[10px] font-bold shrink-0">
-                        {row.artist.split(" ").map((w) => w[0]).slice(0, 2).join("")}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-foreground truncate">
-                          {row.track}{" "}
-                          <span className="text-muted font-normal">· {row.artist}</span>
-                        </p>
-                        <p className="text-[11px] text-muted truncate">{row.dsp} · {row.region}</p>
-                      </div>
-                      <span className="text-[10px] text-muted shrink-0 font-mono">{row.time}</span>
-                    </div>
-                  ))}
-                </div>
-                {/* Fade overlays */}
-                <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -998,133 +868,16 @@ export default function LandingPage() {
         />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-white/10 blur-[140px] rounded-full pointer-events-none" />
 
-        {/* Floating notes decoration */}
         <div className="absolute top-[10%] left-[8%] w-2 h-2 rounded-full bg-white/60 animate-float" />
         <div className="absolute top-[70%] left-[12%] w-1.5 h-1.5 rounded-full bg-white/50 animate-float" style={{ animationDelay: "1s" }} />
         <div className="absolute top-[25%] right-[12%] w-2 h-2 rounded-full bg-white/60 animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-[60%] right-[8%] w-1.5 h-1.5 rounded-full bg-white/50 animate-float" style={{ animationDelay: "0.5s" }} />
 
         <div className="relative max-w-[840px] mx-auto px-8 text-center text-white">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/70 mb-6">
-            The Selah pause
-          </p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/70 mb-6">The Selah pause</p>
           <p className="text-[28px] md:text-[36px] font-bold tracking-tight leading-[1.2] mb-5">
             &ldquo;Sing to the Lord a new song; sing to the Lord, all the earth.&rdquo;
           </p>
-          <p className="text-[13px] text-white/70 uppercase tracking-[0.2em] font-semibold">
-            Psalm 96:1
-          </p>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="py-20 bg-gradient-to-br from-secondary-soft/40 via-white to-accent-soft/30 border-y border-secondary/10">
-        <div className="max-w-[1180px] mx-auto px-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8 md:gap-x-4 text-center">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p
-                  className={`text-[32px] md:text-[40px] font-bold tracking-tight mb-1 bg-clip-text text-transparent ${
-                    s.color === "amber"
-                      ? "bg-gradient-to-r from-secondary to-secondary-hover"
-                      : "bg-gradient-to-r from-accent to-accent-hover"
-                  }`}
-                >
-                  {s.value}
-                </p>
-                <p className="text-[12px] text-subtle font-medium">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY WE DO THIS */}
-      <section className="py-24">
-        <div className="max-w-[1100px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5">
-              <p className="label-eyebrow-secondary mb-3">Why we do this</p>
-              <h2 className="text-[40px] font-bold tracking-tight leading-tight mb-5">
-                Every song, every stream, for the{" "}
-                <span className="brand-gradient-text">glory of Jesus.</span>
-              </h2>
-              <p className="text-[15px] text-subtle leading-relaxed mb-5">
-                We build Selah because Christian artists, worship leaders, labels, and ministries are doing eternal work, and the tools they use should match the calling.
-              </p>
-              <p className="text-[15px] text-subtle leading-relaxed">
-                From the Great Southland of the Holy Spirit, our team serves the Body of Christ around the world, helping the songs that exalt Jesus reach further, more clearly, and with greater operational excellence than ever before.
-              </p>
-            </div>
-
-            <div className="lg:col-span-7 space-y-3">
-              {[
-                {
-                  ref: "Colossians 3:16",
-                  text: "Let the message of Christ dwell among you richly as you teach and admonish one another with all wisdom through psalms, hymns, and songs from the Spirit, singing to God with gratitude in your hearts.",
-                },
-                {
-                  ref: "Revelation 5:9",
-                  text: "And they sang a new song, saying: You are worthy to take the scroll and to open its seals, because you were slain, and with your blood you purchased for God persons from every tribe and language and people and nation.",
-                },
-                {
-                  ref: "Psalm 150:6",
-                  text: "Let everything that has breath praise the Lord. Praise the Lord.",
-                },
-              ].map((v, i) => (
-                <div
-                  key={v.ref}
-                  className={`card p-6 relative overflow-hidden ${
-                    i === 0
-                      ? "bg-gradient-to-br from-accent-soft/40 via-white to-white border-accent/15"
-                      : i === 1
-                      ? "bg-gradient-to-br from-secondary-soft/40 via-white to-white border-secondary/15"
-                      : "bg-gradient-to-br from-white via-accent-soft/20 to-secondary-soft/20"
-                  }`}
-                >
-                  <p
-                    className={`text-[10px] font-bold uppercase tracking-[0.16em] mb-2 ${
-                      i === 1 ? "text-secondary" : "text-accent"
-                    }`}
-                  >
-                    {v.ref}
-                  </p>
-                  <p className="text-[14px] text-foreground leading-relaxed italic">
-                    &ldquo;{v.text}&rdquo;
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CHRISTIAN METADATA */}
-      <section className="py-24 border-t border-border">
-        <div className="max-w-[1080px] mx-auto px-8">
-          <div className="text-center mb-12">
-            <p className="label-eyebrow mb-3">Christian-native</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Metadata built for worship.
-            </h2>
-            <p className="text-subtle max-w-[560px] mx-auto text-[15px]">
-              Purpose-built fields that secular distribution platforms do not support.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {metadata.map((m, i) => (
-              <div
-                key={m}
-                className={`p-5 rounded-lg border transition-all hover:scale-[1.01] ${
-                  i % 2 === 0
-                    ? "bg-gradient-to-br from-accent-soft/40 to-white border-accent/15"
-                    : "bg-gradient-to-br from-secondary-soft/40 to-white border-secondary/15"
-                }`}
-              >
-                <span className="text-[14px] font-semibold text-foreground">{m}</span>
-              </div>
-            ))}
-          </div>
+          <p className="text-[13px] text-white/70 uppercase tracking-[0.2em] font-semibold">Psalm 96:1</p>
         </div>
       </section>
 
@@ -1133,9 +886,7 @@ export default function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-14">
             <p className="label-eyebrow mb-3">Voices from the network</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Built with Christian music in mind.
-            </h2>
+            <h2 className="text-[36px] font-bold tracking-tight mb-3">Built with Christian music in mind.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {testimonials.map((t, i) => (
@@ -1145,9 +896,7 @@ export default function LandingPage() {
                     <Star key={j} size={13} className="text-secondary fill-secondary" />
                   ))}
                 </div>
-                <p className="text-[14px] text-foreground leading-relaxed flex-1 mb-5">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
+                <p className="text-[14px] text-foreground leading-relaxed flex-1 mb-5">&ldquo;{t.quote}&rdquo;</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-border">
                   <div
                     className={`w-9 h-9 rounded-full flex items-center justify-center text-white text-[12px] font-semibold ${
@@ -1156,11 +905,7 @@ export default function LandingPage() {
                         : "bg-gradient-to-br from-secondary to-secondary-hover"
                     }`}
                   >
-                    {t.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .slice(0, 2)
-                      .join("")}
+                    {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold leading-tight">{t.name}</p>
@@ -1215,12 +960,11 @@ export default function LandingPage() {
       {/* FINAL CTA */}
       <section className="pb-28 pt-8">
         <div className="max-w-[1180px] mx-auto px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#1E1B4B] to-[#0F172A] p-12 text-center text-white">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#0B2E5C] to-[#064E3B] p-12 text-center text-white">
             <div
               className="absolute inset-0 opacity-[0.06] pointer-events-none"
               style={{
-                backgroundImage:
-                  "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
+                backgroundImage: "radial-gradient(rgb(16 185 129) 1px, transparent 1px)",
                 backgroundSize: "20px 20px",
               }}
             />
@@ -1228,24 +972,24 @@ export default function LandingPage() {
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-secondary/30 blur-[120px] rounded-full pointer-events-none" />
             <div className="relative">
               <h2 className="text-[36px] md:text-[44px] font-bold tracking-tight leading-[1.1] mb-4">
-                Distribute your music. Lift up His name.
+                Build the future of Christian music on Selah.
               </h2>
-              <p className="text-[#94A3B8] mb-8 max-w-[560px] mx-auto text-[16px]">
-                Join the artists, labels, ministries, and worship teams releasing music through Selah&apos;s distribution platform, in service of the Gospel and the global Church.
+              <p className="text-[#94A3B8] mb-8 max-w-[600px] mx-auto text-[16px]">
+                Selah by Christian Music Group helps artists, worship leaders, labels, ministries, and rights holders release, manage, monetise, and grow Christian music with modern distribution, rights, marketing, analytics, and worship-specific infrastructure.
               </p>
               <div className="flex items-center justify-center gap-3">
                 <Link
                   href="/overview"
                   className="bg-white text-foreground hover:bg-white/90 font-medium rounded-md px-7 py-3 text-[15px] inline-flex items-center gap-2 transition-colors shadow-lg"
                 >
-                  Join Selah
+                  Explore Selah
                   <ArrowRight size={16} />
                 </Link>
                 <Link
                   href="/contact"
                   className="border border-white/20 text-white hover:bg-white/5 font-medium rounded-md px-7 py-3 text-[15px] transition-colors"
                 >
-                  Contact our team
+                  Contact Christian Music Group
                 </Link>
               </div>
             </div>

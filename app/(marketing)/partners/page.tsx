@@ -16,7 +16,7 @@ import {
 const stats = [
   { value: "150+", label: "DSPs & streaming platforms", tone: "accent" as const },
   { value: "40+", label: "Christian channels & worship platforms", tone: "secondary" as const },
-  { value: "60+", label: "PROs & rights organizations", tone: "accent" as const },
+  { value: "60+", label: "PROs & rights organisations", tone: "accent" as const },
   { value: "120+", label: "Christian label partners", tone: "secondary" as const },
 ];
 
@@ -110,7 +110,7 @@ export default function PartnersPage() {
             <span className="brand-gradient-text">Christian music distribution.</span>
           </h1>
           <p className="text-[17px] md:text-[18px] text-subtle max-w-[700px] mx-auto leading-relaxed">
-            Selah delivers Christian music across every major DSP, the Christian channel network that secular distributors miss, every relevant PRO and rights organization, and the labels and ministries shaping worship music globally.
+            Selah delivers Christian music across every major DSP, the Christian channel network that secular distributors miss, every relevant PRO and rights organisation, and the labels and ministries shaping worship music globally.
           </p>
         </div>
       </section>

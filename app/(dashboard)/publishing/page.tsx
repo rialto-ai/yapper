@@ -31,9 +31,9 @@ export default function PublishingPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Publishing Administration</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Publishing Coordination</h1>
         <p className="text-[13px] text-muted mt-1">
-          Composition management, songwriter splits, PRO registration, and licensing.
+          Composition records, publishing metadata, songwriter splits, PRO registration tracking, and CCLI workflow status. Selah supports publishing coordination across the partners you already work with.
         </p>
       </div>
 

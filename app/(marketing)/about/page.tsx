@@ -59,13 +59,13 @@ export default function AboutPage() {
         />
         <div className="absolute top-[15%] right-[10%] w-[380px] h-[380px] bg-secondary/15 blur-[140px] rounded-full pointer-events-none" />
         <div className="relative max-w-[900px] mx-auto px-8 pt-20 pb-16 text-center">
-          <p className="label-eyebrow mb-4">About Selah</p>
+          <p className="label-eyebrow mb-4">About Selah by Christian Music Group</p>
           <h1 className="text-[48px] md:text-[54px] font-bold tracking-tight leading-[1.05] mb-6">
-            Christian music distribution{" "}
-            <span className="brand-gradient-text">from the southern hemisphere, for the glory of Jesus.</span>
+            We&apos;re building the music infrastructure platform for the future of{" "}
+            <span className="brand-gradient-text">Christian music.</span>
           </h1>
-          <p className="text-[18px] text-subtle max-w-[700px] mx-auto leading-relaxed">
-            Founded in Sydney in 2026, Selah delivers Christian music globally to every major DSP and the Christian channel network. We operate from 8 offices across the Asia-Pacific, in service of the artists, labels, worship teams, and ministries lifting up the name of Jesus.
+          <p className="text-[18px] text-subtle max-w-[720px] mx-auto leading-relaxed">
+            Founded in Sydney in 2026, Selah brings distribution, rights, marketing, analytics, and catalogue infrastructure together in one operating system for Christian artists, worship leaders, labels, ministries, and rights holders across the Asia-Pacific and the world.
           </p>
         </div>
       </section>

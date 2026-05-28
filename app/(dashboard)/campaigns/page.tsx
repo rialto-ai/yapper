@@ -64,9 +64,9 @@ export default function CampaignsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Campaign Command Center</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Campaigns</h1>
         <p className="text-[13px] text-muted mt-1">
-          Release campaigns, task management, and Christian music marketing operations.
+          Campaigns built for Christian discovery. Plan releases across DSPs, YouTube, Christian media, social platforms, radio, churches, worship leaders, and ministry networks.
         </p>
       </div>
 

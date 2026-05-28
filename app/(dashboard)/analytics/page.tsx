@@ -62,9 +62,9 @@ export default function AnalyticsPage() {
     <div className="space-y-6 animate-fade-in">
       {/* Page header */}
       <div>
-        <h1 className="text-[22px] font-semibold tracking-tight">Analytics</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight">Selah Analytics</h1>
         <p className="text-[13px] text-muted mt-1">
-          Business intelligence across streams, revenue, audience, and church adoption.
+          Understand performance across platforms, catalogues, and ministry channels. Unify streaming, video, campaign, royalty, catalogue, and worship adoption insights across the Christian music ecosystem.
         </p>
       </div>
 
@@ -78,6 +78,26 @@ export default function AnalyticsPage() {
         <StatCard label="Revenue by Source" value="6 platforms" detail="Contributing revenue" />
         <StatCard label="Church Downloads" value="8,200" detail="Chord charts + tracks" />
         <StatCard label="Chord Chart Downloads" value="3,100" detail="Worship leaders" />
+        <StatCard label="Worship Adoption Signals" value="1,420 saves" detail="284 partner churches" />
+      </div>
+
+      {/* CCLI status summary */}
+      <div className="card p-5">
+        <h2 className="text-[14px] font-semibold mb-4">CCLI Status Summary</h2>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="p-4 rounded-lg bg-[rgb(var(--surface))]">
+            <p className="text-[12px] text-muted mb-1">Registered</p>
+            <p className="text-[20px] font-semibold tracking-tight">156</p>
+          </div>
+          <div className="p-4 rounded-lg bg-[rgb(var(--surface))]">
+            <p className="text-[12px] text-muted mb-1">Under Review</p>
+            <p className="text-[20px] font-semibold tracking-tight">24</p>
+          </div>
+          <div className="p-4 rounded-lg bg-[rgb(var(--surface))]">
+            <p className="text-[12px] text-muted mb-1">Information Needed</p>
+            <p className="text-[20px] font-semibold tracking-tight">12</p>
+          </div>
+        </div>
       </div>
 
       {/* Tabbed content */}

@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
 
             <h3>You provide it directly</h3>
             <p>
-              Account information (name, email, organization, role), artist or ministry profiles, catalog metadata, payment and banking details for royalty payouts, tax documentation, and any content you upload to the platform including audio masters, video, artwork, lyrics, and chord charts.
+              Account information (name, email, organisation, role), artist or ministry profiles, catalog metadata, payment and banking details for royalty payouts, tax documentation, and any content you upload to the platform including audio masters, video, artwork, lyrics, and chord charts.
             </p>
 
             <h3>Automatically through your use</h3>
@@ -170,7 +170,7 @@ export default function PrivacyPolicyPage() {
 
             <h3>From third parties</h3>
             <p>
-              Information from DSP partners about your catalog performance (streams, revenue), data from rights organizations (<strong>ASCAP</strong>, <strong>BMI</strong>, <strong>APRA AMCOS</strong>, <strong>PRS</strong>, <strong>GEMA</strong>, <strong>SACEM</strong>, <strong>CCLI</strong>, <strong>MLC</strong>, <strong>HFA</strong>, and other PROs we integrate with), and information from public business records when verifying organizational customers.
+              Information from DSP partners about your catalog performance (streams, revenue), data from rights organisations (<strong>ASCAP</strong>, <strong>BMI</strong>, <strong>APRA AMCOS</strong>, <strong>PRS</strong>, <strong>GEMA</strong>, <strong>SACEM</strong>, <strong>CCLI</strong>, <strong>MLC</strong>, <strong>HFA</strong>, and other PROs we integrate with), and information from public business records when verifying organizational customers.
             </p>
           </section>
 
@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
             <p>We share information with:</p>
             <ul>
               <li><strong>DSPs and Christian channels</strong> where you choose to distribute your music;</li>
-              <li><strong>PROs and rights organizations</strong> to administer royalties;</li>
+              <li><strong>PROs and rights organisations</strong> to administer royalties;</li>
               <li><strong>Payment processors</strong> (Stripe, Wise, banks) to facilitate payouts and currency conversion;</li>
               <li><strong>Our regional offices and authorized contractors</strong> who help operate the platform;</li>
               <li><strong>Successors</strong> if Selah is acquired, merged, or undergoes a reorganization;</li>
@@ -210,7 +210,7 @@ export default function PrivacyPolicyPage() {
           <section id="partners">
             <h2>5. Partner ecosystem</h2>
             <p>
-              Selah operates as a distribution platform that integrates with publishers, rights organizations, and DSPs. <strong>We do not act as your publisher</strong>; existing publishing relationships remain between you and your publisher. When you choose to distribute through Selah, you authorize us to share necessary information with the DSPs and Christian channels you select. We integrate with <strong>60+ PROs and rights bodies</strong> globally and may share royalty-related data with these organizations on your behalf.
+              Selah operates as a distribution platform that integrates with publishers, rights organisations, and DSPs. <strong>We do not act as your publisher</strong>; existing publishing relationships remain between you and your publisher. When you choose to distribute through Selah, you authorize us to share necessary information with the DSPs and Christian channels you select. We integrate with <strong>60+ PROs and rights bodies</strong> globally and may share royalty-related data with these organisations on your behalf.
             </p>
           </section>
 
