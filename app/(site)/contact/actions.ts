@@ -41,7 +41,8 @@ export async function sendContact(
     console.error("[contact] RESEND_API_KEY is not set");
     return {
       ok: false,
-      error: `Our contact form isn't connected yet. Please email us directly at ${TO}.`,
+      error:
+        "Our contact form isn't connected yet. Please try again shortly.",
     };
   }
 
@@ -70,7 +71,8 @@ export async function sendContact(
     console.error("[contact] resend failed", res.status, body);
     return {
       ok: false,
-      error: `Something went wrong sending your message. Please email us directly at ${TO}.`,
+      error:
+        "Something went wrong sending your message. Please try again in a moment.",
     };
   }
 

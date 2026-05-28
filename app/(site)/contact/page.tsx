@@ -25,12 +25,10 @@ export default function ContactPage() {
             <div className="md:col-span-2 space-y-10">
               <div>
                 <div className="eyebrow">General enquiries</div>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="mt-3 inline-block text-2xl font-medium tracking-tight hover:underline"
-                >
-                  {site.email}
-                </a>
+                <p className="mt-3 text-[16px] leading-relaxed text-subtle">
+                  Use the form to reach our team. We respond to all enquiries
+                  personally.
+                </p>
               </div>
 
               <div>

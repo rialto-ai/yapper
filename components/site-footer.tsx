@@ -26,12 +26,9 @@ export function SiteFooter() {
               {site.address.country}
             </address>
             <div className="mt-3 text-[13px] text-subtle">
-              <a
-                href={`mailto:${site.email}`}
-                className="hover:text-foreground"
-              >
-                {site.email}
-              </a>
+              <Link href="/contact" className="hover:text-foreground">
+                Contact us →
+              </Link>
             </div>
           </div>
 
