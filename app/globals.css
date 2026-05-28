@@ -16,11 +16,17 @@
     --card: 255 255 255;
     --card-foreground: 17 24 39;
 
-    /* Brand: deep indigo (worship-adjacent, institutional) */
+    /* Primary brand: deep indigo */
     --accent: 67 56 202;
     --accent-hover: 55 48 163;
     --accent-soft: 238 242 255;
     --accent-foreground: 255 255 255;
+
+    /* Secondary brand: warm amber/gold */
+    --secondary: 217 119 6;
+    --secondary-hover: 180 83 9;
+    --secondary-soft: 254 243 199;
+    --secondary-foreground: 255 255 255;
 
     /* Semantic */
     --positive: 5 150 105;
@@ -30,12 +36,12 @@
     --negative: 220 38 38;
     --negative-soft: 254 226 226;
 
-    /* Chart palette */
+    /* Chart palette - blended */
     --chart-1: 67 56 202;
-    --chart-2: 99 102 241;
-    --chart-3: 165 180 252;
+    --chart-2: 217 119 6;
+    --chart-3: 99 102 241;
     --chart-4: 5 150 105;
-    --chart-5: 217 119 6;
+    --chart-5: 165 180 252;
 
     color-scheme: light;
   }
@@ -103,6 +109,14 @@
     color: rgb(var(--accent));
     font-weight: 600;
   }
+
+  .label-eyebrow-secondary {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--secondary));
+    font-weight: 600;
+  }
 }
 
 ::selection {
@@ -123,4 +137,9 @@
 }
 .animate-fade-in-up {
   animation: fade-in-up 500ms ease-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
