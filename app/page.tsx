@@ -1,211 +1,172 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowRight, Disc3, Scale, DollarSign, Megaphone, FileText, Youtube } from "lucide-react";
+import { Container } from "@/components/container";
+import { site } from "@/lib/site";
 
-const features = [
-  { title: "Artists & Worship Teams", desc: "Release music, track performance, manage splits, and grow listener and church adoption." },
-  { title: "Labels & Managers", desc: "Coordinate rosters, releases, campaigns, rights, reporting, and partner communication." },
-  { title: "Publishers & Songwriters", desc: "Manage compositions, songwriter splits, publishing administration, licensing status, and royalty collection." },
-  { title: "Churches & Ministries", desc: "Organize worship catalogs, prepare releases, manage contributors, and support congregational adoption." },
-];
-
-const modules = [
-  { icon: Disc3, title: "Distribution", desc: "Global delivery to all major DSPs and Christian music channels." },
-  { icon: Scale, title: "Rights & Splits", desc: "Master, publishing, neighboring, and sync rights in one place." },
-  { icon: DollarSign, title: "Royalty Accounting", desc: "Transparent statements, payee management, and recoupment tracking." },
-  { icon: Megaphone, title: "Campaign Management", desc: "Playlist pitching, church outreach, radio, and content operations." },
-  { icon: FileText, title: "Publishing Administration", desc: "Composition registration, PRO management, and mechanical licensing." },
-  { icon: Youtube, title: "YouTube & Video Monetization", desc: "Content ID claiming, channel management, and revenue tracking." },
-];
-
-const metadata = [
-  "Scripture reference",
-  "Worship theme",
-  "Congregational suitability",
-  "Church licensing status",
-  "CCLI workflow",
-  "Chord chart availability",
-  "Worship leader engagement",
-  "Sunday setlist potential",
-  "Church adoption funnel",
-];
-
-export default function LandingPage() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Nav */}
-      <nav className="h-[64px] border-b border-border flex items-center justify-between px-8 sticky top-0 bg-white/95 backdrop-blur-sm z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center">
-            <span className="text-white text-sm font-bold">S</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[16px] font-semibold tracking-tight leading-none">Selah</span>
-            <span className="text-[10px] text-muted leading-none mt-0.5">by Christian Music Group</span>
+    <>
+      <Hero />
+      <TopReleases />
+      <Divisions />
+      <ClosingCTA />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="border-b border-border">
+      <Container className="py-24 md:py-36">
+        <div className="max-w-3xl">
+          <div className="eyebrow">{site.short} · Sydney, Australia</div>
+          <h1 className="mt-5 text-5xl font-medium tracking-tight md:text-7xl">
+            Christian Music Group
+          </h1>
+          <p className="mt-6 text-2xl text-subtle md:text-3xl">
+            {site.tagline}
+          </p>
+          <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-subtle">
+            An Australian-based, full-service Christian label and publisher —
+            partnering with artists to carry the hope of Jesus through music.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link href="/roster" className="btn-primary">
+              Explore the roster
+            </Link>
+            <Link href="/distribution" className="btn-secondary">
+              Christian Music Distribution
+            </Link>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Link href="/overview" className="btn-primary flex items-center gap-2">
-            Enter Demo
-            <ArrowRight size={14} />
+      </Container>
+    </section>
+  );
+}
+
+function TopReleases() {
+  const releases = [
+    { n: "01", title: "Release Title", artist: "Artist Name" },
+    { n: "02", title: "Release Title", artist: "Artist Name" },
+    { n: "03", title: "Release Title", artist: "Artist Name" },
+  ];
+  return (
+    <section>
+      <Container className="py-20 md:py-28">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <div className="eyebrow">Now Playing</div>
+            <h2 className="mt-3 text-3xl font-medium tracking-tight md:text-4xl">
+              Top New Releases
+            </h2>
+          </div>
+          <Link
+            href="/roster"
+            className="hidden text-[13.5px] text-subtle hover:text-foreground md:inline"
+          >
+            View roster →
           </Link>
         </div>
-      </nav>
 
-      {/* Hero */}
-      <section className="max-w-[900px] mx-auto px-8 pt-24 pb-20 text-center">
-        <h1 className="text-[48px] font-bold tracking-tight leading-[1.1] mb-6">
-          Infrastructure for the Christian music economy.
-        </h1>
-        <p className="text-[18px] text-subtle max-w-[680px] mx-auto mb-10 leading-relaxed">
-          Selah helps Christian artists, worship teams, labels, publishers, and rights holders distribute music, manage rights, track royalties, run campaigns, and grow church and listener adoption from one platform.
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          <Link href="/overview" className="btn-primary text-[15px] !px-7 !py-3 flex items-center gap-2">
-            Enter Demo
-            <ArrowRight size={16} />
-          </Link>
-          <Link href="/releases" className="btn-secondary text-[15px] !px-7 !py-3">
-            View Release Workflow
-          </Link>
-        </div>
-      </section>
-
-      {/* Dashboard Preview */}
-      <section className="max-w-[1000px] mx-auto px-8 pb-24">
-        <div className="card p-6 border-border-strong">
-          <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Release Pipeline</p>
-              <p className="text-[18px] font-semibold">24 Active</p>
-              <p className="text-[11px] text-muted mt-1">5 pending review</p>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Rights Approval</p>
-              <p className="text-[18px] font-semibold">7 Pending</p>
-              <p className="text-[11px] text-muted mt-1">2 high priority</p>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Royalty Summary</p>
-              <p className="text-[18px] font-semibold">A$82,400</p>
-              <p className="text-[11px] text-muted mt-1">Q2 2026 estimate</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Campaign Timeline</p>
-              <div className="space-y-1.5 mt-2">
-                {["Strategy approved", "Assets locked", "DSP delivery"].map((t, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
-                    <span className="text-[11px]">{t}</span>
-                  </div>
-                ))}
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {releases.map((r) => (
+            <article
+              key={r.n}
+              className="group relative overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-border-strong"
+            >
+              <div className="aspect-square bg-surface-2" aria-hidden="true">
+                <div className="flex h-full items-center justify-center text-[11px] uppercase tracking-[0.16em] text-muted">
+                  Artwork
+                </div>
               </div>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Streams (May)</p>
-              <p className="text-[18px] font-semibold">680K</p>
-              <p className="text-[11px] text-muted mt-1">+9.7% vs April</p>
-            </div>
-            <div className="bg-surface rounded-lg p-4">
-              <p className="text-[11px] text-muted mb-1">Church Adoption</p>
-              <p className="text-[18px] font-semibold">78 / 100</p>
-              <p className="text-[11px] text-muted mt-1">Strong engagement</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Built For */}
-      <section className="bg-surface py-24">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <h2 className="text-[32px] font-bold tracking-tight text-center mb-4">
-            Built for Christian music rights holders
-          </h2>
-          <p className="text-center text-subtle mb-12 max-w-[500px] mx-auto">
-            One platform for every participant in the Christian music value chain.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            {features.map((f) => (
-              <div key={f.title} className="card p-6">
-                <h3 className="text-[16px] font-semibold mb-2">{f.title}</h3>
-                <p className="text-[13px] text-subtle leading-relaxed">{f.desc}</p>
+              <div className="flex items-start justify-between gap-4 p-5">
+                <div>
+                  <div className="text-[13px] text-muted">{r.artist}</div>
+                  <div className="mt-1 text-[15px] font-medium">{r.title}</div>
+                </div>
+                <div className="text-[12px] tracking-widest text-muted">
+                  {r.n}
+                </div>
               </div>
-            ))}
-          </div>
+            </article>
+          ))}
         </div>
-      </section>
+      </Container>
+    </section>
+  );
+}
 
-      {/* Modules */}
-      <section className="py-24">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <h2 className="text-[32px] font-bold tracking-tight text-center mb-4">
-            Platform modules
+function Divisions() {
+  const items = [
+    {
+      tag: "CMG · Label",
+      title: "Christian Music Group",
+      desc: "Full-service label and publisher partnering with Christian artists to release, promote, and steward their music.",
+      href: "/about",
+      cta: "About CMG",
+    },
+    {
+      tag: "CMD · Distribution",
+      title: "Christian Music Distribution",
+      desc: "Distribute your music to the world's leading stores. Keep 100% of your royalties. Built by Christians, for Christian and Gospel artists.",
+      href: "/distribution",
+      cta: "How it works",
+    },
+  ];
+  return (
+    <section className="border-t border-border bg-surface">
+      <Container className="py-20 md:py-28">
+        <div className="max-w-2xl">
+          <div className="eyebrow">Two divisions, one mission</div>
+          <h2 className="mt-3 text-3xl font-medium tracking-tight md:text-4xl">
+            Winning the world for Christ through Christian art.
           </h2>
-          <p className="text-center text-subtle mb-12 max-w-[500px] mx-auto">
-            Integrated tools covering the full lifecycle of Christian music operations.
-          </p>
-          <div className="grid grid-cols-3 gap-4">
-            {modules.map((m) => (
-              <div key={m.title} className="card p-6">
-                <m.icon size={20} className="text-foreground mb-3" strokeWidth={1.5} />
-                <h3 className="text-[15px] font-semibold mb-1.5">{m.title}</h3>
-                <p className="text-[13px] text-subtle leading-relaxed">{m.desc}</p>
+        </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {items.map((it) => (
+            <Link
+              key={it.title}
+              href={it.href}
+              className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-8 transition-colors hover:border-border-strong"
+            >
+              <div>
+                <div className="eyebrow">{it.tag}</div>
+                <h3 className="mt-3 text-2xl font-medium tracking-tight">
+                  {it.title}
+                </h3>
+                <p className="mt-4 text-[14.5px] leading-relaxed text-subtle">
+                  {it.desc}
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Christian Metadata */}
-      <section className="bg-[#111111] text-white py-24">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <h2 className="text-[32px] font-bold tracking-tight text-center mb-4">
-            Christian-native metadata
-          </h2>
-          <p className="text-center text-[#999] mb-12 max-w-[520px] mx-auto">
-            Purpose-built fields that secular distribution platforms do not support.
-          </p>
-          <div className="grid grid-cols-3 gap-3">
-            {metadata.map((m) => (
-              <div key={m} className="bg-[#1A1A1A] border border-[#333] rounded-lg px-5 py-4">
-                <span className="text-[14px] text-[#ccc]">{m}</span>
+              <div className="mt-8 text-[13.5px] text-foreground">
+                {it.cta} →
               </div>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
-      </section>
+      </Container>
+    </section>
+  );
+}
 
-      {/* Final CTA */}
-      <section className="py-24">
-        <div className="max-w-[600px] mx-auto px-8 text-center">
-          <h2 className="text-[32px] font-bold tracking-tight mb-4">
-            A professional operating layer for Christian music.
-          </h2>
-          <p className="text-subtle mb-8">
-            Distribution, rights, royalties, campaigns, publishing, video monetization, and label services in one platform.
-          </p>
-          <Link href="/overview" className="btn-primary text-[15px] !px-8 !py-3 inline-flex items-center gap-2">
-            Launch Selah Demo
-            <ArrowRight size={16} />
+function ClosingCTA() {
+  return (
+    <section>
+      <Container className="py-20 md:py-28">
+        <div className="flex flex-col items-start justify-between gap-8 border-t border-border pt-16 md:flex-row md:items-end">
+          <div className="max-w-xl">
+            <h2 className="text-3xl font-medium tracking-tight md:text-4xl">
+              Working with us.
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-subtle">
+              Artist enquiries, sync licensing, press, or partnerships — we'd
+              love to hear from you.
+            </p>
+          </div>
+          <Link href="/contact" className="btn-primary">
+            Get in touch
           </Link>
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-8 px-8">
-        <div className="max-w-[1000px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-foreground rounded flex items-center justify-center">
-              <span className="text-white text-[10px] font-bold">S</span>
-            </div>
-            <span className="text-[13px] text-muted">Selah by Christian Music Group</span>
-          </div>
-          <span className="text-[12px] text-muted">Prototype Demo</span>
-        </div>
-      </footer>
-    </div>
+      </Container>
+    </section>
   );
 }
