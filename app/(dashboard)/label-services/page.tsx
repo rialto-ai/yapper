@@ -159,7 +159,7 @@ export default function LabelServicesPage() {
               value={formData.currentDistributor}
               onChange={(e) => handleChange("currentDistributor", e.target.value)}
               className={inputClass}
-              placeholder="e.g. DistroKid, TuneCore"
+              placeholder="If applicable"
             />
           </div>
           <div>

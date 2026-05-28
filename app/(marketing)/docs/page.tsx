@@ -72,7 +72,7 @@ const content: Record<string, { title: string; eyebrow: string; body: React.Reac
           <li>Track and monetize video assets via YouTube Content ID</li>
         </ul>
         <h3>Service tiers</h3>
-        <p>Selah is available across six tiers, from self-service distribution through enterprise white-label partner portals. See the <Link href="/pricing">pricing page</Link> for the full breakdown.</p>
+        <p>Selah is available across six tiers, from self-service distribution through enterprise white-label partner portals. Contact our team for tier details and onboarding.</p>
         <h3>Next steps</h3>
         <p>If you&apos;re new, start with the <a href="#quickstart">Quickstart</a> guide. If you&apos;re evaluating, the <a href="#concepts">Core concepts</a> page explains how Selah models the Christian music value chain.</p>
       </>

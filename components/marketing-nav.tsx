@@ -4,28 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { LanguageSwitcher } from "./language-switcher";
 
-const productLinks = [
-  { label: "Distribution", desc: "Global delivery to every DSP", href: "/#workflow" },
-  { label: "Rights & Splits", desc: "Master, publishing, neighboring", href: "/rights" },
-  { label: "Royalty Accounting", desc: "Statements and payouts", href: "/royalties" },
-  { label: "Campaign Management", desc: "Playlist pitching, church outreach", href: "/campaigns" },
-  { label: "YouTube Monetization", desc: "Content ID and channel services", href: "/youtube" },
-  { label: "Publishing Administration", desc: "PRO and mechanical licensing", href: "/publishing" },
+const businessSolutions = [
+  { label: "Digital Distribution", desc: "Global delivery to 150+ DSPs and Christian channels", href: "/#delivery" },
+  { label: "Promotion & Marketing", desc: "Playlist pitching, church outreach, ads", href: "/#promotion" },
+  { label: "Royalties & Accounting", desc: "Statements, splits, multi-currency payouts", href: "/royalties" },
+  { label: "Full Suite Analytics", desc: "Business intelligence and Church Adoption Score", href: "/analytics" },
+  { label: "Church Network", desc: "CCLI, worship leaders, Sunday setlists", href: "/#church-network" },
+  { label: "Publishing Partnerships", desc: "We partner with publishers and aggregate PROs", href: "/#publishing" },
 ];
 
-const companyLinks = [
-  { label: "About", desc: "Mission, leadership, global offices", href: "/about" },
-  { label: "Partners", desc: "Ecosystem and integration partners", href: "/partners" },
-  { label: "Customers", desc: "Case studies and testimonials", href: "/customers" },
-  { label: "Press", desc: "News, announcements, brand assets", href: "/press" },
-  { label: "Careers", desc: "Join the team", href: "/careers" },
-];
-
-const resourceLinks = [
-  { label: "Documentation", href: "/docs" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Changelog", href: "/changelog" },
+const whoWeAre = [
+  { label: "About Selah", desc: "Sydney HQ and 8 Asia-Pacific offices", href: "/about" },
+  { label: "Customers", desc: "Case studies from Christian artists and ministries", href: "/customers" },
+  { label: "Partners", desc: "Our DSP, Christian channel, and rights ecosystem", href: "/partners" },
+  { label: "Blog", desc: "Industry insights and product stories", href: "/blog" },
+  { label: "Press", desc: "Announcements and media resources", href: "/press" },
+  { label: "Careers", desc: "Open roles across 8 offices", href: "/careers" },
 ];
 
 function Dropdown({ label, items }: { label: string; items: { label: string; desc?: string; href: string }[] }) {
@@ -50,7 +46,7 @@ function Dropdown({ label, items }: { label: string; items: { label: string; des
         <ChevronDown size={12} className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-[320px] bg-white border border-border rounded-lg shadow-xl shadow-foreground/5 py-2 z-50">
+        <div className="absolute top-full left-0 mt-1 w-[340px] bg-white border border-border rounded-lg shadow-xl shadow-foreground/5 py-2 z-50">
           {items.map((item) => (
             <Link
               key={item.label}
@@ -75,7 +71,7 @@ export function MarketingNav() {
 
   return (
     <nav className="h-[64px] border-b border-border flex items-center justify-between px-8 sticky top-0 bg-white/95 backdrop-blur-sm z-50">
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-8">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-gradient-to-br from-accent to-accent-hover rounded-lg flex items-center justify-center shadow-sm">
             <span className="text-white text-sm font-bold">S</span>
@@ -86,33 +82,36 @@ export function MarketingNav() {
           </div>
         </Link>
         <div className="hidden md:flex items-center gap-1">
-          <Dropdown label="Product" items={productLinks} />
-          <Dropdown label="Company" items={companyLinks} />
-          {resourceLinks.map((l) => {
-            const active = pathname.startsWith(l.href);
-            return (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors ${
-                  active ? "text-accent bg-accent-soft" : "text-subtle hover:text-foreground hover:bg-surface"
-                }`}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
+          <Dropdown label="Business Solutions" items={businessSolutions} />
+          <Dropdown label="Who We Are" items={whoWeAre} />
+          <Link
+            href="/blog"
+            className={`px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors ${
+              pathname.startsWith("/blog") ? "text-accent bg-accent-soft" : "text-subtle hover:text-foreground hover:bg-surface"
+            }`}
+          >
+            Blog
+          </Link>
+          <Link
+            href="/contact"
+            className={`px-3 py-1.5 rounded-md text-[13px] font-medium transition-colors ${
+              pathname.startsWith("/contact") ? "text-accent bg-accent-soft" : "text-subtle hover:text-foreground hover:bg-surface"
+            }`}
+          >
+            Contact
+          </Link>
         </div>
       </div>
-      <div className="flex items-center gap-3">
-        <Link href="/overview" className="text-[13px] font-medium text-subtle hover:text-foreground">
-          Sign in
+      <div className="flex items-center gap-2">
+        <LanguageSwitcher />
+        <Link href="/overview" className="text-[13px] font-medium text-subtle hover:text-foreground px-2">
+          Login
         </Link>
         <Link
           href="/overview"
           className="btn-primary flex items-center gap-2 !py-2 !px-4 text-[13px]"
         >
-          Enter Demo
+          Join
           <ArrowRight size={13} />
         </Link>
       </div>

@@ -3,47 +3,189 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Disc3,
-  Scale,
-  DollarSign,
-  Megaphone,
-  FileText,
-  Youtube,
-  Users,
-  Building2,
-  BookOpen,
-  Church,
   Check,
-  Library,
-  Send,
-  CircleDollarSign,
   ChevronRight,
   Plus,
   Minus,
   Globe2,
   Sparkles,
   Award,
-  Rocket,
-  TrendingUp,
   Radio,
   Star,
+  Send,
+  BarChart3,
+  Megaphone,
+  Users,
+  Headphones,
+  Calculator,
+  Music2,
+  FileText,
+  Church,
+  Newspaper,
+  Heart,
+  TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
 
+// ============================================================
+// Marketing copy
+// ============================================================
+
 const features = [
-  { icon: Users, title: "Artists & Worship Teams", desc: "Release music, track performance, manage splits, and grow listener and church adoption." },
-  { icon: Building2, title: "Labels & Managers", desc: "Coordinate rosters, releases, campaigns, rights, reporting, and partner communication." },
-  { icon: BookOpen, title: "Publishers & Songwriters", desc: "Manage compositions, songwriter splits, publishing administration, licensing status, and royalty collection." },
-  { icon: Church, title: "Churches & Ministries", desc: "Organize worship catalogs, prepare releases, manage contributors, and support congregational adoption." },
+  { icon: Users, title: "Artists & Worship Teams", desc: "Self-service distribution, marketing, royalties, and analytics — all in one workspace." },
+  { icon: Church, title: "Labels & Ministries", desc: "Manage rosters, releases, splits, and partner reporting at scale." },
+  { icon: Music2, title: "Publishers & Songwriters", desc: "We partner with publishers and aggregate global PROs, MROs, and CCLI." },
+  { icon: Newspaper, title: "Video Creators", desc: "ProRes encoding, video distribution, and YouTube Content ID services." },
 ];
 
-const modules = [
-  { icon: Disc3, title: "Distribution", desc: "Global delivery to 150+ DSPs, Christian channels, and church-native platforms.", featured: true },
-  { icon: Scale, title: "Rights & Splits", desc: "Master, publishing, neighboring, and sync rights in one place." },
-  { icon: DollarSign, title: "Royalty Accounting", desc: "Transparent statements, payee management, and recoupment tracking." },
-  { icon: Megaphone, title: "Campaign Management", desc: "Playlist pitching, church outreach, radio, and content operations." },
-  { icon: Youtube, title: "YouTube Monetization", desc: "Content ID claiming, channel management, and revenue tracking." },
-  { icon: FileText, title: "Publishing Administration", desc: "Composition registration, PRO management, and mechanical licensing." },
+const solutions = [
+  {
+    icon: Send,
+    color: "accent",
+    eyebrow: "Digital Delivery",
+    title: "Global music & video distribution.",
+    body: "Selah delivers your music and video to every major DSP, the Christian-native channel network, and 150+ stores across 84 territories.",
+    bullets: [
+      "Free UPC and ISRC codes on every release",
+      "Music & video delivery to Apple, Spotify, YouTube, Tidal, Deezer, Amazon, TikTok, and more",
+      "ProRes cloud video encoding",
+      "Multi-format audio encoding with manual QA",
+      "Lyrics, chord chart, and lead sheet inclusion",
+      "30-second ringtone generator",
+      "TikTok Official Sound distribution",
+      "Custom pricing per territory and store",
+      "Pre-order hide-previews and territory exclusions",
+      "Artist profile matching across Spotify, Apple Music, Deezer",
+      "Audio fingerprinting and Content ID rights protection",
+      "Distribution to 45+ DSPs plus the Christian channel network",
+    ],
+  },
+  {
+    icon: Megaphone,
+    color: "secondary",
+    eyebrow: "Promotion & Marketing",
+    title: "Reach your church and listener audience.",
+    body: "Selah&apos;s promotion suite covers DSP pitching, advertising, pre-saves, smart links, and the church outreach tools that secular distributors don&apos;t provide.",
+    bullets: [
+      "Pre-save generator with full analytics",
+      "Smart link generator with deep-linking",
+      "DSP pitch forms for Christian editorial playlists",
+      "Release task manager with team checklists",
+      "Advertising campaign manager (Meta, Google, TikTok)",
+      "Spotify-for-Artists and iTunes Connect integrations",
+      "Verified fan email collection via pre-saves",
+      "Worship leader outreach campaigns",
+      "Chord chart and lead sheet distribution to churches",
+      "Christian radio servicing across 12 markets",
+      "Genre-focused project managers for Label Services",
+      "Machine-assisted release planning",
+    ],
+  },
+  {
+    icon: Calculator,
+    color: "accent",
+    eyebrow: "Royalties & Accounting",
+    title: "Transparent accounting at every level.",
+    body: "Royalty splits, multi-currency payouts, configurable statements, and downloadable invoices — built for collaborators across every role.",
+    bullets: [
+      "Royalty sharing and multiple splits among rights holders",
+      "Configurable monthly and quarterly statements",
+      "Custom reports by product type, artist, store, territory",
+      "Multi-currency payouts in 28+ currencies",
+      "Recoupment tracking with line-item history",
+      "Downloadable invoices and statements",
+      "Account balance ledger with audit trail",
+      "Tax document collection (W-8, W-9, AU TFN, +24 regions)",
+      "Bank transfer, wire, and digital wallet payouts",
+      "Partner with PROs, MROs, and neighboring rights bodies",
+      "CCLI royalty integration for congregational use",
+      "Recoupment caps and revenue-share waterfall",
+    ],
+  },
+  {
+    icon: BarChart3,
+    color: "secondary",
+    eyebrow: "Full Suite Analytics",
+    title: "Business intelligence for music operators.",
+    body: "Streams, revenue, audience growth, playlist impact, territory breakdowns — plus the proprietary Church Adoption Score nobody else measures.",
+    bullets: [
+      "Daily streaming and revenue data from every DSP",
+      "Audience growth by territory, age, gender, platform",
+      "Playlist impact and editorial placement tracking",
+      "Catalog performance benchmarks",
+      "Top territory and city analysis",
+      "Comparable artist benchmarking",
+      "Campaign ROI and conversion tracking",
+      "Church Adoption Score across your catalog",
+      "Worship leader engagement signal",
+      "Sunday setlist adoption tracking",
+      "Custom dashboards per artist or label",
+      "Export to CSV, Excel, or via API",
+    ],
+  },
+  {
+    icon: Church,
+    color: "accent",
+    eyebrow: "Church Network",
+    title: "The Christian-native distribution layer.",
+    body: "Selah is the only distributor with deep integration into the church economy — CCLI workflows, chord chart delivery, worship leader networks, and the Church Adoption Funnel.",
+    bullets: [
+      "CCLI SongSelect distribution and reporting",
+      "PraiseCharts and Multitracks.com integration",
+      "Worship leader outreach across 8,200+ churches",
+      "Chord chart and lead sheet automated delivery",
+      "Planning Center and Church on Demand sync",
+      "Sunday setlist adoption tracking",
+      "Congregational suitability metadata",
+      "Theological review status fields",
+      "Scripture reference cataloguing",
+      "Christian radio market servicing",
+      "Worship resource partner network",
+      "Denominational sensitivity flagging",
+    ],
+  },
+  {
+    icon: Music2,
+    color: "secondary",
+    eyebrow: "Publishing Partnerships",
+    title: "We partner with publishers — not replace them.",
+    body: "Selah aggregates publishing administration across global PROs, mechanical rights organizations, and CCLI on behalf of publishers and self-administering songwriters.",
+    bullets: [
+      "Integration with ASCAP, BMI, SESAC, APRA AMCOS, PRS, GEMA, SACEM",
+      "Mechanical rights via HFA, MLC, MCPS, and equivalents",
+      "CCLI registration and reporting for congregational use",
+      "Neighboring rights collection through PPL, SoundExchange, and 60+ societies",
+      "Sync representation for partner publishers",
+      "Songwriter split management and dispute resolution",
+      "Composition matching across recordings",
+      "Unmatched works resolution",
+      "Quarterly publisher statements",
+      "Direct deals with publishers and admin companies",
+      "Open API for publisher partner integrations",
+      "Transparent admin fee structure",
+    ],
+  },
+  {
+    icon: Headphones,
+    color: "accent",
+    eyebrow: "Support & Service",
+    title: "Local support across 8 offices.",
+    body: "Every artist, label, and partner gets dedicated regional support — from Sydney HQ to Mumbai, Manila to Seoul.",
+    bullets: [
+      "On-line technical support ticketing system",
+      "Regional account managers across 8 offices",
+      "Genre-focused project managers for Label Services",
+      "Onboarding and catalog migration team",
+      "Rights and royalty operations team",
+      "DSP escalation pathways for delivery issues",
+      "Multi-language support: English, 日本語, 한국어, 中文, Bahasa, Tagalog, हिन्दी",
+      "24/5 ticket coverage following the sun",
+      "Quarterly business reviews for Enterprise partners",
+      "Dedicated solutions engineer for Partner Portal",
+      "Custom integration support via API",
+      "Christian music industry expertise across every team",
+    ],
+  },
 ];
 
 const metadata = [
@@ -56,14 +198,6 @@ const metadata = [
   "Worship leader engagement",
   "Sunday setlist potential",
   "Church adoption funnel",
-];
-
-const workflow = [
-  { icon: Library, title: "Catalog", desc: "Onboard tracks, releases, compositions, and assets with rich metadata." },
-  { icon: Scale, title: "Rights", desc: "Lock down master, publishing, and neighboring rights with full splits." },
-  { icon: Send, title: "Distribution", desc: "Deliver globally to every major DSP plus Christian-native channels.", featured: true },
-  { icon: Megaphone, title: "Campaign", desc: "Run playlist pitching, church outreach, and YouTube strategy." },
-  { icon: CircleDollarSign, title: "Royalty", desc: "Transparent statements and payouts to every collaborator and partner." },
 ];
 
 const stats = [
@@ -83,7 +217,7 @@ const testimonials = [
   },
   {
     quote:
-      "Finally a distributor that understands CCLI workflows and chord chart distribution. This is built for our space, not retrofitted to it.",
+      "Finally a distributor that understands CCLI workflows and chord chart distribution. Built for our space, not retrofitted to it.",
     name: "Label Manager",
     role: "Kingdom House Music",
   },
@@ -95,16 +229,19 @@ const testimonials = [
   },
 ];
 
-const ecosystemDSPs = [
-  "Spotify",
-  "Apple Music",
-  "YouTube Music",
-  "Amazon Music",
-  "Deezer",
-  "Tidal",
-  "Pandora",
-  "TikTok",
-  "Instagram",
+// Logo-styled name lists
+const dspsTier1 = [
+  { name: "Spotify", style: "font-bold tracking-tight" },
+  { name: "Apple Music", style: "font-semibold tracking-tight" },
+  { name: "YouTube Music", style: "font-bold" },
+  { name: "Amazon Music", style: "font-semibold tracking-wide" },
+  { name: "Tidal", style: "font-bold uppercase tracking-[0.2em]" },
+  { name: "Deezer", style: "font-bold italic" },
+  { name: "TikTok", style: "font-extrabold tracking-tight" },
+  { name: "Pandora", style: "font-medium tracking-wide" },
+];
+
+const dspsTier2 = [
   "SoundCloud",
   "Audiomack",
   "NetEase Music",
@@ -112,43 +249,40 @@ const ecosystemDSPs = [
   "KKBox",
   "Anghami",
   "Boomplay",
+  "Beatport",
+  "iHeartRadio",
+  "Napster",
+  "Yandex Music",
+  "Mixcloud",
 ];
 
-const ecosystemChristian = [
-  "CCLI SongSelect",
-  "PraiseCharts",
-  "Multitracks.com",
-  "WorshipReady",
-  "Loop Community",
-  "Planning Center",
-  "Church on Demand",
-  "GodTube",
+const christianPlatforms = [
+  { name: "CCLI SongSelect", desc: "Congregational licensing" },
+  { name: "PraiseCharts", desc: "Chord charts & lead sheets" },
+  { name: "Multitracks.com", desc: "Stems & loops" },
+  { name: "Planning Center", desc: "Service planning" },
+  { name: "Loop Community", desc: "Worship tracks" },
+  { name: "WorshipReady", desc: "Worship resources" },
+  { name: "Church on Demand", desc: "Streaming for churches" },
+  { name: "GodTube", desc: "Christian video" },
 ];
 
-const ecosystemRights = [
-  "APRA AMCOS",
+const rightsOrgs = [
   "ASCAP",
   "BMI",
   "SESAC",
+  "APRA AMCOS",
   "PRS for Music",
   "GEMA",
   "SACEM",
   "JASRAC",
+  "KOMCA",
   "MLC",
   "HFA",
   "SoundExchange",
   "PPL",
-];
-
-const ecosystemPartners = [
-  "Stripe Connect",
-  "Plaid",
-  "Wise",
-  "DocuSign",
-  "AWS",
-  "Cloudflare",
-  "Snowflake",
-  "Vercel",
+  "PPCA",
+  "CCLI",
 ];
 
 const offices = [
@@ -164,55 +298,28 @@ const offices = [
 
 const faqs = [
   {
-    q: "How does Selah differ from generic distributors like DistroKid or TuneCore?",
-    a: "Selah is purpose-built for Christian music distribution. We deliver to standard DSPs plus a Christian-native channel network including CCLI SongSelect, PraiseCharts, Planning Center, and worship-leader platforms that generic distributors don't reach. We also support CCLI workflows, chord chart distribution, and the Church Adoption Funnel that tracks worship leader engagement.",
+    q: "What does Selah actually do?",
+    a: "Selah is a digital music and video distribution platform purpose-built for Christian music. We deliver to all major DSPs, the Christian channel network (CCLI, PraiseCharts, Multitracks, Planning Center), and partner with publishers globally to aggregate royalty collection from PROs, MROs, and rights bodies.",
   },
   {
-    q: "What service tiers do you offer?",
-    a: "Self-Service Distribution, Managed Distribution, Label Services, Publishing Administration, YouTube Services, and Enterprise / Partner Portal. Tiers can be mixed across a roster.",
+    q: "Are you a publisher? Do you replace my publisher?",
+    a: "No. Selah partners with publishers and self-administering songwriters. We aggregate global PRO and MRO connections (ASCAP, BMI, APRA AMCOS, PRS, GEMA, SACEM, JASRAC, KOMCA, HFA, MLC, and 50+ others) and integrate with CCLI for congregational use reporting. Your existing publishing relationships continue.",
   },
   {
-    q: "Do you handle global distribution from your Sydney HQ?",
-    a: "Yes — but with regional teams. Our Sydney HQ runs platform engineering and global operations, while our offices in Singapore, Tokyo, Seoul, Hong Kong, Manila, Jakarta, and Mumbai handle local DSP relationships, church network outreach, and regional artist support.",
+    q: "How is the Church Network different from standard distribution?",
+    a: "Standard distribution stops at Spotify and Apple Music. Selah's Christian Network extends to CCLI SongSelect, PraiseCharts, Planning Center, Multitracks.com, worship-leader email networks, Sunday setlist tracking, and chord chart distribution — channels generic distributors don't reach.",
   },
   {
     q: "What is the Church Adoption Score?",
-    a: "A proprietary 100-point score that measures congregational suitability, lyric clarity, theological alignment, worship leader engagement, chord chart availability, church network traction, and repeat usage signal.",
+    a: "A proprietary 100-point score measuring how well a song is performing inside the church market. It combines congregational suitability, lyric clarity, theological alignment, worship leader engagement, chord chart availability, church network traction, and repeat usage signal.",
   },
   {
-    q: "Which Christian platforms do you distribute to?",
-    a: "CCLI SongSelect, PraiseCharts, Multitracks.com, WorshipReady, Loop Community, Planning Center, Church on Demand, GodTube, plus regional Christian platforms across Asia. We're constantly adding to the Christian channel network.",
+    q: "Which offices serve my region?",
+    a: "Sydney HQ runs platform and global operations. Regional teams in Singapore (SEA), Tokyo (Japan/Korea), Seoul (Korea), Hong Kong (Greater China), Manila (Philippines), Jakarta (Indonesia), and Mumbai (South Asia) handle local DSP relationships and church network outreach.",
   },
   {
-    q: "Can I administer my own publishing, or do you require admin?",
-    a: "Both options. Distribution is our core product; publishing administration is optional. Many of our artists self-administer through the Publishing module while we handle their distribution.",
-  },
-];
-
-const screens = [
-  {
-    label: "Distribution",
-    title: "Deliver releases to 150+ DSPs and Christian channels",
-    desc: "Granular per-territory and per-platform delivery with live status tracking from queued to accepted.",
-    accent: "indigo",
-  },
-  {
-    label: "Royalties",
-    title: "Transparent waterfall from gross revenue to payout",
-    desc: "Multi-currency statements, recoupment tracking, and one source of truth for every collaborator.",
-    accent: "amber",
-  },
-  {
-    label: "Campaigns",
-    title: "Run church outreach alongside playlist pitching",
-    desc: "Track worship leader engagement, CCLI listings, and Sunday setlist adds in one timeline.",
-    accent: "indigo",
-  },
-  {
-    label: "Analytics",
-    title: "Church Adoption Score across your catalog",
-    desc: "Proprietary metric measuring congregational fit and church network traction.",
-    accent: "amber",
+    q: "What service tiers are available?",
+    a: "Self-Service Distribution for individual artists, Managed Distribution with onboarding support, Label Services for full-managed campaigns and publishing aggregation, Publishing Partnerships for publisher integration, YouTube Services, and Enterprise / Partner Portal for label networks and church organizations.",
   },
 ];
 
@@ -223,13 +330,26 @@ const awards = [
   { name: "AIR Awards", label: "Independent Partner" },
 ];
 
+const featuredNews = {
+  tag: "Latest",
+  date: "May 14, 2026",
+  category: "Funding · Series A",
+  title: "Selah raises A$28M Series A led by Square Peg Capital to scale Christian music infrastructure across Asia-Pacific.",
+  excerpt:
+    "The round brings together Square Peg, Blackbird Ventures, AirTree, and Sequoia Capital India to support expansion into 4 new markets and deeper integration with global Christian rights organizations.",
+};
+
+// ============================================================
+// Component
+// ============================================================
+
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [activeScreen, setActiveScreen] = useState(0);
+  const [activeSolution, setActiveSolution] = useState(0);
 
   return (
     <>
-      {/* Hero */}
+      {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent-soft/40 via-white to-white pointer-events-none" />
         <div
@@ -239,384 +359,313 @@ export default function LandingPage() {
             backgroundSize: "24px 24px",
           }}
         />
-        <div className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-secondary/10 blur-[140px] rounded-full pointer-events-none" />
-        <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-accent/10 blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute top-[15%] left-[5%] w-[420px] h-[420px] bg-secondary/15 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute top-[8%] right-[5%] w-[420px] h-[420px] bg-accent/15 blur-[150px] rounded-full pointer-events-none" />
 
-        <div className="relative max-w-[960px] mx-auto px-8 pt-24 pb-20 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-accent/15 shadow-sm mb-8 animate-fade-in-up">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span className="text-[12px] font-medium text-accent">
-              Christian music distribution, in 8 markets across Asia-Pacific
-            </span>
-          </div>
-          <h1 className="text-[54px] font-bold tracking-tight leading-[1.05] mb-6 animate-fade-in-up">
-            The distribution layer for{" "}
-            <span className="bg-gradient-to-r from-accent via-accent-hover to-secondary bg-clip-text text-transparent">
-              Christian music.
-            </span>
-          </h1>
-          <p className="text-[18px] text-subtle max-w-[720px] mx-auto mb-10 leading-relaxed animate-fade-in-up">
-            Selah delivers Christian music globally — to every major DSP, CCLI SongSelect, and the worship-leader networks that generic distributors don&apos;t reach. Headquartered in Sydney, operating across South-East, North, and South Asia.
-          </p>
-          <div className="flex items-center justify-center gap-3 animate-fade-in-up">
-            <Link href="/overview" className="btn-primary text-[15px] !px-7 !py-3 flex items-center gap-2 shadow-md shadow-accent/15 hover:shadow-lg hover:shadow-accent/25 transition-shadow">
-              Enter Demo
-              <ArrowRight size={16} />
-            </Link>
-            <Link href="/pricing" className="btn-secondary text-[15px] !px-7 !py-3">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Award strip */}
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] text-muted">
-            {awards.map((a) => (
-              <span key={a.label} className="flex items-center gap-1.5">
-                <Award size={12} className="text-secondary" strokeWidth={1.8} />
-                <span className="font-semibold text-subtle">{a.name}</span>
-                <span className="text-muted">·</span>
-                <span>{a.label}</span>
+        <div className="relative max-w-[1100px] mx-auto px-8 pt-20 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left: copy */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-accent/15 shadow-sm mb-7 animate-fade-in-up">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              <span className="text-[12px] font-medium text-accent">
+                Digital distribution, built for Christian music
               </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Dashboard preview */}
-      <section className="max-w-[1080px] mx-auto px-8 pb-24">
-        <div className="card p-6 shadow-2xl shadow-accent/10 border-border-strong relative">
-          <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-          <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="bg-surface rounded-lg p-4 border border-border">
-              <p className="text-[11px] text-muted mb-1">Release Pipeline</p>
-              <p className="text-[20px] font-semibold tracking-tight">24 Active</p>
-              <p className="text-[11px] text-muted mt-1">5 pending review</p>
             </div>
-            <div className="bg-gradient-to-br from-secondary-soft to-white rounded-lg p-4 border border-secondary/15">
-              <p className="text-[11px] text-secondary mb-1 font-medium">DSP Delivery</p>
-              <p className="text-[20px] font-semibold tracking-tight">218 / 224</p>
-              <p className="text-[11px] text-positive mt-1">97% delivered</p>
-            </div>
-            <div className="bg-gradient-to-br from-accent-soft to-white rounded-lg p-4 border border-accent/15">
-              <p className="text-[11px] text-accent mb-1 font-medium">Royalty Summary</p>
-              <p className="text-[20px] font-semibold tracking-tight">A$82,400</p>
-              <p className="text-[11px] text-positive mt-1">+14% vs Q1 estimate</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-surface rounded-lg p-4 border border-border">
-              <p className="text-[11px] text-muted mb-2">Campaign Timeline</p>
-              <div className="space-y-1.5">
-                {[
-                  { label: "Strategy approved", done: true },
-                  { label: "Assets locked", done: true },
-                  { label: "DSP delivery", done: true },
-                  { label: "Playlist pitch", done: false },
-                ].map((t, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className={`w-3 h-3 rounded-full flex items-center justify-center ${t.done ? "bg-accent" : "bg-surface-2 border border-border"}`}>
-                      {t.done && <Check size={8} className="text-white" strokeWidth={3} />}
-                    </div>
-                    <span className={`text-[11px] ${t.done ? "text-foreground" : "text-muted"}`}>{t.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-surface rounded-lg p-4 border border-border">
-              <p className="text-[11px] text-muted mb-1">Streams (May)</p>
-              <p className="text-[20px] font-semibold tracking-tight">680K</p>
-              <p className="text-[11px] text-positive mt-1">+9.7% vs April</p>
-              <div className="mt-2 flex items-end gap-0.5 h-6">
-                {[40, 52, 38, 60, 48, 72, 88, 100].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-sm bg-gradient-to-t from-accent to-secondary/60"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="bg-surface rounded-lg p-4 border border-border">
-              <p className="text-[11px] text-muted mb-1">Church Adoption</p>
-              <p className="text-[20px] font-semibold tracking-tight">78 / 100</p>
-              <p className="text-[11px] text-muted mt-1">Strong engagement</p>
-              <div className="mt-2 h-1.5 bg-surface-2 rounded-full overflow-hidden">
-                <div className="h-full w-[78%] bg-gradient-to-r from-accent via-accent-hover to-secondary rounded-full" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Distribution-first DSP strip */}
-      <section className="border-y border-border bg-white py-14">
-        <div className="max-w-[1080px] mx-auto px-8">
-          <p className="text-center text-[12px] font-medium uppercase tracking-[0.08em] text-muted mb-3">
-            Distribution-first. Christian-native.
-          </p>
-          <p className="text-center text-[15px] font-medium text-foreground mb-9 max-w-[600px] mx-auto">
-            Delivering to 150+ stores, streaming services, and Christian channels across 84 countries.
-          </p>
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-y-6 gap-x-4">
-            {ecosystemDSPs.slice(0, 16).map((dsp) => (
-              <div
-                key={dsp}
-                className="flex items-center justify-center text-[13px] font-semibold text-subtle hover:text-accent transition-colors"
+            <h1 className="text-[44px] md:text-[52px] font-bold tracking-tight leading-[1.05] mb-5 animate-fade-in-up">
+              The distribution platform for{" "}
+              <span className="bg-gradient-to-r from-accent via-accent-hover to-secondary bg-clip-text text-transparent">
+                Christian music.
+              </span>
+            </h1>
+            <p className="text-[17px] text-subtle mb-8 leading-relaxed max-w-[540px] animate-fade-in-up">
+              Selah delivers your music to every major DSP, the Christian channel network, and 8,200+ churches — with marketing, accounting, analytics, and publishing partnerships built in.
+            </p>
+            <div className="flex items-center gap-3 animate-fade-in-up mb-10">
+              <Link
+                href="/overview"
+                className="btn-primary text-[15px] !px-7 !py-3 flex items-center gap-2 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 transition-shadow"
               >
-                {dsp}
+                Join Selah
+                <ArrowRight size={16} />
+              </Link>
+              <Link href="/contact" className="btn-secondary text-[15px] !px-7 !py-3">
+                Talk to our team
+              </Link>
+            </div>
+            <div className="flex items-center gap-5 text-[11px] text-muted">
+              {awards.slice(0, 3).map((a) => (
+                <span key={a.label} className="flex items-center gap-1.5">
+                  <Award size={12} className="text-secondary" strokeWidth={1.8} />
+                  <span className="font-semibold text-subtle">{a.name}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: layered visual — distribution network graphic */}
+          <div className="relative h-[440px]">
+            {/* Center hub */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-2xl bg-gradient-to-br from-accent to-accent-hover shadow-2xl shadow-accent/30 flex items-center justify-center z-20">
+              <div className="text-center">
+                <div className="w-10 h-10 bg-white/15 rounded-lg mx-auto mb-1.5 flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white font-bold text-lg">S</span>
+                </div>
+                <p className="text-white text-[10px] font-semibold uppercase tracking-wider">Selah</p>
+              </div>
+            </div>
+
+            {/* Orbiting nodes — DSPs (left) */}
+            {[
+              { label: "Spotify", x: "5%", y: "10%", color: "accent" },
+              { label: "Apple Music", x: "0%", y: "45%", color: "accent" },
+              { label: "YouTube", x: "8%", y: "80%", color: "accent" },
+              { label: "Tidal", x: "22%", y: "20%", color: "accent" },
+              { label: "Deezer", x: "20%", y: "65%", color: "accent" },
+              { label: "Amazon", x: "30%", y: "92%", color: "accent" },
+              { label: "TikTok", x: "30%", y: "5%", color: "accent" },
+            ].map((n, i) => (
+              <div
+                key={n.label}
+                className="absolute bg-white border border-accent/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-accent z-10 animate-fade-in-up"
+                style={{ left: n.x, top: n.y, animationDelay: `${i * 60}ms` }}
+              >
+                {n.label}
+              </div>
+            ))}
+
+            {/* Orbiting nodes — Christian channels (right) */}
+            {[
+              { label: "CCLI", x: "75%", y: "8%", color: "secondary" },
+              { label: "PraiseCharts", x: "82%", y: "30%", color: "secondary" },
+              { label: "Multitracks", x: "85%", y: "55%", color: "secondary" },
+              { label: "Planning Center", x: "72%", y: "78%", color: "secondary" },
+              { label: "Loop", x: "60%", y: "92%", color: "secondary" },
+              { label: "GodTube", x: "60%", y: "5%", color: "secondary" },
+              { label: "WorshipReady", x: "68%", y: "45%", color: "secondary" },
+            ].map((n, i) => (
+              <div
+                key={n.label}
+                className="absolute bg-white border border-secondary/20 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] font-semibold text-secondary z-10 animate-fade-in-up"
+                style={{ left: n.x, top: n.y, animationDelay: `${i * 60 + 100}ms` }}
+              >
+                {n.label}
+              </div>
+            ))}
+
+            {/* Connecting lines (SVG) */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="rgb(67 56 202)" stopOpacity="0.25" />
+                  <stop offset="50%" stopColor="rgb(67 56 202)" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="rgb(217 119 6)" stopOpacity="0.5" />
+                </linearGradient>
+              </defs>
+              {Array.from({ length: 14 }).map((_, i) => {
+                const angle = (i / 14) * Math.PI * 2;
+                const x = 50 + Math.cos(angle) * 38;
+                const y = 50 + Math.sin(angle) * 38;
+                return (
+                  <line
+                    key={i}
+                    x1="50"
+                    y1="50"
+                    x2={x}
+                    y2={y}
+                    stroke="url(#line-grad)"
+                    strokeWidth="0.15"
+                  />
+                );
+              })}
+            </svg>
+
+            {/* Backdrop glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-gradient-to-br from-accent/15 to-secondary/15 blur-3xl rounded-full pointer-events-none" />
+          </div>
+        </div>
+      </section>
+
+      {/* LATEST NEWS — one prominent card */}
+      <section className="border-y border-border bg-gradient-to-r from-accent-soft/40 via-white to-secondary-soft/30">
+        <div className="max-w-[1180px] mx-auto px-8 py-5">
+          <Link
+            href="/press"
+            className="group flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-5"
+          >
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-secondary text-white px-2 py-1 rounded shrink-0">
+              <Sparkles size={10} />
+              {featuredNews.tag}
+            </span>
+            <div className="flex-1">
+              <p className="text-[11px] text-muted mb-0.5 font-medium">
+                {featuredNews.date} · {featuredNews.category}
+              </p>
+              <p className="text-[14px] font-semibold text-foreground group-hover:text-accent transition-colors">
+                {featuredNews.title}
+              </p>
+            </div>
+            <span className="text-[12px] font-medium text-accent inline-flex items-center gap-1 group-hover:gap-2 transition-all shrink-0">
+              Read announcement
+              <ChevronRight size={14} />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* DSP LOGOS STRIP */}
+      <section className="bg-white py-16 border-b border-border">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <p className="text-center text-[12px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
+            Trusted distribution
+          </p>
+          <p className="text-center text-[15px] text-subtle max-w-[640px] mx-auto mb-10">
+            Delivering Christian music to every major DSP and Christian channel — globally.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-y-6 gap-x-4 items-center">
+            {dspsTier1.map((dsp) => (
+              <div key={dsp.name} className="flex items-center justify-center">
+                <span className={`text-[15px] text-foreground ${dsp.style}`}>{dsp.name}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 pt-10 border-t border-border grid grid-cols-3 md:grid-cols-6 gap-y-4 gap-x-4 items-center">
+            {dspsTier2.map((dsp) => (
+              <div key={dsp} className="flex items-center justify-center">
+                <span className="text-[12px] font-semibold text-muted">{dsp}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Product screens preview */}
-      <section className="py-24 bg-gradient-to-b from-white to-surface">
-        <div className="max-w-[1100px] mx-auto px-8">
+      {/* TOOLS & SOLUTIONS — ONErpm style */}
+      <section id="solutions" className="py-24 bg-gradient-to-b from-white to-surface">
+        <div className="max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-12">
-            <p className="label-eyebrow mb-3">Tour the product</p>
+            <p className="label-eyebrow mb-3">Tools & Solutions · Self-Service</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Built for the operators running Christian music.
+              A powerful self-service platform for Christian music.
             </h2>
-            <p className="text-subtle max-w-[580px] mx-auto text-[15px]">
-              From a single artist&apos;s release to enterprise label rollouts — same surface, same primitives.
+            <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
+              Selah provides a full suite of automated marketing, promotional, accounting, and business intelligence tools — giving artists, labels, and ministries full control over the distribution workflow.
             </p>
           </div>
 
-          {/* Tabs */}
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex bg-surface border border-border rounded-full p-1">
-              {screens.map((s, i) => (
-                <button
-                  key={s.label}
-                  onClick={() => setActiveScreen(i)}
-                  className={`px-4 py-1.5 rounded-full text-[12px] font-medium transition-all ${
-                    activeScreen === i
-                      ? s.accent === "amber"
-                        ? "bg-secondary text-white shadow-sm"
-                        : "bg-accent text-white shadow-sm"
-                      : "text-subtle hover:text-foreground"
+          {/* Tab nav */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {solutions.map((s, i) => (
+              <button
+                key={s.eyebrow}
+                onClick={() => setActiveSolution(i)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[12.5px] font-semibold transition-all ${
+                  activeSolution === i
+                    ? s.color === "secondary"
+                      ? "bg-secondary text-white shadow-md shadow-secondary/20"
+                      : "bg-accent text-white shadow-md shadow-accent/20"
+                    : "bg-white border border-border text-subtle hover:border-border-strong hover:text-foreground"
+                }`}
+              >
+                <s.icon size={14} strokeWidth={1.8} />
+                {s.eyebrow}
+              </button>
+            ))}
+          </div>
+
+          {/* Active solution panel */}
+          <div className="card p-8 md:p-10 shadow-xl shadow-accent/5">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-5">
+                <div
+                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 shadow-md ${
+                    solutions[activeSolution].color === "secondary"
+                      ? "bg-gradient-to-br from-secondary to-secondary-hover shadow-secondary/20"
+                      : "bg-gradient-to-br from-accent to-accent-hover shadow-accent/20"
                   }`}
                 >
-                  {s.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Screen preview frame */}
-          <div className="relative">
-            <div className="absolute -inset-x-4 -bottom-4 h-32 bg-gradient-to-t from-accent/5 to-transparent blur-2xl pointer-events-none" />
-            <div className="relative card border-border-strong shadow-2xl shadow-foreground/10 overflow-hidden">
-              {/* Window chrome */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/60" />
-                <span className="ml-3 text-[11px] text-muted font-mono">selah.cmg.com/{screens[activeScreen].label.toLowerCase()}</span>
+                  {(() => {
+                    const Icon = solutions[activeSolution].icon;
+                    return <Icon size={20} className="text-white" strokeWidth={1.8} />;
+                  })()}
+                </div>
+                <p
+                  className={`text-[11px] font-semibold uppercase tracking-wider mb-2 ${
+                    solutions[activeSolution].color === "secondary" ? "text-secondary" : "text-accent"
+                  }`}
+                >
+                  {solutions[activeSolution].eyebrow}
+                </p>
+                <h3 className="text-[26px] font-bold tracking-tight mb-3 leading-tight">
+                  {solutions[activeSolution].title}
+                </h3>
+                <p
+                  className="text-[14px] text-subtle leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: solutions[activeSolution].body }}
+                />
               </div>
-
-              <div className="grid grid-cols-12">
-                {/* Mini sidebar */}
-                <div className="col-span-3 border-r border-border p-3 bg-white">
-                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
-                    <div className="w-6 h-6 bg-gradient-to-br from-accent to-accent-hover rounded-md flex items-center justify-center">
-                      <span className="text-white text-[10px] font-bold">S</span>
-                    </div>
-                    <span className="text-[12px] font-semibold">Selah</span>
-                  </div>
-                  <div className="space-y-1">
-                    {["Overview", "Catalog", "Releases", "Distribution", "Royalties", "Campaigns", "Analytics"].map((item, i) => (
+              <div className="md:col-span-7 md:border-l md:pl-8 border-border">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted mb-4">
+                  Feature highlights
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                  {solutions[activeSolution].bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-[13px] text-subtle">
                       <div
-                        key={item}
-                        className={`px-2 py-1 rounded text-[11px] font-medium ${
-                          screens[activeScreen].label === item ||
-                          (screens[activeScreen].label === "Distribution" && item === "Distribution") ||
-                          (screens[activeScreen].label === "Royalties" && item === "Royalties") ||
-                          (screens[activeScreen].label === "Campaigns" && item === "Campaigns") ||
-                          (screens[activeScreen].label === "Analytics" && item === "Analytics")
-                            ? "bg-accent-soft text-accent"
-                            : "text-subtle"
+                        className={`shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 ${
+                          solutions[activeSolution].color === "secondary"
+                            ? "bg-secondary-soft"
+                            : "bg-accent-soft"
                         }`}
                       >
-                        {item}
+                        <Check
+                          size={10}
+                          strokeWidth={3}
+                          className={
+                            solutions[activeSolution].color === "secondary"
+                              ? "text-secondary"
+                              : "text-accent"
+                          }
+                        />
                       </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Main view */}
-                <div className="col-span-9 p-6 bg-surface min-h-[360px]">
-                  <h3 className="text-[18px] font-bold mb-1">{screens[activeScreen].label}</h3>
-                  <p className="text-[12px] text-muted mb-5">{screens[activeScreen].title}</p>
-
-                  {/* Mock content depending on tab */}
-                  {activeScreen === 0 && (
-                    <div className="space-y-2">
-                      {[
-                        { dsp: "Spotify", status: "Delivered", color: "positive" },
-                        { dsp: "Apple Music", status: "Delivered", color: "positive" },
-                        { dsp: "YouTube Music", status: "Delivered", color: "positive" },
-                        { dsp: "CCLI SongSelect", status: "Listed", color: "positive" },
-                        { dsp: "PraiseCharts", status: "Listed", color: "positive" },
-                        { dsp: "Multitracks.com", status: "Pending", color: "warning" },
-                        { dsp: "TikTok", status: "Delivered", color: "positive" },
-                      ].map((row) => (
-                        <div key={row.dsp} className="flex items-center justify-between bg-white border border-border rounded-md px-3 py-2">
-                          <span className="text-[12px] font-medium">{row.dsp}</span>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded inline-flex items-center gap-1 ${
-                            row.color === "positive" ? "bg-positive-soft text-positive" : "bg-warning-soft text-warning"
-                          }`}>
-                            <span className={`w-1 h-1 rounded-full ${row.color === "positive" ? "bg-positive" : "bg-warning"}`} />
-                            {row.status}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {activeScreen === 1 && (
-                    <div className="space-y-3">
-                      {[
-                        { label: "Gross revenue", value: "A$82,400", tone: "neutral" },
-                        { label: "DSP & platform deductions", value: "−A$24,720", tone: "neg" },
-                        { label: "Distribution fee (15%)", value: "−A$8,652", tone: "neg" },
-                        { label: "Publishing allocation", value: "−A$11,800", tone: "neg" },
-                        { label: "Marketing recoupment", value: "−A$3,200", tone: "neg" },
-                      ].map((row) => (
-                        <div key={row.label} className="flex items-center justify-between text-[12px]">
-                          <span className="text-subtle">{row.label}</span>
-                          <span className={row.tone === "neg" ? "text-negative font-mono" : "text-foreground font-mono font-semibold"}>{row.value}</span>
-                        </div>
-                      ))}
-                      <div className="pt-3 mt-3 border-t border-border flex items-center justify-between bg-gradient-to-r from-secondary-soft to-white -mx-2 px-2 py-2 rounded">
-                        <span className="text-[13px] font-semibold text-secondary">Net payable to participants</span>
-                        <span className="text-[16px] font-bold font-mono text-secondary">A$34,028</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeScreen === 2 && (
-                    <div className="space-y-2">
-                      {[
-                        { t: "Strategy approved", d: "8 weeks before", done: true },
-                        { t: "Assets locked", d: "6 weeks before", done: true },
-                        { t: "DSP delivery", d: "4 weeks before", done: true },
-                        { t: "Playlist pitch submitted", d: "3 weeks before", done: true },
-                        { t: "Church network outreach", d: "1 week before", done: false },
-                        { t: "Launch activation", d: "Release day", done: false },
-                      ].map((row, i) => (
-                        <div key={i} className="flex items-center gap-3 bg-white border border-border rounded-md px-3 py-2">
-                          <div className={`w-4 h-4 rounded-full flex items-center justify-center ${row.done ? "bg-accent" : "bg-surface-2 border border-border"}`}>
-                            {row.done && <Check size={9} className="text-white" strokeWidth={3} />}
-                          </div>
-                          <span className={`text-[12px] flex-1 ${row.done ? "text-foreground" : "text-muted"}`}>{row.t}</span>
-                          <span className="text-[10px] text-muted">{row.d}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {activeScreen === 3 && (
-                    <div>
-                      <div className="bg-white border border-border rounded-lg p-4 mb-3">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-[12px] text-muted">Church Adoption Score</span>
-                          <span className="text-[20px] font-bold text-secondary">78 / 100</span>
-                        </div>
-                        <div className="h-2 bg-surface-2 rounded-full overflow-hidden">
-                          <div className="h-full w-[78%] bg-gradient-to-r from-accent via-accent-hover to-secondary rounded-full" />
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        {[
-                          { l: "Congregational suitability", v: 82 },
-                          { l: "Lyric clarity", v: 90 },
-                          { l: "Worship leader engagement", v: 72 },
-                          { l: "Chord chart availability", v: 65 },
-                        ].map((row) => (
-                          <div key={row.l} className="bg-white border border-border rounded-md px-3 py-2">
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="text-[11px] text-muted">{row.l}</span>
-                              <span className="text-[12px] font-semibold">{row.v}</span>
-                            </div>
-                            <div className="h-1 bg-surface-2 rounded-full overflow-hidden">
-                              <div className="h-full bg-accent rounded-full" style={{ width: `${row.v}%` }} />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
+                      <span className="leading-snug">{b}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
-
-          <div className="mt-8 text-center">
-            <Link href="/overview" className="text-[13px] font-medium text-accent inline-flex items-center gap-1 hover:gap-2 transition-all">
-              See the full product
-              <ChevronRight size={14} />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Workflow */}
-      <section id="workflow" className="py-24 border-y border-border">
-        <div className="max-w-[1100px] mx-auto px-8">
-          <div className="text-center mb-14">
-            <p className="label-eyebrow mb-3">How it works</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              The release lifecycle, end-to-end.
-            </h2>
-            <p className="text-subtle max-w-[600px] mx-auto text-[15px]">
-              One distribution platform from first asset upload to final royalty payout. No handoffs, no spreadsheets, no missed splits.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="hidden md:block absolute top-[42px] left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8 md:gap-y-0 md:gap-x-4 relative">
-              {workflow.map((step, i) => (
-                <div key={step.title} className="flex flex-col items-center text-center px-2">
-                  <div className={`w-[84px] h-[84px] rounded-2xl border flex items-center justify-center mb-4 relative shadow-sm ${
-                    step.featured
-                      ? "bg-gradient-to-br from-secondary to-secondary-hover border-secondary/30"
-                      : "bg-gradient-to-br from-white to-accent-soft/40 border-accent/15"
-                  }`}>
-                    <div className={`absolute -top-2 -right-2 w-6 h-6 rounded-full text-white text-[11px] font-semibold flex items-center justify-center shadow-md ${
-                      step.featured ? "bg-secondary" : "bg-accent"
-                    }`}>
-                      {i + 1}
-                    </div>
-                    <step.icon size={28} className={step.featured ? "text-white" : "text-accent"} strokeWidth={1.6} />
-                  </div>
-                  <h3 className="text-[15px] font-semibold mb-1.5">{step.title}</h3>
-                  <p className="text-[12px] text-subtle leading-relaxed max-w-[180px]">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Built For */}
-      <section className="bg-surface py-24">
+      {/* WHO WE BUILD FOR */}
+      <section className="bg-surface py-24 border-y border-border">
         <div className="max-w-[1080px] mx-auto px-8">
           <div className="text-center mb-14">
             <p className="label-eyebrow mb-3">Who we build for</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Built for Christian music rights holders.
+              Christian music professionals. Everywhere.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {features.map((f) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {features.map((f, i) => (
               <div key={f.title} className="card p-6 card-interactive">
-                <div className="w-10 h-10 rounded-lg bg-accent-soft border border-accent/10 flex items-center justify-center mb-4">
-                  <f.icon size={18} className="text-accent" strokeWidth={1.8} />
+                <div
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
+                    i % 2 === 0
+                      ? "bg-accent-soft border border-accent/10"
+                      : "bg-secondary-soft border border-secondary/10"
+                  }`}
+                >
+                  <f.icon
+                    size={18}
+                    className={i % 2 === 0 ? "text-accent" : "text-secondary"}
+                    strokeWidth={1.8}
+                  />
                 </div>
-                <h3 className="text-[16px] font-semibold mb-1.5">{f.title}</h3>
+                <h3 className="text-[15px] font-semibold mb-1.5">{f.title}</h3>
                 <p className="text-[13px] text-subtle leading-relaxed">{f.desc}</p>
               </div>
             ))}
@@ -624,49 +673,130 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Modules - distribution first */}
-      <section id="modules" className="py-24">
-        <div className="max-w-[1100px] mx-auto px-8">
-          <div className="text-center mb-14">
-            <p className="label-eyebrow mb-3">Platform</p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Distribution-led. Six integrated modules.
-            </h2>
-            <p className="text-subtle max-w-[580px] mx-auto text-[15px]">
-              Distribution is the spine. Rights, royalties, campaigns, YouTube, and publishing surround it.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {modules.map((m) => (
-              <div
-                key={m.title}
-                className={`card p-6 card-interactive group relative ${
-                  m.featured ? "ring-1 ring-accent/15 bg-gradient-to-br from-accent-soft/30 to-white" : ""
-                }`}
-              >
-                {m.featured && (
-                  <span className="absolute top-4 right-4 text-[10px] font-semibold uppercase tracking-wider bg-accent text-white px-2 py-0.5 rounded-full">
-                    Core
-                  </span>
-                )}
+      {/* CHRISTIAN NETWORK GRAPHIC */}
+      <section id="church-network" className="relative overflow-hidden bg-[#0F172A] text-white py-24">
+        <div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-secondary/20 blur-[140px] rounded-full pointer-events-none" />
+
+        <div className="relative max-w-[1180px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.08em] uppercase text-secondary mb-3">
+                Church Network
+              </p>
+              <h2 className="text-[40px] font-bold tracking-tight mb-5 leading-tight">
+                The Christian distribution layer.
+              </h2>
+              <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6">
+                Standard distribution ends at Spotify and Apple Music. Selah extends into the church — CCLI SongSelect, PraiseCharts, Multitracks.com, Planning Center, and worship-leader networks across 8,200+ congregations.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "CCLI registration, reporting, and royalty integration",
+                  "Chord chart & lead sheet automated delivery",
+                  "Worship leader email networks across 12 markets",
+                  "Sunday setlist adoption tracking",
+                  "Congregational suitability metadata fields",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2.5">
+                    <div className="shrink-0 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center mt-0.5">
+                      <Check size={11} className="text-secondary" strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[14px] text-white/90">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {christianPlatforms.map((p, i) => (
                 <div
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 shadow-sm group-hover:shadow-md transition-shadow ${
-                    m.featured
-                      ? "bg-gradient-to-br from-accent to-secondary shadow-accent/30"
-                      : "bg-gradient-to-br from-accent to-accent-hover shadow-accent/20"
+                  key={p.name}
+                  className={`p-4 rounded-lg backdrop-blur-sm transition-all hover:scale-[1.02] ${
+                    i % 2 === 0
+                      ? "bg-white/[0.05] border border-white/10 hover:border-secondary/40"
+                      : "bg-gradient-to-br from-secondary/10 to-white/[0.02] border border-secondary/20"
                   }`}
                 >
-                  <m.icon size={18} className="text-white" strokeWidth={1.8} />
+                  <p className="text-[14px] font-bold text-white mb-1">{p.name}</p>
+                  <p className="text-[11px] text-white/60">{p.desc}</p>
                 </div>
-                <h3 className="text-[15px] font-semibold mb-1.5">{m.title}</h3>
-                <p className="text-[13px] text-subtle leading-relaxed">{m.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Global presence */}
+      {/* PUBLISHING PARTNERSHIPS */}
+      <section id="publishing" className="py-24">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <div className="text-center mb-12">
+            <p className="label-eyebrow-secondary mb-3">Publishing Partnerships</p>
+            <h2 className="text-[36px] font-bold tracking-tight mb-3">
+              We partner with publishers — not replace them.
+            </h2>
+            <p className="text-subtle max-w-[680px] mx-auto text-[15px]">
+              Selah aggregates global publishing administration across 60+ PROs, MROs, and CCLI on behalf of publishers and self-administering songwriters. Your existing publishing relationships continue.
+            </p>
+          </div>
+
+          <div className="card p-8 md:p-10 bg-gradient-to-br from-white via-white to-secondary-soft/30">
+            <div className="text-center mb-8">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary mb-2">
+                Integrated with
+              </p>
+              <p className="text-[14px] text-subtle">
+                60+ rights organizations across performance, mechanical, neighboring, and church licensing
+              </p>
+            </div>
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-y-5 gap-x-4 items-center">
+              {rightsOrgs.map((org, i) => (
+                <div key={org} className="flex items-center justify-center">
+                  <span
+                    className={`text-[13px] font-bold tracking-wide ${
+                      i % 3 === 0
+                        ? "text-accent"
+                        : i % 3 === 1
+                        ? "text-secondary"
+                        : "text-foreground"
+                    }`}
+                  >
+                    {org}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 pt-8 border-t border-border grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <p className="text-[24px] font-bold tracking-tight bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+                  60+
+                </p>
+                <p className="text-[12px] text-muted">PROs & rights organizations</p>
+              </div>
+              <div>
+                <p className="text-[24px] font-bold tracking-tight bg-gradient-to-r from-secondary to-secondary-hover bg-clip-text text-transparent">
+                  84
+                </p>
+                <p className="text-[12px] text-muted">Royalty collection markets</p>
+              </div>
+              <div>
+                <p className="text-[24px] font-bold tracking-tight bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
+                  28+
+                </p>
+                <p className="text-[12px] text-muted">Payout currencies</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GLOBAL OFFICES */}
       <section className="relative overflow-hidden bg-[#0F172A] text-white py-24">
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -678,11 +808,13 @@ export default function LandingPage() {
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[400px] bg-accent/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[400px] bg-secondary/20 blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="relative max-w-[1100px] mx-auto px-8">
+        <div className="relative max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
               <Globe2 size={12} className="text-secondary" />
-              <span className="text-[11px] font-medium text-white/80">8 offices · 7 countries · 84 markets served</span>
+              <span className="text-[11px] font-medium text-white/80">
+                8 offices · 7 countries · 84 markets served
+              </span>
             </div>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">Global from day one.</h2>
             <p className="text-[#94A3B8] max-w-[580px] mx-auto text-[15px]">
@@ -694,7 +826,7 @@ export default function LandingPage() {
             {offices.map((o) => (
               <div
                 key={o.city}
-                className={`rounded-lg p-5 backdrop-blur-sm transition-all ${
+                className={`rounded-lg p-5 backdrop-blur-sm transition-all hover:scale-[1.02] ${
                   o.primary
                     ? "bg-gradient-to-br from-accent/20 to-secondary/10 border border-accent/30"
                     : "bg-white/[0.04] border border-white/10 hover:bg-white/[0.07]"
@@ -723,9 +855,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* STATS */}
       <section className="py-20 bg-gradient-to-br from-secondary-soft/40 via-white to-accent-soft/30 border-y border-secondary/10">
-        <div className="max-w-[1100px] mx-auto px-8">
+        <div className="max-w-[1180px] mx-auto px-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8 md:gap-x-4 text-center">
             {stats.map((s) => (
               <div key={s.label}>
@@ -745,55 +877,38 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Ecosystem */}
+      {/* CHRISTIAN METADATA */}
       <section className="py-24">
-        <div className="max-w-[1180px] mx-auto px-8">
-          <div className="text-center mb-14">
-            <p className="label-eyebrow-secondary mb-3">Ecosystem</p>
+        <div className="max-w-[1080px] mx-auto px-8">
+          <div className="text-center mb-12">
+            <p className="label-eyebrow mb-3">Christian-native</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
-              Plugged into the Christian music economy.
+              Metadata built for worship.
             </h2>
-            <p className="text-subtle max-w-[600px] mx-auto text-[15px]">
-              Integrations with streaming platforms, Christian channels, rights bodies, and the infrastructure that moves money.
+            <p className="text-subtle max-w-[560px] mx-auto text-[15px]">
+              Purpose-built fields that secular distribution platforms do not support.
             </p>
           </div>
-
-          <div className="space-y-5">
-            <EcosystemCategory
-              icon={Radio}
-              title="DSPs & streaming platforms"
-              count="150+"
-              items={ecosystemDSPs}
-              accent="accent"
-            />
-            <EcosystemCategory
-              icon={Church}
-              title="Christian channels & worship platforms"
-              count="32"
-              items={ecosystemChristian}
-              accent="secondary"
-            />
-            <EcosystemCategory
-              icon={Scale}
-              title="PROs & rights organizations"
-              count="60+"
-              items={ecosystemRights}
-              accent="accent"
-            />
-            <EcosystemCategory
-              icon={Building2}
-              title="Payment, identity & infrastructure"
-              count="20+"
-              items={ecosystemPartners}
-              accent="secondary"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {metadata.map((m, i) => (
+              <div
+                key={m}
+                className={`p-5 rounded-lg border transition-all hover:scale-[1.01] ${
+                  i % 2 === 0
+                    ? "bg-gradient-to-br from-accent-soft/40 to-white border-accent/15"
+                    : "bg-gradient-to-br from-secondary-soft/40 to-white border-secondary/15"
+                }`}
+              >
+                <span className="text-[14px] font-semibold text-foreground">{m}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* TESTIMONIALS */}
       <section className="py-24 bg-surface border-y border-border">
-        <div className="max-w-[1100px] mx-auto px-8">
+        <div className="max-w-[1180px] mx-auto px-8">
           <div className="text-center mb-14">
             <p className="label-eyebrow mb-3">Voices from the network</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">
@@ -808,14 +923,22 @@ export default function LandingPage() {
                     <Star key={j} size={13} className="text-secondary fill-secondary" />
                   ))}
                 </div>
-                <p className="text-[14px] text-foreground leading-relaxed flex-1 mb-5">&ldquo;{t.quote}&rdquo;</p>
+                <p className="text-[14px] text-foreground leading-relaxed flex-1 mb-5">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
                 <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className={`w-9 h-9 rounded-full flex items-center justify-center text-white text-[12px] font-semibold ${
-                    i % 2 === 0
-                      ? "bg-gradient-to-br from-accent to-accent-hover"
-                      : "bg-gradient-to-br from-secondary to-secondary-hover"
-                  }`}>
-                    {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                  <div
+                    className={`w-9 h-9 rounded-full flex items-center justify-center text-white text-[12px] font-semibold ${
+                      i % 2 === 0
+                        ? "bg-gradient-to-br from-accent to-accent-hover"
+                        : "bg-gradient-to-br from-secondary to-secondary-hover"
+                    }`}
+                  >
+                    {t.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .slice(0, 2)
+                      .join("")}
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold leading-tight">{t.name}</p>
@@ -828,51 +951,17 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Christian Metadata */}
-      <section className="relative overflow-hidden bg-[#0F172A] text-white py-24">
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/20 blur-[120px] rounded-full pointer-events-none" />
-        <div className="relative max-w-[1040px] mx-auto px-8">
-          <div className="text-center mb-14">
-            <p className="text-[11px] font-semibold tracking-[0.08em] uppercase text-secondary mb-3">
-              Christian-native
-            </p>
-            <h2 className="text-[36px] font-bold tracking-tight mb-3">Metadata built for worship.</h2>
-            <p className="text-[#94A3B8] max-w-[560px] mx-auto text-[15px]">
-              Purpose-built fields that secular distribution platforms do not support.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {metadata.map((m) => (
-              <div
-                key={m}
-                className="bg-white/[0.04] border border-white/10 rounded-lg px-5 py-4 backdrop-blur-sm hover:bg-white/[0.06] hover:border-secondary/30 transition-all"
-              >
-                <span className="text-[14px] text-white/90">{m}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className="py-24">
+      <section id="faq" className="py-24">
         <div className="max-w-[820px] mx-auto px-8">
           <div className="text-center mb-12">
             <p className="label-eyebrow mb-3">Frequently asked</p>
             <h2 className="text-[36px] font-bold tracking-tight mb-3">Questions, answered.</h2>
             <p className="text-subtle max-w-[520px] mx-auto text-[15px]">
-              Can&apos;t find what you&apos;re looking for? Visit our{" "}
-              <Link href="/docs" className="text-accent font-medium underline-offset-2 hover:underline">
-                documentation
+              Can&apos;t find what you&apos;re looking for?{" "}
+              <Link href="/contact" className="text-accent font-medium underline-offset-2 hover:underline">
+                Talk to our team.
               </Link>
-              .
             </p>
           </div>
           <div className="space-y-2">
@@ -901,39 +990,40 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* FINAL CTA */}
       <section className="pb-28 pt-8">
-        <div className="max-w-[1080px] mx-auto px-8">
+        <div className="max-w-[1180px] mx-auto px-8">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#1E1B4B] to-[#0F172A] p-12 text-center text-white">
             <div
               className="absolute inset-0 opacity-[0.06] pointer-events-none"
               style={{
-                backgroundImage: "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
+                backgroundImage:
+                  "radial-gradient(rgb(165 180 252) 1px, transparent 1px)",
                 backgroundSize: "20px 20px",
               }}
             />
             <div className="absolute top-0 left-1/4 w-[400px] h-[300px] bg-accent/30 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-secondary/30 blur-[120px] rounded-full pointer-events-none" />
             <div className="relative">
-              <h2 className="text-[36px] md:text-[40px] font-bold tracking-tight leading-[1.1] mb-4">
-                Ready to build on Christian music infrastructure?
+              <h2 className="text-[36px] md:text-[44px] font-bold tracking-tight leading-[1.1] mb-4">
+                Ready to distribute on Christian music infrastructure?
               </h2>
-              <p className="text-[#94A3B8] mb-8 max-w-[520px] mx-auto">
-                Explore the full demo or book a tailored walkthrough with our team.
+              <p className="text-[#94A3B8] mb-8 max-w-[560px] mx-auto text-[16px]">
+                Join thousands of artists, labels, ministries, and worship teams using Selah for distribution, marketing, accounting, and analytics.
               </p>
               <div className="flex items-center justify-center gap-3">
                 <Link
                   href="/overview"
-                  className="bg-white text-foreground hover:bg-white/90 font-medium rounded-md px-7 py-3 text-[15px] inline-flex items-center gap-2 transition-colors"
+                  className="bg-white text-foreground hover:bg-white/90 font-medium rounded-md px-7 py-3 text-[15px] inline-flex items-center gap-2 transition-colors shadow-lg"
                 >
-                  Enter Demo
+                  Join Selah
                   <ArrowRight size={16} />
                 </Link>
                 <Link
-                  href="/pricing"
+                  href="/contact"
                   className="border border-white/20 text-white hover:bg-white/5 font-medium rounded-md px-7 py-3 text-[15px] transition-colors"
                 >
-                  View Pricing
+                  Contact our team
                 </Link>
               </div>
             </div>
@@ -941,55 +1031,5 @@ export default function LandingPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function EcosystemCategory({
-  icon: Icon,
-  title,
-  count,
-  items,
-  accent,
-}: {
-  icon: React.ElementType;
-  title: string;
-  count: string;
-  items: string[];
-  accent: "accent" | "secondary";
-}) {
-  return (
-    <div className="card p-6">
-      <div className="flex items-center justify-between mb-5 pb-4 border-b border-border">
-        <div className="flex items-center gap-3">
-          <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-            accent === "secondary"
-              ? "bg-secondary-soft border border-secondary/10"
-              : "bg-accent-soft border border-accent/10"
-          }`}>
-            <Icon
-              size={16}
-              className={accent === "secondary" ? "text-secondary" : "text-accent"}
-              strokeWidth={1.8}
-            />
-          </div>
-          <div>
-            <h3 className="text-[15px] font-semibold leading-tight">{title}</h3>
-            <p className={`text-[11px] mt-0.5 font-semibold ${accent === "secondary" ? "text-secondary" : "text-accent"}`}>
-              {count} integrations
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-x-4 gap-y-2.5">
-        {items.map((item) => (
-          <div
-            key={item}
-            className="text-[12.5px] font-medium text-subtle hover:text-foreground transition-colors"
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }
