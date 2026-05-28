@@ -43,7 +43,7 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 bottom-0 w-[240px] border-r border-border bg-white flex flex-col z-30">
       <div className="h-[56px] flex items-center px-5 border-b border-border">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-foreground rounded-md flex items-center justify-center">
+          <div className="w-7 h-7 bg-gradient-to-br from-accent to-accent-hover rounded-md flex items-center justify-center shadow-sm">
             <span className="text-white text-xs font-bold">S</span>
           </div>
           <div className="flex flex-col">
@@ -61,13 +61,17 @@ export function Sidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-2.5 px-2.5 py-[7px] rounded-md text-[13px] font-medium transition-colors ${
+                className={`group flex items-center gap-2.5 px-2.5 py-[7px] rounded-md text-[13px] font-medium transition-all ${
                   active
-                    ? "bg-foreground text-white"
+                    ? "bg-accent-soft text-accent"
                     : "text-subtle hover:text-foreground hover:bg-surface"
                 }`}
               >
-                <item.icon size={16} strokeWidth={1.8} />
+                <item.icon
+                  size={16}
+                  strokeWidth={active ? 2.2 : 1.8}
+                  className={active ? "text-accent" : "text-muted group-hover:text-foreground"}
+                />
                 {item.label}
               </Link>
             );
@@ -77,7 +81,7 @@ export function Sidebar() {
 
       <div className="p-3 border-t border-border">
         <div className="flex items-center gap-2 px-2.5 py-1.5">
-          <div className="w-7 h-7 rounded-full bg-surface-2 flex items-center justify-center text-[11px] font-medium text-muted">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-accent to-accent-hover flex items-center justify-center text-[11px] font-semibold text-white">
             CM
           </div>
           <div className="flex flex-col">

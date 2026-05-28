@@ -309,7 +309,7 @@ export default function SettingsPage() {
                   {[
                     { label: "Organization name", value: "Christian Music Group" },
                     { label: "Display name", value: "Selah by CMG" },
-                    { label: "Primary color", value: "#0A0A0A" },
+                    { label: "Primary color", value: "#4338CA" },
                     { label: "Logo", value: "Uploaded" },
                     { label: "Favicon", value: "Uploaded" },
                     { label: "Custom domain", value: "selah.cmg.com" },

@@ -81,8 +81,8 @@ export default function OverviewPage() {
               <Area
                 type="monotone"
                 dataKey="streams"
-                stroke="#0A0A0A"
-                fill="#0A0A0A"
+                stroke="#4338CA"
+                fill="#4338CA"
                 fillOpacity={0.05}
                 strokeWidth={2}
               />
@@ -104,7 +104,7 @@ export default function OverviewPage() {
               />
               <Bar dataKey="revenue" radius={[0, 4, 4, 0]}>
                 {revenueByPlatform.map((_, i) => (
-                  <Cell key={i} fill={["#0A0A0A", "#525252", "#8C8C8C", "#B4B4B4", "#D4D4D4", "#E8E8E8"][i]} />
+                  <Cell key={i} fill={["#4338CA", "#6366F1", "#A5B4FC", "#C7D2FE", "#E0E7FF", "#EEF2FF"][i]} />
                 ))}
               </Bar>
             </BarChart>
@@ -126,7 +126,7 @@ export default function OverviewPage() {
                 </div>
                 <div className="h-2 bg-[#F0F0F0] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-[#0A0A0A] rounded-full transition-all"
+                    className="h-full bg-[#4338CA] rounded-full transition-all"
                     style={{ width: `${c.progress}%` }}
                   />
                 </div>
@@ -149,7 +149,7 @@ export default function OverviewPage() {
                   </div>
                   <div className="h-2 bg-[#F0F0F0] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#525252] rounded-full"
+                      className="h-full bg-[#6366F1] rounded-full"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -267,7 +267,7 @@ export default function OverviewPage() {
           <div className="space-y-3">
             {campaignMilestones.map((m, i) => (
               <div key={i} className="flex items-start gap-3 text-[13px]">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#0A0A0A] mt-1.5 shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#4338CA] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p>
                     <span className="font-medium">{m.campaign}</span>

@@ -1,67 +1,112 @@
-const variants: Record<string, string> = {
-  Complete: "bg-[#f0f0f0] text-[#333]",
-  Active: "bg-[#f0f0f0] text-[#333]",
-  Clear: "bg-[#f0f0f0] text-[#333]",
-  Confirmed: "bg-[#f0f0f0] text-[#333]",
-  Ready: "bg-[#f0f0f0] text-[#333]",
-  Delivered: "bg-[#f0f0f0] text-[#333]",
-  Registered: "bg-[#f0f0f0] text-[#333]",
-  Claimed: "bg-[#f0f0f0] text-[#333]",
-  Monetized: "bg-[#f0f0f0] text-[#333]",
-  Current: "bg-[#f0f0f0] text-[#333]",
-  Licensed: "bg-[#f0f0f0] text-[#333]",
-  "CCLI Listed": "bg-[#f0f0f0] text-[#333]",
-  "In Progress": "bg-[#e8e8e8] text-[#555]",
-  Pending: "bg-[#e8e8e8] text-[#555]",
-  "In Review": "bg-[#e8e8e8] text-[#555]",
-  "Under review": "bg-[#e8e8e8] text-[#555]",
-  Review: "bg-[#e8e8e8] text-[#555]",
-  Queued: "bg-[#e8e8e8] text-[#555]",
-  Upcoming: "bg-[#e8e8e8] text-[#555]",
-  Draft: "bg-[#f5f5f5] text-[#888]",
-  "Not delivered": "bg-[#f5f5f5] text-[#888]",
-  Unclaimed: "bg-[#f5f5f5] text-[#888]",
-  "Not Monetized": "bg-[#f5f5f5] text-[#888]",
-  Unregistered: "bg-[#f5f5f5] text-[#888]",
-  Unlicensed: "bg-[#f5f5f5] text-[#888]",
-  "Not Listed": "bg-[#f5f5f5] text-[#888]",
-  Missing: "bg-[#f5f5f5] text-[#888]",
-  Unassigned: "bg-[#f5f5f5] text-[#888]",
-  "Needs signature": "bg-[#f5f5f5] text-[#888]",
-  "Missing tax info": "bg-[#f5f5f5] text-[#888]",
-  High: "bg-[#e0e0e0] text-[#222]",
-  Conflict: "bg-[#e0e0e0] text-[#222]",
-  Disputed: "bg-[#e0e0e0] text-[#222]",
-  Blocked: "bg-[#e0e0e0] text-[#222]",
-  "Ownership Dispute": "bg-[#e0e0e0] text-[#222]",
-  "Publishing Conflict": "bg-[#e0e0e0] text-[#222]",
-  Held: "bg-[#e0e0e0] text-[#222]",
-  "Assets Pending": "bg-[#e8e8e8] text-[#555]",
-  "Metadata Review": "bg-[#e8e8e8] text-[#555]",
-  "Rights Pending": "bg-[#e8e8e8] text-[#555]",
-  "Action required": "bg-[#e0e0e0] text-[#222]",
-  Received: "bg-[#e8e8e8] text-[#555]",
-  Approved: "bg-[#f0f0f0] text-[#333]",
-  "Not selected": "bg-[#f5f5f5] text-[#888]",
-  Deferred: "bg-[#f5f5f5] text-[#888]",
-  "Strategy call required": "bg-[#e8e8e8] text-[#555]",
-  None: "bg-[#f0f0f0] text-[#333]",
-  Finalized: "bg-[#f0f0f0] text-[#333]",
-  Processing: "bg-[#e8e8e8] text-[#555]",
-  "Fully Recouped": "bg-[#f0f0f0] text-[#333]",
-  Scheduled: "bg-[#e8e8e8] text-[#555]",
-  Completed: "bg-[#f0f0f0] text-[#333]",
-  Listed: "bg-[#f0f0f0] text-[#333]",
-  "Registered (ASCAP)": "bg-[#f0f0f0] text-[#333]",
-  "Registered (BMI)": "bg-[#f0f0f0] text-[#333]",
-  "Registered (SESAC)": "bg-[#f0f0f0] text-[#333]",
-  "Registered (APRA)": "bg-[#f0f0f0] text-[#333]",
+type Tone = "positive" | "warning" | "negative" | "neutral" | "info";
+
+const POSITIVE = "bg-positive-soft text-positive border border-positive/15";
+const WARNING = "bg-warning-soft text-warning border border-warning/15";
+const NEGATIVE = "bg-negative-soft text-negative border border-negative/15";
+const NEUTRAL = "bg-surface-2 text-subtle border border-border";
+const INFO = "bg-accent-soft text-accent border border-accent/15";
+
+const tones: Record<Tone, string> = {
+  positive: POSITIVE,
+  warning: WARNING,
+  negative: NEGATIVE,
+  neutral: NEUTRAL,
+  info: INFO,
+};
+
+const statusTone: Record<string, Tone> = {
+  // Positive (green) — things that are done, healthy, paid
+  Complete: "positive",
+  Completed: "positive",
+  Active: "positive",
+  Clear: "positive",
+  Confirmed: "positive",
+  Ready: "positive",
+  Delivered: "positive",
+  Registered: "positive",
+  Claimed: "positive",
+  Monetized: "positive",
+  Current: "positive",
+  Licensed: "positive",
+  "CCLI Listed": "positive",
+  Listed: "positive",
+  Approved: "positive",
+  Finalized: "positive",
+  "Fully Recouped": "positive",
+  "Registered (ASCAP)": "positive",
+  "Registered (BMI)": "positive",
+  "Registered (SESAC)": "positive",
+  "Registered (APRA)": "positive",
+  None: "positive",
+  Signed: "positive",
+
+  // Info (indigo) — in motion, scheduled, on-track
+  "In Progress": "info",
+  "In Review": "info",
+  "Under review": "info",
+  Review: "info",
+  Processing: "info",
+  Scheduled: "info",
+  Received: "info",
+  Queued: "info",
+  Upcoming: "info",
+  Managed: "info",
+  "Strategy call required": "info",
+
+  // Warning (amber) — needs attention but not urgent
+  Pending: "warning",
+  "Assets Pending": "warning",
+  "Metadata Review": "warning",
+  "Rights Pending": "warning",
+  "Needs signature": "warning",
+  Held: "warning",
+
+  // Negative (red) — broken, blocked, urgent
+  High: "negative",
+  Conflict: "negative",
+  Disputed: "negative",
+  Blocked: "negative",
+  "Ownership Dispute": "negative",
+  "Publishing Conflict": "negative",
+  "Action required": "negative",
+  "Missing tax info": "negative",
+
+  // Neutral (grey) — absence, draft, off
+  Draft: "neutral",
+  "Not delivered": "neutral",
+  Unclaimed: "neutral",
+  "Not Monetized": "neutral",
+  Unregistered: "neutral",
+  Unlicensed: "neutral",
+  "Not Listed": "neutral",
+  Missing: "neutral",
+  Unassigned: "neutral",
+  "Not selected": "neutral",
+  Deferred: "neutral",
+  Inactive: "neutral",
+  Medium: "neutral",
+  Low: "neutral",
 };
 
 export function StatusBadge({ status }: { status: string }) {
-  const cls = variants[status] || "bg-[#f0f0f0] text-[#555]";
+  const tone = statusTone[status] ?? "neutral";
   return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium ${cls}`}>
+    <span
+      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium ${tones[tone]}`}
+    >
+      <span
+        className={`w-1.5 h-1.5 rounded-full ${
+          tone === "positive"
+            ? "bg-positive"
+            : tone === "warning"
+            ? "bg-warning"
+            : tone === "negative"
+            ? "bg-negative"
+            : tone === "info"
+            ? "bg-accent"
+            : "bg-muted"
+        }`}
+      />
       {status}
     </span>
   );

@@ -53,7 +53,7 @@ const adoptionScores = [
   { label: "Repeat Usage Signal", score: 68 },
 ];
 
-const barColors = ["#0A0A0A", "#525252", "#8C8C8C", "#B4B4B4", "#D4D4D4", "#E8E8E8"];
+const barColors = ["#4338CA", "#6366F1", "#A5B4FC", "#C7D2FE", "#E0E7FF", "#EEF2FF"];
 
 export default function AnalyticsPage() {
   const maxFunnel = churchAdoptionFunnel[0].count;
@@ -100,8 +100,8 @@ export default function AnalyticsPage() {
                       <Area
                         type="monotone"
                         dataKey="streams"
-                        stroke="#0A0A0A"
-                        fill="#0A0A0A"
+                        stroke="#4338CA"
+                        fill="#4338CA"
                         fillOpacity={0.05}
                         strokeWidth={2}
                       />
@@ -180,9 +180,9 @@ export default function AnalyticsPage() {
                     <Line
                       type="monotone"
                       dataKey="listeners"
-                      stroke="#0A0A0A"
+                      stroke="#4338CA"
                       strokeWidth={2}
-                      dot={{ fill: "#0A0A0A", r: 3 }}
+                      dot={{ fill: "#4338CA", r: 3 }}
                       activeDot={{ r: 5 }}
                     />
                   </LineChart>
@@ -205,7 +205,7 @@ export default function AnalyticsPage() {
                           </span>
                           <div className="flex-1 flex justify-center">
                             <div
-                              className="h-8 bg-[#0A0A0A] rounded flex items-center justify-center transition-all"
+                              className="h-8 bg-[#4338CA] rounded flex items-center justify-center transition-all"
                               style={{ width: `${pct}%` }}
                             >
                               <span className="text-[11px] font-medium text-white">
@@ -232,7 +232,7 @@ export default function AnalyticsPage() {
                         <p className="text-[20px] font-semibold tracking-tight">{item.score}</p>
                         <div className="mt-2 h-1.5 bg-[#F0F0F0] rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-[#0A0A0A] rounded-full"
+                            className="h-full bg-[#4338CA] rounded-full"
                             style={{ width: `${item.score}%` }}
                           />
                         </div>

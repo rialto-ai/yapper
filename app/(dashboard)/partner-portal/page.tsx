@@ -117,7 +117,7 @@ export default function PartnerPortalPage() {
           <div className="space-y-2">
             {partnerTypes.map((type) => (
               <div key={type} className="flex items-center gap-2.5 text-[13px] p-2.5 bg-[rgb(var(--surface))] rounded-lg">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#0A0A0A] shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#4338CA] shrink-0" />
                 <span>{type}</span>
               </div>
             ))}

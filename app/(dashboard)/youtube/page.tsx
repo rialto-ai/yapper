@@ -209,7 +209,7 @@ export default function YouTubePage() {
                   <div className="grid grid-cols-3 gap-3">
                     {services.map((s) => (
                       <div key={s} className="flex items-center gap-2 text-[13px] p-3 bg-[rgb(var(--surface))] rounded-lg">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#0A0A0A] shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#4338CA] shrink-0" />
                         <span>{s}</span>
                       </div>
                     ))}

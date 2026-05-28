@@ -267,7 +267,7 @@ export default function AIStrategistPage() {
                 <div className="space-y-1.5">
                   {riskFlags.map((flag, i) => (
                     <div key={i} className="flex items-start gap-2 text-[13px]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#525252] mt-1.5 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#6366F1] mt-1.5 shrink-0" />
                       <span className="text-muted">{flag}</span>
                     </div>
                   ))}
