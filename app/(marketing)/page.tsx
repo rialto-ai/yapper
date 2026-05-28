@@ -24,6 +24,7 @@ import {
   Newspaper,
   Heart,
   TrendingUp,
+  Building2,
 } from "lucide-react";
 import { useState } from "react";
 import { LogoMark } from "@/components/logo";
@@ -33,8 +34,10 @@ import { LogoMark } from "@/components/logo";
 // ============================================================
 
 const features = [
-  { icon: Users, title: "Artists & Worship Teams", desc: "Self-service distribution, marketing, royalties, and analytics - all in one workspace." },
-  { icon: Church, title: "Labels & Ministries", desc: "Manage rosters, releases, splits, and partner reporting at scale." },
+  { icon: Users, title: "Independent Artists", desc: "Self-service distribution, marketing, royalties, and analytics in one workspace." },
+  { icon: Heart, title: "Worship Teams", desc: "Chord chart distribution, CCLI workflows, and worship-leader network reach." },
+  { icon: Building2, title: "Christian Labels", desc: "We partner with Christian labels of every size, providing multi-roster distribution, white-label portals, and full label services." },
+  { icon: Church, title: "Ministries & Churches", desc: "Distribute worship recordings, manage contributors, and reach the broader Christian world." },
   { icon: Music2, title: "Publishers & Songwriters", desc: "We partner with publishers and aggregate global PROs, MROs, and CCLI." },
   { icon: Newspaper, title: "Video Creators", desc: "ProRes encoding, video distribution, and YouTube Content ID services." },
 ];
@@ -300,7 +303,11 @@ const offices = [
 const faqs = [
   {
     q: "What does Selah actually do?",
-    a: "Selah is a digital music and video distribution platform purpose-built for Christian music. We deliver to all major DSPs, the Christian channel network (CCLI, PraiseCharts, Multitracks, Planning Center), and partner with publishers globally to aggregate royalty collection from PROs, MROs, and rights bodies.",
+    a: "Selah is a digital music and video distribution platform purpose-built for Christian music. We deliver to all major DSPs, the Christian channel network (CCLI, PraiseCharts, Multitracks, Planning Center), and partner with Christian labels, publishers, and ministries to bring their music to the world.",
+  },
+  {
+    q: "Do you work with Christian labels?",
+    a: "Yes. We partner with Christian labels of every size, from single-artist labels to multi-roster networks. Selah provides catalog distribution, white-label partner portals for sub-labels, royalty accounting, marketing services, and shared rights workflows.",
   },
   {
     q: "Do you work with publishers?",
@@ -677,7 +684,7 @@ export default function LandingPage() {
               Christian music professionals. Everywhere.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f, i) => (
               <div key={f.title} className="card p-6 card-interactive">
                 <div

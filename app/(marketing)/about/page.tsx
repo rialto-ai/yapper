@@ -8,7 +8,7 @@ import {
   ArrowRight,
   MapPin,
   Linkedin,
-  Twitter,
+  Instagram,
   Quote,
   Compass,
 } from "lucide-react";
@@ -110,7 +110,7 @@ export default function AboutPage() {
                   Selah exists because the artists, labels, worship teams, and ministries shaping Christian music globally deserve infrastructure built for them. We&apos;re a distribution company first. Marketing, accounting, analytics, and publishing partnerships all extend from that core mission: getting Christian music to the people, places, and platforms where it belongs.
                 </p>
                 <p>
-                  We chose Sydney as our headquarters intentionally. Australia has long been known in Christian tradition as the Great Southland of the Holy Spirit. From here, we serve the artists and ministries shaping Christian music across the Asia-Pacific region and around the world.
+                  We chose Sydney as our headquarters intentionally. Australia has long been known in Christian tradition as the Great Southland of the Holy Spirit. From here, we serve the artists, labels, and ministries shaping Christian music across the Asia-Pacific region and around the world.
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-7 pt-6 border-t border-border">
@@ -130,13 +130,30 @@ export default function AboutPage() {
                     <Linkedin size={13} strokeWidth={1.8} />
                   </a>
                   <a
-                    href="https://twitter.com"
-                    aria-label="X"
+                    href="https://instagram.com"
+                    aria-label="Instagram"
                     className="w-8 h-8 rounded-md border border-border flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-colors"
                   >
-                    <Twitter size={13} strokeWidth={1.8} />
+                    <Instagram size={13} strokeWidth={1.8} />
                   </a>
                 </div>
+              </div>
+            </div>
+
+            {/* Cameron bio */}
+            <div className="mt-4 card p-7 bg-gradient-to-br from-white via-white to-accent-soft/30">
+              <p className="label-eyebrow mb-3">Bio</p>
+              <h3 className="text-[18px] font-semibold mb-3">About Cameron Gullo</h3>
+              <div className="space-y-3 text-[13.5px] text-subtle leading-relaxed">
+                <p>
+                  Cameron is the founder and CEO of Christian Music Group, the Sydney-based company behind the Selah distribution platform. He started Selah in 2026 after spending years inside Christian music in Australia and Asia, watching artists, worship teams, and independent labels struggle with distribution tools that weren&apos;t built for them.
+                </p>
+                <p>
+                  Cameron grew up serving in church worship and has worked across the Christian music ecosystem with artists, labels, ministries, and church networks. His conviction is that Christian music deserves the same operational rigor as any other major music category, and that a distributor headquartered in the southern hemisphere is uniquely placed to serve the fast-growing Christian markets across the Asia-Pacific.
+                </p>
+                <p>
+                  He lives in Sydney with his family and remains active in his local church community.
+                </p>
               </div>
             </div>
           </div>

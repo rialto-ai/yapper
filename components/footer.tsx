@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Twitter, Linkedin, Instagram, Youtube, Facebook, Send, Check } from "lucide-react";
+import { Linkedin, Instagram, Youtube, Facebook, Send, Check } from "lucide-react";
 import { LanguageSwitcher } from "./language-switcher";
 import { LogoMark } from "./logo";
 
@@ -52,9 +52,8 @@ const offices = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Twitter, href: "https://twitter.com", label: "X (Twitter)" },
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
 ];

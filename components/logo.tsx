@@ -30,6 +30,10 @@ export function Logo({ size = 32, showText = false, textOnDark = false }: LogoPr
   );
 }
 
+/**
+ * Selah mark: a stylized David's harp inside a gradient rounded square.
+ * Side-profile harp with curved neck and parallel strings.
+ */
 export function LogoMark({ size = 32 }: { size?: number }) {
   return (
     <svg
@@ -47,21 +51,36 @@ export function LogoMark({ size = 32 }: { size?: number }) {
           <stop offset="100%" stopColor="#10B981" />
         </linearGradient>
         <linearGradient id="selah-logo-highlight" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.25" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.22" />
           <stop offset="60%" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
       </defs>
+
+      {/* Background tile */}
       <rect width="40" height="40" rx="10" fill="url(#selah-logo-grad)" />
       <rect width="40" height="40" rx="10" fill="url(#selah-logo-highlight)" />
-      {/* Custom S mark: two arcs forming a clean monogram with a music-cue dot */}
+
+      {/* Strings (drawn behind the frame) */}
+      <line x1="17" y1="22" x2="17" y2="29" stroke="white" strokeOpacity="0.55" strokeWidth="0.6" strokeLinecap="round" />
+      <line x1="20" y1="17.5" x2="20" y2="29" stroke="white" strokeOpacity="0.65" strokeWidth="0.6" strokeLinecap="round" />
+      <line x1="23" y1="13.5" x2="23" y2="29" stroke="white" strokeOpacity="0.75" strokeWidth="0.6" strokeLinecap="round" />
+      <line x1="26" y1="11" x2="26" y2="29" stroke="white" strokeOpacity="0.85" strokeWidth="0.6" strokeLinecap="round" />
+
+      {/* Harp frame: curved neck + sound box outline */}
       <path
-        d="M26.5 14.5c-1-1.6-3.2-2.5-6.5-2.5-3.6 0-6.5 1.8-6.5 4.8 0 2.5 1.7 3.8 5.5 4.5 3.5.6 4.5 1.3 4.5 2.7 0 1.4-1.5 2.5-4 2.5-2.7 0-4.6-1-5.5-2.6"
+        d="M 28.5 9.5 Q 17.5 13 13.5 29"
         stroke="white"
-        strokeWidth="2.5"
+        strokeWidth="2.2"
         strokeLinecap="round"
-        strokeLinejoin="round"
+        fill="none"
       />
-      <circle cx="28" cy="28" r="1.8" fill="#10B981" />
+      {/* Right pillar */}
+      <line x1="28.5" y1="9.5" x2="28.5" y2="29" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+      {/* Bottom base */}
+      <line x1="13.5" y1="29" x2="28.5" y2="29" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+
+      {/* Small accent at the top of the neck (tuning peg) */}
+      <circle cx="28.5" cy="9.5" r="1.6" fill="#10B981" />
     </svg>
   );
 }

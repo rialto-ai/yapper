@@ -192,13 +192,13 @@ export default function CustomersPage() {
       <section className="py-20">
         <div className="max-w-[680px] mx-auto px-8 text-center">
           <h2 className="text-[32px] font-bold tracking-tight mb-4">
-            Join the next cohort of Christian music operators.
+            Distribute your Christian music with Selah.
           </h2>
           <p className="text-subtle mb-8">
-            We onboard a limited number of Label Services and Enterprise partners each quarter. Apply to be considered.
+            Selah works with Christian artists, labels, worship teams, ministries, and publishers across the Asia-Pacific and worldwide.
           </p>
-          <Link href="/label-services" className="btn-primary text-[15px] !px-7 !py-3 inline-flex items-center gap-2">
-            Apply for Label Services
+          <Link href="/contact" className="btn-primary text-[15px] !px-7 !py-3 inline-flex items-center gap-2">
+            Talk to our team
             <ArrowRight size={16} />
           </Link>
         </div>
