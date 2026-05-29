@@ -1,5 +1,6 @@
 import { Sidebar } from "@/components/sidebar";
 import { Topbar } from "@/components/topbar";
+import { AuthGate } from "@/components/auth-gate";
 
 export default function DashboardLayout({
   children,
@@ -7,12 +8,14 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-surface">
-      <Sidebar />
-      <div className="ml-[240px]">
-        <Topbar />
-        <main className="p-6">{children}</main>
+    <AuthGate>
+      <div className="min-h-screen bg-surface text-[14px]">
+        <Sidebar />
+        <div className="ml-[240px]">
+          <Topbar />
+          <main className="p-6">{children}</main>
+        </div>
       </div>
-    </div>
+    </AuthGate>
   );
 }

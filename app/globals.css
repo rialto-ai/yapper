@@ -85,3 +85,82 @@
 .animate-fade-in {
   animation: fade-in 300ms ease-out;
 }
+
+/* ============================================================
+   Rejoice Foundation — institutional design system
+   Scoped under .rejoice to avoid affecting the Selah dashboard.
+   ============================================================ */
+.rejoice {
+  --rf-navy: #07111F;
+  --rf-blue: #2563EB;
+  --rf-electric: #3B82F6;
+  --rf-purple: #6D28D9;
+  --rf-violet: #8B5CF6;
+  --rf-bg-blue: #F5F8FF;
+  --rf-bg-lavender: #F7F4FF;
+  --rf-text: #0F172A;
+  --rf-muted: #64748B;
+  --rf-border: #E2E8F0;
+
+  color: var(--rf-text);
+  background: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rf-gradient-text {
+  background: linear-gradient(135deg, #2563EB 0%, #6D28D9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.rf-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--rf-blue);
+}
+
+/* Animated hairline used under the hero */
+@keyframes rf-line-sweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.rf-animated-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #2563EB, #6D28D9, transparent);
+  background-size: 200% 100%;
+  animation: rf-line-sweep 6s linear infinite;
+}
+
+/* Soft glow on network nodes */
+@keyframes rf-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.rf-node-pulse {
+  animation: rf-pulse 3.2s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.rf-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.rf-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rf-animated-line,
+  .rf-node-pulse { animation: none; }
+  .rf-reveal { opacity: 1; transform: none; transition: none; }
+}

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { AuthGate } from "@/components/auth-gate";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,11 +10,23 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Selah by Christian Music Group",
-    template: "%s | Selah",
+    default: "Rejoice Foundation | Gospel Media, AI and Infrastructure Research",
+    template: "%s | Rejoice Foundation",
   },
   description:
-    "Infrastructure for the Christian music economy. Distribution, rights, royalties, campaigns, publishing, and label services.",
+    "Rejoice Foundation is a global Christian research foundation building Gospel media systems, AI agents, protocol infrastructure, and digital platforms for churches, ministries, creators, and Christian institutions worldwide.",
+  keywords: [
+    "Christian technology foundation",
+    "Gospel media infrastructure",
+    "Christian AI agents",
+    "Great Commission technology",
+    "Christian research foundation",
+    "Gospel content distribution",
+    "Christian media systems",
+    "AI for ministry",
+    "Christian protocol infrastructure",
+    "global Gospel technology",
+  ],
 };
 
 export default function RootLayout({
@@ -25,8 +36,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen font-sans antialiased text-[14px] leading-relaxed">
-        <AuthGate>{children}</AuthGate>
+      <body className="min-h-screen font-sans antialiased leading-relaxed">
+        {children}
       </body>
     </html>
   );
