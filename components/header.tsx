@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Integrity", href: "/#integrity" },
   { label: "Global", href: "/#global" },
   { label: "About", href: "/#about" },
+  { label: "Demo", href: "/demo" },
 ];
 
 export function Header() {

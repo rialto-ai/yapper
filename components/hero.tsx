@@ -20,36 +20,39 @@ export function Hero() {
         <div className="animate-rise">
           <span className="chip mb-6">
             <Sparkles size={13} className="text-gold" />
-            Launching Q4 2026
+            Interactive demo available now
           </span>
 
           <h1 className="text-balance text-[40px] font-semibold leading-[1.05] tracking-tightest sm:text-[58px]">
-            The audio platform for the global Church.
+            A Christian audio platform for followers of Jesus.
           </h1>
 
           <p className="mt-6 max-w-prose text-[17px] leading-relaxed text-subtle sm:text-[19px]">
-            Christian music, worship, podcasts, audiobooks, Scripture, artist
-            pages, and redemptive discovery in one trusted platform.
+            Rejoice brings together music, worship, podcasts, audiobooks,
+            Scripture, artist pages, and redemptive discovery in one trusted
+            platform.
           </p>
 
           <p className="mt-5 max-w-prose text-[15px] leading-relaxed text-muted">
-            Rejoice is building a new home for Christian audio: faithful
-            discovery for families, creator infrastructure for artists and
-            ministries, and technology that helps the Church find, support, and
-            gather around sound that forms the soul.
+            Built for families, artists, churches, ministries, publishers, and
+            the worldwide Church, Rejoice helps Christians discover faithful
+            audio, support creators, and gather around sound that forms the
+            soul.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#waitlist" className="btn-primary">
-              Join the Waitlist
+            <a href="/demo" className="btn-primary">
+              Try the Demo
               <ArrowRight size={16} />
             </a>
-            <a href="#artists" className="btn-secondary">
-              For Artists &amp; Partners
+            <a href="#waitlist" className="btn-secondary">
+              Join the Waitlist
             </a>
           </div>
 
-          <p className="mt-5 text-[13px] text-muted">Launching Q4 2026.</p>
+          <p className="mt-5 text-[13px] text-muted">
+            Interactive demo available now. App launching Q4 2026.
+          </p>
         </div>
 
         {/* Hero visual — elegant card-based app preview */}

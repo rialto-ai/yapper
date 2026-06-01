@@ -5,6 +5,7 @@ const linkGroups: { heading: string; links: { label: string; href: string }[] }[
     heading: "Platform",
     links: [
       { label: "Platform", href: "/#platform" },
+      { label: "App Demo", href: "/demo" },
       { label: "Artists", href: "/#artists" },
       { label: "Discovery", href: "/#discovery" },
       { label: "Global", href: "/#global" },
@@ -41,7 +42,7 @@ export function Footer() {
               <span className="text-[18px] font-semibold tracking-tightest">Rejoice</span>
             </div>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-subtle">
-              Rejoice — the audio platform for the global Church.
+              Rejoice — a Christian audio platform for followers of Jesus.
             </p>
             <p className="mt-3 text-[13px] text-muted">Launching Q4 2026.</p>
             <a

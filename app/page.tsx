@@ -385,11 +385,11 @@ export default function Page() {
                   Serious R&amp;D for Christian media infrastructure.
                 </h2>
                 <p className="mt-5 text-[16px] leading-relaxed text-[#B9B6AF] sm:text-[17px]">
-                  Rejoice is building more than an app. Our research and
-                  development work spans theological metadata, Scripture
-                  knowledge graphs, semantic audio search, human-artistry
-                  disclosure, recommendation systems, accessibility,
-                  translation, and global Christian media infrastructure.
+                  Rejoice uses frontier technology beneath the surface to
+                  organise, classify, translate, discover, and protect faithful
+                  Christian audio. We are not building an AI pastor, AI worship
+                  leader, or chatbot companion. AI is the infrastructure layer,
+                  not the spiritual authority.
                 </p>
               </div>
             </Reveal>
@@ -506,11 +506,12 @@ export default function Page() {
             <Reveal>
               <div className="space-y-5 text-[16px] leading-relaxed text-subtle">
                 <p>
-                  Rejoice is being developed as a mission-governed Christian
-                  media infrastructure initiative. Our aim is to build durable,
-                  trusted infrastructure for Christian audio, theological
-                  discovery, artist support, family-safe listening, and global
-                  access.
+                  Rejoice is building a Christian audio platform for followers
+                  of Jesus, serving families, artists, churches, ministries,
+                  publishers, and the worldwide Church. Our aim is to build
+                  durable, trusted infrastructure for Christian audio,
+                  theological discovery, artist support, family-safe listening,
+                  and global access.
                 </p>
                 <p>
                   Rejoice is intended to operate on a nonprofit / noncommercial

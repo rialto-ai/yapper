@@ -20,11 +20,11 @@ const SITE_URL = "https://rejoice.org";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rejoice | The Audio Platform for the Global Church",
+    default: "Rejoice | A Christian Audio Platform for Followers of Jesus",
     template: "%s | Rejoice",
   },
   description:
-    "Rejoice is building a global Christian audio platform for music, worship, podcasts, audiobooks, Scripture, artist pages, and redemptive discovery. Launching Q4 2026.",
+    "Rejoice is a Christian audio platform for followers of Jesus — music, worship, podcasts, audiobooks, Scripture, artist pages, and redemptive discovery in one trusted platform. Interactive demo available now. Launching Q4 2026.",
   keywords: [
     "Christian audio",
     "Christian music",
@@ -42,18 +42,18 @@ export const metadata: Metadata = {
     "human artistry disclosure",
   ],
   openGraph: {
-    title: "Rejoice | The Audio Platform for the Global Church",
+    title: "Rejoice | A Christian Audio Platform for Followers of Jesus",
     description:
-      "A global Christian audio platform for music, worship, podcasts, audiobooks, Scripture, artist pages, and redemptive discovery. Launching Q4 2026.",
+      "Music, worship, podcasts, audiobooks, Scripture, artist pages, and redemptive discovery in one trusted platform. Interactive demo available now. Launching Q4 2026.",
     url: SITE_URL,
     siteName: "Rejoice",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rejoice | The Audio Platform for the Global Church",
+    title: "Rejoice | A Christian Audio Platform for Followers of Jesus",
     description:
-      "A global Christian audio platform for music, worship, podcasts, audiobooks, Scripture, artist pages, and redemptive discovery. Launching Q4 2026.",
+      "Music, worship, podcasts, audiobooks, Scripture, artist pages, and redemptive discovery in one trusted platform. Interactive demo available now. Launching Q4 2026.",
   },
 };
 
