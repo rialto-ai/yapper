@@ -37,7 +37,7 @@ export function Wordmark({
   showBadge?: boolean;
 }) {
   return (
-    <a href="#top" className={cn("group flex items-center gap-2.5", className)}>
+    <a href="/" className={cn("group flex items-center gap-2.5", className)}>
       <Logo />
       <span className="text-[19px] font-semibold tracking-tightest text-foreground">
         Rejoice

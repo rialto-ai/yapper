@@ -4,28 +4,28 @@ const linkGroups: { heading: string; links: { label: string; href: string }[] }[
   {
     heading: "Platform",
     links: [
-      { label: "Platform", href: "#platform" },
-      { label: "Artists", href: "#artists" },
-      { label: "Discovery", href: "#discovery" },
-      { label: "Global", href: "#global" },
+      { label: "Platform", href: "/#platform" },
+      { label: "Artists", href: "/#artists" },
+      { label: "Discovery", href: "/#discovery" },
+      { label: "Global", href: "/#global" },
     ],
   },
   {
     heading: "Institution",
     links: [
-      { label: "Research", href: "#research" },
-      { label: "Integrity", href: "#integrity" },
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "mailto:hello@rejoice.org" },
+      { label: "Research", href: "/#research" },
+      { label: "Integrity", href: "/#integrity" },
+      { label: "About", href: "/#about" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     heading: "Standards",
     links: [
-      { label: "Sponsorship Standards", href: "#integrity" },
-      { label: "Disclosure Standards", href: "#integrity" },
-      { label: "Privacy", href: "#about" },
-      { label: "Terms", href: "#about" },
+      { label: "Sponsorship Standards", href: "/sponsorship-standards" },
+      { label: "Disclosure Standards", href: "/disclosure-standards" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
     ],
   },
 ];

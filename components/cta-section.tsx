@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { WaitlistForm } from "@/components/waitlist-form";
 
 const partnerCategories = [
   "Artists",
@@ -32,23 +32,10 @@ export function CTASection() {
             technologists, theologians, and families who care about the future
             of Christian audio.
           </p>
+        </div>
 
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="#waitlist"
-              className="inline-flex items-center justify-center gap-2 rounded-[10px] bg-white px-6 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-[#EDEAE3]"
-            >
-              Join the Waitlist
-              <ArrowRight size={16} />
-            </a>
-            <a
-              id="partners"
-              href="#partners"
-              className="inline-flex items-center justify-center gap-2 rounded-[10px] border border-white/20 px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-white/[0.07]"
-            >
-              Partner with Rejoice
-            </a>
-          </div>
+        <div id="partners" className="mt-10 scroll-mt-24">
+          <WaitlistForm />
         </div>
 
         <div className="mx-auto mt-14 max-w-3xl">

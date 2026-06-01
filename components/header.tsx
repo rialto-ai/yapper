@@ -6,13 +6,13 @@ import { Wordmark } from "@/components/wordmark";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Platform", href: "#platform" },
-  { label: "Artists", href: "#artists" },
-  { label: "Discovery", href: "#discovery" },
-  { label: "Research", href: "#research" },
-  { label: "Integrity", href: "#integrity" },
-  { label: "Global", href: "#global" },
-  { label: "About", href: "#about" },
+  { label: "Platform", href: "/#platform" },
+  { label: "Artists", href: "/#artists" },
+  { label: "Discovery", href: "/#discovery" },
+  { label: "Research", href: "/#research" },
+  { label: "Integrity", href: "/#integrity" },
+  { label: "Global", href: "/#global" },
+  { label: "About", href: "/#about" },
 ];
 
 export function Header() {
@@ -58,10 +58,10 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2.5 lg:flex">
-          <a href="#partners" className="btn-secondary !py-2 !text-[14px]">
+          <a href="/#partners" className="btn-secondary !py-2 !text-[14px]">
             For Partners
           </a>
-          <a href="#waitlist" className="btn-primary !py-2 !text-[14px]">
+          <a href="/#waitlist" className="btn-primary !py-2 !text-[14px]">
             Join the Waitlist
           </a>
         </div>
@@ -93,14 +93,14 @@ export function Header() {
             ))}
             <div className="mt-4 flex flex-col gap-2.5">
               <a
-                href="#waitlist"
+                href="/#waitlist"
                 onClick={() => setOpen(false)}
                 className="btn-primary w-full"
               >
                 Join the Waitlist
               </a>
               <a
-                href="#partners"
+                href="/#partners"
                 onClick={() => setOpen(false)}
                 className="btn-secondary w-full"
               >
